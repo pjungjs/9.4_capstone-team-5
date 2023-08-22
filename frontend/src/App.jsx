@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import NotFound from './pages/NotFound.jsx';
 
+
 function App() {
   return (
     <div className="App">
