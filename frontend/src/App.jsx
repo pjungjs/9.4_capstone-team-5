@@ -10,10 +10,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <header>
+        <header className="sticky top-0 w-full">
           <NavBar />
         </header>
-        <main>
+        <main className="flex h-screen justify-center">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
