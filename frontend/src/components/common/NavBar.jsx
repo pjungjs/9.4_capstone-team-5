@@ -1,6 +1,6 @@
 import logo from '../../assets/logo1.svg';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { GrMenu, GrClose } from 'react-icons/gr';
 
 function NavBar() {
@@ -8,6 +8,11 @@ function NavBar() {
   const [openPro, setOpenPro] = useState(false);
   const [openCom, setOpenCom] = useState(false);
   const [openRes, setOpenRes] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setOpenMenu(false);
+  }, [pathname]);
 
   function toggleMenu() {
     setOpenPro(false);
