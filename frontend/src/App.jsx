@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import NotFound from './pages/NotFound.jsx';
 import ScrollToTop from './utils/ScrollToTop.js';
+import Questionnaire from './pages/Questionnaire.jsx';
 
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
@@ -26,6 +27,7 @@ function App() {
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/calculator" element={<Questionnaire />} />
           </Routes>
         </main>
         <Footer />
