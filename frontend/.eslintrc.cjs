@@ -23,6 +23,8 @@ module.exports = {
   rules: {
     // disable error for missing React when using JSX
     'react/react-in-jsx-scope': 0,
+    // disable error for react/prop-types
+    'react/prop-types': 'off',
     // we want to use single quote
     quotes: ['error', 'single'],
     // we want to force semicolons

@@ -45,7 +45,7 @@ function NavBar() {
         <div
           className={`${
             openMenu ? '' : 'hidden'
-          } w-full items-center justify-between duration-500 md:static md:order-1 md:flex md:w-auto`}
+          } w-full items-center justify-between md:static md:order-1 md:flex md:w-auto`}
         >
           <ul className="mt-2 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 pt-0 font-medium md:mt-0 md:flex-row md:border-0 md:bg-white md:p-0 xl:gap-8">
             <li className="group relative cursor-pointer px-6 pt-2">

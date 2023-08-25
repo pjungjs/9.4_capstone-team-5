@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ContactModal from '../components/ContactModal.jsx';
 
 function Contact() {
   const [contactInfo, setContactInfo] = useState({
@@ -6,6 +7,7 @@ function Contact() {
     email: '',
     message: '',
   });
+  const [openModal, setOpenModal] = useState(false);
 
   function handleSelectChange(event) {
     setContactInfo({ ...contactInfo, [event.target.id]: event.target.value });
@@ -17,7 +19,7 @@ function Contact() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(contactInfo);
+    setOpenModal(!openModal);
   }
 
   function handleClear() {
@@ -32,16 +34,21 @@ function Contact() {
     <div
     // className="bg-contact-us bg-cover bg-top bg-no-repeat bg-fixed"
     >
+      {openModal && (
+        <ContactModal openModal={openModal} setOpenModal={setOpenModal} />
+      )}
       <section className="mb-10 flex items-center">
-        <div className="mx-auto max-w-screen-md px-4 py-8 lg:py-16">
+        <div className="mx-auto max-w-screen-sm px-6 py-8 lg:py-16">
           <div>
             <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-gray-900">
               Contact Us
             </h2>
             <div className="mb-8 px-6 text-center font-light text-gray-600 sm:text-xl lg:mb-16">
               <p>Thank you for visiting EcoWay.</p>
-              <p>Please send us a message if you have any technical issue</p>
-              <p>or want to send a feedback about our website.</p>
+              <p>
+                Please send us a message if you have any technical issue or want
+                to send a feedback about our website.
+              </p>
             </div>
           </div>
 
