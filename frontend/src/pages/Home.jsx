@@ -1,4 +1,3 @@
-
 import AboutSection from '../components/LandingComponents/AboutSection';
 import LandingMain from '../components/LandingComponents/LandingMain';
 
