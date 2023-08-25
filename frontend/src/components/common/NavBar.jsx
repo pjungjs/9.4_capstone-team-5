@@ -67,7 +67,7 @@ function NavBar() {
                   How it works
                 </Link>
                 <Link
-                  to="/"
+                  to="/calculator"
                   className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                 >
                   Carbon Footprint Calculator

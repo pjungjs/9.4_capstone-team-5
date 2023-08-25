@@ -7,6 +7,9 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Questionnaire from './pages/Questionnaire.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/calculator" element={<Questionnaire />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
