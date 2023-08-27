@@ -6,11 +6,11 @@ EcoWay
 
 ---
 
-|                     Developer                     |
-| :-----------------------------------------------: |
-|    [Jinseok Jung](https://github.com/pjungjs)     |
-|    [Jose Cepeda](https://github.com/JoseC620)     |
-|  [Wil Santos](https://github.com/Wilsantos1975)   |
-|  [Shareeka Epps](https://github.com/shaketastic)  |
+|                    Developer                    |
+| :---------------------------------------------: |
+|   [Jinseok Jung](https://github.com/pjungjs)    |
+|   [Jose Cepeda](https://github.com/JoseC620)    |
+| [Shareeka Epps](https://github.com/shaketastic) |
+| [Wil Santos](https://github.com/Wilsantos1975)  |
 
 ---

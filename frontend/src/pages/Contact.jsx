@@ -40,7 +40,7 @@ function Contact() {
       <section className="mb-10 flex items-center">
         <div className="mx-auto max-w-screen-sm px-6 py-8 lg:py-16">
           <div>
-            <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-gray-900">
+            <h2 className="mb-4 text-center text-4xl font-extrabold tracking-tight text-green-600">
               Contact Us
             </h2>
             <div className="mb-8 px-6 text-center font-light text-gray-600 sm:text-xl lg:mb-16">
@@ -67,7 +67,7 @@ function Contact() {
                 id="issue"
                 value={contactInfo.issue}
                 onChange={handleSelectChange}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-green-500 focus:outline-none"
+                className="block bg-gray-50 p-2.5"
               >
                 <option value="general">General Inquiry</option>
                 <option value="technical">Technical Support</option>
@@ -88,7 +88,7 @@ function Contact() {
                 type="email"
                 value={contactInfo.email}
                 onChange={handleTextChange}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-green-500 focus:outline-none"
+                className="block bg-gray-50"
                 placeholder="user@example.com"
                 required
               />
@@ -106,7 +106,7 @@ function Contact() {
                 rows="5"
                 value={contactInfo.message}
                 onChange={handleTextChange}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm focus:border-green-500 focus:outline-none"
+                className="bg-gray-50"
                 placeholder="Leave your message here..."
                 required
               ></textarea>
@@ -116,12 +116,12 @@ function Contact() {
               <input
                 type="submit"
                 value="Send message"
-                className="rounded-full border border-gray-300 px-5 py-3 text-center text-sm font-medium text-gray-900 hover:bg-green-600 hover:text-white"
+                className="cust-btn rounded-full px-5 py-3"
               />
               <button
                 type="button"
                 onClick={handleClear}
-                className="rounded-full border border-gray-300 px-5 py-3 text-center text-sm font-medium text-gray-900 hover:bg-green-600 hover:text-white"
+                className="cust-btn rounded-full px-5 py-3"
               >
                 Clear fields
               </button>
