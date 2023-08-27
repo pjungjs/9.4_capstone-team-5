@@ -1,6 +1,6 @@
 import logo from '../../assets/logo1.svg';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GrMenu, GrClose } from 'react-icons/gr';
 
 function NavBar() {
@@ -9,6 +9,7 @@ function NavBar() {
   const [openCom, setOpenCom] = useState(false);
   const [openRes, setOpenRes] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setOpenMenu(false);
@@ -31,7 +32,10 @@ function NavBar() {
         </div>
 
         <div className="flex items-center gap-2 pr-2 md:order-2 md:pr-4">
-          <button className="whitespace-nowrap rounded-full bg-green-600 px-5 py-2 text-sm text-white hover:bg-green-700">
+          <button
+            className="whitespace-nowrap rounded-full bg-green-600 px-4 py-2.5 text-sm text-white hover:bg-green-700"
+            onClick={() => navigate('/login')}
+          >
             Get Started
           </button>
           <button
@@ -44,8 +48,8 @@ function NavBar() {
 
         <div
           className={`${
-            !openMenu ? 'hidden' : ''
-          } w-full items-center justify-between duration-500 md:static md:order-1 md:flex md:w-auto`}
+            openMenu ? '' : 'hidden'
+          } w-full items-center justify-between md:static md:order-1 md:flex md:w-auto`}
         >
           <ul className="mt-2 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 pt-0 font-medium md:mt-0 md:flex-row md:border-0 md:bg-white md:p-0 xl:gap-8">
             <li className="group relative cursor-pointer px-6 pt-2">
@@ -56,8 +60,8 @@ function NavBar() {
                 Product
               </div>
               <div
-                className={`max-[768px]:${
-                  openPro ? '' : 'hidden'
+                className={`${
+                  openPro ? '' : 'max-md:hidden'
                 } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
               >
                 <Link
@@ -89,8 +93,8 @@ function NavBar() {
                 Community
               </div>
               <div
-                className={`max-[768px]:${
-                  openCom ? '' : 'hidden'
+                className={`${
+                  openCom ? '' : 'max-md:hidden'
                 } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
               >
                 <Link
@@ -116,8 +120,8 @@ function NavBar() {
                 Resources
               </div>
               <div
-                className={`max-[768px]:${
-                  openRes ? '' : 'hidden'
+                className={`${
+                  openRes ? '' : 'max-md:hidden'
                 } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
               >
                 <Link
