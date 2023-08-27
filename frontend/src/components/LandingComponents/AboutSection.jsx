@@ -9,7 +9,7 @@ function AboutSection() {
     <div className="container m-auto px-6 space-y-8 text-gray-500 md:px-12">
         <div>
             <span className="text-gray-600 text-lg font-semibold">About Us</span>
-            <h2 className="mt-4 text-2xl text-gray-900 font-bold md:text-4xl">We Empower positive change through sustainable choices for a greener world<br className="lg:block" hidden/> and a better life.</h2>
+            <h2 className="mt-4 text-2xl text-green-500 font-bold md:text-4xl">We Empower positive change through sustainable choices for a greener world<br className="lg:block" hidden/> and a better life.</h2>
         </div>
         <div className="mt-16 grid border divide-x divide-y rounded-xl overflow-hidden sm:grid-cols-2 lg:divide-y-0 lg:grid-cols-3 xl:grid-cols-4">
             <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
