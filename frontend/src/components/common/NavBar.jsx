@@ -1,6 +1,6 @@
 import logo from '../../assets/logo1.svg';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GrMenu, GrClose } from 'react-icons/gr';
 
 function NavBar() {
@@ -9,6 +9,7 @@ function NavBar() {
   const [openCom, setOpenCom] = useState(false);
   const [openRes, setOpenRes] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setOpenMenu(false);
@@ -31,7 +32,10 @@ function NavBar() {
         </div>
 
         <div className="flex items-center gap-2 pr-2 md:order-2 md:pr-4">
-          <button className="whitespace-nowrap rounded-full bg-green-600 px-5 py-3 text-sm text-white hover:bg-green-700">
+          <button
+            className="whitespace-nowrap rounded-full bg-green-600 px-4 py-2.5 text-sm text-white hover:bg-green-700"
+            onClick={() => navigate('/login')}
+          >
             Get Started
           </button>
           <button

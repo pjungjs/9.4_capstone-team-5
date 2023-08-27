@@ -48,6 +48,11 @@ function Footer() {
                     This Project
                   </a>
                 </li>
+                <li className="mb-4">
+                  <Link to="/" className="hover:underline">
+                    Our Team
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
