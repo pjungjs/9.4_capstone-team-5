@@ -5,11 +5,11 @@ import recycling from '../../assets/recycle1.jpeg';
 function LandingMain() {
   return (
     <div>
-      <div className="mx-8 my-8 grid h-auto grid-cols-1 grid-rows-2 gap-3  md:grid-cols-3">
+      <div className="mx-56 my-8 grid h-auto grid-cols-1 grid-rows-2 gap-3  md:grid-cols-3 ">
         <div className=" md:col-span-2 md:row-span-2 ">
           <img src={planet} className="w-full rounded-t-xl bg-contain" />
 
-          <button class="w-full rounded-b-xl bg-green-800 px-4 py-2 font-bold text-white hover:bg-yellow-700">
+          <button className="w-full rounded-b-xl bg-green-800 px-4 py-2 font-bold text-white hover:bg-yellow-700">
             Take Action
           </button>
         </div>
