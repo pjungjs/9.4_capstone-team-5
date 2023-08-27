@@ -4,7 +4,7 @@ import Testimonial from '../components/LandingComponents/Testimonial';
 
 function Home() {
   return (
-    <div className="shrink w-65 h-14">
+    <div className=" ">
       <LandingMain />
       <AboutSection />
       <Testimonial/>

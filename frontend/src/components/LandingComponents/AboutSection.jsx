@@ -5,7 +5,7 @@ function AboutSection() {
   return (
 
 
-<div className="py-16 bg-gray-50 overflow-hidden">
+<div className="py-16 bg-gray-50 overflow-hidden mx-56 my-8">
     <div className="container m-auto px-6 space-y-8 text-gray-500 md:px-12">
         <div>
             <span className="text-gray-600 text-lg font-semibold">About Us</span>
