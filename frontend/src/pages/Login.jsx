@@ -1,12 +1,19 @@
 import { useState } from 'react';
+import { useStytch, useStytchSession } from '@stytch/react';
 import { FcGoogle } from 'react-icons/fc';
 
 function Login() {
   const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  function handleSubmit(event) {
+  const client = useStytch();
+  const { session } = useStytchSession();
+  console.log(session);
+
+  async function handleSubmit(event) {
     event.preventDefault();
-    console.log(email);
+    await client.magicLinks.email.loginOrCreate(email);
+    setIsSubmitted(!isSubmitted);
   }
 
   return (
@@ -49,6 +56,12 @@ function Login() {
             <span className="pl-2">Continue with Google</span>
           </button>
         </form>
+
+        {isSubmitted && (
+          <p className="pt-4 text-sm text-blue-400 underline">
+            A verification link was sent to your email!
+          </p>
+        )}
       </div>
     </div>
   );
