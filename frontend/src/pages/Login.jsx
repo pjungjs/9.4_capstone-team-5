@@ -29,25 +29,26 @@ function Login() {
               required
             />
           </div>
+          
           <input
             type="submit"
             value="Continue with email"
             className="cust-btn w-full rounded-md p-2"
           />
+
+          <div className="m-4 flex items-center">
+            <hr className="border-1 flex-grow border-gray-300" />
+            <span className="px-3 font-medium text-gray-900">or</span>
+            <hr className="border-1 flex-grow border-gray-300" />
+          </div>
+
+          <button className="cust-btn group flex w-full items-center justify-center rounded-md p-2">
+            <span className="rounded-full group-hover:bg-white">
+              <FcGoogle size="20px" />
+            </span>
+            <span className="pl-2">Continue with Google</span>
+          </button>
         </form>
-
-        <div className="m-4 flex items-center">
-          <hr className="border-1 flex-grow border-gray-300" />
-          <span className="px-3 font-medium text-gray-900">or</span>
-          <hr className="border-1 flex-grow border-gray-300" />
-        </div>
-
-        <button className="cust-btn group flex w-full items-center justify-center rounded-md p-2">
-          <span className="rounded-full group-hover:bg-white">
-            <FcGoogle size="20px" />
-          </span>
-          <span className="pl-2">Continue with Google</span>
-        </button>
       </div>
     </div>
   );
