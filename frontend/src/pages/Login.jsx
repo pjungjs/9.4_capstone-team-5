@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useStytch, useStytchSession } from '@stytch/react';
+import { useStytch } from '@stytch/react';
 import { FcGoogle } from 'react-icons/fc';
 
 function Login() {
@@ -7,8 +7,6 @@ function Login() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const client = useStytch();
-  const { session } = useStytchSession();
-  console.log(session);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -25,6 +23,12 @@ function Login() {
           Log In
         </p>
 
+        {isSubmitted && (
+          <p className="py-2 text-sm text-blue-400 underline">
+            A verification link was sent to your email!
+          </p>
+        )}
+
         <form onSubmit={handleSubmit}>
           <div className="py-2">
             <input
@@ -36,7 +40,7 @@ function Login() {
               required
             />
           </div>
-          
+
           <input
             type="submit"
             value="Continue with email"
@@ -56,12 +60,6 @@ function Login() {
             <span className="pl-2">Continue with Google</span>
           </button>
         </form>
-
-        {isSubmitted && (
-          <p className="pt-4 text-sm text-blue-400 underline">
-            A verification link was sent to your email!
-          </p>
-        )}
       </div>
     </div>
   );
