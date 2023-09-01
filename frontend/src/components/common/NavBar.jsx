@@ -23,7 +23,7 @@ function NavBar() {
   }
 
   return (
-    <nav className="border-b border-gray-100 bg-white py-0 shadow">
+    <nav className=" border-b border-gray-100 bg-white py-0 shadow">
       <div className="mx-auto flex flex-wrap items-center justify-between">
         <div>
           <Link to="/">
