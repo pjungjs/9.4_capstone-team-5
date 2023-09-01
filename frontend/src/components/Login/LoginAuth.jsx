@@ -14,10 +14,18 @@ function LoginAuth() {
       navigate('/user/dashboard');
     } else {
       const token = searchParams.get('token');
-      client.magicLinks
-        .authenticate(token, {
-          session_duration_minutes: 60,
-        })
+      const tokenType = searchParams.get('stytch_token_type');
+      const sessionDuration = { session_duration_minutes: 60 };
+
+      const authenticateToken = async () => {
+        if (tokenType === 'magic_links') {
+          return await client.magicLinks.authenticate(token, sessionDuration);
+        } else if (tokenType === 'oauth') {
+          return await client.oauth.authenticate(token, sessionDuration);
+        }
+      };
+
+      authenticateToken()
         .then(() => navigate(0))
         .catch((err) => console.error(err));
     }
@@ -30,8 +38,6 @@ function LoginAuth() {
           <AiOutlineLoading3Quarters className="animate-spin text-2xl" />
           <p className="p-4 text-xl">Loading...</p>
         </span>
-
-        {/* <p className="p-6">Please wait while we authenticate your token.</p> */}
       </div>
     </div>
   );

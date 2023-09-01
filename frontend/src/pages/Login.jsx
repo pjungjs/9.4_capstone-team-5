@@ -4,14 +4,19 @@ import { FcGoogle } from 'react-icons/fc';
 
 function Login() {
   const [email, setEmail] = useState('');
+  const [loginType, setLoginType] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const client = useStytch();
 
   async function handleSubmit(event) {
     event.preventDefault();
-    await client.magicLinks.email.loginOrCreate(email);
-    setIsSubmitted(!isSubmitted);
+    if (loginType === 'magicLink') {
+      await client.magicLinks.email.loginOrCreate(email);
+      setIsSubmitted(!isSubmitted);
+    } else if (loginType === 'google') {
+      await client.oauth.google.start();
+    }
   }
 
   return (
@@ -44,6 +49,7 @@ function Login() {
           <input
             type="submit"
             value="Continue with email"
+            onClick={() => setLoginType('magicLink')}
             className="cust-btn w-full rounded-md p-2"
           />
 
@@ -53,7 +59,11 @@ function Login() {
             <hr className="border-1 flex-grow border-gray-300" />
           </div>
 
-          <button className="cust-btn group flex w-full items-center justify-center rounded-md p-2">
+          <button
+            type="submit"
+            onClick={() => setLoginType('google')}
+            className="cust-btn group flex w-full items-center justify-center rounded-md p-2"
+          >
             <span className="rounded-full group-hover:bg-white">
               <FcGoogle size="20px" />
             </span>
