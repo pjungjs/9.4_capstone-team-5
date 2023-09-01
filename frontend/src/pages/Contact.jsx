@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ContactModal from '../components/ContactModal.jsx';
+import ContactModal from '../components/Contact/ContactModal.jsx';
 
 function Contact() {
   const [contactInfo, setContactInfo] = useState({
