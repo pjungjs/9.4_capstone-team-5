@@ -1,5 +1,5 @@
 import React from 'react'
-import BadgesBoard from '../components/BadgesBoardComponents/BadgesBoard.jsx'
+import BadgesBoard from '../components/AchievementsComponents/BadgesBoard.jsx'
 
 
 
