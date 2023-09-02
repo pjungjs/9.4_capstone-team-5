@@ -24,9 +24,13 @@ function LandingMain() {
           </p>
         </div>
 
-        <div className="h hidden border-8 md:col-start-3 md:row-start-2 md:flex">
-          <img src={recycling} className="w-full" />
-        </div>
+<div className="bg-local" style={{backgroundImage: `url(${recycling})`}}>
+  </div>
+
+
+        {/* <div className="hidden md:col-start-3 md:row-start-2 md:flex">
+          <img src={recycling} className="rounded-xl" />
+        </div> */}
       </div>
     </div>
   );
