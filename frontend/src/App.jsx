@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import Achievements from './pages/Achievements.jsx';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/calculator" element={<Questionnaire />} />
+            <Route path="/achievements" element={<Achievements />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
