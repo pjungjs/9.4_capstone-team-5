@@ -39,19 +39,19 @@ function Footer() {
               </h2>
               <ul className="font-medium text-gray-500">
                 <li className="mb-4">
+                  <Link to="/" className="hover:underline">
+                    Our Team
+                  </Link>
+                </li>
+                <li className="mb-4">
                   <a
                     className="hover:underline"
                     href="https://github.com/pjungjs/9.4_capstone-team-5"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    This Project
+                    Project Repo
                   </a>
-                </li>
-                <li className="mb-4">
-                  <Link to="/" className="hover:underline">
-                    Our Team
-                  </Link>
                 </li>
               </ul>
             </div>
