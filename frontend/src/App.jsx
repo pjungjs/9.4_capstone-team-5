@@ -11,7 +11,6 @@ import Questionnaire from './pages/Questionnaire.jsx';
 import Login from './pages/Login.jsx';
 import LoginAuth from './components/Login/LoginAuth.jsx';
 import PrivateRoutes from './components/User/PrivateRoutes.jsx';
-import Register from './pages/Register.jsx';
 import UserDashboard from './components/User/UserDashboard.jsx';
 import UserSettings from './components/User/UserSettings.jsx';
 
@@ -30,7 +29,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login/auth" element={<LoginAuth />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/calculator" element={<Questionnaire />} />
             <Route element={<PrivateRoutes />}>
               <Route path="/user/dashboard" element={<UserDashboard />} />

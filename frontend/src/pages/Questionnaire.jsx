@@ -1,4 +1,4 @@
-import CarbonCalc from "../components/CarbonCalc";
+import CarbonCalc from '../components/CarbonCalc';
 
 export default function Questionnaire() {
   return (
