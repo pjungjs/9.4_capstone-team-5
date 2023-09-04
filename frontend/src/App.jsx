@@ -31,7 +31,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login/auth" element={<LoginAuth />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/calculator" element={<Questionnaire />} />
             <Route path="/achievements" element={<Achievements />} />
             <Route element={<PrivateRoutes />}>

@@ -138,7 +138,7 @@ function NavBar() {
                 className="block px-5 py-2 text-gray-900 hover:bg-gray-50 hover:text-green-600"
                 onClick={() => setOpenRes(!openRes)}
               >
-                Resources
+                About
               </div>
               <div
                 className={`${

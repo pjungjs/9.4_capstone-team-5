@@ -25,7 +25,7 @@ function Login() {
 
   return (
     <div className="flex h-screen items-start justify-center">
-      <div className="mt-12 w-80 rounded-md border border-gray-300 p-4 text-center">
+      <div className="mt-12 w-80 rounded-md border border-gray-300 p-4 text-center md:w-96">
         {isSubmitted ? (
           <div>
             <p className="pb-2 text-2xl font-bold text-green-600">
@@ -74,7 +74,7 @@ function Login() {
                 <hr className="border-1 flex-grow border-gray-300" />
               </div>
 
-              <div className="grid gap-2 md:flex">
+              <div className="grid gap-2">
                 <button
                   type="button"
                   onClick={() => startOAuth('google')}
