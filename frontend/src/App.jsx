@@ -11,7 +11,7 @@ import Questionnaire from './pages/Questionnaire.jsx';
 import Login from './pages/Login.jsx';
 import LoginAuth from './components/Login/LoginAuth.jsx';
 import PrivateRoutes from './components/User/PrivateRoutes.jsx';
-import Register from './pages/Register.jsx';
+// import Register from './pages/Register.jsx';
 import Achievements from './pages/Achievements.jsx';
 import UserDashboard from './components/User/UserDashboard.jsx';
 import UserSettings from './components/User/UserSettings.jsx';
