@@ -1,5 +1,5 @@
 import React from 'react';
-import Badges from './Badges';
+import Badge from './Badge.jsx';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -9,13 +9,14 @@ const API = import.meta.env.VITE_BASE_URL
 
 function BadgesBoard() {
 
-const [badges, setBadges] = useState([]);
+const [badge, setBadge] = useState([]);
 
 useEffect(() => {
-    axios
-        .get(`${API}/achievements`)
+    axios.get(`${API}/achievements`)
+    
         .then((res) => {
-            setBadges(res.data);
+            console.log(res.data);
+            setBadge(res.data);
         })
         .catch((err) => {
             console.log(err);
@@ -52,7 +53,13 @@ useEffect(() => {
         <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt=""/>
     </div> */}
 
-        <Badges badges={badges} />
+
+<div className=' items-center grid grid-cols-3 gap-4 '>
+  {badge.map((badge) => (
+    <Badge badge={badge} />
+  ))}
+</div>
+       
       </div>
     </div>
   );

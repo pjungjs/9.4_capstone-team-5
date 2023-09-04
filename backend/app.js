@@ -7,18 +7,22 @@ const badgesRoutes = require("./controllers/badgesControllers");
 // CONFIGURATION
 const app = express();
 
+
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json());
+app.use(logger("dev"));
 
 // CONTROLLERS
-app.use("/achievements", badgesRoutes); // /achievements is the prefix for all routes in badgesRoutes file  ')
+app.use('/achievements', badgesRoutes); // /achievements is the prefix for all routes in badgesRoutes file  ')
 // ROUTES
-app.get("/", (_, res) => {
+
+
+app.get("/", (req, res) => {
   res.status(200).send("Welcome to EcoWay app");
 });
 
-app.get("*", (_, res) => {
+app.get("*", (req, res) => {
   res.status(404).send("Page Not Found!");
 });
 
