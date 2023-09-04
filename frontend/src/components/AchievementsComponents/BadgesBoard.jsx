@@ -1,5 +1,5 @@
 import React from 'react';
-import Badges from './Badges';
+import Badge from './Badge.jsx';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -9,13 +9,14 @@ const API = import.meta.env.VITE_BASE_URL
 
 function BadgesBoard() {
 
-const [badges, setBadges] = useState([]);
+const [badge, setBadge] = useState([]);
 
 useEffect(() => {
-    axios
-        .get(`${API}/achievements`)
+    axios.get(`${API}/achievements`)
+    
         .then((res) => {
-            setBadges(res.data);
+            console.log(res.data);
+            setBadge(res.data);
         })
         .catch((err) => {
             console.log(err);
@@ -28,19 +29,19 @@ useEffect(() => {
       <div className="flex flex-wrap items-center justify-center py-4 md:py-8">
         <button
           type="button"
-          className="mb-3 mr-3 rounded-full border border-blue-600 bg-white px-5 py-2.5 text-center text-base font-medium text-blue-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:bg-gray-900 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-800"
+          className="mb-3 mr-3 rounded-full border border-blue-600 bg-white px-5 py-2.5 text-center text-base font-medium text-blue-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-blue-300"
         >
           All Badges
         </button>
         <button
           type="button"
-          className="mb-3 mr-3 rounded-full border border-white bg-white px-5 py-2.5 text-center text-base font-medium text-gray-900 hover:border-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-900 dark:bg-gray-900 dark:text-white dark:hover:border-gray-700 dark:focus:ring-gray-800"
+          className="mb-3 mr-3 rounded-full border border-white bg-white px-5 py-2.5 text-center text-base font-medium text-gray-900 hover:border-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-300"
         >
           Achieved
         </button>
         <button
           type="button"
-          className="mb-3 mr-3 rounded-full border border-white bg-white px-5 py-2.5 text-center text-base font-medium text-gray-900 hover:border-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-900 dark:bg-gray-900 dark:text-white dark:hover:border-gray-700 dark:focus:ring-gray-800"
+          className="mb-3 mr-3 rounded-full border border-white bg-white px-5 py-2.5 text-center text-base font-medium text-gray-900 hover:border-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-300"
         >
           Bags
         </button>
@@ -52,7 +53,13 @@ useEffect(() => {
         <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt=""/>
     </div> */}
 
-        <Badges badges={badges} />
+
+
+  {badge.map((badge) => (
+    <Badge key={badge.badge_id} badge={badge} />
+  ))}
+
+       
       </div>
     </div>
   );

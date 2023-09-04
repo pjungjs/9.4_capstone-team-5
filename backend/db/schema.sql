@@ -9,8 +9,8 @@ CREATE TABLE badges (
     badge_id SERIAL PRIMARY KEY,
     badge_name VARCHAR(255) NOT NULL,
     badge_description VARCHAR(255) NOT NULL,
-    badge_image VARCHAR(255) NOT NULL,
-    badge_points INTEGER NOT NULL
+    badge_points INTEGER NOT NULL,
+    image text NOT NULL
 );
 
 -- CREATE TABLE users (
