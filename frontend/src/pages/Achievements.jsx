@@ -1,6 +1,4 @@
-import React from 'react'
 import BadgesBoard from '../components/AchievementsComponents/BadgesBoard.jsx'
-
 
 
 function Achievements() {

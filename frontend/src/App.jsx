@@ -9,8 +9,12 @@ import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
 import Login from './pages/Login.jsx';
+import LoginAuth from './components/Login/LoginAuth.jsx';
+import PrivateRoutes from './components/User/PrivateRoutes.jsx';
 import Register from './pages/Register.jsx';
 import Achievements from './pages/Achievements.jsx';
+import UserDashboard from './components/User/UserDashboard.jsx';
+import UserSettings from './components/User/UserSettings.jsx';
 
 function App() {
   return (
@@ -26,9 +30,14 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/login/auth" element={<LoginAuth />} />
             <Route path="/register" element={<Register />} />
             <Route path="/calculator" element={<Questionnaire />} />
             <Route path="/achievements" element={<Achievements />} />
+            <Route element={<PrivateRoutes />}>
+              <Route path="/user/dashboard" element={<UserDashboard />} />
+              <Route path="/user/settings" element={<UserSettings />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
