@@ -2,9 +2,12 @@ import React from 'react';
 import Badge from './Badge.jsx';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import badge1 from '../../../../backend/db/assets/1.png';
 
 
 const API = import.meta.env.VITE_BASE_URL
+
+const badgeImage = '../../../../'
 
 
 function BadgesBoard() {
@@ -57,6 +60,7 @@ useEffect(() => {
 
   {badge.map((badge) => (
     <Badge key={badge.badge_id} badge={badge} />
+    // <img src={`${badgeImage}${badge.image} `} key={badge.badge_id}/>
   ))}
 
        
