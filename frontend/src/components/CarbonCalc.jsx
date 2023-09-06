@@ -1,9 +1,7 @@
-
 import { useState } from 'react';
 
-export default function CarbonCalc(){
- let carbonSum = 0
-
+export default function CarbonCalc() {
+  let carbonSum = 0;
 
   const [renewableEnergy, setRenewableEnergy] = useState();
   const [heatingSource, setHeatingSource] = useState('');
@@ -317,29 +315,29 @@ export default function CarbonCalc(){
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    carbonSum += publicTransportTime / 5 * 66;
-    carbonSum += largeAppliancesPurchased * 750
-    carbonSum += mediumAppliancesPurchased * 450
-    carbonSum += smallAppliancesPurchased * 91
-    if(renewableEnergy === false || renewableEnergy === "no"){
-        carbonSum += 2881
+    carbonSum += (publicTransportTime / 5) * 66;
+    carbonSum += largeAppliancesPurchased * 750;
+    carbonSum += mediumAppliancesPurchased * 450;
+    carbonSum += smallAppliancesPurchased * 91;
+    if (renewableEnergy === false || renewableEnergy === 'no') {
+      carbonSum += 2881;
     }
-    if(heatingSource === "electricity"){
-        carbonSum += 4194
-    } else if (heatingSource === "naturalGas"){
-        carbonSum += 2975
+    if (heatingSource === 'electricity') {
+      carbonSum += 4194;
+    } else if (heatingSource === 'naturalGas') {
+      carbonSum += 2975;
     }
-    if(gasForCooking === "yes"){
-        carbonSum += 290
+    if (gasForCooking === 'yes') {
+      carbonSum += 290;
     }
-    if (carType === "gasoline"){
-        carbonSum += 3842
-    } else if (carType === "diesel"){
-        carbonSum += 3713
-    } else if (carType === "hybrid"){
-        carbonSum += 2548
+    if (carType === 'gasoline') {
+      carbonSum += 3842;
+    } else if (carType === 'diesel') {
+      carbonSum += 3713;
+    } else if (carType === 'hybrid') {
+      carbonSum += 2548;
     }
-    setCarbonFootprint(carbonSum)
+    setCarbonFootprint(carbonSum);
   };
 
   console.log(carbonFootprint)
@@ -434,5 +432,4 @@ export default function CarbonCalc(){
   )}
     </div>
   );
-};
-
+}

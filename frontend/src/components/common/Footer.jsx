@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="border-t-2 border-gray-200 bg-white py-0">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer className="relative z-50 border-t-2 border-gray-200 bg-white py-0">
+      <div className="mx-auto w-full p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 flex items-center md:mb-0">
             <img className="h-20" src={logo} alt="Logo" />
@@ -20,7 +20,7 @@ function Footer() {
             </span>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 pr-2 text-sm sm:grid-cols-3 sm:gap-6">
+          <div className="mx-2 grid grid-cols-3 gap-6 pr-2 text-sm md:gap-8">
             <div>
               <h2 className="mb-6 font-semibold uppercase text-gray-900">
                 Help
@@ -39,19 +39,19 @@ function Footer() {
               </h2>
               <ul className="font-medium text-gray-500">
                 <li className="mb-4">
+                  <Link to="/" className="hover:underline">
+                    Our Team
+                  </Link>
+                </li>
+                <li className="mb-4">
                   <a
                     className="hover:underline"
                     href="https://github.com/pjungjs/9.4_capstone-team-5"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    This Project
+                    Project Repo
                   </a>
-                </li>
-                <li className="mb-4">
-                  <Link to="/" className="hover:underline">
-                    Our Team
-                  </Link>
                 </li>
               </ul>
             </div>
