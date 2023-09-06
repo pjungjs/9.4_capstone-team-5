@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function CarbonCalc() {
   let carbonSum = 0;
 
-  const [renewableEnergy, setRenewableEnergy] = useState();
+  const [renewableEnergy, setRenewableEnergy] = useState('');
   const [heatingSource, setHeatingSource] = useState('');
-  const [gasForCooking, setGasForCooking] = useState();
+  const [gasForCooking, setGasForCooking] = useState('');
   const [hasCar, setHasCar] = useState(false);
   const [carType, setCarType] = useState('');
   const [publicTransportTime, setPublicTransportTime] = useState(0);
@@ -26,27 +27,29 @@ export default function CarbonCalc() {
       <span className="text-lg">1. Does your household use renewable energy?</span>
       <br></br>
       <br></br>
-    <label className="inline-flex items-center">
-      <input
-        type="radio"
-        className="form-radio h-6 w-6 text-blue-500"
-        name="renewableEnergy"
-        value="yes"
-        onChange={() => setRenewableEnergy(true)}
-        checked={renewableEnergy === true}
-      />
+      <label className="inline-flex items-center">
+        <input
+          type="radio"
+          className="form-radio h-6 w-6 text-blue-500"
+          name="renewableEnergy"
+          value="yes"
+          onChange={() => setRenewableEnergy("yes")}
+          checked={renewableEnergy === "yes"}
+        />
         <span className="ml-1 mr-4 text-lg">Yes</span>
-       <input
-        type="radio"
-        className="form-radio h-6 w-6 text-blue-500"
-        name="renewableEnergy"
-        value="no"
-        onChange={() => setRenewableEnergy(false)}
-        checked={renewableEnergy === false}
-      />
-      <span className="ml-1" text-lg>No</span>
-    </label>
-   </div>
+      </label>
+      <label className="inline-flex items-center">
+        <input
+          type="radio"
+          className="form-radio h-6 w-6 text-blue-500"
+          name="renewableEnergy"
+          value="no"
+          onChange={() => setRenewableEnergy("no")}
+          checked={renewableEnergy === "no"}
+        />
+        <span className="ml-1 text-lg">No</span>
+      </label>
+    </div>    
     ),
     (
       <div className="space-x-4 items-center">
@@ -319,7 +322,7 @@ export default function CarbonCalc() {
     carbonSum += largeAppliancesPurchased * 750;
     carbonSum += mediumAppliancesPurchased * 450;
     carbonSum += smallAppliancesPurchased * 91;
-    if (renewableEnergy === false || renewableEnergy === 'no') {
+    if (renewableEnergy === 'no') {
       carbonSum += 2881;
     }
     if (heatingSource === 'electricity') {
@@ -417,7 +420,9 @@ export default function CarbonCalc() {
         <br></br>
         {questNum === questions.length - 1 && (
           <div className="flex justify-center items-center">
+            <Link to='/user/dashboard'>
               <button className="bg-green-500 text-white py-5 px-6 rounded hover:bg-green-600 text-lg">Finish!</button>
+              </Link>
           </div>
         )}
       </form>
