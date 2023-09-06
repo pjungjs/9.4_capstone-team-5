@@ -10,6 +10,8 @@ import NotFound from './pages/NotFound.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import Forum from './pages/Forum.jsx';
+import ForumTopic from './pages/ForumTopic.jsx';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forum" element={<Forum />} />
+            <Route path="/topic/:id" element={<ForumTopic />} />
             <Route path="/calculator" element={<Questionnaire />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
