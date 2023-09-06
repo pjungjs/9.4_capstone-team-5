@@ -10,7 +10,7 @@ import {
   SlArrowRightCircle,
   SlArrowLeftCircle,
 } from 'react-icons/sl';
-
+import { MdLeaderboard } from 'react-icons/md';
 function Sidebar() {
   const [openSidebar, setOpenSidebar] = useState(false);
 
@@ -65,7 +65,7 @@ function Sidebar() {
           </li>
           <li>
             <Link
-              to=""
+              to="/user/achievements"
               className="flex items-center p-2 text-gray-900 hover:text-green-600"
             >
               <SlBadge className="text-xl" />
@@ -78,6 +78,23 @@ function Sidebar() {
               </span>
             </Link>
           </li>
+
+          <li>
+            <Link
+              to="/user/leaderboard"
+              className="flex items-center p-2 text-gray-900 hover:text-green-600"
+            >
+              <MdLeaderboard className="text-xl" />
+              <span
+                className={`${
+                  openSidebar ? '' : 'hidden md:flex'
+                } ml-3 hover:underline`}
+              >
+                Leaderboard
+              </span>
+            </Link>
+          </li>
+
           <li>
             <Link
               to="/user/settings"
