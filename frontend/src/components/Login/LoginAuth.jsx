@@ -6,6 +6,7 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 function LoginAuth() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  
   const client = useStytch();
   const { session } = useStytchSession();
 

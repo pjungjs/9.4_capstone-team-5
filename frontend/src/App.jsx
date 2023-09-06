@@ -22,9 +22,7 @@ function App() {
     <div className="App">
       <Router>
         <ScrollTop />
-        <header className="sticky top-0 z-50">
-          <NavBar />
-        </header>
+        <NavBar />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
