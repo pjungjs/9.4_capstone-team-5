@@ -16,7 +16,7 @@ function LoginAuth() {
     } else {
       const token = searchParams.get('token');
       const tokenType = searchParams.get('stytch_token_type');
-      const sessionDuration = { session_duration_minutes: 60 };
+      const sessionDuration = { session_duration_minutes: 60 * 3 };
 
       const authenticateToken = async () => {
         if (tokenType === 'magic_links') {

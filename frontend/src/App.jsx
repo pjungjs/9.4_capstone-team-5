@@ -12,10 +12,7 @@ import Login from './pages/Login.jsx';
 import LoginAuth from './components/Login/LoginAuth.jsx';
 import PrivateRoutes from './components/User/PrivateRoutes.jsx';
 // import Register from './pages/Register.jsx';
-import Achievements from './pages/Achievements.jsx';
-import UserDashboard from './components/User/UserDashboard.jsx';
-import UserSettings from './components/User/UserSettings.jsx';
-import Leaderboard from './components/User/LeaderboardContent/LeaderboardDisplay.jsx';
+import UserMain from './components/User/UserMain.jsx';
 
 function App() {
   return (
@@ -32,10 +29,7 @@ function App() {
             <Route path="/login/auth" element={<LoginAuth />} />
             <Route path="/calculator" element={<Questionnaire />} />
             <Route element={<PrivateRoutes />}>
-              <Route path="/user/achievements" element={<Achievements />} />
-              <Route path="/user/dashboard" element={<UserDashboard />} />
-              <Route path="/user/settings" element={<UserSettings />} />
-              <Route path="/user/leaderboard" element={<Leaderboard />} />
+              <Route path='/user/*' element={<UserMain />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -11,10 +11,11 @@ import {
   SlArrowLeftCircle,
 } from 'react-icons/sl';
 import { MdLeaderboard } from 'react-icons/md';
-function Sidebar() {
+
+function Sidebar({ currentUserRoute }) {
   const [openSidebar, setOpenSidebar] = useState(false);
 
-  function toggleMenu() {
+  function toggleSidebar() {
     setOpenSidebar(!openSidebar);
   }
 
@@ -25,7 +26,11 @@ function Sidebar() {
           <li>
             <Link
               to="/user/dashboard"
-              className="flex items-center p-2 text-green-600"
+              className={`${
+                currentUserRoute === 'dashboard'
+                  ? 'text-green-600'
+                  : 'text-gray-900'
+              } flex items-center p-2 hover:text-green-600 hover:underline`}
             >
               <SlHome className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
@@ -36,14 +41,12 @@ function Sidebar() {
           <li>
             <Link
               to=""
-              className="flex items-center p-2 text-gray-900 hover:text-green-600"
+              className={`${
+                currentUserRoute === '' ? 'text-green-600' : 'text-gray-900'
+              } flex items-center p-2 hover:text-green-600 hover:underline`}
             >
               <SlPieChart className="text-xl" />
-              <span
-                className={`${
-                  openSidebar ? '' : 'hidden md:flex'
-                } ml-3 hover:underline`}
-              >
+              <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 My Footprint
               </span>
             </Link>
@@ -51,14 +54,12 @@ function Sidebar() {
           <li>
             <Link
               to=""
-              className="flex items-center p-2 text-gray-900 hover:text-green-600"
+              className={`${
+                currentUserRoute === '' ? 'text-green-600' : 'text-gray-900'
+              } flex items-center p-2 hover:text-green-600 hover:underline`}
             >
               <SlNotebook className="text-xl" />
-              <span
-                className={`${
-                  openSidebar ? '' : 'hidden md:flex'
-                } ml-3 hover:underline`}
-              >
+              <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Daily Questions
               </span>
             </Link>
@@ -66,14 +67,14 @@ function Sidebar() {
           <li>
             <Link
               to="/user/achievements"
-              className="flex items-center p-2 text-gray-900 hover:text-green-600"
+              className={`${
+                currentUserRoute === 'achievements'
+                  ? 'text-green-600'
+                  : 'text-gray-900'
+              } flex items-center p-2 hover:text-green-600 hover:underline`}
             >
               <SlBadge className="text-xl" />
-              <span
-                className={`${
-                  openSidebar ? '' : 'hidden md:flex'
-                } ml-3 hover:underline`}
-              >
+              <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Achievements
               </span>
             </Link>
@@ -82,14 +83,14 @@ function Sidebar() {
           <li>
             <Link
               to="/user/leaderboard"
-              className="flex items-center p-2 text-gray-900 hover:text-green-600"
+              className={`${
+                currentUserRoute === 'leaderboard'
+                  ? 'text-green-600'
+                  : 'text-gray-900'
+              } flex items-center p-2 hover:text-green-600 hover:underline`}
             >
               <MdLeaderboard className="text-xl" />
-              <span
-                className={`${
-                  openSidebar ? '' : 'hidden md:flex'
-                } ml-3 hover:underline`}
-              >
+              <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Leaderboard
               </span>
             </Link>
@@ -98,14 +99,14 @@ function Sidebar() {
           <li>
             <Link
               to="/user/settings"
-              className="flex items-center p-2 text-gray-900 hover:text-green-600"
+              className={`${
+                currentUserRoute === 'settings'
+                  ? 'text-green-600'
+                  : 'text-gray-900'
+              } flex items-center p-2 hover:text-green-600 hover:underline`}
             >
               <SlSettings className="text-xl" />
-              <span
-                className={`${
-                  openSidebar ? '' : 'hidden md:flex'
-                } ml-3 hover:underline`}
-              >
+              <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Settings
               </span>
             </Link>
@@ -113,30 +114,30 @@ function Sidebar() {
           <li>
             <Link
               to=""
-              className="flex items-center p-2 text-gray-900 hover:text-green-600"
+              className={`${
+                currentUserRoute === '' ? 'text-green-600' : 'text-gray-900'
+              } flex items-center p-2 hover:text-green-600 hover:underline`}
             >
               <SlQuestion className="text-xl" />
-              <span
-                className={`${
-                  openSidebar ? '' : 'hidden md:flex'
-                } ml-3 hover:underline`}
-              >
+              <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Help
               </span>
             </Link>
           </li>
-          <li
-            onClick={toggleMenu}
-            className="flex items-center p-2 text-gray-900 hover:text-green-600 md:hidden"
-          >
-            {openSidebar ? (
-              <>
-                <SlArrowLeftCircle className="text-xl" />
-                <span className="ml-3 hover:underline">Close Sidebar</span>
-              </>
-            ) : (
-              <SlArrowRightCircle className="text-xl" />
-            )}
+          <li>
+            <div
+              onClick={toggleSidebar}
+              className="flex items-center p-2 text-gray-900 hover:text-green-600 hover:underline md:hidden"
+            >
+              {openSidebar ? (
+                <>
+                  <SlArrowLeftCircle className="text-xl" />
+                  <span className="ml-3">Close Sidebar</span>
+                </>
+              ) : (
+                <SlArrowRightCircle className="text-xl" />
+              )}
+            </div>
           </li>
         </ul>
       </div>
