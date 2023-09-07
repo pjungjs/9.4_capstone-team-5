@@ -6,8 +6,8 @@ function IndividualUser({ profileMockData }) {
   return (
     <div className="flex w-96 flex-col justify-center gap-4 border">
       {sortedProfiles.map((profile, index) => (
-        <div className=" rounded-lg bg-white p-4 shadow-md ">
-          <div key={index} className='flex items-stretch '>
+        <div className="rounded-lg bg-white p-4 shadow-md">
+          <div key={index} className=''>
             <div>
                 
               <img
