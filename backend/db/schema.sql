@@ -16,12 +16,17 @@ CREATE TABLE users (
     bio TEXT,
     profile_picture_url TEXT,
     user_achvs [],
-    score_carbon_result INT,
-    score_loged_in INT,
-    score_answered INT,
-    score_recycled INT,
-    score_leaderboard INT,
-    score_active_community INT, 
+);
+
+CREATE TABLE user_scores (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
+    score_carbon_result INTEGER DEFAULT 0,
+    score_loged_in INTEGER DEFAULT 0,
+    score_answered INTEGER DEFAULT 0,
+    score_recycled INTEGER DEFAULT 0,
+    score_leaderboard INTEGER DEFAULT 0,
+    score_active_community INTEGER DEFAULT 0,
 );
 
 CREATE TABLE badges (
