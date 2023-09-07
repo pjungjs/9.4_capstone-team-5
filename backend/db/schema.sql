@@ -1,9 +1,28 @@
-DROP DATABASE IF EXISTS badges;
+DROP DATABASE IF EXISTS ecoway_dev;
 
-CREATE DATABASE badges;
+CREATE DATABASE ecoway_dev;
 
-\c badges;
+\c ecoway_dev;
 
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    created_at TEXT,
+    user_auth_id TEXT,
+    first_name TEXT,
+    last_name TEXT,
+    username TEXT,
+    email TEXT,
+    bio TEXT,
+    profile_picture_url TEXT,
+    user_achvs [],
+    score_carbon_result INT,
+    score_loged_in INT,
+    score_answered INT,
+    score_recycled INT,
+    score_leaderboard INT,
+    score_active_community INT, 
+);
 
 CREATE TABLE badges (
     badge_id SERIAL PRIMARY KEY,
@@ -13,13 +32,6 @@ CREATE TABLE badges (
     image text NOT NULL
 );
 
--- CREATE TABLE users (
---     id INTEGER PRIMARY KEY,
---     user_name VARCHAR(255) NOT NULL,
---     user_email VARCHAR(255) NOT NULL,
---     user_password VARCHAR(255) NOT NULL,
---     user_points INTEGER NOT NULL
--- );
 
 -- CREATE TABLE user_badges (
 --     id INTEGER PRIMARY KEY,

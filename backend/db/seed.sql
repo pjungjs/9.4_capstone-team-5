@@ -1,7 +1,8 @@
+\c ecoway_dev;
 
-\c badges;
 
-INSERT INTO badges (badge_name, badge_description, image, badge_points)
+INSERT INTO badges
+  (badge_name, badge_description, image, badge_points)
 VALUES 
   ('Recycle Hero', 'You got your first badge!', 'https://png.pngtree.com/element_pic/00/16/07/18578cd65e6ecaa.jpg', 10),
   ('Next Level', 'this is a second badge','https://images.vexels.com/media/users/3/245747/isolated/preview/fc5e5179e126bb8b8878c65ed0639179-great-job-badge.png', 11),
