@@ -11,6 +11,7 @@ import {
   SlArrowLeftCircle,
 } from 'react-icons/sl';
 import { MdLeaderboard } from 'react-icons/md';
+
 function Sidebar() {
   const [openSidebar, setOpenSidebar] = useState(false);
 

@@ -15,7 +15,7 @@ import PrivateRoutes from './components/User/PrivateRoutes.jsx';
 import Achievements from './pages/Achievements.jsx';
 import UserDashboard from './components/User/UserDashboard.jsx';
 import UserSettings from './components/User/UserSettings.jsx';
-import Leaderboard from './components/User/LeaderboardContent/LeaderboardDisplay.jsx';
+import Leaderboard from './pages/Leaderboard';
 
 function App() {
   return (
