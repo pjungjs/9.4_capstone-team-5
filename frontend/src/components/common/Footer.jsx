@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="relative z-50 border-t-2 border-gray-200 bg-white py-0">
+    <footer className="relative z-40 border-t-2 border-gray-200 bg-white py-0">
       <div className="mx-auto w-full p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 flex items-center md:mb-0">
