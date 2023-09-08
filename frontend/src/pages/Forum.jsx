@@ -152,8 +152,8 @@ const Forum = () => {
             <p className="text-gray-500 mt-2">Posted by {post.username}</p>
 
             {/* Like, Comment, and Share buttons can be added here */}
-            <div>
-                <button onClick={handleLikes} className='bg-blue-500 hover:bg-blue-500 text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'>Like ({post.likes ? post.likes.length : '1'})</button>
+            <div className='space-x-2'>
+                <button onClick={handleLikes} className='bg-blue-500 hover:bg-blue-500 text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'>Like ({post.likes ? post.likes.length : '0'})</button>
                 <button onClick={handleComment} className='bg-blue-500 hover:bg-blue-500 text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'>Comment ({post.comments ? post.comments.length : ''})</button>
                 <button onClick={handleShare} className='bg-blue-500 hover:bg-blue-500 text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'>Share</button>
             </div>
@@ -169,7 +169,6 @@ const Forum = () => {
             <button onClick={handleCommentSubmit} className='text-blue-500 hover:underline"'>Submit</button>
         </div>
         )}
-
           </div>
         ))}
       </div>

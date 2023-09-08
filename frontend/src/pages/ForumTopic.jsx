@@ -67,7 +67,7 @@ const ForumTopic = ({ onPostSubmit }) => {
     }
 
     const newPost = {
-      id: +new Date(),           //Date.now(), incorporate the current timestamp
+      id: Date.now(),           //Date.now(), incorporate the current timestamp
       title,
       content,
       username,
