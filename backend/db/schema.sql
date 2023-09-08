@@ -8,25 +8,31 @@ CREATE DATABASE ecoway_dev;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     created_at TEXT,
-    user_auth_id TEXT,
+    user_auth_id TEXT UNIQUE,
     first_name TEXT,
     last_name TEXT,
     username TEXT,
     email TEXT,
     bio TEXT,
     profile_picture_url TEXT,
-    user_achvs [],
+    user_achvs JSONB DEFAULT '{}'::jsonb
 );
+-- array of objects
+-- e.g.: [
+--     { "badge_name": "Recycle Hero", "received_date": "2023-08-31T23:37:35Z" },
+--     { "badge_name": "Feedback contributor", "received_date": "2023-09-01T23:37:35Z" },
+--     { "badge_name": "Energy Saver", "received_date": "2023-09-02T23:37:35Z" },
+-- ]
 
 CREATE TABLE user_scores (
     id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users (id) ON DELETE CASCADE,
+    user_auth_id TEXT REFERENCES users (user_auth_id) ON DELETE CASCADE,
     score_carbon_result INTEGER DEFAULT 0,
     score_loged_in INTEGER DEFAULT 0,
     score_answered INTEGER DEFAULT 0,
     score_recycled INTEGER DEFAULT 0,
     score_leaderboard INTEGER DEFAULT 0,
-    score_active_community INTEGER DEFAULT 0,
+    score_active_community INTEGER DEFAULT 0
 );
 
 CREATE TABLE badges (

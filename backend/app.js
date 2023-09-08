@@ -12,8 +12,10 @@ app.use(express.json());
 app.use(logger('dev'));
 
 // CONTROLLERS
+const usersController = require('./controllers/usersControllers.js');
 const badgesRoutes = require('./controllers/badgesControllers');
 
+app.use('/users', usersController);
 app.use('/achievements', badgesRoutes); // /achievements is the prefix for all routes in badgesRoutes file  ')
 
 // ROUTES
