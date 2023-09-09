@@ -25,10 +25,10 @@ CREATE TABLE users (
 -- ]
 
 CREATE TABLE user_scores (
-    id SERIAL PRIMARY KEY,
-    user_auth_id TEXT REFERENCES users (user_auth_id) ON DELETE CASCADE,
+    -- id SERIAL PRIMARY KEY,
+    user_auth_id TEXT PRIMARY KEY REFERENCES users (user_auth_id) ON DELETE CASCADE,
     score_carbon_result INTEGER DEFAULT 0,
-    score_loged_in INTEGER DEFAULT 0,
+    score_logged_in INTEGER DEFAULT 0,
     score_answered INTEGER DEFAULT 0,
     score_recycled INTEGER DEFAULT 0,
     score_leaderboard INTEGER DEFAULT 0,

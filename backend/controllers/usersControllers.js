@@ -9,7 +9,9 @@ const {
 } = require('../queries/usersQueries.js');
 
 const achievementsControllers = require('./achievementsControllers.js');
+const scoresControllers = require('./scoresControllers.js');
 users.use('/achievements', achievementsControllers);
+users.use('/scores', scoresControllers);
 
 /** User's Information
  * GET all
