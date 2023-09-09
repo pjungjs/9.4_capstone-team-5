@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar.jsx';
 import DashboardMain from './DashboardContent/DashboardMain.jsx';
 import Achievements from '../../pages/Achievements.jsx';
-import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
+import Leaderboard from '../../pages/Leaderboard.jsx';
 import UserSettings from './UserSettings.jsx';
 import NotFound from '../../pages/NotFound.jsx';
 
@@ -19,7 +19,7 @@ function UserMain() {
         ) : currentUserRoute === 'achievements' ? (
           <Achievements />
         ) : currentUserRoute === 'leaderboard' ? (
-          <LeaderboardDisplay />
+          <Leaderboard />
         ) : currentUserRoute === 'settings' ? (
           <UserSettings />
         ) : (
