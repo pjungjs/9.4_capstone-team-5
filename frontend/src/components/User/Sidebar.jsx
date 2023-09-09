@@ -28,9 +28,9 @@ function Sidebar({ currentUserRoute }) {
               to="/user/dashboard"
               className={`${
                 currentUserRoute === 'dashboard'
-                  ? 'text-green-600'
-                  : 'text-gray-900'
-              } flex items-center p-2 hover:text-green-600 hover:underline`}
+                  ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
+                  : 'text-gray-900 hover:text-green-600 hover:underline'
+              } flex items-center p-2`}
             >
               <SlHome className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
@@ -42,8 +42,10 @@ function Sidebar({ currentUserRoute }) {
             <Link
               to=""
               className={`${
-                currentUserRoute === '' ? 'text-green-600' : 'text-gray-900'
-              } flex items-center p-2 hover:text-green-600 hover:underline`}
+                currentUserRoute === ''
+                  ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
+                  : 'text-gray-900 hover:text-green-600 hover:underline'
+              } flex items-center p-2`}
             >
               <SlPieChart className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
@@ -55,8 +57,10 @@ function Sidebar({ currentUserRoute }) {
             <Link
               to=""
               className={`${
-                currentUserRoute === '' ? 'text-green-600' : 'text-gray-900'
-              } flex items-center p-2 hover:text-green-600 hover:underline`}
+                currentUserRoute === ''
+                  ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
+                  : 'text-gray-900 hover:text-green-600 hover:underline'
+              } flex items-center p-2`}
             >
               <SlNotebook className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
@@ -69,9 +73,9 @@ function Sidebar({ currentUserRoute }) {
               to="/user/achievements"
               className={`${
                 currentUserRoute === 'achievements'
-                  ? 'text-green-600'
-                  : 'text-gray-900'
-              } flex items-center p-2 hover:text-green-600 hover:underline`}
+                  ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
+                  : 'text-gray-900 hover:text-green-600 hover:underline'
+              } flex items-center p-2`}
             >
               <SlBadge className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
@@ -85,9 +89,9 @@ function Sidebar({ currentUserRoute }) {
               to="/user/leaderboard"
               className={`${
                 currentUserRoute === 'leaderboard'
-                  ? 'text-green-600'
-                  : 'text-gray-900'
-              } flex items-center p-2 hover:text-green-600 hover:underline`}
+                  ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
+                  : 'text-gray-900 hover:text-green-600 hover:underline'
+              } flex items-center p-2`}
             >
               <MdLeaderboard className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
@@ -101,9 +105,9 @@ function Sidebar({ currentUserRoute }) {
               to="/user/settings"
               className={`${
                 currentUserRoute === 'settings'
-                  ? 'text-green-600'
-                  : 'text-gray-900'
-              } flex items-center p-2 hover:text-green-600 hover:underline`}
+                  ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
+                  : 'text-gray-900 hover:text-green-600 hover:underline'
+              } flex items-center p-2`}
             >
               <SlSettings className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
@@ -115,8 +119,10 @@ function Sidebar({ currentUserRoute }) {
             <Link
               to=""
               className={`${
-                currentUserRoute === '' ? 'text-green-600' : 'text-gray-900'
-              } flex items-center p-2 hover:text-green-600 hover:underline`}
+                currentUserRoute === ''
+                  ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
+                  : 'text-gray-900 hover:text-green-600 hover:underline'
+              } flex items-center p-2`}
             >
               <SlQuestion className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
