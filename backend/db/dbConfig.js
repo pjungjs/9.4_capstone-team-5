@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 const pgp = require('pg-promise')();
 
 DATABASE_URL = process.env.DATABASE_URL;

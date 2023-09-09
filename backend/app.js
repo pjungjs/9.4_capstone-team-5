@@ -1,29 +1,30 @@
 // DEPENDENCIES
-const cors = require("cors");
-const express = require("express");
-const logger = require("morgan");
-const badgesRoutes = require("./controllers/badgesControllers");
+const cors = require('cors');
+const express = require('express');
+const logger = require('morgan');
 
 // CONFIGURATION
 const app = express();
 
-
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json());
-app.use(logger("dev"));
+app.use(logger('dev'));
 
 // CONTROLLERS
-app.use('/achievements', badgesRoutes); // /achievements is the prefix for all routes in badgesRoutes file  ')
+const usersControllers = require('./controllers/usersControllers.js');
+const badgesControllers = require('./controllers/badgesControllers.js');
+
+app.use('/users', usersControllers);
+app.use('/badges', badgesControllers); // /badges is the prefix for all routes in badgesControllers file
+
 // ROUTES
-
-
-app.get("/", (req, res) => {
-  res.status(200).send("Welcome to EcoWay app");
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to EcoWay app');
 });
 
-app.get("*", (req, res) => {
-  res.status(404).send("Page Not Found!");
+app.get('*', (req, res) => {
+  res.status(404).send('Page Not Found!');
 });
 
 // EXPORT
