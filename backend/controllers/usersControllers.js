@@ -6,7 +6,10 @@ const {
   deleteUser,
   createUser,
   updateUser,
-} = require('../queries/userQueries.js');
+} = require('../queries/usersQueries.js');
+
+const achievementsControllers = require('./achievementsControllers.js');
+users.use('/achievements', achievementsControllers);
 
 /** User's Information
  * GET all
