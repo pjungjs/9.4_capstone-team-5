@@ -40,8 +40,7 @@ scores.get('/:userAuthId', async (req, res) => {
 
 scores.post('/:userAuthId', async (req, res) => {
   const { userAuthId } = req.params;
-  const newScores = req.body;
-  const createdScores = await createUserScores(userAuthId, newScores);
+  const createdScores = await createUserScores(userAuthId);
 
   if (createdScores.success) {
     res.status(200).json(createdScores.payload);

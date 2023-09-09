@@ -25,7 +25,6 @@ CREATE TABLE users (
 -- ]
 
 CREATE TABLE user_scores (
-    -- id SERIAL PRIMARY KEY,
     user_auth_id TEXT PRIMARY KEY REFERENCES users (user_auth_id) ON DELETE CASCADE,
     score_carbon_result INTEGER DEFAULT 0,
     score_logged_in INTEGER DEFAULT 0,
@@ -40,7 +39,7 @@ CREATE TABLE badges (
     badge_name VARCHAR(255) NOT NULL,
     badge_description VARCHAR(255) NOT NULL,
     badge_points INTEGER NOT NULL,
-    image text NOT NULL
+    image TEXT NOT NULL
 );
 
 

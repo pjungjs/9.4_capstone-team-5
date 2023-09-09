@@ -33,28 +33,12 @@ const getUserScores = async (userAuthId) => {
   }
 };
 
-const createUserScores = async (userAuthId, scoresToAdd) => {
-  const {
-    score_carbon_result,
-    score_logged_in,
-    score_answered,
-    score_recycled,
-    score_leaderboard,
-    score_active_community,
-  } = scoresToAdd;
+const createUserScores = async (userAuthId) => {
 
   try {
     const createdScores = await db.one(
-      'INSERT INTO user_scores (user_auth_id, score_carbon_result, score_logged_in, score_answered, score_recycled, score_leaderboard, score_active_community) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;',
-      [
-        userAuthId,
-        score_carbon_result,
-        score_logged_in,
-        score_answered,
-        score_recycled,
-        score_leaderboard,
-        score_active_community,
-      ]
+      'INSERT INTO user_scores (user_auth_id) VALUES ($1) RETURNING *;',
+      [userAuthId]
     );
     return { success: true, payload: createdScores };
   } catch (error) {
