@@ -9,7 +9,6 @@
 // console.log(location.state);
 // console.log(location.state && location.state.topics);
 
-
 //   const [topic, setTopic] = useState(null);
 
 //   useEffect(() => {
@@ -30,7 +29,7 @@
 //       } else {
 //         console.error(`Topic with ID ${id} not found.`);
 //       }
-//   }, [id, topics]);  
+//   }, [id, topics]);
 
 // //     setTopic(selectedTopic);
 // //   }, [id]);
@@ -50,7 +49,7 @@
 //   );
 // };
 
-// ForumTopic.js
+// ForumTopic.jsx
 import { useState } from 'react';
 
 const ForumTopic = ({ onPostSubmit }) => {
@@ -62,12 +61,14 @@ const ForumTopic = ({ onPostSubmit }) => {
     e.preventDefault();
 
     if (!title || !content || !username) {
-      alert('Please fill out all of the fields (ie: title, content, and username).');
+      alert(
+        'Please fill out all of the fields (ie: title, content, and username).',
+      );
       return;
     }
 
     const newPost = {
-      id: Date.now(),           //Date.now(), incorporate the current timestamp
+      id: Date.now(), //Date.now(), incorporate the current timestamp
       title,
       content,
       username,
@@ -85,14 +86,17 @@ const ForumTopic = ({ onPostSubmit }) => {
 
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-2">Create a New Post</h2>
+      <h2 className="mb-2 text-lg font-semi-bold tracking-wide">Create a New Post</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
+          <label
+            className="mb-2 block text-sm font-bold text-gray-700"
+            htmlFor="title"
+          >
             Title
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             id="title"
             type="text"
             placeholder="Enter post title"
@@ -101,11 +105,14 @@ const ForumTopic = ({ onPostSubmit }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="content">
+          <label
+            className="mb-2 block text-sm font-bold text-gray-700"
+            htmlFor="content"
+          >
             Content
           </label>
           <textarea
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             id="content"
             placeholder="Enter post content"
             rows="4"
@@ -115,22 +122,25 @@ const ForumTopic = ({ onPostSubmit }) => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+          <label
+            className="mb-2 block text-sm font-bold text-gray-700"
+            htmlFor="username"
+          >
             Username
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             id="username"
             type="text"
             placeholder="Enter your username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          </div>
+        </div>
 
         <div className="flex items-center justify-between">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
             type="submit"
           >
             Post
@@ -142,4 +152,3 @@ const ForumTopic = ({ onPostSubmit }) => {
 };
 
 export default ForumTopic;
-
