@@ -343,11 +343,14 @@ export default function CarbonCalc() {
     setCarbonFootprint(carbonSum);
   };
 
-  console.log(carbonFootprint)
-  console.log(barWidth)
+  const handleOutsideClick = (e) => {
+    if (takeTest && e.target.classList.contains('flex')) {
+      setTakeTest(false);
+    }
+  };
 
   return (
-    <div>
+    <div onClick={handleOutsideClick}>
       <div className="flex items-center justify-center ">
         <div className="bg-gray-200 p-6 rounded-lg shadow-lg max-w-lg w-full text-center mb-40 mt-40">
           <p className="text-lg mb-4">
@@ -359,11 +362,9 @@ export default function CarbonCalc() {
         </div>
       </div>
       {takeTest && (
-      <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-  
-    <div className="fixed inset-0 bg-gray-500 bg-opacity-90 transition-opacity"></div>
-  
-    <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+   <div className="relative z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div className="fixed inset-0 bg-gray-500 bg-opacity-90 transition-opacity z-40"></div>
+    <div className="fixed inset-0 z-50 w-screen overflow-y-auto">
       <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
         <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all ease-out duration-300 sm:my-8 sm:w-full sm:max-w-4xl">
           <div className="bg-gray-400 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
