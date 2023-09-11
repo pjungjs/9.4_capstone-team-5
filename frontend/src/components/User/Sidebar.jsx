@@ -20,7 +20,7 @@ function Sidebar({ currentUserRoute }) {
   }
 
   return (
-    <aside className="sticky left-0 top-0 z-30 h-screen border-r border-gray-300 bg-white md:w-48">
+    <aside className="sticky left-0 top-0 z-30 border-r border-gray-300 bg-white md:w-48">
       <div className="px-2 py-3">
         <ul className="space-y-2 font-medium">
           <li>
