@@ -74,3 +74,21 @@ CREATE TABLE badges (
 --     FOREIGN KEY (user_id) REFERENCES users (id),
 --     FOREIGN KEY (achievement_id) REFERENCES achievements (achievement_id)
 -- );
+
+CREATE TABLE posts (
+    id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP,
+    user_auth_id TEXT,
+    title TEXT,
+    content TEXT,
+    post_likes JSONB DEFAULT '[]'::jsonb 
+);
+
+
+CREATE TABLE post_comments (
+    id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP,
+    user_auth_id TEXT,
+    post_id INT REFERENCES posts (id),
+    content TEXT
+);

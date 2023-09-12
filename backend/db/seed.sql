@@ -37,3 +37,12 @@ VALUES
   ('9 Badge', 'this is the blah blah badge', 'backend/db/assets/9.png', 134),
   ('X Badge', 'this is the third badge', 'backend/db/assets/10.png', 9726),
   ('11 Badge', 'this is the third badge', 'backend/db/assets/11.png', 9726);
+
+
+INSERT INTO posts 
+  (created_at, user_auth_id, title, content, post_likes)
+VALUES
+  ('2023-09-08T12:30:00Z','auth_id_6', 'Sample Post 1', 'This is the content of the first post', '[{"user_id": "user_auth_id_5", "liked_at": "2023-09-10T12:00:00Z"}]'),
+  ('2023-09-08T12:00:00Z','auth_id_7', 'Sample Post 2', 'This is the content of the second post', '[{"user_id": "user_auth_id_6", "liked_at": "2023-09-10T13:00:00Z"}]'),
+  ('2023-09-08T13:30:00Z','auth_id_8', 'Sample Post 3', 'This is the content of the third post', '[{"user_id": "user_auth_id_7", "liked_at": "2023-09-10T14:00:00Z"}]'),
+  ('2023-09-08T14:00:00Z','auth_id_9', 'Sample Post 4', 'This is the content of the fourth post', '[{"user_id": "user_auth_id_8", "liked_at": "2023-09-10T15:00:00Z"}]');
