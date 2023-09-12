@@ -31,7 +31,6 @@ const sampleTopics = [
     content:
       'Climate change can be overwhelming. The science is complex, and when it comes to future impacts, there are still a lot of unknowns. While real solutions will require action on a global scale, there are choices you can make in your day-to-day life to lessen your personal impact on the environment.',
   },
-  // Add more topics here
 ];
 
 const Forum = () => {
