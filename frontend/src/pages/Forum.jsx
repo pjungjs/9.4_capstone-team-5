@@ -81,7 +81,6 @@ const Forum = () => {
     );
 
 
-
     // clear comment input field
     setComment('');
     setActiveCommentPostId(null); // Reset activeCommentPostId
@@ -91,6 +90,8 @@ const Forum = () => {
   const handleShare = () => {
     alert('Sharing not implemented in this example.');
   };
+
+  console.log(posts);
 
   return (
     <div className="container mx-auto p-4">
