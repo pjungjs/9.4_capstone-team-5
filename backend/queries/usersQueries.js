@@ -43,7 +43,7 @@ const deleteUser = async (userAuthId) => {
   }
 };
 
-//create query: if the user exists return teh existing user, if not, create a new user
+//create query: if the user exists return the existing user, if not, create a new user
 const createUser = async (userToAdd) => {
   const {
     created_at,
