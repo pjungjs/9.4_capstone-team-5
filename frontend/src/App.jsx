@@ -11,8 +11,9 @@ import Questionnaire from './pages/Questionnaire.jsx';
 import Login from './pages/Login.jsx';
 import LoginAuth from './components/Login/LoginAuth.jsx';
 import PrivateRoutes from './components/User/PrivateRoutes.jsx';
-// import Register from './pages/Register.jsx';
 import UserMain from './components/User/UserMain.jsx';
+import Forum from './pages/ForumTopic.jsx';
+import ForumTopic from './pages/Forum.jsx';
 
 function App() {
   return (
@@ -28,6 +29,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/login/auth" element={<LoginAuth />} />
             <Route path="/calculator" element={<Questionnaire />} />
+
+            <Route path="/forum" element={<Forum />} />
+            <Route path="/topic/:id" element={<ForumTopic />} />
+
             <Route element={<PrivateRoutes />}>
               <Route path='/user/*' element={<UserMain />} />
             </Route>

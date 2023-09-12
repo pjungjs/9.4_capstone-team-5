@@ -1,31 +1,23 @@
-import React from 'react';
-import Badge from './Badge.jsx';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import badge1 from '../../../../backend/db/assets/1.png';
+import Badge from './Badge.jsx';
 
-
-const API = import.meta.env.VITE_BASE_URL
-
-// const badgeImage = '../../../../'
-
+const API = import.meta.env.VITE_BASE_URL;
 
 function BadgesBoard() {
+  const [badge, setBadge] = useState([]);
 
-const [badge, setBadge] = useState([]);
-
-useEffect(() => {
-    axios.get(`${API}/badges`)
-    
-        .then((res) => {
-            console.log(res.data);
-            setBadge(res.data);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-}, []);
-
+  useEffect(() => {
+    axios
+      .get(`${API}/badges`)
+      .then((res) => {
+        console.log(res.data);
+        setBadge(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>
@@ -56,14 +48,10 @@ useEffect(() => {
         <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt=""/>
     </div> */}
 
-
-
-  {badge.map((badge) => (
-    <Badge key={badge.badge_id} badge={badge} />
-    // <img src={`${badgeImage}${badge.image} `} key={badge.badge_id}/>
-  ))}
-
-       
+        {badge.map((badge) => (
+          <Badge key={badge.badge_id} badge={badge} />
+          // <img src={`${badgeImage}${badge.image} `} key={badge.badge_id}/>
+        ))}
       </div>
     </div>
   );
