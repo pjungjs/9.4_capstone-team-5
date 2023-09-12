@@ -1,7 +1,7 @@
 \c ecoway_dev;
 
 INSERT INTO users
-  (created_at, user_auth_id, first_name, last_name, username, email, bio, profile_picture_url, user_achvs)
+  (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url, user_achvs)
 VALUES
   ('2023-09-08T12:00:00Z', 'auth_id_1', 'John', 'Doe', 'johndoe', 'johndoe@example.com', 'I love coding!', 'https://example.com/johndoe.jpg', '[
     { "badge_name": "Recycle Hero", "received_date": "2023-08-31T23:37:35Z" },
