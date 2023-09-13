@@ -11,17 +11,16 @@ import Questionnaire from './pages/Questionnaire.jsx';
 import Login from './pages/Login.jsx';
 import LoginAuth from './components/Login/LoginAuth.jsx';
 import PrivateRoutes from './components/User/PrivateRoutes.jsx';
-import UserDashboard from './components/User/UserDashboard.jsx';
-import UserSettings from './components/User/UserSettings.jsx';
+import UserMain from './components/User/UserMain.jsx';
+import Forum from './pages/ForumTopic.jsx';
+import ForumTopic from './pages/Forum.jsx';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <ScrollTop />
-        <header className="sticky top-0 w-full">
-          <NavBar />
-        </header>
+        <NavBar />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -30,9 +29,12 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/login/auth" element={<LoginAuth />} />
             <Route path="/calculator" element={<Questionnaire />} />
+
+            <Route path="/forum" element={<Forum />} />
+            <Route path="/topic/:id" element={<ForumTopic />} />
+
             <Route element={<PrivateRoutes />}>
-              <Route path="/user/dashboard" element={<UserDashboard />} />
-              <Route path="/user/settings" element={<UserSettings />} />
+              <Route path='/user/*' element={<UserMain />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
