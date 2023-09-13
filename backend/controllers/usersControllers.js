@@ -10,8 +10,10 @@ const {
 
 const achievementsControllers = require('./achievementsControllers.js');
 const scoresControllers = require('./scoresControllers.js');
+const answersControllers = require('./answersControllers.js')
 users.use('/achievements', achievementsControllers);
 users.use('/scores', scoresControllers);
+users.use("/answers", answersControllers);
 
 /** User's Information
  * GET all
