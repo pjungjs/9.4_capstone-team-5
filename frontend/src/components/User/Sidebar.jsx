@@ -40,9 +40,9 @@ function Sidebar({ currentUserRoute }) {
           </li>
           <li>
             <Link
-              to=""
+              to="/user/myfootprint"
               className={`${
-                currentUserRoute === ''
+                currentUserRoute === 'myfootprint'
                   ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
@@ -55,9 +55,9 @@ function Sidebar({ currentUserRoute }) {
           </li>
           <li>
             <Link
-              to=""
+              to="/user/dailyquestions"
               className={`${
-                currentUserRoute === ''
+                currentUserRoute === 'dailyquestions'
                   ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}

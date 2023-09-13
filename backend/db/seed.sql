@@ -37,3 +37,21 @@ VALUES
   ('9 Badge', 'this is the blah blah badge', 'backend/db/assets/9.png', 134),
   ('X Badge', 'this is the third badge', 'backend/db/assets/10.png', 9726),
   ('11 Badge', 'this is the third badge', 'backend/db/assets/11.png', 9726);
+
+  INSERT INTO questions (created_at, question, question_type, is_signup)
+  VALUES
+  ('2023-09-08 15:00:00', 'Does your household use renewable energy?', 'energy', true),
+  ('2023-09-08 15:00:00', 'What is the primary heating source in your household?', 'energy', true),
+  ('2023-09-08 15:00:00', 'Do you use gas for cooking?', 'energy', true),
+  ('2023-09-08 15:00:00', 'Do you have a car?', 'transportation', true),
+  ('2023-09-08 15:00:00', 'How many minutes do you spend taking public transportation a day?', 'transportation', true),
+  ('2023-09-08 15:00:00', 'How many large sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08 15:00:00', 'How many medium sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08 15:00:00', 'How many small sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08 15:00:00', 'How many pieces of clothing have you purchased this year?', 'spending', true),
+  ('2023-09-08 15:00:00', 'What is your diet?', 'food', true);
+
+INSERT INTO answers (created_at, user_auth_id, question_answers)
+VALUES
+('2023-09-08 15:00:00', 'auth_id_1', '[ { "Does your household use renewable energy?": "Yes", "What is the primary heating source in your household?": "Electricity" } ]'),
+('2023-09-08 15:00:00', 'auth_id_2', '[ { "Does your household use renewable energy?": "No", "What is the primary heating source in your household?": "Natural Gas" } ]');
