@@ -13,7 +13,7 @@ CREATE TABLE users (
     last_name TEXT,
     username TEXT,
     email TEXT,
-    bio TEXT,
+    short_bio TEXT,
     profile_picture_url TEXT,
     user_achvs JSONB DEFAULT '{}'::jsonb
 );

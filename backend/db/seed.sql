@@ -1,7 +1,7 @@
 \c ecoway_dev;
 
 INSERT INTO users
-  (created_at, user_auth_id, first_name, last_name, username, email, bio, profile_picture_url, user_achvs)
+  (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url, user_achvs)
 VALUES
   ('2023-09-08T12:00:00Z', 'auth_id_1', 'John', 'Doe', 'johndoe', 'johndoe@example.com', 'I love coding!', 'https://example.com/johndoe.jpg', '[
     { "badge_name": "Recycle Hero", "received_date": "2023-08-31T23:37:35Z" },
@@ -26,7 +26,7 @@ VALUES
 INSERT INTO badges
   (badge_name, badge_description, image, badge_points)
 VALUES 
-  ('Recycle Hero', 'You got your first badge!', 'https://png.pngtree.com/element_pic/00/16/07/18578cd65e6ecaa.jpg', 10),
+  ('Recycle Hero', 'You got your first badge!', 'https://ecoway.s3.amazonaws.com/LOGO.svg', 10),
   ('Next Level', 'this is a second badge','https://images.vexels.com/media/users/3/245747/isolated/preview/fc5e5179e126bb8b8878c65ed0639179-great-job-badge.png', 11),
   ('Feedback contributor', 'this is the third badge', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Seal_of_the_President_of_the_United_States.svg/2424px-Seal_of_the_President_of_the_United_States.svg.png', 4),
   ('Energy Saver', 'this is the third badge', 'https://icon2.cleanpng.com/20180320/qoe/kisspng-computer-icons-iconfinder-award-top-seller-icon-png-5ab0932f750863.9298772115215214554794.jpg', 134),

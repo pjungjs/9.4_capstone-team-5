@@ -43,7 +43,7 @@ const deleteUser = async (userAuthId) => {
   }
 };
 
-//create query: a new user
+//create query: if the user exists return the existing user, if not, create a new user
 const createUser = async (userToAdd) => {
   const {
     created_at,
@@ -52,25 +52,34 @@ const createUser = async (userToAdd) => {
     last_name,
     username,
     email,
-    bio,
+    short_bio,
     profile_picture_url,
   } = userToAdd;
 
   try {
-    const createdUser = await db.one(
-      'INSERT INTO users (created_at, user_auth_id, first_name, last_name, username, email, bio, profile_picture_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;',
-      [
-        created_at,
-        user_auth_id,
-        first_name,
-        last_name,
-        username,
-        email,
-        bio,
-        profile_picture_url,
-      ]
+    const existingUser = await db.oneOrNone(
+      'SELECT * FROM users WHERE user_auth_id=$1;',
+      [user_auth_id]
     );
-    return { success: true, payload: createdUser };
+
+    if (existingUser) {
+      return { success: true, payload: existingUser };
+    } else {
+      const createdUser = await db.one(
+        'INSERT INTO users (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;',
+        [
+          created_at,
+          user_auth_id,
+          first_name,
+          last_name,
+          username,
+          email,
+          short_bio,
+          profile_picture_url,
+        ]
+      );
+      return { success: true, payload: createdUser };
+    }
   } catch (error) {
     return { success: false, payload: `users: create query error. ${error}` };
   }
@@ -78,13 +87,13 @@ const createUser = async (userToAdd) => {
 
 //update query: an existing user
 const updateUser = async (userAuthId, userToUpdate) => {
-  const { first_name, last_name, username, bio, profile_picture_url } =
+  const { first_name, last_name, username, short_bio, profile_picture_url } =
     userToUpdate;
 
   try {
     const updatedUser = await db.one(
-      'UPDATE users SET first_name=$1, last_name=$2, username=$3, bio=$4, profile_picture_url=$5 WHERE user_auth_id=$6 RETURNING *;',
-      [first_name, last_name, username, bio, profile_picture_url, userAuthId]
+      'UPDATE users SET first_name=$1, last_name=$2, username=$3, short_bio=$4, profile_picture_url=$5 WHERE user_auth_id=$6 RETURNING *;',
+      [first_name, last_name, username, short_bio, profile_picture_url, userAuthId]
     );
     return { success: true, payload: updatedUser };
   } catch (error) {
