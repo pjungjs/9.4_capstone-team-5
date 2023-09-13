@@ -1,12 +1,10 @@
-import React from 'react';
-import Badge from './Badge.jsx';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import badge1 from '../../../../backend/db/assets/1.png';
+
+import Badge from './Badge.jsx';
 
 const API = import.meta.env.VITE_BASE_URL;
 
-// const badgeImage = '../../../../'
 
 function BadgesBoard() {
   const [badge, setBadge] = useState([]);
@@ -14,7 +12,6 @@ function BadgesBoard() {
   useEffect(() => {
     axios
       .get(`${API}/badges`)
-
       .then((res) => {
         console.log(res.data);
         setBadge(res.data);

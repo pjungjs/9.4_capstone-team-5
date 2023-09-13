@@ -1,7 +1,7 @@
 \c ecoway_dev;
 
-INSERT INTO users
-  (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url, user_achvs)
+INSERT INTO users 
+ (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url, user_achvs)
 VALUES
   ('2023-09-08T12:00:00Z', 'auth_id_1', 'John', 'Doe', 'johndoe', 'johndoe@example.com', 'I love coding!', 'https://example.com/johndoe.jpg', '[
     { "badge_name": "Recycle Hero", "received_date": "2023-08-31T23:37:35Z" },
@@ -15,16 +15,16 @@ VALUES
     { "badge_name": "Consistent Player", "received_date": "2023-08-31T23:37:35Z" }
   ]');
 
-INSERT INTO user_scores
-  (user_auth_id, score_carbon_result, score_logged_in, score_answered, score_recycled, score_leaderboard, score_active_community)
+INSERT INTO user_scores 
+ (user_auth_id, score_carbon_result, score_logged_in, score_answered, score_recycled, score_leaderboard, score_active_community)
 VALUES
   ('auth_id_1', 100, 30, 45, 50, 75, 90),
   ('auth_id_2', 20, 20, 20, 20, 20, 20),
   ('auth_id_3', 30, 50, 30, 30, 0, 0),
   ('auth_id_4', 10, 10, 10, 10, 0, 0);
 
-INSERT INTO badges
-  (badge_name, badge_description, image, badge_points)
+INSERT INTO badges 
+ (badge_name, badge_description, image, badge_points)
 VALUES 
   ('Recycle Hero', 'You got your first badge!', 'https://ecoway.s3.amazonaws.com/LOGO.svg', 10),
   ('Water Wizard', 'You have reduced your water consumption by 20%. Splish, splash, you are making a splash!','https://images.vexels.com/media/users/3/245747/isolated/preview/fc5e5179e126bb8b8878c65ed0639179-great-job-badge.png', 20),
@@ -44,3 +44,26 @@ VALUES
   ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
   ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
   ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726);
+
+
+
+  INSERT INTO questions 
+  (created_at, question, question_type, is_signup)
+  VALUES
+  ('2023-09-08 15:00:00', 'Does your household use renewable energy?', 'energy', true),
+  ('2023-09-08 15:00:00', 'What is the primary heating source in your household?', 'energy', true),
+  ('2023-09-08 15:00:00', 'Do you use gas for cooking?', 'energy', true),
+  ('2023-09-08 15:00:00', 'Do you have a car?', 'transportation', true),
+  ('2023-09-08 15:00:00', 'How many minutes do you spend taking public transportation a day?', 'transportation', true),
+  ('2023-09-08 15:00:00', 'How many large sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08 15:00:00', 'How many medium sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08 15:00:00', 'How many small sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08 15:00:00', 'How many pieces of clothing have you purchased this year?', 'spending', true),
+  ('2023-09-08 15:00:00', 'What is your diet?', 'food', true);
+
+INSERT INTO answers 
+(created_at, user_auth_id, question_answers)
+VALUES
+('2023-09-08 15:00:00', 'auth_id_1', '[ { "Does your household use renewable energy?": "Yes", "What is the primary heating source in your household?": "Electricity" } ]'),
+('2023-09-08 15:00:00', 'auth_id_2', '[ { "Does your household use renewable energy?": "No", "What is the primary heating source in your household?": "Natural Gas" } ]');
+

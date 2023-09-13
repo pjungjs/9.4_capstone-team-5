@@ -6,10 +6,10 @@ import { useStytchUser } from '@stytch/react';
 import Sidebar from './Sidebar.jsx';
 import DashboardMain from './DashboardContent/DashboardMain.jsx';
 import Achievements from '../../pages/Achievements.jsx';
-
 import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
+import MyFootprint from './MyFootprintContent/MyFootprint.jsx';
+import DailyQuestions from './DailyQuestionsContent/DailyQuestions.jsx';
 import SettingsMain from './SettingsContent/SettingsMain.jsx';
-
 import NotFound from '../../pages/NotFound.jsx';
 
 export const UserContext = createContext();
@@ -39,7 +39,6 @@ export default function UserMain() {
   }, []);
 
   return (
-
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
       <div className="flex overflow-x-hidden">
         <Sidebar currentUserRoute={currentUserRoute} />
@@ -52,7 +51,11 @@ export default function UserMain() {
             <LeaderboardDisplay />
           ) : currentUserRoute === 'settings' ? (
             <SettingsMain />
-          ) : (
+          ) : currentUserRoute === 'myfootprint' ? (
+            <MyFootprint />
+          ) : currentUserRoute === 'dailyquestions' ? (
+            <DailyQuestions />
+          ) :(
             <NotFound />
           )}
         </div>

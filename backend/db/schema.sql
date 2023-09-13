@@ -74,3 +74,19 @@ CREATE TABLE badges (
 --     FOREIGN KEY (user_id) REFERENCES users (id),
 --     FOREIGN KEY (achievement_id) REFERENCES achievements (achievement_id)
 -- );
+
+
+CREATE TABLE questions (
+    id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP,
+    question TEXT,
+    question_type VARCHAR(100),
+    is_signup BOOLEAN
+);
+
+CREATE TABLE answers (
+    id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP,
+    user_auth_id TEXT REFERENCES users (user_auth_id) ON DELETE CASCADE,
+    question_answers JSONB DEFAULT '{}'::jsonb
+);
