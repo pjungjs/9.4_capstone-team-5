@@ -26,24 +26,28 @@ VALUES
 INSERT INTO badges 
  (badge_name, badge_description, image, badge_points)
 VALUES 
-  ('Recycle Hero', 'You got your first badge!', 'https://ecoway.s3.amazonaws.com/LOGO.svg', 10),
-  ('Water Wizard', 'You have reduced your water consumption by 20%. Splish, splash, you are making a splash!','https://images.vexels.com/media/users/3/245747/isolated/preview/fc5e5179e126bb8b8878c65ed0639179-great-job-badge.png', 20),
-  ('Feedback contributor', 'this is the third badge', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Seal_of_the_President_of_the_United_States.svg/2424px-Seal_of_the_President_of_the_United_States.svg.png', 4),
-  ('Carbon Footprint Fairy', 'You have calculated and reduced your carbon footprint by 25%. You are leaving smaller footsteps on Earth!', 'https://icon2.cleanpng.com/20180320/qoe/kisspng-computer-icons-iconfinder-award-top-seller-icon-png-5ab0932f750863.9298772115215214554794.jpg', 50),
-  ('Reusable Crusader', 'this is the third badge', 'backend/db/assets/6.png', 9726),
-  ('Consistent Player', 'this is the hsii badge', 'backend/db/assets/6.png', 134),
-  ('Everything local', 'this is the third badge', 'backend/db/assets/7.png', 134),
-  ('Trash Tamer', 'Youve gone zero-waste for a month. Your trash can is on vacation!', 'backend/db/assets/8.png', 87),
-  ('Bicycle Boss', 'You have biked 100 miles instead of driving. Your calves thank you, and so does the planet!', 'backend/db/assets/9.png', 20),
-  ('Ocean Saver', 'You have picked up 100 pieces of trash at the beach. You are turning the tide on pollution!', 'backend/db/assets/10.png', 9726),
-  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
-  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
-  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
-  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
-  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
-  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
-  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726),
-  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'backend/db/assets/11.png', 9726);
+  ('Recycle Hero', 'You got your first badge!', 'https://ecoway.s3.amazonaws.com/Badge.png', 10),
+  ('Water Wizard', 'You have reduced your water consumption by 20%. Splish, splash, you are making a splash!','https://ecoway.s3.amazonaws.com/Badge.png', 20),
+  ('Eco-Picasso', 'You have transformed recycled materials into 10 works of art. Your creations are eco-masterpieces!', 'https://ecoway.s3.amazonaws.com/Badge.png', 4),
+  ('Carbon Footprint Fairy', 'You have calculated and reduced your carbon footprint by 25%. You are leaving smaller footsteps on Earth!', 'https://ecoway.s3.amazonaws.com/Badge.png', 50),
+  ('Reusable Crusader', 'You have officially joined the ranks of the eco-warriors by consistently using reusable bags, bottles, and containers.', 'https://ecoway.s3.amazonaws.com/Badge.png', 9726),
+  ('Consistent Player', 'You have logged to the app for 7 days in a row', 'https://ecoway.s3.amazonaws.com/Badge.png', 134),
+  ('Everything local', 'You have supported eco-friendly stores with your bussiness', 'https://ecoway.s3.amazonaws.com/Badge.png', 134),
+  ('Trash Tamer', 'Youve gone zero-waste for a month. Your trash can is on vacation!', 'https://ecoway.s3.amazonaws.com/Badge.png', 87),
+  ('Bicycle Boss', 'You have biked 100 miles instead of driving. Your calves thank you, and so does the planet!', 'https://ecoway.s3.amazonaws.com/Badge.png', 20),
+  ('Ocean Saver', 'You have picked up 100 pieces of trash at the beach. You are turning the tide on pollution!', 'https://ecoway.s3.amazonaws.com/Badge.png', 9726),
+  ('Green Gremlin Guru', 'You have reduced energy consumption by 30%. You are the master of energy conservation!', 'https://ecoway.s3.amazonaws.com/Badge.png', 9726),
+  ('Eco-Chef Connoisseur', 'You have cooked 30 plant-based meals. You are a culinary eco-genius!', 'https://ecoway.s3.amazonaws.com/Badge.png', 50),
+  ('Eco-Adventurer', 'You have embarked on an eco-tour and explored nature responsibly. Adventure awaits, eco-traveler!', 'https://ecoway.s3.amazonaws.com/Badge.png', 50),
+  ('Eco-Caravan Captain', 'You have organized a community clean-up event. You are the leader of the eco-pack!', 'https://ecoway.s3.amazonaws.com/Badge.png', 75),
+  ('Eco-Fashionista', 'You have shopped only sustainable clothing brands for three months. You are strutting your eco-style!', 'https://ecoway.s3.amazonaws.com/Badge.png', 25),
+  ('Eco Artisan', ' You have upcycled or repurposed 10 items. Your creativity knows no bounds!', 'https://ecoway.s3.amazonaws.com/Badge.png', 100),
+  ('Veggie Voyager', 'You have had a plant-based diet for a month. Your taste buds have gone green!
+
+', 'https://ecoway.s3.amazonaws.com/Badge.png', 150),
+  ('Compost Crusader', 'You have mastered the art of composting. Your trash is treasure now!', 'https://ecoway.s3.amazonaws.com/Badge.png', 75),
+  ('Solar Superstar', 'You have switched to solar power at home. Shine on, you radiant eco-hero!', 'https://ecoway.s3.amazonaws.com/Badge.png', 100),
+   ('Eco-Bookworm', 'You have read 10 books on sustainability and eco-conscious living. Your mind is a garden of eco-ideas!', 'https://ecoway.s3.amazonaws.com/Badge.png', 100 );
 
 
 
