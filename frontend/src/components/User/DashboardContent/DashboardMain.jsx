@@ -5,9 +5,9 @@ import DashboardChallenges from './DashboardChallenges';
 
 function DashboardMain() {
   return (
-    <div>
+    <div className='h-screen'>
       <DashboardWelcome />
-      <div className="h-full space-y-4 p-4">
+      <div className="space-y-4 p-4">
         <DashboardBadges />
         <DashboardScoreChart />
         <DashboardChallenges />

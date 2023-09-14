@@ -55,7 +55,7 @@ export default function UserMain() {
             <MyFootprint />
           ) : currentUserRoute === 'dailyquestions' ? (
             <DailyQuestions />
-          ) :(
+          ) : (
             <NotFound />
           )}
         </div>
