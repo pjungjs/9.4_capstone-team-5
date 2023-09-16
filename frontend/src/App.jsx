@@ -29,10 +29,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/login/auth" element={<LoginAuth />} />
             <Route path="/calculator" element={<Questionnaire />} />
-
             <Route path="/forum" element={<Forum />} />
             <Route path="/topic/:id" element={<ForumTopic />} />
-
             <Route element={<PrivateRoutes />}>
               <Route path='/user/*' element={<UserMain />} />
             </Route>

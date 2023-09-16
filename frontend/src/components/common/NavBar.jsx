@@ -82,9 +82,11 @@ function NavBar() {
                     openUserMenu ? '' : 'hidden'
                   } absolute top-10 z-50 divide-y divide-gray-200 rounded-lg border bg-gray-50 shadow-lg`}
                 >
-                  <div className="px-4 py-3 text-right text-sm text-gray-900">
+                  <div className="whitespace-nowrap px-4 py-3 text-right text-sm text-gray-900">
                     <p>{userName}</p>
-                    <p className="truncate font-medium">{userEmail}</p>
+                    <p className="max-w-[170px] truncate font-medium">
+                      {userEmail}
+                    </p>
                   </div>
                   <ul className="py-1 text-right text-sm">
                     <li>

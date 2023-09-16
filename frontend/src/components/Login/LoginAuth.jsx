@@ -27,7 +27,6 @@ function LoginAuth() {
       };
 
       authenticateToken()
-        .then(() => navigate(0))
         .catch((err) => console.error(err));
     }
   }, [client, session]);
