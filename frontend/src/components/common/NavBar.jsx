@@ -1,4 +1,5 @@
-import logo from '../../assets/logo1.svg';
+import logo1 from '../../assets/logos/logo1.svg';
+import logo2 from '../../assets/logos/logo2.svg';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useStytch, useStytchSession, useStytchUser } from '@stytch/react';
@@ -13,6 +14,7 @@ function NavBar() {
   const [openRes, setOpenRes] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
+  const [scrolled, setScrolled] = useState(false);
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -21,12 +23,22 @@ function NavBar() {
   const { session } = useStytchSession();
   const { user } = useStytchUser();
 
+  const updateStyle = () => {
+    if (window.scrollY >= 25) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  window.addEventListener('scroll', updateStyle);
+
   useEffect(() => {
-    if (session && user) {
+    if (user) {
       setUserEmail(user.emails[0].email);
       setUserName(`${user.name.first_name} ${user.name.last_name}`);
     }
-  }, [session, user]);
+  }, [user]);
 
   useEffect(() => {
     setOpenMenu(false);
@@ -51,11 +63,21 @@ function NavBar() {
 
   return (
     <header className="sticky top-0 z-50">
-      <nav className="w-full border-b border-gray-100 bg-white py-0 shadow">
+      <nav
+        className={`${
+          !scrolled
+            ? 'bg-transparent'
+            : 'border-b border-gray-100 bg-white shadow'
+        } w-full py-0 transition duration-300 ease-in-out`}
+      >
         <div className="mx-auto flex flex-wrap items-center justify-between">
           <div>
             <Link to="/">
-              <img className="h-20 pl-2" src={logo} alt="EcoWay logo" />
+              <img
+                className={`${!scrolled ? 'h-20 pl-2' : 'h-16 pl-4'}`}
+                src={!scrolled ? logo1 : logo2}
+                alt="EcoWay logo"
+              />
             </Link>
           </div>
 
@@ -82,9 +104,11 @@ function NavBar() {
                     openUserMenu ? '' : 'hidden'
                   } absolute top-10 z-50 divide-y divide-gray-200 rounded-lg border bg-gray-50 shadow-lg`}
                 >
-                  <div className="px-4 py-3 text-right text-sm text-gray-900">
+                  <div className="whitespace-nowrap px-4 py-3 text-right text-sm text-gray-900">
                     <p>{userName}</p>
-                    <p className="truncate font-medium">{userEmail}</p>
+                    <p className="max-w-[170px] truncate font-medium">
+                      {userEmail}
+                    </p>
                   </div>
                   <ul className="py-1 text-right text-sm">
                     <li>
@@ -129,7 +153,7 @@ function NavBar() {
               openMenu ? '' : 'hidden'
             } w-full items-center justify-between md:static md:order-1 md:flex md:w-auto`}
           >
-            <ul className="mt-2 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 pt-0 font-medium md:mt-0 md:flex-row md:border-0 md:bg-white md:p-0 xl:gap-8">
+            <ul className="mt-2 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 pt-0 font-medium md:mt-0 md:flex-row md:border-0 md:bg-inherit md:p-0 xl:gap-8">
               <li className="group relative cursor-pointer px-6 pt-2">
                 <div
                   className="block px-5 py-2 text-gray-900 hover:bg-gray-50 hover:text-green-600"

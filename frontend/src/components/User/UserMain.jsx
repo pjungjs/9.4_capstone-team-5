@@ -12,6 +12,8 @@ import DailyQuestions from './DailyQuestionsContent/DailyQuestions.jsx';
 import SettingsMain from './SettingsContent/SettingsMain.jsx';
 import NotFound from '../../pages/NotFound.jsx';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 export const UserContext = createContext();
 
 export default function UserMain() {
@@ -30,12 +32,44 @@ export default function UserMain() {
   });
 
   useEffect(() => {
-    axios
-      .post(`${import.meta.env.VITE_BASE_URL}/users`, currentUser)
-      .then((response) => setCurrentUser(response.data))
-      .catch((error) => {
-        console.error('Error: POST new user || GET existing user', error);
-      });
+    const fetchUser = async () => {
+      try {
+        const getUser = await axios.get(
+          `${BASE_URL}/users/${currentUser.user_auth_id}`,
+        );
+
+        if (getUser.data) {
+          setCurrentUser(getUser.data);
+        } else {
+          await createUser();
+          await createUserScores();
+        }
+      } catch (error) {
+        console.error('Error: GET existing user', error);
+      }
+    };
+
+    const createUser = async () => {
+      try {
+        const postUser = await axios.post(`${BASE_URL}/users`, currentUser);
+        setCurrentUser(postUser.data);
+      } catch (error) {
+        console.error('Error: POST new user', error);
+      }
+    };
+
+    const createUserScores = async () => {
+      try {
+        const postScores = await axios.post(
+          `${BASE_URL}/users/scores/${currentUser.user_auth_id}`,
+        );
+        console.log(postScores.data);
+      } catch (error) {
+        console.error('Error: POST new scores', error);
+      }
+    };
+
+    fetchUser();
   }, []);
 
   return (
@@ -55,7 +89,7 @@ export default function UserMain() {
             <MyFootprint />
           ) : currentUserRoute === 'dailyquestions' ? (
             <DailyQuestions />
-          ) :(
+          ) : (
             <NotFound />
           )}
         </div>

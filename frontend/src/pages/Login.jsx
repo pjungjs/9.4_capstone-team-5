@@ -31,17 +31,17 @@ function Login() {
             <p className="pb-2 text-2xl font-bold text-green-600">
               Check your email
             </p>
-            <p className="p-6 text-left">
-              An email was sent to <span className="font-bold">{email}</span>
+            <p className="p-6 text-center">
+              An email was sent to: <span className="font-bold">{email}</span>
             </p>
             <button
-              className="cust-btn w-full rounded-md p-2"
+              className="cust-btn w-3/4 rounded-md p-2"
               onClick={() => {
                 setEmail('');
                 setIsSubmitted(!isSubmitted);
               }}
             >
-              Try again
+              Go back
             </button>
           </div>
         ) : (
