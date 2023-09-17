@@ -1,13 +1,14 @@
 // ForumTopic.jsx
 import { useState } from 'react';
 
-const ForumTopic = ({ onPostSubmit }) => {
+const ForumTopic = ({ onPostSubmit, onPostDelete }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [username, setUsername] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
 
     if (!title || !content || !username) {
       alert(
@@ -25,13 +26,29 @@ const ForumTopic = ({ onPostSubmit }) => {
       comments: [],
     };
 
-    onPostSubmit(newPost);
+    // check to see if onPostSubmit is a function -- getting error ?
+
+    if (typeof onPostSubmit === 'function') {
+    onPostSubmit(newPost); 
 
     // Clear form fields
     setTitle('');
     setContent('');
     setUsername('');
+  } else {
+    console.log('onPostSubmit is not a function');
+  }
+};
+
+  // delete
+  const handleDelete = () => {
+    if (typeof onPostDelete === 'function') {
+      onPostDelete();
+    } else {
+      console.log('onPostDelete is not a function');
+    }
   };
+
 
   return (
     <div>
@@ -93,6 +110,14 @@ const ForumTopic = ({ onPostSubmit }) => {
             type="submit"
           >
             Post
+          </button>
+
+          <button
+             className="focus:shadow-outline rounded bg-white-500 px-4 py-2 font-bold text-white hover:bg-red-700 focus:outline-none"
+             type="button"
+             onClick={handleDelete}
+          >
+            ❌
           </button>
         </div>
       </form>
