@@ -25,7 +25,7 @@ VALUES
 
 INSERT INTO badges 
  (badge_name, badge_description, image, badge_points)
-VALUES 
+VALUES
   ('Recycle Hero', 'You got your first badge!', 'https://ecoway.s3.amazonaws.com/Badge.png', 10),
   ('Water Wizard', 'You have reduced your water consumption by 20%. Splish, splash, you are making a splash!','https://ecoway.s3.amazonaws.com/Badge.png', 20),
   ('Eco-Picasso', 'You have transformed recycled materials into 10 works of art. Your creations are eco-masterpieces!', 'https://ecoway.s3.amazonaws.com/Badge.png', 4),
@@ -42,18 +42,14 @@ VALUES
   ('Eco-Caravan Captain', 'You have organized a community clean-up event. You are the leader of the eco-pack!', 'https://ecoway.s3.amazonaws.com/Badge.png', 75),
   ('Eco-Fashionista', 'You have shopped only sustainable clothing brands for three months. You are strutting your eco-style!', 'https://ecoway.s3.amazonaws.com/Badge.png', 25),
   ('Eco Artisan', ' You have upcycled or repurposed 10 items. Your creativity knows no bounds!', 'https://ecoway.s3.amazonaws.com/Badge.png', 100),
-  ('Veggie Voyager', 'You have had a plant-based diet for a month. Your taste buds have gone green!
-
-', 'https://ecoway.s3.amazonaws.com/Badge.png', 150),
+  ('Veggie Voyager', 'You have had a plant-based diet for a month. Your taste buds have gone green!', 'https://ecoway.s3.amazonaws.com/Badge.png', 150),
   ('Compost Crusader', 'You have mastered the art of composting. Your trash is treasure now!', 'https://ecoway.s3.amazonaws.com/Badge.png', 75),
   ('Solar Superstar', 'You have switched to solar power at home. Shine on, you radiant eco-hero!', 'https://ecoway.s3.amazonaws.com/Badge.png', 100),
-   ('Eco-Bookworm', 'You have read 10 books on sustainability and eco-conscious living. Your mind is a garden of eco-ideas!', 'https://ecoway.s3.amazonaws.com/Badge.png', 100 );
+  ('Eco-Bookworm', 'You have read 10 books on sustainability and eco-conscious living. Your mind is a garden of eco-ideas!', 'https://ecoway.s3.amazonaws.com/Badge.png', 100 );
 
-
-
-  INSERT INTO questions 
+INSERT INTO questions 
   (created_at, question, question_type, is_signup)
-  VALUES
+VALUES
   ('2023-09-08 15:00:00', 'Does your household use renewable energy?', 'energy', true),
   ('2023-09-08 15:00:00', 'What is the primary heating source in your household?', 'energy', true),
   ('2023-09-08 15:00:00', 'Do you use gas for cooking?', 'energy', true),
@@ -66,8 +62,23 @@ VALUES
   ('2023-09-08 15:00:00', 'What is your diet?', 'food', true);
 
 INSERT INTO answers 
-(created_at, user_auth_id, question_answers)
+  (created_at, user_auth_id, question_answers)
 VALUES
-('2023-09-08 15:00:00', 'auth_id_1', '[ { "Does your household use renewable energy?": "Yes", "What is the primary heating source in your household?": "Electricity" } ]'),
-('2023-09-08 15:00:00', 'auth_id_2', '[ { "Does your household use renewable energy?": "No", "What is the primary heating source in your household?": "Natural Gas" } ]');
+  ('2023-09-08 15:00:00', 'auth_id_1', '[ { "Does your household use renewable energy?": "Yes", "What is the primary heating source in your household?": "Electricity" } ]'),
+  ('2023-09-08 15:00:00', 'auth_id_2', '[ { "Does your household use renewable energy?": "No", "What is the primary heating source in your household?": "Natural Gas" } ]');
 
+INSERT INTO posts 
+  (created_at, user_auth_id, title, content, post_likes)
+VALUES
+  ('2023-09-08T12:30:00Z','auth_id_6', 'Sample Post 1', 'This is the content of the first post', '[{"user_id": "user_auth_id_5", "liked_at": "2023-09-10T12:00:00Z"}]'),
+  ('2023-09-08T10:00:00Z','auth_id_7', 'Sample Post 2', 'This is the content of the second post', '[{"user_id": "user_auth_id_6", "liked_at": "2023-09-10T13:00:00Z"}]'),
+  ('2023-09-08T13:30:00Z','auth_id_8', 'Sample Post 3', 'This is the content of the third post', '[{"user_id": "user_auth_id_7", "liked_at": "2023-09-10T14:00:00Z"}]'),
+  ('2023-09-08T14:00:00Z','auth_id_9', 'Sample Post 4', 'This is the content of the fourth post', '[{"user_id": "user_auth_id_8", "liked_at": "2023-09-10T15:00:00Z"}]');
+
+INSERT INTO post_comments
+  (created_at, user_auth_id, post_id, content)
+VALUES
+  ('2023-09-12T10:00:00Z', 'auth_id_1', 1, 'Great topic! I totally agree with your points.'),
+  ('2023-09-13T13:00:00Z', 'auth_id_2', 1, 'I have a different perspective on this. Let me explain...'),
+  ('2023-09-10T14:00:00Z', 'auth_id_3', 2, 'Thanks for sharing this information. It is very informative.'),
+  ('2023-09-11T16:00:00Z', 'auth_id_4', 3, 'I had a similar experience, and I can relate to your story.');
