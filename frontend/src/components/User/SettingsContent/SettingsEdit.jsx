@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useStytch } from '@stytch/react';
 import { UserContext } from '../UserMain.jsx';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -16,12 +17,30 @@ function SettingsEdit({ editInfo, setEditInfo }) {
   });
   const navigate = useNavigate();
 
+  const client = useStytch();
+
   const handleTextChange = (event) => {
     setUpdateUser({ ...updateUser, [event.target.id]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (
+      currentUser.first_name !== updateUser.first_name ||
+      currentUser.last_name !== updateUser.last_name
+    ) {
+      client.user
+        .update({
+          name: {
+            first_name: updateUser.first_name,
+            last_name: updateUser.last_name,
+          },
+        })
+        .then((response) => console.log(response))
+        .catch((error) => console.warn('Error updating User on Stytch', error));
+    }
+
     axios
       .put(`${BASE_URL}/users/${currentUser.user_auth_id}`, updateUser)
       .then((response) => {

@@ -20,7 +20,8 @@ const getUsers = async () => {
 //show query: one user by user_auth_id
 const getUser = async (userAuthId) => {
   try {
-    const oneUser = await db.one(
+    // if found, return user's info, otherwise return null
+    const oneUser = await db.oneOrNone(
       'SELECT * FROM users WHERE user_auth_id=$1;',
       userAuthId
     );
@@ -43,7 +44,7 @@ const deleteUser = async (userAuthId) => {
   }
 };
 
-//create query: if the user exists return teh existing user, if not, create a new user
+//create query: if the user exists return the existing user, if not, create a new user
 const createUser = async (userToAdd) => {
   const {
     created_at,

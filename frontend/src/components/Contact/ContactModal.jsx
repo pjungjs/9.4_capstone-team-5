@@ -5,7 +5,7 @@ function ContactModal({ openModal, setOpenModal }) {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
       <div className="w-72 rounded-lg bg-white p-2 text-center md:w-80">
         <div className="flex justify-end">
           <button
