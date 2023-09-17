@@ -53,7 +53,7 @@ function DashboardWelcome() {
   ];
 
   return (
-    <div className="rounded-b-lg">
+    <div className="rounded-b-lg bg-gradient-to-r from-green-500 to-teal-500">
       <div className="w-full p-5 text-center text-xl font-bold text-gray-800">
         {welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)]}
       </div>
