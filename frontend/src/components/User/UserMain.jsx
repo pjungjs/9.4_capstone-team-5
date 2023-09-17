@@ -5,10 +5,11 @@ import { useStytchUser } from '@stytch/react';
 
 import Sidebar from './Sidebar.jsx';
 import DashboardMain from './DashboardContent/DashboardMain.jsx';
-import Achievements from '../../pages/Achievements.jsx';
-import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
 import MyFootprint from './MyFootprintContent/MyFootprint.jsx';
 import DailyQuestions from './DailyQuestionsContent/DailyQuestions.jsx';
+import Achievements from '../../pages/Achievements.jsx';
+import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
+import ActionsMain from './ActionsContent/ActionsMain.jsx';
 import SettingsMain from './SettingsContent/SettingsMain.jsx';
 import NotFound from '../../pages/NotFound.jsx';
 
@@ -79,16 +80,18 @@ export default function UserMain() {
         <div className="flex-grow">
           {currentUserRoute === 'dashboard' ? (
             <DashboardMain />
+          ) : currentUserRoute === 'myfootprint' ? (
+            <MyFootprint />
+          ) : currentUserRoute === 'dailyquestions' ? (
+            <DailyQuestions />
+          ) : currentUserRoute === 'actions' ? (
+            <ActionsMain />
           ) : currentUserRoute === 'achievements' ? (
             <Achievements />
           ) : currentUserRoute === 'leaderboard' ? (
             <LeaderboardDisplay />
           ) : currentUserRoute === 'settings' ? (
             <SettingsMain />
-          ) : currentUserRoute === 'myfootprint' ? (
-            <MyFootprint />
-          ) : currentUserRoute === 'dailyquestions' ? (
-            <DailyQuestions />
           ) : (
             <NotFound />
           )}

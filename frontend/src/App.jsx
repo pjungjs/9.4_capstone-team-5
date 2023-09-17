@@ -14,6 +14,7 @@ import PrivateRoutes from './components/User/PrivateRoutes.jsx';
 import UserMain from './components/User/UserMain.jsx';
 import Forum from './pages/ForumTopic.jsx';
 import ForumTopic from './pages/Forum.jsx';
+import Actions from './pages/Actions.jsx';
 
 function App() {
   return (
@@ -31,8 +32,9 @@ function App() {
             <Route path="/calculator" element={<Questionnaire />} />
             <Route path="/forum" element={<Forum />} />
             <Route path="/topic/:id" element={<ForumTopic />} />
+            <Route path="/actions" element={<Actions />} />
             <Route element={<PrivateRoutes />}>
-              <Route path='/user/*' element={<UserMain />} />
+              <Route path="/user/*" element={<UserMain />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
