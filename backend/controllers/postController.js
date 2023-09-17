@@ -17,10 +17,10 @@ posts.get('/', async (req, res) => {
 // SHOW
 posts.get('/:id', async (req, res) => {
     const { id } = req.params;
-    const posts = await getPost(id);
+    const post = await getPost(id);
 
-    if(posts) {
-        res.json(posts);
+    if(post) {
+        res.json(post);
     } else {
         res.status(404).json({ error: "Sorry that Post was not found" })
     }
