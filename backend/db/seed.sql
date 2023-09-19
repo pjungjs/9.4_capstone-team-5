@@ -30,6 +30,7 @@ VALUES
 
 
 INSERT INTO badges 
+
  (badge_name, badge_description, badge_img_url, badge_req_points, badge_type)
 VALUES 
   ('Consistent Player', 'You have logged to the app for 7 days in a row', 'https://ecoway.s3.amazonaws.com/consistent+player.png', 7, 'login'),
@@ -82,6 +83,8 @@ VALUES
 
 
 
+
+
 INSERT INTO questions 
   (created_at, question, question_type, is_signup)
 VALUES
@@ -97,8 +100,26 @@ VALUES
   ('2023-09-08 15:00:00', 'What is your diet?', 'food', true);
 
 INSERT INTO answers 
+
   (created_at, user_auth_id, question_answers, carbon_emission_result)
 VALUES
   ('2023-09-08 15:00:00', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', '[ { "Does your household use renewable energy?": "Yes", "What is the primary heating source in your household?": "Electricity" } ]',0),
   ('2023-09-08 15:00:00', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', '[ { "Does your household use renewable energy?": "No", "What is the primary heating source in your household?": "Natural Gas" } ]',0);
 
+
+INSERT INTO posts 
+  (created_at, user_auth_id, title, content, post_likes)
+VALUES
+  ('2023-09-08T12:30:00Z','auth_id_6', 'Sample Post 1', 'This is the content of the first post', '[{"user_id": "user_auth_id_5", "liked_at": "2023-09-10T12:00:00Z"}]'),
+  ('2023-09-08T10:00:00Z','auth_id_7', 'Sample Post 2', 'This is the content of the second post', '[{"user_id": "user_auth_id_6", "liked_at": "2023-09-10T13:00:00Z"}]'),
+  ('2023-09-08T13:30:00Z','auth_id_8', 'Sample Post 3', 'This is the content of the third post', '[{"user_id": "user_auth_id_7", "liked_at": "2023-09-10T14:00:00Z"}]'),
+  ('2023-09-08T14:00:00Z','auth_id_9', 'Sample Post 4', 'This is the content of the fourth post', '[{"user_id": "user_auth_id_8", "liked_at": "2023-09-10T15:00:00Z"}]');
+
+
+INSERT INTO post_comments
+  (created_at, user_auth_id, post_id, content)
+VALUES
+  ('2023-09-12T10:00:00Z', 'auth_id_1', 1, 'Great topic! I totally agree with your points.'),
+  ('2023-09-13T13:00:00Z', 'auth_id_2', 1, 'I have a different perspective on this. Let me explain...'),
+  ('2023-09-10T14:00:00Z', 'auth_id_3', 2, 'Thanks for sharing this information. It is very informative.'),
+  ('2023-09-11T16:00:00Z', 'auth_id_4', 3, 'I had a similar experience, and I can relate to your story.');

@@ -1,4 +1,4 @@
-import logo from '../../assets/logo2.svg';
+import logo2 from '../../assets/logos/logo2.svg';
 import {
   BsDiscord,
   BsFacebook,
@@ -14,8 +14,8 @@ function Footer() {
       <div className="mx-auto w-full p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 flex items-center md:mb-0">
-            <img className="h-20" src={logo} alt="Logo" />
-            <span className="self-center whitespace-nowrap text-2xl font-semibold">
+            <img className="h-20" src={logo2} alt="Logo" />
+            <span className="self-center whitespace-nowrap pl-2 text-2xl font-semibold">
               EcoWay
             </span>
           </div>
