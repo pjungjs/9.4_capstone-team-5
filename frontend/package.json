@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.17.2",
     "@stytch/react": "^7.0.2",
     "@stytch/vanilla-js": "^2.0.4",
     "axios": "^1.4.0",
