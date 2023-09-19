@@ -36,7 +36,7 @@ export const profileMockData = [
     },
   ];
   
-  console.log(profileMockData);
+  // console.log(profileMockData);
 
   
   
