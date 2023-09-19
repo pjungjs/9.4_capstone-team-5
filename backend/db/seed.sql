@@ -66,8 +66,8 @@ VALUES
   ('2023-09-08 15:00:00', 'What is your diet?', 'food', true);
 
 INSERT INTO answers 
-(created_at, user_auth_id, question_answers)
+(user_auth_id, created_at, question_answers, carbon_emission_result)
 VALUES
-('2023-09-08 15:00:00', 'auth_id_1', '[ { "Does your household use renewable energy?": "Yes", "What is the primary heating source in your household?": "Electricity" } ]'),
-('2023-09-08 15:00:00', 'auth_id_2', '[ { "Does your household use renewable energy?": "No", "What is the primary heating source in your household?": "Natural Gas" } ]');
+('auth_id_1', '2023-09-08 15:00:00', '{ "Does your household use renewable energy?": "yes", "What is the primary heating source in your household?": "electricity" }', 10),
+('auth_id_2', '2023-09-08 15:00:00', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }', 10);
 
