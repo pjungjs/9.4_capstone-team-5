@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { createClient } from 'contentful';
+import ActionCard from './ActionCard.jsx';
 
 function Actions() {
   const [actionContent, setActionContent] = useState(null);
@@ -16,11 +17,20 @@ function Actions() {
       .catch((error) =>
         console.warn('Error fetching data from Contentful', error),
       );
-
-    console.log(actionContent);
   }, []);
 
-  return <div>Actions</div>;
+  return (
+    <div className="m-4 flex flex-col items-center space-y-4">
+      <div className="text-3xl font-bold text-emerald-600">Take Actions!</div>
+      <div>Your actions matter! Small steps together will change the world</div>
+      <div className="m-4 flex flex-wrap justify-center">
+        {actionContent &&
+          actionContent.map((content) => (
+            <ActionCard key={content.sys.id} content={content} />
+          ))}
+      </div>
+    </div>
+  );
 }
 
 export default Actions;
