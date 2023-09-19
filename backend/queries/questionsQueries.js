@@ -41,8 +41,8 @@ const getAllQuestions = async () => {
   
     try {
         const updatedQuestion = await db.any(
-        "UPDATE questions SET created_at=$1, question=$2, question_type=$3, is_signup=$4 WHERE id=$5 RETURNING *",
-        [question.created_at, question.question, question.question_type, question.is_signup, id]
+        "UPDATE questions SET created_at=NOW(), question=$1, question_type=$2, is_signup=$3 WHERE id=$4 RETURNING *",
+        [question.question, question.question_type, question.is_signup, id]
         );
         return updatedQuestion;
     } catch (error) {

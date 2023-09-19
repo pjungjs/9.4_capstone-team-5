@@ -1,7 +1,18 @@
-function DashboardBadges() {
+function DashboardBadges({ userAchvs }) {
   return (
-    <div className=" h-20 rounded-lg border-2 border-dashed border-gray-400 p-4">
-      Here goes the User&apos;s Achievements and Badges
+    <div className="rounded-lg border border-gray-300 p-4 shadow-md">
+      My Achievements:
+      <div className="flex space-x-2 py-2">
+        {userAchvs &&
+          userAchvs.map((achv, index) => (
+            <div
+              key={index}
+              className="border border-gray-400 p-4 hover:shadow-md"
+            >
+              {achv.badge_name}
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
