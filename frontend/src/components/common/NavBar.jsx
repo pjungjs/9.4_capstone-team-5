@@ -172,12 +172,21 @@ function NavBar() {
                   >
                     How it works
                   </Link>
+                  {!session ? (
+              <button
+                className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
+                onClick={() => navigate('/login')}
+              >
+                Carbon Footprint Calculator
+              </button>
+            ) : (
                   <Link
-                    to="/calculator"
+                    to="/user/dailyquestions"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Carbon Footprint Calculator
                   </Link>
+                  )}
                   <Link
                     to="/"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"

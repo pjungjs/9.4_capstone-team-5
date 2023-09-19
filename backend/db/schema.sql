@@ -51,11 +51,12 @@ CREATE TABLE questions (
 );
 
 CREATE TABLE answers (
-    id SERIAL PRIMARY KEY,
+    user_auth_id TEXT PRIMARY KEY REFERENCES users (user_auth_id) ON DELETE CASCADE,
     created_at TIMESTAMP,
-    user_auth_id TEXT REFERENCES users (user_auth_id) ON DELETE CASCADE,
-    question_answers JSONB DEFAULT '{}'::jsonb
+    question_answers JSONB DEFAULT '{}'::jsonb,
+    carbon_emission_result INTEGER DEFAULT 0
 );
+
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
@@ -73,3 +74,4 @@ CREATE TABLE post_comments (
     post_id INT REFERENCES posts (id),
     content TEXT
 );
+
