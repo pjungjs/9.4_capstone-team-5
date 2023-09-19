@@ -30,7 +30,7 @@ function App() {
             <Route path="/forum" element={<Forum />} />
             <Route path="/topic/:id" element={<ForumTopic />} />
             <Route element={<PrivateRoutes />}>
-              <Route path='/user/*' element={<UserMain />} />
+              <Route path="/user/*" element={<UserMain />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
