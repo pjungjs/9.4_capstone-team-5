@@ -15,12 +15,12 @@ function DashboardMain() {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/users/achievements/${'auth_id_1'}`) // ${currentUser.user_auth_id}
+      .get(`${BASE_URL}/users/achievements/${currentUser.user_auth_id}`)
       .then((response) => setUserAchvs(response.data.user_achvs))
       .catch((error) => console.error('Error: GET user achievements', error));
 
     axios
-      .get(`${BASE_URL}/users/scores/${'auth_id_1'}`) // ${currentUser.user_auth_id}
+      .get(`${BASE_URL}/users/scores/${currentUser.user_auth_id}`)
       .then((response) => setUserScores(response.data))
       .catch((error) => console.error('Error: GET user achievements', error));
   }, [currentUser]);

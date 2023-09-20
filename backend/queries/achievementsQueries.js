@@ -37,12 +37,13 @@ const getUserAchvs = async (userAuthId) => {
 const updateUserAchvs = async (userAuthId, achvsToUpdate) => {
   // data format to send on the body:
   //an object of "badge_name" and "received_date".
-  //one badge at a time
+  
+  //add one badge at a time to the existing data
   //e.g.: { "badge_name": "bage name", "received_date": "date" }
 
   try {
     const updatedAchvs = await db.one(
-      'UPDATE users SET user_achvs=$1 WHERE user_auth_id=$2 RETURNING *;',
+      'UPDATE users SET user_achvs=user_achvs || $1 WHERE user_auth_id=$2 RETURNING *;',
       [achvsToUpdate, userAuthId]
     );
     return { success: true, payload: updatedAchvs };

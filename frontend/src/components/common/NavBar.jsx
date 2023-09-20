@@ -74,7 +74,7 @@ function NavBar() {
           <div>
             <Link to="/">
               <img
-                className={`${!scrolled ? 'h-20 pl-2' : 'h-16 pl-4'}`}
+                className={`${!scrolled ? 'pl-2' : 'pl-4'} h-16`}
                 src={!scrolled ? logo1 : logo2}
                 alt="EcoWay logo"
               />
@@ -166,32 +166,29 @@ function NavBar() {
                     openPro ? '' : 'max-md:hidden'
                   } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
                 >
-                  <Link
+                  {/* <Link
                     to="/"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     How it works
-                  </Link>
-                  {!session ? (
-              <button
-                className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
-                onClick={() => navigate('/login')}
-              >
-                Carbon Footprint Calculator
-              </button>
-            ) : (
+                  </Link> */}
                   <Link
-                    to="/user/dailyquestions"
+                    to={`${session ? '/user/dailyquestions' : '/login'}`}
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Carbon Footprint Calculator
                   </Link>
-                  )}
                   <Link
-                    to="/"
+                    to="/actions"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
-                    Achievements
+                    Take Actions
+                  </Link>
+                  <Link
+                    to="/badges"
+                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
+                  >
+                    Earn Badges
                   </Link>
                 </div>
               </li>
@@ -208,14 +205,14 @@ function NavBar() {
                     openCom ? '' : 'max-md:hidden'
                   } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
                 >
-                  <Link
+                  {/* <Link
                     to="/"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Blog
-                  </Link>
+                  </Link> */}
                   <Link
-                    to="/"
+                    to="/forum"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Forum Feed
@@ -236,16 +233,16 @@ function NavBar() {
                   } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
                 >
                   <Link
-                    to="/testimonials"
+                    to="/our-goal"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
-                    Testimonials
+                    Our Goal
                   </Link>
                   <Link
-                    to="/about"
+                    to="/our-team"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
-                    About Us
+                    Our Team
                   </Link>
                 </div>
               </li>

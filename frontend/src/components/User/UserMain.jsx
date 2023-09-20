@@ -5,10 +5,11 @@ import { useStytchUser } from '@stytch/react';
 
 import Sidebar from './Sidebar.jsx';
 import DashboardMain from './DashboardContent/DashboardMain.jsx';
-import Achievements from '../../pages/Achievements.jsx';
-import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
 import MyFootprint from './MyFootprintContent/MyFootprint.jsx';
 import DailyQuestions from './DailyQuestionsContent/DailyQuestions.jsx';
+import Achievements from '../../pages/Achievements.jsx';
+import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
+import ActionsMain from './ActionsContent/ActionsMain.jsx';
 import SettingsMain from './SettingsContent/SettingsMain.jsx';
 import NotFound from '../../pages/NotFound.jsx';
 
@@ -30,7 +31,6 @@ export default function UserMain() {
     short_bio: '',
     profile_picture_url: '',
   });
-
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -70,24 +70,20 @@ export default function UserMain() {
         console.error('Error: POST new scores', error);
       }
     };
-    
-        const createUserAnswers = async () => {
-          try {
-            const postAnswers = await axios.post(
-              `${BASE_URL}/users/answers/${currentUser.user_auth_id}`,
-            );
-            console.log(postAnswers.data);
-          } catch (error) {
-            console.error('Error: POST new answers', error);
-          }
-        };
+
+    const createUserAnswers = async () => {
+      try {
+        const postAnswers = await axios.post(
+          `${BASE_URL}/users/answers/${currentUser.user_auth_id}`,
+        );
+        console.log(postAnswers.data);
+      } catch (error) {
+        console.error('Error: POST new answers', error);
+      }
+    };
 
     fetchUser();
-
   }, []);
-
-  
-  
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
@@ -96,16 +92,18 @@ export default function UserMain() {
         <div className="flex-grow">
           {currentUserRoute === 'dashboard' ? (
             <DashboardMain />
+          ) : currentUserRoute === 'myfootprint' ? (
+            <MyFootprint />
+          ) : currentUserRoute === 'dailyquestions' ? (
+            <DailyQuestions />
+          ) : currentUserRoute === 'actions' ? (
+            <ActionsMain />
           ) : currentUserRoute === 'achievements' ? (
             <Achievements />
           ) : currentUserRoute === 'leaderboard' ? (
             <LeaderboardDisplay />
           ) : currentUserRoute === 'settings' ? (
             <SettingsMain />
-          ) : currentUserRoute === 'myfootprint' ? (
-            <MyFootprint />
-          ) : currentUserRoute === 'dailyquestions' ? (
-            <DailyQuestions currentUser={currentUser}/>
           ) : (
             <NotFound />
           )}
