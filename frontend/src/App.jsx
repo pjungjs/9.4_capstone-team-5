@@ -13,6 +13,8 @@ import PrivateRoutes from './components/User/PrivateRoutes.jsx';
 import UserMain from './components/User/UserMain.jsx';
 import Forum from './pages/ForumTopic.jsx';
 import ForumTopic from './pages/Forum.jsx';
+import Actions from './components/Actions/Actions.jsx';
+import ActionDetails from './components/Actions/ActionDetails.jsx';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
             <Route path="/login/auth" element={<LoginAuth />} />
             <Route path="/forum" element={<Forum />} />
             <Route path="/topic/:id" element={<ForumTopic />} />
+            <Route path="/actions" element={<Actions />} />
+            <Route path="/actions/:slug" element={<ActionDetails />} />
             <Route element={<PrivateRoutes />}>
               <Route path="/user/*" element={<UserMain />} />
             </Route>

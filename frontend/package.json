@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.17.2",
+    "@contentful/rich-text-types": "^16.3.0",
     "@stytch/react": "^7.0.2",
     "@stytch/vanilla-js": "^2.0.4",
     "axios": "^1.4.0",
+    "contentful": "^10.5.2",
     "dotenv": "^16.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
