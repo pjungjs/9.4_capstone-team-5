@@ -26,15 +26,20 @@ function SettingsEdit({ editInfo, setEditInfo }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    client.user
-      .update({
-        name: {
-          first_name: updateUser.first_name,
-          last_name: updateUser.last_name,
-        },
-      })
-      .then((response) => console.log(response))
-      .catch((error) => console.warn('Error updating User on Stytch', error));
+    if (
+      currentUser.first_name !== updateUser.first_name ||
+      currentUser.last_name !== updateUser.last_name
+    ) {
+      client.user
+        .update({
+          name: {
+            first_name: updateUser.first_name,
+            last_name: updateUser.last_name,
+          },
+        })
+        .then((response) => console.log(response))
+        .catch((error) => console.warn('Error updating User on Stytch', error));
+    }
 
     axios
       .put(`${BASE_URL}/users/${currentUser.user_auth_id}`, updateUser)

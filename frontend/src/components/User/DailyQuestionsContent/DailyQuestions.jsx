@@ -1,9 +1,10 @@
+import CarbonCalc from "../../CarbonCalc"
 
+export default function DailyQuestions( { currentUser }) {
 
-export default function DailyQuestions() {
     return (
         <div>
-            Hello
+            <CarbonCalc currentUser={currentUser}/>
         </div>
     )
 }
