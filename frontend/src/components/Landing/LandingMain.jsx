@@ -1,7 +1,9 @@
 import planet from '../../assets/planet1.jpeg';
 import recycling from '../../assets/recycle1.jpeg';
 import reduceCarbon from '../../assets/reduceCarbon.jpeg';
+import whatIscarbonFootprint from '../../assets/whatIscarbonFootprint.jpeg';
 import carbonFootMoving from '../../assets/carbonFootMoving.gif';
+import howItWorks from '../../assets/howItWorks.gif';
 import howTohelp from '../../assets/howTohelp.png';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -9,7 +11,7 @@ import { useState } from 'react';
 function LandingMain() {
   const navigate = useNavigate();
 
-  const images = [carbonFootMoving, planet, recycling, reduceCarbon, howTohelp];
+  const images = [carbonFootMoving, whatIscarbonFootprint, howItWorks, planet,  recycling, howTohelp];
   const [currImage, setCurrImage] = useState(0);
 
   const nextImage = () => {
@@ -84,8 +86,6 @@ function LandingMain() {
               &rarr;
             </button>
           </div>
-
-          
         </div>
       </div>
     </div>
@@ -93,3 +93,19 @@ function LandingMain() {
 }
 
 export default LandingMain;
+
+
+
+// <div className="rounded-xl bg-gray-200 md:col-start-3">
+//           <div className="p-4">
+//             <p className="pb-2 text-center text-lg font-bold">
+//               How does it work?
+//             </p>
+//             <p>
+//               First, you will need to create an account. Then, you will be able
+//               to track your carbon footprint by entering your daily activities.
+//               Finally, you will be able to offset your carbon footprint by
+//               donating to a charity of your choice.
+//             </p>
+//           </div>
+//         </div>
