@@ -32,6 +32,7 @@ export default function UserMain() {
     profile_picture_url: '',
   });
 
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -44,6 +45,7 @@ export default function UserMain() {
         } else {
           await createUser();
           await createUserScores();
+          await createUserAnswers();
         }
       } catch (error) {
         console.error('Error: GET existing user', error);
@@ -69,9 +71,22 @@ export default function UserMain() {
         console.error('Error: POST new scores', error);
       }
     };
+    
+        const createUserAnswers = async () => {
+          try {
+            const postAnswers = await axios.post(
+              `${BASE_URL}/users/answers/${currentUser.user_auth_id}`,
+            );
+            console.log(postAnswers.data);
+          } catch (error) {
+            console.error('Error: POST new answers', error);
+          }
+        };
 
     fetchUser();
+
   }, []);
+
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>

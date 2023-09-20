@@ -19,4 +19,31 @@ const getAllAnswers = async () => {
     }
   };
 
-  module.exports = { getAllAnswers, getUserAnswers }
+  const createAnswersTable = async (userAuthId) => {
+    try {
+      const newAnswers = await db.one(
+        'INSERT INTO answers (user_auth_id) VALUES ($1) RETURNING *;',
+        [userAuthId]
+      );
+      console.log(newAnswers)
+      return newAnswers;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  const updateAnswersTable = async (answers, userAuthId) => {
+    try {
+      const updatedAnswers = await db.any(
+        "UPDATE answers SET created_at=NOW(), question_answers=$1, carbon_emission_result=$2 WHERE user_auth_id=$3 RETURNING *",
+        [answers.question_answers, answers.carbon_emission_result, userAuthId]
+      );
+      return updatedAnswers;
+    } catch (error) {
+      return error;
+    }
+  };
+  
+
+
+  module.exports = { getAllAnswers, getUserAnswers, createAnswersTable, updateAnswersTable }

@@ -1,31 +1,34 @@
-
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import ForumTopic from '../pages/ForumTopic'; 
+
+const API = import.meta.env.VITE_BASE_URL; // do i need this?
+
 
 const sampleTopics = [
   {
-    id: 1,
+    id: 'sampleTopics-1',
     title: 'Tips for Reducing Energy Consumption',
     username: 'Sheisthebestepps',
     content:
       'At its core, energy conservation means using less energy to lower costs and reduce environmental impact. This can mean using less electricity, gas, or any other form of energy that you get from your utility and pay for. With finite energy resources available on our planet, actively conserving energy when possible is beneficial individually and to our larger energy systems. Keep your lights off to the extent safely possible, including exterior lights that may be on a timer. Set your thermostat to 78 degrees or higher, health permitting, and turn your air conditioner off when not at home. Move any furniture blocking vents to be sure air is flowing efficiently. Charge your laptop and cell phone before 3 p.m. or after 9 p.m. Hang dry your clothes instead of using your dryer. Unplug energy vampires when not in use, such as televisions, game consoles, and standby coffee makers. Use a fan(s) instead of your air conditioner. Cover your windows to keep sunlight from heating your home. Cook using your stove, microwave, or outside grill instead of your oven. Limit opening your refrigerator and freezer.',
   },
   {
-    id: 2,
+    id: 'sampleTopics-2',
     title: 'Sustainable Transportation Ideas',
     username: 'Type-towinit',
     content:
       'Sustainable transportation options run on clean fuel, batteries, or both. Alternative fuels can be used in flexible-fuel and dual-fuel vehicles as well as vehicles with advanced technology, such as hybrid power systems and fuel cells. Alternative fuels help conserve fuel and reduce emissions.',
   },
   {
-    id: 3,
+    id: 'sampleTopics-3',
     title: 'What Will Be The Biggest Environmental Problems of 2024?',
     username: 'WiliAm',
     content:
       'The U.S. and the entire world face many immediate environmental issues, but some are more pressing and time-sensitive than others. Let’s review the six biggest environmental issues the U.S. faces as we near 2024. 1. Fossil Fuels: burning these fuels for energy is the leading cause of climate change 2. Deforestation: the urbanization of forested land has severe consequence. It impacts C02 emissions which contributes to global warming, and impacts wildlife and their habitats and ecosystems. 3. Air Quality 4. Drinking Water: We take drinking water for granted in the U.S., but water-contamination crises have shown to affect Flint, Michigan, Mississippi, Maryland and Hawaii. 5. Waste: the more we consume, the more waste we produce. 6. Natural Resources: natural resource depletion can lead to many issues, including water shortages, oil shortages, loss of forested lands, mineral depletion, and even species extinction.',
   },
   {
-    id: 4,
+    id: 'sampleTopics-4',
     title: 'How To Reduce Your Carbon Footprint - Top Tips',
     username: 'InPursuit',
     content:
@@ -35,30 +38,59 @@ const sampleTopics = [
 
 const Forum = () => {
   // Initialize state for storing posts
-  const [posts, setPosts] = useState(sampleTopics);
+  const [posts, setPosts] = useState([]);   //(sampleTopics)
   const [comment, setComment] = useState('');
+  const [activeCommentPostId, setActiveCommentPostId] = useState(null);
 //   const [showComment, setShowComment] = useState(false);
 
-  const [activeCommentPostId, setActiveCommentPostId] = useState(null);
+  useEffect(() => {
+    axios
+    .get(`${API}/posts`)
+    .then((res) => {
+      const postTopics = [...sampleTopics, ...res.data];
+      setPosts(postTopics);
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  }, []);
+
 
   // Update the likes count in the state
-  const handleLikes = () => {
-    setPosts((previousPost) => ({
-      ...previousPost,
-      likes: previousPost.likes + 1,
-    }));
+   const handleLikes = (postId) => {
+    setPosts((previousPosts) =>
+      previousPosts.map((post) =>
+        post.id === postId
+          ? { ...post, likes: post.likes + 1 }
+          : post
+      )
+    );
+    console.log(('Likes updated:', postId));
   };
+  
+  // const handleLikes = () => {
+  //   setPosts((previousPost) => ({
+  //     ...previousPost,
+  //     likes: previousPost.likes + 1,
+  //   }));
+  // };
 
   // Function to handle the submission of a new post
   const handlePostSubmit = (newPost) => {
-    newPost.comments = [];
-    setPosts([...posts, newPost]);
+    axios
+      .post(`${API}/posts`, newPost)
+      .then((res) => {
+      setPosts((previousPosts) => [...previousPosts, res.data]);
+      })
+      .catch((error) =>{
+        console.log(error);
+      });
+    // newPost.comments = [];
+    // setPosts([...posts, newPost]);
   };
 
   // handle comment submission
   const handleComment = (postId) => {
-    // setShowComment(true);
-
     setActiveCommentPostId(postId);
   };
 
@@ -86,6 +118,8 @@ const Forum = () => {
     setActiveCommentPostId(null); // Reset activeCommentPostId
   };
 
+
+
   // Implement the sharing functionality here
   const handleShare = () => {
     alert('Sharing not implemented in this example.');
@@ -100,8 +134,8 @@ const Forum = () => {
         EcoWAY Carbon 👣 Footprint Forum
       </h1>
 </div>
-      {/* ForumTopic component for creating new posts */}
-      <ForumTopic onPostSubmit={handlePostSubmit} />
+    
+      <ForumTopic onPostSubmit={handlePostSubmit} onPostDelete={() => {}}/>
       <div className="mt-4">
         {posts.map((post) => (
           <div
@@ -120,17 +154,19 @@ const Forum = () => {
             {/* Like, Comment, and Share buttons can be added here */}
             <div className="space-x-2">
               <button
-                onClick={handleLikes}
+                onClick={() => handleLikes(post.id)}
                 className="rounded-lg bg-blue-500 px-3 py-2 text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
               >
-                Like ({post.likes ? post.likes.length : '0'})
+                Like ({post.likes})
               </button>
+
               <button
                 onClick={() => handleComment(post.id)}  
                 className="rounded-lg bg-blue-500 px-3 py-2 text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
               >
                 Comment ({post.comments ? post.comments.length : ''})
               </button>
+
               <button
                 onClick={handleShare}
                 className="rounded-lg bg-blue-500 px-3 py-2 text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
