@@ -76,7 +76,7 @@ VALUES
 
 
   ('Eco-Chef Connoisseur', 'You have cooked 30 plant-based meals. You are a culinary eco-genius!', 'https://ecoway.s3.amazonaws.com/eco+chef+connoiseur.png', 300, 'food'),
-  ('Zero Waste Foodie', 'You have taken zero-waste cooking to a whole new level. As a Zero-Waste Epicurean, your kitchen is a sustainability paradise! Your culinary efforts are equivalent to removing 500 pounds of CO2 from the atmosphere!', 'https://ecoway.s3.amazonaws.com/zero+waste+foodie.png', 400, 'food'),
+  ('Zero Waste Foodie', 'You have taken zero-waste cooking to a whole new level. As a Zero-Waste Epicurean, your kitchen is a sustainability paradise! Your culinary efforts are equivalent to removing 500 pounds of CO2 from the atmosphere!', 'https://ecoway.s3.amazonaws.com/zero+waste+foodie.pn', 400, 'food'),
   ('Sustainable Sustainer', 'Your commitment to sustainable eating makes you a Sustainable Sustainer. Your food choices are as green as can be!  Your eco-conscious diet is equivalent to saving 100,000 gallons of water', 'https://ecoway.s3.amazonaws.com/sustainable+sustainer.png', 475, 'food' );
   -- ('Green Gourmet Guru', 'Keep savoring those eco-friendly flavors! Your food choices are equivalent to planting 250 trees, keep it green all the way!', 'https://ecoway.s3.amazonaws.com/Badge.png', 650, 'food' ),
   -- ('Organic Olympian', 'You have embraced the organic lifestyle, and your food choices reflect your dedication. As an Organic Olympian, you are championing health and sustainability. Your organic journey is equivalent to reducing plastic waste by 1,000 bottles','https://ecoway.s3.amazonaws.com/Badge.png', 800, 'food');
