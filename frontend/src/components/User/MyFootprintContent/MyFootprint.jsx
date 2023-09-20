@@ -11,19 +11,19 @@ const API = import.meta.env.VITE_BASE_URL
 
 export default function MyFootprint() {
 
-    const [answers, setAnswers] = useState({})
+    // const [answers, setAnswers] = useState({})
 
-    useEffect(() => {
-        axios.get(`${API}/users/answers`)
+    // useEffect(() => {
+    //     axios.get(`${API}/users/answers`)
         
-            .then((res) => {
-                console.log(res.data);
-                setAnswers(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+    //         .then((res) => {
+    //             console.log(res.data);
+    //             setAnswers(res.data);
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         });
+    // }, []);
 
 
     const data = {
