@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "db:setup": "psql -U postgres -f db/schema.sql && psql -U postgres -f db/seed.sql"
+    "db:setup": "psql -U postgres -f db/schema.sql && psql -U postgres -f db/seed.sql",
+    "db:prod-init": "node db/prodDb-init.js"
   },
   "keywords": [],
   "author": "",
