@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../UserMain';
 import DashboardWelcome from './DashboardWelcome.jsx';
-import DashboardBadges from './DashboardBadges.jsx';
+import DashboardAchievements from './DashboardAchievements.jsx';
 import DashboardScoreChart from './DashboardScoreChart.jsx';
 import DashboardActions from './DashboardActions.jsx';
 
@@ -33,7 +33,7 @@ function DashboardMain() {
     <div className="h-screen">
       <DashboardWelcome />
       <div className="space-y-4 p-4">
-        <DashboardBadges userAchvs={userAchvs} />
+        <DashboardAchievements userAchvs={userAchvs} />
         <DashboardScoreChart userScores={userScores} />
         <DashboardActions />
       </div>
