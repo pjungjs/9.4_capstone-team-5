@@ -4,7 +4,6 @@ CREATE DATABASE ecoway_dev;
 
 \c ecoway_dev;
 
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     created_at TEXT,
@@ -15,7 +14,8 @@ CREATE TABLE users (
     email TEXT,
     short_bio TEXT,
     profile_picture_url TEXT,
-    user_achvs JSONB DEFAULT '{}'::jsonb
+    user_achvs JSONB DEFAULT '{}'::jsonb,
+    user_actns JSONB DEFAULT '{}'::jsonb
 );
 
 CREATE TABLE user_scores (
@@ -26,6 +26,7 @@ CREATE TABLE user_scores (
     score_food INTEGER DEFAULT 0, -- related to the food category from the questionnaire
     score_lifestyle INTEGER DEFAULT 0, -- related to the lifestyle category from the questionnaire
     score_recycling INTEGER DEFAULT 0, -- related to the recycling category from the questionnaire
+    score_actions INTEGER DEFAULT 0, -- related to the total sum of the actions points
     score_total INTEGER DEFAULT 0 -- related to the total sum of the other scores
 );
 
@@ -38,7 +39,6 @@ CREATE TABLE badges (
     badge_type TEXT NOT NULL
 );
 
-
 CREATE TABLE questions (
     id SERIAL PRIMARY KEY,
     created_at TIMESTAMP,
@@ -48,13 +48,11 @@ CREATE TABLE questions (
 );
 
 CREATE TABLE answers (
-    id SERIAL PRIMARY KEY,
     user_auth_id TEXT PRIMARY KEY REFERENCES users (user_auth_id) ON DELETE CASCADE,
     created_at TIMESTAMP,
     question_answers JSONB DEFAULT '{}'::jsonb,
     carbon_emission_result INTEGER DEFAULT 0
 );
-
 
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
@@ -72,4 +70,3 @@ CREATE TABLE post_comments (
     post_id INT REFERENCES posts (id),
     content TEXT
 );
-

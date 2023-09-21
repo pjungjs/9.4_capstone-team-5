@@ -9,11 +9,13 @@ const {
 } = require('../queries/usersQueries.js');
 
 const achievementsControllers = require('./achievementsControllers.js');
+const actionsControllers = require('./actionsControllers.js');
 const scoresControllers = require('./scoresControllers.js');
-const answersControllers = require('./answersControllers.js')
+const answersControllers = require('./answersControllers.js');
 users.use('/achievements', achievementsControllers);
+users.use('/actions', actionsControllers);
 users.use('/scores', scoresControllers);
-users.use("/answers", answersControllers);
+users.use('/answers', answersControllers);
 
 /** User's Information
  * GET all
