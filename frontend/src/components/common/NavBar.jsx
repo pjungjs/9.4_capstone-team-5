@@ -74,7 +74,7 @@ function NavBar() {
           <div>
             <Link to="/">
               <img
-                className={`${!scrolled ? 'pl-2' : 'pl-4'} h-16`}
+                className={`${!scrolled ? 'h-20 pl-2' : 'h-16 pl-4'}`}
                 src={!scrolled ? logo1 : logo2}
                 alt="EcoWay logo"
               />
