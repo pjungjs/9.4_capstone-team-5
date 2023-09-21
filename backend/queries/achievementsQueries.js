@@ -21,7 +21,8 @@ const getUsersAchvs = async () => {
 
 const getUserAchvs = async (userAuthId) => {
   try {
-    const userAchvs = await db.one(
+    // if found, return user's achievements, otherwise, return null instead of error
+    const userAchvs = await db.oneOrNone(
       'SELECT user_achvs FROM users WHERE user_auth_id=$1;',
       userAuthId
     );
