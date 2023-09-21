@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 
-
-
 function Badge({ badge }) {
   //   console.log(badge);
 
@@ -18,73 +16,28 @@ function Badge({ badge }) {
 
   return (
     <div
-      className=" flex h-40 justify-center space-x-10 rounded-full border border-yellow-700  shadow-2xl outline outline-offset-2 outline-green-700  hover:outline-green-500"
+      className="my-20 max-w-md rounded-lg bg-white px-8 py-4 shadow-lg"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {isHovered && (
-        <div className="absolute flex h-40 w-40 flex-col items-center justify-center bg-gray-100 transition delay-500">
-          <p className="text-l justify-center text-gray-900">
+        <div className="absolute flex h-40 w-40 flex-col items-center justify-center  rounded-xl bg-white transition delay-500">
+          <p className="mt-2 text-gray-600">
             {badge.badge_description}
           </p>
         </div>
       )}
-      <div className="mt-5 flex flex-col items-center space-y-1">
-        <div className="">
-          <img
-            className=" w-20 "
-            src={badge.badge_img_url}
-            alt="badge image"
-          />
-        </div>
 
-        {/* <div className="flex">
-          <svg
-            className="mr-1 h-4 w-4 text-yellow-300"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 22 20"
-          >
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-          </svg>
-          <svg
-            className="mr-1 h-4 w-4 text-yellow-300"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="currentColor" 
-            viewBox="0 0 22 20"
-          >
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-          </svg>
-          <svg
-            className="h-4 w-4 text-gray-200 dark:text-gray-600"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 22 20"
-          >
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-          </svg>
-        </div> */}
-        {/* <span className="py-2.2 px-3.6 rounded-1.8 inline-block whitespace-nowrap bg-gradient-to-tl from-green-600 to-lime-400 text-center align-baseline text-xs font-bold uppercase leading-none text-white">
-          level
-        </span> */}
+      <div className="flex justify-center md:justify-end mt-16">
+        <img className=" w-80 " src={badge.badge_img_url} alt="badge image" />
       </div>
 
-      <div className="flex items-center">
-        <div className="">
-          <p className="rounded-full text-base font-semibold tracking-tight text-gray-900">
-            {badge.badge_name}
-          </p>
-          {/* <p className="text-sm">{badge.badge_description}</p> */}
-        </div>
+      <div className="">
+        <p className="text-gray-800 text-3xl font-semibold">{badge.badge_name}</p>
+        {/* <p className="text-sm">{badge.badge_description}</p> */}
       </div>
     </div>
   );
 }
-<span class="py-2.2 px-3.6 rounded-1.8 inline-block whitespace-nowrap bg-gradient-to-tl from-green-600 to-lime-400 text-center align-baseline text-xs font-bold uppercase leading-none text-white">
-  chip lime
-</span>;
 
 export default Badge;
