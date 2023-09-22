@@ -49,20 +49,39 @@ function SettingsView({ editInfo, setEditInfo }) {
             readOnly
           />
         </div>
-        <div>
-          <label
-            htmlFor="short_bio"
-            className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-          >
-            Short Bio
-          </label>
-          <textarea
-            id="short_bio"
-            value={currentUser.short_bio}
-            rows="4"
-            placeholder="Describe yourself shortly :) ..."
-            readOnly
-          />
+        <div className="flex space-x-4">
+          <div className="w-1/2">
+            <label
+              htmlFor="short_bio"
+              className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
+            >
+              Short Bio
+            </label>
+            <textarea
+              id="short_bio"
+              value={currentUser.short_bio}
+              rows="5"
+              placeholder="Describe yourself shortly :) ..."
+              readOnly
+            />
+          </div>
+          <div className="flex w-1/2 flex-col items-end">
+            <div className="mb-2 block text-right text-xs font-bold uppercase tracking-wide text-gray-700">
+              Profile Picture
+            </div>
+            {currentUser.profile_picture_url ? (
+              <img
+                src={currentUser.profile_picture_url}
+                alt="profile picture"
+                className="h-28 w-28 rounded-lg"
+              />
+            ) : (
+              <div className="text-right normal-case">
+                <p>No profile picture found!</p>
+                <p>Click on Edit to Upload the picture</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

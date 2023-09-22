@@ -42,7 +42,7 @@ function NavBar() {
         .then((response) => setUserInfo(response.data))
         .catch((error) => console.warn('Error: PUT', error));
     }
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     setOpenMenu(false);
@@ -103,7 +103,7 @@ function NavBar() {
                     {userInfo?.profile_picture_url ? (
                       <img
                         src={userInfo.profile_picture_url}
-                        alt="user picture"
+                        alt="profile picture"
                         className="w-10 rounded-full"
                       />
                     ) : (
