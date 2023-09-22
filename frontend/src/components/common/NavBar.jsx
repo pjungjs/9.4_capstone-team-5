@@ -1,19 +1,21 @@
-import logo1 from '../../assets/logos/logo1.svg';
-import logo2 from '../../assets/logos/logo2.svg';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useStytch, useStytchSession, useStytchUser } from '@stytch/react';
 import { GrMenu, GrClose } from 'react-icons/gr';
 import { AiOutlineUser } from 'react-icons/ai';
+import logo1 from '../../assets/logos/logo1.svg';
+import logo2 from '../../assets/logos/logo2.svg';
+
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function NavBar() {
+  const [userInfo, setUserInfo] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
   const [openUserMenu, setOpenUserMenu] = useState(false);
   const [openPro, setOpenPro] = useState(false);
   const [openCom, setOpenCom] = useState(false);
   const [openRes, setOpenRes] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
-  const [userName, setUserName] = useState('');
   const [scrolled, setScrolled] = useState(false);
 
   const { pathname } = useLocation();
@@ -24,7 +26,7 @@ function NavBar() {
   const { user } = useStytchUser();
 
   const updateStyle = () => {
-    if (window.scrollY >= 25) {
+    if (window.scrollY >= 1) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -35,8 +37,10 @@ function NavBar() {
 
   useEffect(() => {
     if (user) {
-      setUserEmail(user.emails[0].email);
-      setUserName(`${user.name.first_name} ${user.name.last_name}`);
+      axios
+        .get(`${BASE_URL}/users/${user.user_id}`)
+        .then((response) => setUserInfo(response.data))
+        .catch((error) => console.warn('Error: PUT', error));
     }
   }, [user]);
 
@@ -96,7 +100,15 @@ function NavBar() {
                     className="flex items-center rounded-full text-sm focus:ring-4 focus:ring-gray-300"
                     onClick={() => toggleUserMenu()}
                   >
-                    <AiOutlineUser className="rounded-full border-2 border-green-600 p-0.5 text-4xl text-green-600 hover:bg-green-600 hover:text-white" />
+                    {userInfo?.profile_picture_url ? (
+                      <img
+                        src={userInfo.profile_picture_url}
+                        alt="user picture"
+                        className="w-10 rounded-full"
+                      />
+                    ) : (
+                      <AiOutlineUser className="rounded-full border-2 border-green-600 p-0.5 text-4xl text-green-600 hover:bg-green-600 hover:text-white" />
+                    )}
                   </button>
                 </div>
                 <div
@@ -105,9 +117,9 @@ function NavBar() {
                   } absolute top-10 z-50 divide-y divide-gray-200 rounded-lg border bg-gray-50 shadow-lg`}
                 >
                   <div className="whitespace-nowrap px-4 py-3 text-right text-sm text-gray-900">
-                    <p>{userName}</p>
+                    <p>{`${userInfo?.first_name} ${userInfo?.last_name}`}</p>
                     <p className="max-w-[170px] truncate font-medium">
-                      {userEmail}
+                      {userInfo?.email}
                     </p>
                   </div>
                   <ul className="py-1 text-right text-sm">

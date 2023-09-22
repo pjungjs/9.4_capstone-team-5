@@ -28,8 +28,10 @@ export default function UserMain() {
     last_name: user.name.last_name,
     username: user.emails[0].email.split('@')[0],
     email: user.emails[0].email,
+    profile_picture_url: user.providers
+      ? user.providers[0].profile_picture_url
+      : '',
     short_bio: '',
-    profile_picture_url: '',
   });
 
   useEffect(() => {
