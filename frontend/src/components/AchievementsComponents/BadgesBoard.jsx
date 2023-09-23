@@ -8,7 +8,7 @@ import Badge from './Badge.jsx';
 const API = import.meta.env.VITE_BASE_URL;
 
 function BadgesBoard() {
-  const [badge, setBadge] = useState([]);
+  const [badgeData, setBadgeData] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -20,7 +20,7 @@ function BadgesBoard() {
       .get(`${API}/badges`)
       .then((res) => {
         console.log(res.data);
-        setBadge(res.data);
+        setBadgeData(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -60,9 +60,9 @@ function BadgesBoard() {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="m1 1 4 4 4-4"
             />
           </svg>
@@ -114,8 +114,8 @@ function BadgesBoard() {
         )}
       </div>
 
-      <div className="flex space-x-2 flex-col">
-        {badge.map((badge) => (
+      <div className="grid grid-cols-3">
+        {badgeData.map((badge) => (
           <Badge key={badge.badge_id} badge={badge} />
         ))}
       </div>

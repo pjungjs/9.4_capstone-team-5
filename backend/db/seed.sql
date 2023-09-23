@@ -13,6 +13,8 @@ VALUES
     { "action_slug": "solar-panels", "completed_at": "2023-09-02T23:21:20.000Z" }
   ]'),
   ('2023-09-02T23:21:20.000Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 'Jinseok', 'Jung', 'jj', 'pjungjs@gmail.com', 'Full Stack Web Developer', 'https://avatars.githubusercontent.com/u/115429022?v=4', '[
+
+    { "badge_name": "Consistent Player", "badge_img_url": "https://ca.slack-edge.com/TCVA3PF24-U041NJ82RM0-22a6eba57651-512",  "received_date": "2023-09-02T23:21:20.000Z" }
     { "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/Badge.png",  "received_date": "2023-09-02T23:21:20.000Z" }
   ]', '[
     { "action_slug": "biking-or-walking", "completed_at": "2023-09-02T23:21:20.000Z" }
