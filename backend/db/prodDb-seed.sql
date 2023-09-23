@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS users (
     email TEXT,
     short_bio TEXT,
     profile_picture_url TEXT,
-    user_achvs JSONB DEFAULT '{}'::jsonb,
-    user_actns JSONB DEFAULT '{}'::jsonb
+    user_achvs JSONB DEFAULT '[]'::jsonb,
+    user_actns JSONB DEFAULT '[]'::jsonb 
 );
 
 CREATE TABLE IF NOT EXISTS user_scores (
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS questions (
 CREATE TABLE IF NOT EXISTS answers (
     user_auth_id TEXT PRIMARY KEY REFERENCES users (user_auth_id) ON DELETE CASCADE,
     created_at TIMESTAMP,
-    question_answers JSONB DEFAULT '{}'::jsonb,
+    question_answers JSONB DEFAULT '[]'::jsonb,
     carbon_emission_result INTEGER DEFAULT 0
 );
 
@@ -85,26 +85,26 @@ VALUES
     { "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/Badge.png",  "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_name": "Everything local", "badge_img_url": "https://ecoway.s3.amazonaws.com/Badge.png",  "received_date": "2023-08-31T23:37:35.000Z" }
   ]', '[
-    { "action_slug": "hybrid-or-electric-vehicles", "added_on": "2023-09-01T23:21:20.000Z", "completed_on": "2023-09-02T23:21:20.000Z" },
-    { "action_slug": "seal-home-leaks", "added_on": "2023-09-01T23:21:20.000Z", "completed_on": "2023-09-02T23:21:20.000Z" },
-    { "action_slug": "solar-panels", "added_on": "2023-09-01T23:21:20.000Z", "completed_on": "2023-09-02T23:21:20.000Z" }
+    { "action_slug": "hybrid-or-electric-vehicles", "completed_at": "2023-09-02T23:21:20.000Z" },
+    { "action_slug": "seal-home-leaks", "completed_at": "2023-09-02T23:21:20.000Z" },
+    { "action_slug": "solar-panels", "completed_at": "2023-09-02T23:21:20.000Z" }
   ]'),
   ('2023-09-02T23:21:20.000Z', 'user-live-683aaf5e-f190-4f08-ab20-d0ce6e82052e', 'Jinseok', 'Jung', 'jj', 'pjungjs@gmail.com', 'Full Stack Web Developer', 'https://avatars.githubusercontent.com/u/115429022?v=4', '[
     { "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/Badge.png",  "received_date": "2023-09-02T23:21:20.000Z" }
   ]', '[
-    { "action_slug": "biking-or-walking", "added_on": "2023-09-01T23:21:20.000Z", "completed_on": "2023-09-02T23:21:20.000Z" }
+    { "action_slug": "biking-or-walking", "completed_at": "2023-09-02T23:21:20.000Z" }
   ]'),
   ('2023-09-04T19:35:07.000Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 'Wilghen', 'Santos', 'wilghensantos', 'wilghensantos@gmail.com', 'Passionate about Music, programming and life.', 'https://lh3.googleusercontent.com/a/ACg8ocJUOfy0bJBrPz2j33CbOWlrIJ2iMnbOzLOyGRR8EelM7n4=s96-', '[
     { "badge_name": "Everything local", "badge_img_url": "https://ecoway.s3.amazonaws.com/Badge.png",  "received_date": "2023-08-31T23:37:35.000Z" }
   ]', '[]'),
   ('2023-09-06T22:29:59.000Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', 'Jose', 'Cepeda', 'josecepeda', 'josecepeda@pursuit.org', 'Full Stack Web Developer', 'https://lh3.googleusercontent.com/a/ACg8ocIHEfs1bXismg-VnVSCEFr_mJtVuSCi3YhSLQuzf2_i=s96-c', '[]', '[
-    { "action_slug": "unplug-unused-devices", "added_on": "2023-09-01T23:21:20.000Z", "completed_on": "2023-09-02T23:21:20.000Z" },
-    { "action_slug": "reduce-water-usage", "added_on": "2023-09-01T23:21:20.000Z", "completed_on": "2023-09-02T23:21:20.000Z" }
+    { "action_slug": "unplug-unused-devices", "completed_at": "2023-09-02T23:21:20.000Z" },
+    { "action_slug": "reduce-water-usage", "completed_at": "2023-09-02T23:21:20.000Z" }
   ]'),
   ('2023-09-10T17:40:36.000Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', 'She is the best', 'Epps', 'shareekaepps', 'shareekaepps@gmail.com', 'Full Stack Web Developer', 'https://lh3.googleusercontent.com/a/ACg8ocKAvDJej1E21YolQIyfadkqo5vddSF6sUn2oacrD17FDA=s96-c', '[
     { "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/Badge.png",  "received_date": "2023-08-31T23:37:35Z" }
   ]', '[
-    { "action_slug": "led-lighting", "added_on": "2023-09-01T23:21:20.000Z", "completed_on": "2023-09-02T23:21:20.000Z" }
+    { "action_slug": "led-lighting", "completed_at": "2023-09-02T23:21:20.000Z" }
   ]');
 
 
