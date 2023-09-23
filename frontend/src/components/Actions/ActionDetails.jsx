@@ -110,40 +110,49 @@ function ActionDetails() {
                 )}
               </div>
             </div>
-            {actionData.tips && (
-              <div className="p-4">
-                <div className="pb-2 text-xl font-bold text-green-600">
-                  Tips:
-                </div>
-                <div className="prose">
-                  {documentToReactComponents(actionData.tips, richTextOptions)}
-                </div>
-              </div>
-            )}
-            {actionData.resources && (
-              <div className="p-4">
-                <div className="text-xl font-bold text-green-600">
-                  Resources:
-                </div>
-                <ul className="list-disc">
-                  {actionData.resources.map((resource, index) => (
-                    <li key={index} className="py-1">
-                      <a
-                        className="text-blue-400 hover:text-blue-500 hover:underline"
-                        href={resource}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {resource}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div>
+              {session && (
+                <>
+                  {actionData.tips && (
+                    <div className="p-4">
+                      <div className="pb-2 text-xl font-bold text-green-600">
+                        Tips:
+                      </div>
+                      <div className="prose">
+                        {documentToReactComponents(
+                          actionData.tips,
+                          richTextOptions,
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  {actionData.resources && (
+                    <div className="p-4">
+                      <div className="text-xl font-bold text-green-600">
+                        Resources:
+                      </div>
+                      <ul className="list-disc">
+                        {actionData.resources.map((resource, index) => (
+                          <li key={index} className="py-1">
+                            <a
+                              className="text-blue-400 hover:text-blue-500 hover:underline"
+                              href={resource}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {resource}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
           </div>
-          <div className="p-4">
-            <div className="text-xl font-bold text-green-600">
+          <div className="flex flex-col items-center p-4">
+            <div className="m-4 mt-0 text-center text-3xl font-bold text-green-600">
               Track your Actions!
             </div>
             {session ? (
@@ -153,21 +162,32 @@ function ActionDetails() {
                   className="flex items-center justify-center space-x-2 py-2 text-blue-400 hover:cursor-pointer hover:text-blue-600 hover:underline"
                 >
                   <span className="text-lg">See Actions on the Dashboard</span>
-                  <TiArrowRightOutline className=" text-2xl" />
+                  <TiArrowRightOutline className="text-2xl" />
                 </div>
               </>
             ) : (
               <>
-                <div className="py-2">
-                  Create or Login to your account to keep track your actions and
-                  accumulate points to earn badges!
+                <div className="py-2 text-center">
+                  <div className="pb-2 text-lg">
+                    Create or Login to your account to:
+                  </div>
+                  <ol className="flex list-inside list-decimal flex-col items-center">
+                    <li>View Useful Tips and Resources</li>
+                    <li>Save your Completed Actions</li>
+                    <li>Accumulate Points to Earn Badges</li>
+                    <li>
+                      Help make{' '}
+                      <span className="underline">our only planet</span> a
+                      better place 😁
+                    </li>
+                  </ol>
                 </div>
                 <div
                   onClick={() => navigate('/login')}
-                  className="flex items-center justify-center space-x-2 text-blue-400 hover:cursor-pointer hover:text-blue-600 hover:underline"
+                  className="flex items-center justify-center space-x-2 py-2 text-blue-400 hover:cursor-pointer hover:text-blue-600 hover:underline"
                 >
                   <span className="text-xl">Go to Login page</span>
-                  <TiArrowRightOutline className=" text-2xl" />
+                  <TiArrowRightOutline className="text-2xl" />
                 </div>
               </>
             )}

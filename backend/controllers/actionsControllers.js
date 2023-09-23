@@ -3,13 +3,15 @@ const actions = express.Router({ mergeParams: true });
 const {
   getUsersActns,
   getUserActns,
-  updateUserActns,
+  addUserActn,
+  removeUserActn,
 } = require('../queries/actionsQueries.js');
 
 /** User's Actions
  * GET all
  * GET one
- * UPDATE
+ * UPDATE - add
+ * UPDATE - remove
  */
 actions.get('/', async (_, res) => {
   const usersActns = await getUsersActns();
@@ -36,17 +38,33 @@ actions.get('/:userAuthId', async (req, res) => {
   }
 });
 
+// add action
 actions.put('/:userAuthId', async (req, res) => {
   const { userAuthId } = req.params;
-  const editActns = req.body;
+  const addActn = req.body;
 
-  const updatedActns = await updateUserActns(userAuthId, editActns);
+  const updatedActns = await addUserActn(userAuthId, addActn);
 
   if (updatedActns.success) {
     res.status(200).json(updatedActns.payload);
   } else {
     res.status(400).json({
-      error: `users: actions update route error. ${updatedActns.payload}`,
+      error: `users: add action update route error. ${updatedActns.payload}`,
+    });
+  }
+});
+
+// remove action
+actions.put('/:userAuthId/:actionSlug', async (req, res) => {
+  const { userAuthId, actionSlug } = req.params;
+
+  const updatedActns = await removeUserActn(userAuthId, actionSlug);
+
+  if (updatedActns.success) {
+    res.status(200).json(updatedActns.payload);
+  } else {
+    res.status(400).json({
+      error: `users: remove action update route error. ${updatedActns.payload}`,
     });
   }
 });
