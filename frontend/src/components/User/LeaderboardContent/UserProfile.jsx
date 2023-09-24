@@ -3,7 +3,7 @@ import React from 'react';
 
 
 function UserProfile({ userProfileData}) {
-  // console.log(userProfileData)
+  console.log(userProfileData)
   
   // useEffect(() => {
   //   userScores.map((score) => {
@@ -21,7 +21,7 @@ function UserProfile({ userProfileData}) {
                 
               <div>
                 <img
-                  src={userProfileData.badge_image_url}
+                  src={userProfileData.profile_picture_url}
                   className="mb-2 h-24 w-24 rounded-full"
                   />
               </div>
