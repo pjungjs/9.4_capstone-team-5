@@ -18,7 +18,7 @@ function BadgesBoard() {
     axios
       .get(`${API}/badges`)
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         setBadgeData(res.data);
       })
       .catch((err) => {
