@@ -4,20 +4,36 @@ INSERT INTO users
  (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url, user_achvs)
 VALUES
   ('2023-08-31T23:37:35.000Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'EcoWay', 'Pursuit', 'ecoway.dev5', 'ecoway.dev5@gmail.com', 'I am the Admin of this project :)', 'https://lh3.googleusercontent.com/a/ACg8ocK2bi7blV5RtmHuQEDJHAFmo8kGxmjUrH9B5y4Ty8As=s96-c', '[
+
     { "badge_id": "16", "badge_name": "Eco-chef Connoisseur", "badge_img_url": "https://ecoway.s3.amazonaws.com/eco+chef+connoiseur.png", "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_id": "1", "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/consistent+player.png",  "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_id": "4", "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/recycle+crusader.png",  "received_date": "2023-08-31T23:37:35.000Z" }
+]', '[
+    { "action_slug": "hybrid-or-electric-vehicles", "completed_at": "2023-09-02T23:21:20.000Z" },
+    { "action_slug": "seal-home-leaks", "completed_at": "2023-09-02T23:21:20.000Z" },
+    { "action_slug": "solar-panels", "completed_at": "2023-09-02T23:21:20.000Z" }
+
   ]'),
+
 
 
   ('2023-09-02T23:21:20.000Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 'Jinseok', 'Jung', 'jj', 'pjungjs@gmail.com', 'Full Stack Web Developer', 'https://ca.slack-edge.com/TCVA3PF24-U041NJ82RM0-22a6eba57651-512', '[
     { "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/Badge.png",  "received_date": "2023-09-02T23:21:20.000Z" }
+ ]', '[
+    { "action_slug": "biking-or-walking", "completed_at": "2023-09-02T23:21:20.000Z" }
   ]'),
 
 
 
   ('2023-09-04T19:35:07.000Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 'Wilghen', 'Santos', 'wilghensantos', 'wilghensantos@gmail.com', 'Passionate about Music, programming and life.', 'https://lh3.googleusercontent.com/a/ACg8ocJUOfy0bJBrPz2j33CbOWlrIJ2iMnbOzLOyGRR8EelM7n4=s96-', '[
-    { "badge_id": "2", "badge_name": "Jukebox Hero", "badge_img_url": "https://ecoway.s3.amazonaws.com/jukebox+hero.png",  "received_date": "2023-08-31T23:37:35.000Z" }, { "badge_id": "11", "badge_name": "Eco-Picasso", "badge_img_url": "https://ecoway.s3.amazonaws.com/eco+picasso.png",  "received_date": "2023-08-31T23:37:35.000Z" },{ "badge_id":"7", "badge_name": "Energy-Efficient Enthusiast", "badge_img_url": "https://ecoway.s3.amazonaws.com/energy+efficient+enthusiast.png",  "received_date": "2023-08-31T23:37:35.000Z" }
+    { "badge_id": "2", "badge_name": "Jukebox Hero", "badge_img_url": "https://ecoway.s3.amazonaws.com/jukebox+hero.png",  "received_date": "2023-08-31T23:37:35.000Z" },
+   { "badge_id": "11", "badge_name": "Eco-Picasso", "badge_img_url": "https://ecoway.s3.amazonaws.com/eco+picasso.png",  "received_date": "2023-08-31T23:37:35.000Z" },
+   { "badge_id":"7", "badge_name": "Energy-Efficient Enthusiast", "badge_img_url": "https://ecoway.s3.amazonaws.com/energy+efficient+enthusiast.png",  "received_date": "2023-08-31T23:37:35.000Z" }
+  ]', '[]'),
+  ('2023-09-06T22:29:59.000Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', 'Jose', 'Cepeda', 'josecepeda', 'josecepeda@pursuit.org', 'Full Stack Web Developer', 'https://lh3.googleusercontent.com/a/ACg8ocIHEfs1bXismg-VnVSCEFr_mJtVuSCi3YhSLQuzf2_i=s96-c', '[]', '[
+    { "action_slug": "unplug-unused-devices", "completed_at": "2023-09-02T23:21:20.000Z" },
+    { "action_slug": "reduce-water-usage", "completed_at": "2023-09-02T23:21:20.000Z" }
+
   ]'),
 
 
@@ -26,6 +42,10 @@ VALUES
   ('2023-09-06T22:29:59.000Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', 'Jose', 'Cepeda', 'josecepeda', 'josecepeda@pursuit.org', 'Full Stack Web Developer', 'https://lh3.googleusercontent.com/a/ACg8ocIHEfs1bXismg-VnVSCEFr_mJtVuSCi3YhSLQuzf2_i=s96-c', '[]'),
   ('2023-09-10T17:40:36.000Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', 'She is the best', 'Epps', 'shareekaepps', 'shareekaepps@gmail.com', 'Full Stack Web Developer', 'https://lh3.googleusercontent.com/a/ACg8ocKAvDJej1E21YolQIyfadkqo5vddSF6sUn2oacrD17FDA=s96-c', '[
     { "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/Badge.png",  "received_date": "2023-08-31T23:37:35Z" }
+
+  ]', '[
+    { "action_slug": "led-lighting", "completed_at": "2023-09-02T23:21:20.000Z" }
+
   ]');
 
 INSERT INTO user_scores 

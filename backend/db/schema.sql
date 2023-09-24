@@ -14,8 +14,8 @@ CREATE TABLE users (
     email TEXT,
     short_bio TEXT,
     profile_picture_url TEXT,
-    user_achvs JSONB DEFAULT '{}'::jsonb,
-    user_actns JSONB DEFAULT '{}'::jsonb
+    user_achvs JSONB DEFAULT '[]'::jsonb,
+    user_actns JSONB DEFAULT '[]'::jsonb
 );
 
 CREATE TABLE user_scores (
@@ -50,7 +50,7 @@ CREATE TABLE questions (
 CREATE TABLE answers (
     user_auth_id TEXT PRIMARY KEY REFERENCES users (user_auth_id) ON DELETE CASCADE,
     created_at TIMESTAMP,
-    question_answers JSONB DEFAULT '{}'::jsonb,
+    question_answers JSONB DEFAULT '[]'::jsonb,
     carbon_emission_result INTEGER DEFAULT 0
 );
 
