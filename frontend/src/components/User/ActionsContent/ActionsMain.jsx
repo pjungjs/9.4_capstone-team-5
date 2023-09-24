@@ -22,6 +22,7 @@ function ActionsMain() {
       );
   }, []);
 
+  console.log(currentUser);
   // mark actions as completed
   const filteredActions = actionContent?.map((action) => {
     const userCompletedAction = currentUser.user_actns?.find(
