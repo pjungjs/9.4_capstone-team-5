@@ -1,6 +1,4 @@
-import planet from '../../assets/planet1.jpeg';
 import recycling from '../../assets/recycle1.jpeg';
-import reduceCarbon from '../../assets/reduceCarbon.jpeg';
 import whatIscarbonFootprint from '../../assets/whatIscarbonFootprint.jpeg';
 import carbonFootMoving from '../../assets/carbonFootMoving.gif';
 import howItWorks from '../../assets/howItWorks.gif';
@@ -11,7 +9,7 @@ import { useState } from 'react';
 function LandingMain() {
   const navigate = useNavigate();
 
-  const images = [carbonFootMoving, whatIscarbonFootprint, howItWorks, planet,  recycling, howTohelp];
+  const images = [carbonFootMoving, whatIscarbonFootprint, howItWorks, recycling, howTohelp];
   const [currImage, setCurrImage] = useState(0);
 
   const nextImage = () => {
@@ -27,12 +25,11 @@ function LandingMain() {
   return (
     <div>
       {/* <div className="grid grid-cols-1 gap-3 md:grid-cols-3 relative"> */}
-      <div className="flex flex-col md:flex-row">
-        <div className="md:w-2/3">
+      <div className="flex flex-col">
+        <div>
           <div className="relative">
             {/* <div className="h-full rounded-xl bg-[url('assets/planet1.jpeg')] bg-cover bg-no-repeat"></div> */}
             {/* <img src={planet} className="w-full rounded-t-xl md:h-full" /> */}
-
             <img
               src={images[currImage]}
               className="h-96 w-full object-cover rounded-t-xl md:h-full"
@@ -51,15 +48,15 @@ function LandingMain() {
           <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4 md:hidden">
             <button
               onClick={previousImage}
-              className="mr-4 text-2xl text-gray-500 hover:text-gray-700"
+              className="mr-4 text-2xl text-gray-500 hover:text-gray-200"
             >
               &larr;
             </button>
             <button
               onClick={nextImage}
-              className="text-2xl text-gray-500 hover:text-gray-700"
+              className="text-2xl text-gray-500 hover:text-gray-200"
             >
-              &larr;
+              &rarr;
             </button>
 
             <div className="hidden md:col-start-3 md:flex">
