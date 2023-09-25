@@ -3,7 +3,8 @@ const db = require('../db/dbConfig.js');
 /** User's Actions
  * GET all
  * GET one
- * UPDATE
+ * UPDATE - add
+ * UPDATE - remove
  */
 const getUsersActns = async () => {
   try {
@@ -34,28 +35,43 @@ const getUserActns = async (userAuthId) => {
   }
 };
 
-const updateUserActns = async (userAuthId, actnsToUpdate) => {
-  // data format to send on the body:
-  //an object of "action_slug", "added_on" and "completed_on".
-
-  //update with a whole new array of objects (adds multiple at once)
-  /** e.g.:
-    [
-      { "action_slug": "1", "added_on": "2023-09-01T23:21:20.000Z", "completed_on": "2023-09-02T23:21:20.000Z" },
-      { "action_slug": "2", "added_on": "2023-09-02T23:21:20.000Z", "completed_on": "2023-09-03T23:21:20.000Z" }
-    ]
-  */
-
+//add a new completed action
+const addUserActn = async (userAuthId, actnToAdd) => {
+  // data format to send on the body: an object of "action_slug" and "completed_at"
+  //e.g.: { "action_slug": "1", "completed_at": "2023-09-02T23:21:20.000Z" }
   try {
-    const updatedActns = await db.one(
-      'UPDATE users SET user_actns=$1::jsonb WHERE user_auth_id=$2 RETURNING *;',
-      [JSON.stringify(actnsToUpdate), userAuthId]
+    const addedActn = await db.one(
+      'UPDATE users SET user_actns = user_actns || $1::jsonb WHERE user_auth_id = $2 RETURNING *;',
+      [actnToAdd, userAuthId]
     );
-    return { success: true, payload: updatedActns };
+    return { success: true, payload: addedActn };
   } catch (error) {
     return {
       success: false,
-      payload: `users: actions update query error. ${error}`,
+      payload: `users: add action update query error. ${error}`,
+    };
+  }
+};
+
+//remove an exsiting completed action by "action_slug"
+const removeUserActn = async (userAuthId, actnSlugToRemove) => {
+  // COALESCE(..., '[]'::jsonb)
+    // The COALESCE function returns the first argument that is not null. If all arguments are null, the COALESCE function will return null.
+    // But in this case, it returns an empty JSONB array ('[]'::jsonb).
+  
+  // (SELECT jsonb_agg(elem) FROM jsonb_array_elements(user_actns) AS elem WHERE elem->>'action_slug' <> $1)
+    // This subquery iterates through each element of the user_actns JSONB array, checks if the "action_slug" is not equal to the value specified by $1, and aggregates the remaining elements back into a JSONB array using jsonb_agg.
+
+  try {
+    const removedActn = await db.one(
+      "UPDATE users SET user_actns = COALESCE( ( SELECT jsonb_agg(elem) FROM jsonb_array_elements(user_actns) AS elem WHERE elem->>'action_slug' <> $1 ), '[]'::jsonb ) WHERE user_auth_id = $2 RETURNING *;",
+      [actnSlugToRemove, userAuthId]
+    );
+    return { success: true, payload: removedActn };
+  } catch (error) {
+    return {
+      success: false,
+      payload: `users: remove action update query error. ${error}`,
     };
   }
 };
@@ -63,5 +79,6 @@ const updateUserActns = async (userAuthId, actnsToUpdate) => {
 module.exports = {
   getUsersActns,
   getUserActns,
-  updateUserActns,
+  addUserActn,
+  removeUserActn,
 };

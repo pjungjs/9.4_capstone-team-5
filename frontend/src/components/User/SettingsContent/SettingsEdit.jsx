@@ -15,12 +15,52 @@ function SettingsEdit({ editInfo, setEditInfo }) {
     short_bio: currentUser.short_bio || '',
     profile_picture_url: currentUser.profile_picture_url || '',
   });
+  const [imgUploadStatus, setImgUploadStatus] = useState({
+    success: false,
+    message: '',
+  });
   const navigate = useNavigate();
 
   const client = useStytch();
 
   const handleTextChange = (event) => {
     setUpdateUser({ ...updateUser, [event.target.id]: event.target.value });
+  };
+
+  const handleUpload = (event) => {
+    const validFileTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+    const file = event.target.files[0];
+
+    if (!validFileTypes.find((type) => type === file.type)) {
+      setImgUploadStatus({
+        success: false,
+        message: 'File must be in JPG/PNG format',
+      });
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    axios
+      .post(`${BASE_URL}/image-cloud/${currentUser.user_auth_id}`, formData)
+      .then((response) => {
+        setImgUploadStatus({
+          success: true,
+          message: 'Successfully uploaded',
+        });
+        setUpdateUser({
+          ...updateUser,
+          profile_picture_url: `https://ecoway.s3.amazonaws.com/${response.data}`,
+        });
+      })
+      .catch((error) => {
+        console.warn('Error: POST', error);
+        setImgUploadStatus({
+          success: false,
+          message: error.message,
+        });
+      });
   };
 
   const handleSubmit = (event) => {
@@ -98,20 +138,62 @@ function SettingsEdit({ editInfo, setEditInfo }) {
             required
           />
         </div>
-        <div>
-          <label
-            htmlFor="short_bio"
-            className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
-          >
-            Short Bio
-          </label>
-          <textarea
-            id="short_bio"
-            value={updateUser.short_bio}
-            onChange={handleTextChange}
-            rows="4"
-            placeholder="Write your short bio here..."
-          />
+        <div className="flex space-x-4">
+          <div className="w-1/2">
+            <label
+              htmlFor="short_bio"
+              className="mb-2 block text-xs font-bold uppercase tracking-wide text-gray-700"
+            >
+              Short Bio
+            </label>
+            <textarea
+              id="short_bio"
+              value={updateUser.short_bio}
+              onChange={handleTextChange}
+              rows="5"
+              placeholder="Write your short bio here..."
+            />
+          </div>
+          <div className="flex w-1/2 flex-col items-end">
+            <div className="mb-2 block whitespace-nowrap text-right text-xs font-bold uppercase tracking-wide text-gray-700">
+              Profile Picture
+            </div>
+            {currentUser.profile_picture_url ? (
+              <img
+                src={currentUser.profile_picture_url}
+                alt="profile picture"
+                className="h-28 w-28 rounded-lg"
+              />
+            ) : (
+              <div className="text-right normal-case">
+                <p>No profile picture found!</p>
+                <p>Click on Edit to Upload the picture</p>
+              </div>
+            )}
+            <input
+              id="profile_picture"
+              type="file"
+              onChange={handleUpload}
+              hidden
+            />
+            <button type="button" className="my-4">
+              <label
+                htmlFor="profile_picture"
+                className="rounded-md border-b-4 border-blue-700 bg-blue-500 px-4 py-3 font-bold text-white hover:cursor-pointer hover:border-blue-800 hover:bg-blue-600"
+              >
+                {currentUser.profile_picture_url ? 'Update' : 'Upload'}
+              </label>
+            </button>
+            {imgUploadStatus.success ? (
+              <p className="pt-1 text-right normal-case text-blue-500">
+                {imgUploadStatus.message}
+              </p>
+            ) : (
+              <p className="pt-1 text-right normal-case text-red-500 underline">
+                {imgUploadStatus.message}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
