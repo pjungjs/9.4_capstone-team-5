@@ -9,7 +9,7 @@ import { useState } from 'react';
 function LandingMain() {
   const navigate = useNavigate();
 
-  const images = [carbonFootMoving, whatIscarbonFootprint, howItWorks, recycling, howTohelp];
+  const images = [carbonFootMoving, howItWorks, whatIscarbonFootprint, recycling, howTohelp];
   const [currImage, setCurrImage] = useState(0);
 
   const nextImage = () => {
@@ -32,7 +32,7 @@ function LandingMain() {
             {/* <img src={planet} className="w-full rounded-t-xl md:h-full" /> */}
             <img
               src={images[currImage]}
-              className="h-96 w-full object-cover rounded-t-xl md:h-full"
+              className="h-96 w-full object-cover rounded-t-xl rounded-b-xl md:h-full"
               alt={`Planet ${currImage + 1}`}
             />
 
