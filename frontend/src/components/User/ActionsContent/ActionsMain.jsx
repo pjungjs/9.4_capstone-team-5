@@ -18,23 +18,20 @@ function ActionsMain() {
       .getEntries({ content_type: 'actions' })
       .then((response) => setActionContent(response.items))
       .catch((error) =>
-        console.warn('Error fetching data from Contentful', error),
+        console.error('Error fetching data from Contentful', error),
       );
   }, []);
 
-  console.log(currentUser);
   // mark actions as completed
   const filteredActions = actionContent?.map((action) => {
     const userCompletedAction = currentUser.user_actns?.find(
       (completedAction) => completedAction.action_slug === action.fields.slug,
     );
-
     if (userCompletedAction) {
       action.completed = true;
     } else {
       action.completed = false;
     }
-
     return action;
   });
 
