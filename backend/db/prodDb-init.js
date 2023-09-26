@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const db = require('./prodDb-config.js');
+const db = require('../db/dbConfig.js');
 
 async function initializeDatabase() {
   try {
