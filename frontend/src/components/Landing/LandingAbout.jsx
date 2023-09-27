@@ -15,53 +15,69 @@ function AboutSection() {
       />
 
       <div className="bg-gray-100 dark:bg-gray-800">
-      <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">About Us</h2>
-          <p className="mt-4 text-xl text-gray-600 dark:text-gray-300">
-            Ecoway is an app focused on promoting sustainability and encouraging eco-friendly practices that can have a positive impact on the environment and people's daily lives.
-          </p>
-        </div>
-
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="flex flex-col items-center">
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg h-full">
-              <h3 className="text-xl font-medium text-gray-900 dark:text-white">📣 OUR MISSION</h3>
-              <p className="mt-2 text-gray-600 dark:text-gray-300">
-                Our mission is to help people reduce their carbon footprint and make a positive impact on the environment.
-              </p>
-            </div>
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">
+              About Us
+            </h2>
+            <p className="mt-4 text-xl text-gray-600 dark:text-gray-300">
+              Ecoway is an app focused on promoting sustainability and
+              encouraging eco-friendly practices that can have a positive impact
+              on the environment and people's daily lives.
+            </p>
           </div>
 
-          <div className="flex flex-col items-center">
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg h-full">
-              <h3 className="text-xl font-medium text-gray-900 dark:text-white">🍃 FOOTPRINT CALCULATOR </h3>
-              <p className="mt-2 text-gray-600 dark:text-gray-300">
-                Our vision is to create a community of people who are passionate about sustainability and eco-friendly practices.
-              </p>
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-4">
+            <div className="flex flex-col items-center">
+              <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-blue-500 dark:bg-gray-900">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                  📣 OUR MISSION
+                </h3>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                  Our mission is to help people reduce their carbon footprint
+                  and make a positive impact on the environment.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-col items-center">
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg h-full">
-              <h3 className="text-xl font-medium text-gray-900 dark:text-white">🌎 OUR VALUES</h3>
-              <p className="mt-2 text-gray-600 dark:text-gray-300">
-                Our values are to be transparent, honest, and ethical in all that we do.
-              </p>
+            <div className="flex flex-col items-center">
+              <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-blue-500 dark:bg-gray-900 ">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                  🍃 CALCULATOR
+                </h3>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                  Our vision is to create a community of people who are
+                  passionate about sustainability and eco-friendly practices.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-col items-center">
-            <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg h-full">
-              <h3 className="text-xl font-medium text-gray-900 dark:text-white">🏆 OUR GOALS</h3>
-              <p className="mt-2 text-gray-600 dark:text-gray-300">
-                Our goal is to help people reduce their carbon footprint while also making a positive impact on the environment.
-              </p>
+            <div className="flex flex-col items-center">
+              <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-blue-500  dark:bg-gray-900">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                  🌎 OUR VALUES
+                </h3>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                  Our values are to be transparent, honest, and ethical in all
+                  that we do.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-blue-500  dark:bg-gray-900">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                  🏆 OUR GOALS
+                </h3>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                  Our goal is to help people reduce their carbon footprint while
+                  also making a positive impact on the environment.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
