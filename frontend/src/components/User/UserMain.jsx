@@ -13,7 +13,6 @@ import ActionsMain from './ActionsContent/ActionsMain.jsx';
 import SettingsMain from './SettingsContent/SettingsMain.jsx';
 import NotFound from '../../pages/NotFound.jsx';
 
-
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const UserContext = createContext();
@@ -29,10 +28,11 @@ export default function UserMain() {
     last_name: user.name.last_name,
     username: user.emails[0].email.split('@')[0],
     email: user.emails[0].email,
-    profile_picture_url: user.providers
+    profile_picture_url: user.providers.length
       ? user.providers[0].profile_picture_url
       : '',
     short_bio: '',
+    user_scores: [],
   });
 
   useEffect(() => {
@@ -43,11 +43,17 @@ export default function UserMain() {
         );
 
         if (getUser.data) {
-          setCurrentUser(getUser.data);
+          const userScores = await axios.get(
+            `${BASE_URL}/users/scores/${currentUser.user_auth_id}`,
+          );
+
+          setCurrentUser({ ...getUser.data, user_scores: userScores.data });
         } else {
-          await createUser();
-          await createUserScores();
+          const createdUser = await createUser();
+          const createdUserScores = await createUserScores();
           await createUserAnswers();
+
+          setCurrentUser({ ...createdUser, user_scores: createdUserScores });
         }
       } catch (error) {
         console.error('Error: GET existing user', error);
@@ -57,7 +63,7 @@ export default function UserMain() {
     const createUser = async () => {
       try {
         const postUser = await axios.post(`${BASE_URL}/users`, currentUser);
-        setCurrentUser(postUser.data);
+        return postUser.data;
       } catch (error) {
         console.error('Error: POST new user', error);
       }
@@ -68,7 +74,7 @@ export default function UserMain() {
         const postScores = await axios.post(
           `${BASE_URL}/users/scores/${currentUser.user_auth_id}`,
         );
-        console.log(postScores.data);
+        return postScores.data;
       } catch (error) {
         console.error('Error: POST new scores', error);
       }
@@ -79,7 +85,7 @@ export default function UserMain() {
         const postAnswers = await axios.post(
           `${BASE_URL}/users/answers/${currentUser.user_auth_id}`,
         );
-        console.log(postAnswers.data);
+        return postAnswers.data;
       } catch (error) {
         console.error('Error: POST new answers', error);
       }
