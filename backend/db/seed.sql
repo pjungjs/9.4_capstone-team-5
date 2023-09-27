@@ -59,9 +59,11 @@ VALUES
   -- ('Next Level Standard', 'You have logged to the app for 90 days in a row', 'https://ecoway.s3.amazonaws.com/Badge.png', 90, 'login'),
   -- ('MVP', 'You have logged to the app for 180 days in a row', 'https://ecoway.s3.amazonaws.com/Badge.png', 180, 'login'),
 
-  ('Recycle Crusader', 'Based on your daily efforts you have mastered the art of recycling, Keep it up! ', 'https://ecoway.s3.amazonaws.com/Reusable+Crusader.png', 300, 'recycling'),
-  ('Recycle Artisan', 'As if we were not blown by your recycling habits, you have recycled enough to keep 10 miles of beach pristine, awesome', 'https://ecoway.s3.amazonaws.com/Recycling+Artisan.png', 400, 'recycling'),
-  ('Reusable Crusader', 'You have officially joined the ranks of the eco-warriors by consistently using reusable bags, bottles, and containers.', 'https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png', 475, 'recycling'),
+
+  ('Recycle Crusader', 'Based on your daily efforts you have mastered the art of recycling, Keep it up! ', 'https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png', 300, 'recycling'),
+  ('Recycle Artisan', 'As if we were not blown by your recycling habits, you have recycled enough to keep 10 miles of beach pristine, awesome', 'https://ecoway.s3.amazonaws.com/BadgesImages/Recycling+Artisan.png', 400, 'recycling'),
+  ('Reusable Crusader', 'You have officially joined the ranks of the eco-warriors by consistently using reusable bags, bottles, and containers.', 'https://ecoway.s3.amazonaws.com/BadgesImages/Reusable+Crusader.png', 475, 'recycling'),
+
   -- ('Recycle Hero', 'You may not wear a cape, but your recycling efforts are saving the planet for everyone', 'https://ecoway.s3.amazonaws.com/Badge.png', 550, 'recycling'),
   -- ('Ocean Saver', 'You have recycled the equivalent of 1000 pieces of trash at the beach. You are turning the tide on pollution!', 'https://ecoway.s3.amazonaws.com/Badge.png', 650,'recycling'),
   -- ('Recycling Jedi', 'Your recycling efforts have diverted thousands of pounds of waste from landfills, reducing your carbon footprint and preserving our planet for future generations, stay green!', 'https://ecoway.s3.amazonaws.com/Badge.png', 800, 'recycling'),
@@ -94,24 +96,36 @@ VALUES
 INSERT INTO questions 
   (created_at, question, question_type, is_signup)
 VALUES
-  ('2023-09-08 15:00:00', 'Does your household use renewable energy?', 'energy', true),
-  ('2023-09-08 15:00:00', 'What is the primary heating source in your household?', 'energy', true),
-  ('2023-09-08 15:00:00', 'Do you use gas for cooking?', 'energy', true),
-  ('2023-09-08 15:00:00', 'Do you have a car?', 'transportation', true),
-  ('2023-09-08 15:00:00', 'How many minutes do you spend taking public transportation a day?', 'transportation', true),
-  ('2023-09-08 15:00:00', 'How many large sized appliances have you purchased in the past year?', 'spending', true),
-  ('2023-09-08 15:00:00', 'How many medium sized appliances have you purchased in the past year?', 'spending', true),
-  ('2023-09-08 15:00:00', 'How many small sized appliances have you purchased in the past year?', 'spending', true),
-  ('2023-09-08 15:00:00', 'How many pieces of clothing have you purchased this year?', 'spending', true),
-  ('2023-09-08 15:00:00', 'What is your diet?', 'food', true);
+  ('2023-09-08T12:30:00Z', 'Does your household use renewable energy?', 'energy', true),
+  ('2023-09-08T12:30:00Z', 'What is the primary heating source in your household?', 'energy', true),
+  ('2023-09-08T12:30:00Z', 'Do you use gas for cooking?', 'energy', true),
+  ('2023-09-08T12:30:00Z', 'Do you have a car?', 'transportation', true),
+  ('2023-09-08T12:30:00Z', 'How many minutes do you spend taking public transportation a day?', 'transportation', true),
+  ('2023-09-08T12:30:00Z', 'How many large sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08T12:30:00Z', 'How many medium sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08T12:30:00Z', 'How many small sized appliances have you purchased in the past year?', 'spending', true),
+  ('2023-09-08T12:30:00Z', 'How many pieces of clothing have you purchased this year?', 'spending', true),
+  ('2023-09-08T12:30:00Z', 'What is your diet?', 'food', true),
+  ('2023-09-08T12:30:00Z', 'Do you recycle?', 'lifestyle', true),
+  ('2023-09-09T12:30:00Z', 'Select the option that best describes your household energy usage compared to your last login:', 'energy', false),
+  ('2023-09-09T12:30:00Z', 'Pick the option that best represents your daily transportation habits compared to your last login:', 'transportation', false),
+  ('2023-09-09T12:30:00Z', 'How many miles have you biked this week?', 'transportation', false),
+  ('2023-09-09T12:30:00Z', 'How has your recycling behavior changed?', 'recycling', false),
+  ('2023-09-09T12:30:00Z', 'Do you actively compost organic waste?', 'recycling', false),
+  ('2023-09-09T12:30:00Z', 'How has your diet changed?', 'food', false),
+  ('2023-09-09T12:30:00Z', 'How many home-cooked meals have you made this week?', 'food', false),
+  ('2023-09-09T12:30:00Z', 'Do you support or engage in local community initiatives promoting sustainability?', 'lifestyle', false);
+
 
 
 INSERT INTO answers 
   (created_at, user_auth_id, question_answers, carbon_emission_result)
 VALUES
-  ('2023-09-08 15:00:00', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', '[ { "Does your household use renewable energy?": "Yes", "What is the primary heating source in your household?": "Electricity" } ]',0),
-  ('2023-09-08 15:00:00', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', '[ { "Does your household use renewable energy?": "No", "What is the primary heating source in your household?": "Natural Gas" } ]',0);
-
+  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', '{ "Does your household use renewable energy?": "yes", "What is the primary heating source in your household?": "electricity" }',0),
+  ('2023-09-08T12:30:00Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }',0),
+  ('2023-09-08T12:30:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }', 0),
+  ('2023-09-08T12:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', '{}', 0),
+  ('2023-09-08T12:30:00Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', '{}', 0);
 
 INSERT INTO posts 
   (created_at, user_auth_id, title, content, post_likes)
