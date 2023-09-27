@@ -186,9 +186,11 @@ VALUES
 INSERT INTO answers 
   (created_at, user_auth_id, question_answers, carbon_emission_result)
 VALUES
-  ('2023-09-08T12:30:00Z', 'user-live-31e96c2c-329b-4bc2-9f26-8cdf394b3e37', '[ { "Does your household use renewable energy?": "Yes", "What is the primary heating source in your household?": "Electricity" } ]',0),
-  ('2023-09-08T12:30:00Z', 'user-live-683aaf5e-f190-4f08-ab20-d0ce6e82052e', '[ { "Does your household use renewable energy?": "No", "What is the primary heating source in your household?": "Natural Gas" } ]',0);
-
+  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', '{ "Does your household use renewable energy?": "yes", "What is the primary heating source in your household?": "electricity" }',0),
+  ('2023-09-08T12:30:00Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }',0),
+  ('2023-09-08T12:30:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }', 0),
+  ('2023-09-08T12:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', '{}', 0),
+  ('2023-09-08T12:30:00Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', '{}', 0);
 
 INSERT INTO posts 
   (created_at, user_auth_id, title, content, post_likes)

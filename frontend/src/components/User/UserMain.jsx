@@ -34,6 +34,7 @@ export default function UserMain() {
       : '',
     short_bio: '',
   });
+  const [returningUser, setReturningUser] = useState(false)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -44,6 +45,7 @@ export default function UserMain() {
 
         if (getUser.data) {
           setCurrentUser(getUser.data);
+          setReturningUser(true)
         } else {
           await createUser();
           await createUserScores();
@@ -96,9 +98,9 @@ export default function UserMain() {
           {currentUserRoute === 'dashboard' ? (
             <DashboardMain />
           ) : currentUserRoute === 'myfootprint' ? (
-            <MyFootprint />
+            <MyFootprint currentUser={currentUser}/>
           ) : currentUserRoute === 'dailyquestions' ? (
-            <DailyQuestions />
+            <DailyQuestions returningUser={returningUser}/>
           ) : currentUserRoute === 'actions' ? (
             <ActionsMain />
           ) : currentUserRoute === 'achievements' ? (
