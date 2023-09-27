@@ -51,24 +51,28 @@ const createUserScores = async (userAuthId) => {
 
 const updateUserScores = async (userAuthId, scoresToUpdate) => {
   const {
-    score_carbon_result,
     score_logged_in,
-    score_answered,
-    score_recycled,
-    score_leaderboard,
-    score_active_community,
+    score_energy,
+    score_transportation,
+    score_food,
+    score_lifestyle,
+    score_recycling,
+    score_actions,
+    score_total,
   } = scoresToUpdate;
 
   try {
     const updatedScores = await db.one(
-      'UPDATE user_scores SET score_carbon_result=$1, score_logged_in=$2, score_answered=$3, score_recycled=$4, score_leaderboard=$5, score_active_community=$6 WHERE user_auth_id=$7 RETURNING *;',
+      'UPDATE user_scores SET score_logged_in=$1, score_energy=$2, score_transportation=$3, score_food=$4, score_lifestyle=$5, score_recycling=$6, score_actions=$7, score_total=$8 WHERE user_auth_id=$9 RETURNING *;',
       [
-        score_carbon_result,
         score_logged_in,
-        score_answered,
-        score_recycled,
-        score_leaderboard,
-        score_active_community,
+        score_energy,
+        score_transportation,
+        score_food,
+        score_lifestyle,
+        score_recycling,
+        score_actions,
+        score_total,
         userAuthId,
       ]
     );
