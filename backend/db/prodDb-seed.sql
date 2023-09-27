@@ -86,16 +86,16 @@ VALUES
     { "badge_id": "1", "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/consistent+player.png",  "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_id": "4", "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png",  "received_date": "2023-08-31T23:37:35.000Z" }
   ]', '[
-    { "action_slug": "hybrid-or-electric-vehicles", "completed_at": "2023-09-02T23:21:20.000Z" },
-    { "action_slug": "seal-home-leaks", "completed_at": "2023-09-02T23:21:20.000Z" },
-    { "action_slug": "solar-panels", "completed_at": "2023-09-02T23:21:20.000Z" }
+    { "action_slug": "hybrid-or-electric-vehicles", "completed_at": "2023-09-02T23:21:20.000Z", "points": 100 },
+    { "action_slug": "seal-home-leaks", "completed_at": "2023-09-02T23:21:20.000Z", "points": 70 },
+    { "action_slug": "solar-panels", "completed_at": "2023-09-02T23:21:20.000Z", "points": 100 }
   ]'),
   ('2023-09-02T23:21:20.000Z', 'user-live-683aaf5e-f190-4f08-ab20-d0ce6e82052e', 'Jinseok', 'Jung', 'jj', 'pjungjs@gmail.com', 'Full Stack Web Developer', 'https://ca.slack-edge.com/TCVA3PF24-U041NJ82RM0-22a6eba57651-512', '[
     { "badge_id": "1", "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/consistent+player.png",  "received_date": "2023-09-02T23:21:20.000Z" },
     { "badge_id": "4", "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png",  "received_date": "2023-09-02T23:21:20.000Z" },
     { "badge_id": "7", "badge_name": "Energy-Efficient Enthusiast", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/energy+efficient+enthusiast.png",  "received_date": "2023-09-02T23:21:20.000Z" }
   ]', '[
-    { "action_slug": "biking-or-walking", "completed_at": "2023-09-02T23:21:20.000Z" }
+    { "action_slug": "biking-or-walking", "completed_at": "2023-09-02T23:21:20.000Z", "points": 30 }
   ]'),
   ('2023-09-04T19:35:07.000Z', 'user-live-211736d8-6627-48d5-b668-2bca308c4059', 'Wilghen', 'Santos', 'wilghensantos', 'wilghensantos@gmail.com', 'Passionate about Music, programming and life.', 'https://lh3.googleusercontent.com/a/ACg8ocJUOfy0bJBrPz2j33CbOWlrIJ2iMnbOzLOyGRR8EelM7n4=s96-', '[
     { "badge_id": "2", "badge_name": "Jukebox Hero", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/jukebox+hero.png",  "received_date": "2023-08-31T23:37:35.000Z" },
@@ -107,24 +107,25 @@ VALUES
     { "badge_id": "13", "badge_name": "Bicycle Boss", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/Bicycle+Boss.png",  "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_id": "12", "badge_name": "Eco-Bookworm", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+worm+book.png",  "received_date": "2023-08-31T23:37:35.000Z" } 
   ]', '[
-    { "action_slug": "unplug-unused-devices", "completed_at": "2023-09-02T23:21:20.000Z" },
-    { "action_slug": "reduce-water-usage", "completed_at": "2023-09-02T23:21:20.000Z" }
+    { "action_slug": "unplug-unused-devices", "completed_at": "2023-09-02T23:21:20.000Z", "points": 20 },
+    { "action_slug": "reduce-water-usage", "completed_at": "2023-09-02T23:21:20.000Z", "points": 40 }
   ]'),
   ('2023-09-10T17:40:36.000Z', 'user-live-db28f083-5e3f-4159-9de8-6a91a07ac2cf', 'Shareeka', 'Epps', 'shareekaepps', 'shareekaepps@gmail.com', 'Full Stack Web Developer', 'https://lh3.googleusercontent.com/a/ACg8ocKAvDJej1E21YolQIyfadkqo5vddSF6sUn2oacrD17FDA=s96-c', '[
     { "badge_id": "3", "badge_name": "Elite Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/elite+player.png",  "received_date": "2023-08-31T23:37:35Z" },
     { "badge_id": "14", "badge_name": "Eco-Adventurer", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+adventurer.png",  "received_date": "2023-08-31T23:37:35Z" }
   ]', '[
-    { "action_slug": "led-lighting", "completed_at": "2023-09-02T23:21:20.000Z" }
+    { "action_slug": "led-lighting", "completed_at": "2023-09-02T23:21:20.000Z", "points": 40 }
   ]');
 
+
 INSERT INTO user_scores 
-  (user_auth_id, score_logged_in, score_energy, score_transportation, score_food, score_lifestyle, score_recycling, score_total)
+  (user_auth_id, score_logged_in, score_energy, score_transportation, score_food, score_lifestyle, score_recycling, score_actions, score_total)
 VALUES
-  ('user-live-31e96c2c-329b-4bc2-9f26-8cdf394b3e37', 37, 700, 0, 300, 300, 0,1337),
-  ('user-live-683aaf5e-f190-4f08-ab20-d0ce6e82052e', 0, 0, 1175,0, 0, 0,1175),
-  ('user-live-211736d8-6627-48d5-b668-2bca308c4059', 30, 700, 700, 0, 0, 0, 1430),
-  ('user-live-9aeb3e25-314e-4d18-a516-d9a57319c9e9', 60, 300, 300, 0, 0, 0,660),
-  ('user-live-db28f083-5e3f-4159-9de8-6a91a07ac2cf', 30, 300, 300, 0, 700, 300,1630);
+  ('user-live-31e96c2c-329b-4bc2-9f26-8cdf394b3e37', 7, 700, 0, 300, 300, 0, 270, 1577),
+  ('user-live-683aaf5e-f190-4f08-ab20-d0ce6e82052e', 14, 10, 10, 10, 10, 10, 30, 94),
+  ('user-live-211736d8-6627-48d5-b668-2bca308c4059', 7, 700, 700, 0, 0, 0, 0, 1407),
+  ('user-live-9aeb3e25-314e-4d18-a516-d9a57319c9e9', 7, 300, 300, 0, 0, 0, 60, 667),
+  ('user-live-db28f083-5e3f-4159-9de8-6a91a07ac2cf', 7, 300, 300, 0, 700, 300, 40, 1647);
 
 
 INSERT INTO badges 
