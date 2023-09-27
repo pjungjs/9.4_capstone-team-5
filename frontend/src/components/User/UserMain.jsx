@@ -7,11 +7,12 @@ import Sidebar from './Sidebar.jsx';
 import DashboardMain from './DashboardContent/DashboardMain.jsx';
 import MyFootprint from './MyFootprintContent/MyFootprint.jsx';
 import DailyQuestions from './DailyQuestionsContent/DailyQuestions.jsx';
-import Achievements from '../../pages/Achievements.jsx';
+import BadgesBoard from './AchievementsContent/BadgesBoard.jsx';
 import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
 import ActionsMain from './ActionsContent/ActionsMain.jsx';
 import SettingsMain from './SettingsContent/SettingsMain.jsx';
 import NotFound from '../../pages/NotFound.jsx';
+
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -103,7 +104,7 @@ export default function UserMain() {
           ) : currentUserRoute === 'actions' ? (
             <ActionsMain />
           ) : currentUserRoute === 'achievements' ? (
-            <Achievements />
+            <BadgesBoard />
           ) : currentUserRoute === 'leaderboard' ? (
             <LeaderboardDisplay />
           ) : currentUserRoute === 'settings' ? (

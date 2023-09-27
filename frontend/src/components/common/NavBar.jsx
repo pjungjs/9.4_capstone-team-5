@@ -42,7 +42,7 @@ function NavBar() {
         .then((response) => setUserInfo(response.data))
         .catch((error) => console.warn('Error: PUT', error));
     }
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     setOpenMenu(false);
@@ -100,11 +100,11 @@ function NavBar() {
                     className="flex items-center rounded-full text-sm focus:ring-4 focus:ring-gray-300"
                     onClick={() => toggleUserMenu()}
                   >
-                    {userInfo?.profile_picture_url ? (
+                    {userInfo && userInfo.profile_picture_url ? (
                       <img
                         src={userInfo.profile_picture_url}
                         alt="profile picture"
-                        className="w-10 rounded-full"
+                        className="h-10 w-10 rounded-full"
                       />
                     ) : (
                       <AiOutlineUser className="rounded-full border-2 border-green-600 p-0.5 text-4xl text-green-600 hover:bg-green-600 hover:text-white" />

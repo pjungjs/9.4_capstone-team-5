@@ -40,7 +40,7 @@ function ActionShow({ content }) {
         alt="Action related image"
         className={`${
           content.completed ? '' : 'grayscale'
-        } relative h-52 w-64 object-cover`}
+        } relative h-52 w-64 object-fill`}
       />
       <div className="invisible absolute flex h-52 bg-emerald-300 bg-opacity-95 p-2 group-hover:visible">
         <div className="flex w-60 flex-col justify-between text-center text-lg">
