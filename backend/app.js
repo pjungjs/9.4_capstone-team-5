@@ -24,6 +24,9 @@ app.use('/questions', questionsControllers);
 app.use('/posts', postControllers);
 app.use('/comments', commentControllers);
 
+const imageCloud = require('./s3/imageCloud.js');
+app.use('/image-cloud', imageCloud);
+
 // ROUTES
 app.get('/', (req, res) => {
   res.status(200).send('Welcome to EcoWay app');

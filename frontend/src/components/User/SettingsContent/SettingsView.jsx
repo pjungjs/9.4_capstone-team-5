@@ -66,7 +66,7 @@ function SettingsView({ editInfo, setEditInfo }) {
             />
           </div>
           <div className="flex w-1/2 flex-col items-end">
-            <div className="mb-2 block text-right text-xs font-bold uppercase tracking-wide text-gray-700">
+            <div className="mb-2 block whitespace-nowrap text-right text-xs font-bold uppercase tracking-wide text-gray-700">
               Profile Picture
             </div>
             {currentUser.profile_picture_url ? (

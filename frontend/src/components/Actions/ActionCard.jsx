@@ -14,11 +14,11 @@ function ActionCard({ content }) {
         <div className="pt-1 text-xs italic">
           Category: <span className="font-medium underline">{category}</span>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex items-center justify-center">
           <img
             src={`https:${relatedImage.fields.file.url}`}
             alt="Action related image"
-            className="object-contain h-60 w-80 py-2.5"
+            className="h-60 w-80 object-contain py-2.5"
           />
         </div>
         <div className="flex justify-between">

@@ -15,7 +15,10 @@ function SettingsEdit({ editInfo, setEditInfo }) {
     short_bio: currentUser.short_bio || '',
     profile_picture_url: currentUser.profile_picture_url || '',
   });
-  const [errorMsg, setErrorMsg] = useState('');
+  const [imgUploadStatus, setImgUploadStatus] = useState({
+    success: false,
+    message: '',
+  });
   const navigate = useNavigate();
 
   const client = useStytch();
@@ -27,16 +30,37 @@ function SettingsEdit({ editInfo, setEditInfo }) {
   const handleUpload = (event) => {
     const validFileTypes = ['image/jpg', 'image/jpeg', 'image/png'];
     const file = event.target.files[0];
-    console.log(file);
 
     if (!validFileTypes.find((type) => type === file.type)) {
-      setErrorMsg('File must be in JPG/PNG format');
+      setImgUploadStatus({
+        success: false,
+        message: 'File must be in JPG/PNG format',
+      });
       return;
     }
 
-    const form = new FormData();
-    form.append('image', file);
-    console.log(form);
+    const formData = new FormData();
+    formData.append('image', file);
+
+    axios
+      .post(`${BASE_URL}/image-cloud/${currentUser.user_auth_id}`, formData)
+      .then((response) => {
+        setImgUploadStatus({
+          success: true,
+          message: 'Successfully uploaded',
+        });
+        setUpdateUser({
+          ...updateUser,
+          profile_picture_url: `https://ecoway.s3.amazonaws.com/${response.data}`,
+        });
+      })
+      .catch((error) => {
+        console.warn('Error: POST', error);
+        setImgUploadStatus({
+          success: false,
+          message: error.message,
+        });
+      });
   };
 
   const handleSubmit = (event) => {
@@ -131,7 +155,7 @@ function SettingsEdit({ editInfo, setEditInfo }) {
             />
           </div>
           <div className="flex w-1/2 flex-col items-end">
-            <div className="mb-2 block text-right text-xs font-bold uppercase tracking-wide text-gray-700">
+            <div className="mb-2 block whitespace-nowrap text-right text-xs font-bold uppercase tracking-wide text-gray-700">
               Profile Picture
             </div>
             {currentUser.profile_picture_url ? (
@@ -160,7 +184,15 @@ function SettingsEdit({ editInfo, setEditInfo }) {
                 {currentUser.profile_picture_url ? 'Update' : 'Upload'}
               </label>
             </button>
-            <p className="pt-1 text-red-500 underline">{errorMsg}</p>
+            {imgUploadStatus.success ? (
+              <p className="pt-1 text-right normal-case text-blue-500">
+                {imgUploadStatus.message}
+              </p>
+            ) : (
+              <p className="pt-1 text-right normal-case text-red-500 underline">
+                {imgUploadStatus.message}
+              </p>
+            )}
           </div>
         </div>
       </div>
