@@ -45,21 +45,38 @@ function Profiles() {
   console.log(usersSortedByScore)
 
   return (
-    <div className="bg-green-100 p-4">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-semibold mb-4">Leaderboard</h1>
-        <div className="space-y-4">
+    
+      <div className="flex flex-col items-center max-w-3xl mx-auto">
+        <div>
+        <p className="text-3xl font-semibold mb-4 text-center">Leaderboard</p>
+
+        </div>
+        
           {usersSortedByScore.map((user, index) => (
             <div
               key={user.id}
-              className={`bg-green-${index + 1}00 rounded-lg p-4`}
+              className="bg-green-100 p-4"
             >
               <UserProfile key={user.id} userProfileData={user} />
             </div>
           ))}
-        </div>
+        
       </div>
-    </div>
+
+// {/* <div className="max-w-3xl mx-auto">
+// <p className="text-3xl font-semibold mb-4 text-center">Leaderboard</p>
+// <div className="space-y-4 bg-red-800">
+//   {usersSortedByScore.map((user, index) => (
+//     <div
+//       key={user.id}
+//       className={`bg-green-100  p-4`}
+//     >
+//       <UserProfile key={user.id} userProfileData={user} />
+//     </div>
+//   ))}
+// </div>
+// </div> */}
+   
 
 
 
