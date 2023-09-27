@@ -65,9 +65,9 @@ VALUES
 
 
 
-  ('Recycle Crusader', 'Based on your daily efforts you have mastered the art of recycling, Keep it up! ', 'https://ecoway.s3.amazonaws.com/Reusable+Crusader.png', 300, 'recycling'),
-  ('Recycle Artisan', 'As if we were not blown by your recycling habits, you have recycled enough to keep 10 miles of beach pristine, awesome', 'https://ecoway.s3.amazonaws.com/Recycling+Artisan.png', 400, 'recycling'),
-  ('Reusable Crusader', 'You have officially joined the ranks of the eco-warriors by consistently using reusable bags, bottles, and containers.', 'https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png', 475, 'recycling'),
+  ('Recycle Crusader', 'Based on your daily efforts you have mastered the art of recycling, Keep it up! ', 'https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png', 300, 'recycling'),
+  ('Recycle Artisan', 'As if we were not blown by your recycling habits, you have recycled enough to keep 10 miles of beach pristine, awesome', 'https://ecoway.s3.amazonaws.com/BadgesImages/Recycling+Artisan.png', 400, 'recycling'),
+  ('Reusable Crusader', 'You have officially joined the ranks of the eco-warriors by consistently using reusable bags, bottles, and containers.', 'https://ecoway.s3.amazonaws.com/BadgesImages/Reusable+Crusader.png', 475, 'recycling'),
   -- ('Recycle Hero', 'You may not wear a cape, but your recycling efforts are saving the planet for everyone', 'https://ecoway.s3.amazonaws.com/Badge.png', 550, 'recycling'),
   -- ('Ocean Saver', 'You have recycled the equivalent of 1000 pieces of trash at the beach. You are turning the tide on pollution!', 'https://ecoway.s3.amazonaws.com/Badge.png', 650,'recycling'),
   -- ('Recycling Jedi', 'Your recycling efforts have diverted thousands of pounds of waste from landfills, reducing your carbon footprint and preserving our planet for future generations, stay green!', 'https://ecoway.s3.amazonaws.com/Badge.png', 800, 'recycling'),
