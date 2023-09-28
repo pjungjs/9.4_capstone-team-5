@@ -1,7 +1,8 @@
 import planet from '../../assets/planet1.jpeg';
 import recycling from '../../assets/recycle1.jpeg';
 import { useNavigate } from 'react-router-dom';
-import JoinVideo from '../../assets/Join.mp4';
+// import JoinVideo from '../../assets/Join.mp4';
+import JoinGif from '../../assets/Join.gif'
 
 function LandingMain() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function LandingMain() {
 <div className='flex flex-row justify-center '>
 
 <div className='mt-8 w-3/4 h-3/4  '>
-  <video src={JoinVideo} autoPlay  muted />
+  <img src={JoinGif} />
 </div>
 </div>
 

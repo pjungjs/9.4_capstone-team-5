@@ -463,10 +463,10 @@ export default function CarbonCalc() {
                       </h2>
                       <div className="relative pt-1">
                         <div className="mb-2 flex items-center justify-between">
-                          <div>
+<div>
                             <span className="inline-block rounded-full bg-green-200 px-2 py-1 text-xs font-semibold uppercase text-green-600">
                               In Progress
-                            </span>
+                                                      </span>
                           </div>
                           <div className="text-center">
                             <h3 className="text-l font-semibold">

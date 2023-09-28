@@ -1,11 +1,15 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../UserMain.jsx';
 
 function Badge({ badge }) {
 
-  
+  const {currentUser} = useContext(UserContext);
+const [barWidth, setBarWidth] = useState(10);
+const [isHovered, setIsHovered] = useState(false);
 
-  const [isHovered, setIsHovered] = useState(false);
+
+console.log(currentUser)
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -32,7 +36,12 @@ function Badge({ badge }) {
 
       <img className={`${badge.achieved ? '': 'grayscale'} w-50 h-50`} src={badge.badge_img_url} alt="badge image" />
       
-      
+      <div className="relative h-8 w-full rounded-full bg-gray-200">
+                          <div
+                            className="absolute left-0 top-0 h-full rounded-full bg-green-500"
+                            style={{ width: `${barWidth}%` }}
+                          ></div>
+                        </div>
 
       
         <p className="text-gray-800 text-xl font-semibold text-center">{badge.badge_name}</p>

@@ -10,6 +10,8 @@ function BadgesBoard() {
   const { currentUser } = useContext(UserContext);
   const [badgeData, setBadgeData] = useState([]);
   const [filterBy, setFilterBy] = useState('completed');
+  // const [isLoading, setIsLoading] = useState(true); 
+
 
   // console.log(currentUser.currentUser.user_achvs);
   // console.log(currentUser);
@@ -20,15 +22,17 @@ function BadgesBoard() {
       .then((res) => {
         console.log(res.data);
         setBadgeData(res.data);
+       
       })
       .catch((err) => {
         console.log(err);
+        
       });
-  }, []);
+  }, [ ]);
 
   // mark badges as achieved
   const filteredBadges = badgeData?.map((badge) => {
-    const userAchievedBadge = currentUser.user_achvs.find(
+    const userAchievedBadge = currentUser.user_achvs?.find(
       (userBadge) => Number(userBadge.badge_id) === badge.badge_id,
     );
 
@@ -50,6 +54,7 @@ function BadgesBoard() {
 
   return (
     <div>
+      
       <div className="flex flex-col items-center justify-center py-4 md:py-8">
         <p className="mb-2 p-2 text-2xl  font-bold uppercase">All Badges</p>
         <div className="flex items-center">

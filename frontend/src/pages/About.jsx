@@ -1,5 +1,8 @@
+
+import AboutMain from "../components/About/AboutMain";
+
 function About() {
-  return <div>About</div>;
+  return <div><AboutMain/></div>;
 }
 
 export default About;

@@ -39,7 +39,7 @@ function Profiles() {
   })
 
   const usersSortedByScore = usersWithScores.sort((userA, userB) => {
-    return userB.score.score_total - userA.score.score_total;
+    return userB.score_total - userA.score_total;
   })
 
   console.log(usersSortedByScore)
