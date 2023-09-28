@@ -8,27 +8,19 @@ const API = import.meta.env.VITE_BASE_URL;
 
 function BadgesBoard() {
   const { currentUser } = useContext(UserContext);
-  const [badgeData, setBadgeData] = useState([]);
+  const [badgeData, setBadgeData] = useState(null);
   const [filterBy, setFilterBy] = useState('completed');
-
-  // console.log(currentUser.currentUser.user_achvs);
-  // console.log(currentUser);
 
   useEffect(() => {
     axios
       .get(`${API}/badges`)
-      .then((res) => {
-        console.log(res.data);
-        setBadgeData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((res) => setBadgeData(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   // mark badges as achieved
   const filteredBadges = badgeData?.map((badge) => {
-    const userAchievedBadge = currentUser.user_achvs.find(
+    const userAchievedBadge = currentUser.user_achvs?.find(
       (userBadge) => Number(userBadge.badge_id) === badge.badge_id,
     );
 
@@ -39,11 +31,12 @@ function BadgesBoard() {
     }
     return badge;
   });
+
   // filter badges to show achieved first
   filteredBadges?.sort((badgeA, badgeB) => {
-    if (filterBy === 'completed') {
+    if (filterBy === 'achieved') {
       return badgeA.achieved > badgeB.achieved ? -1 : 1;
-    } else if (filterBy === 'incompleted') {
+    } else if (filterBy === 'working') {
       return badgeA.achieved < badgeB.achieved ? -1 : 1;
     }
   });
@@ -61,8 +54,8 @@ function BadgesBoard() {
             onChange={(event) => setFilterBy(event.target.value)}
             className="bg-gray-50"
           >
-            <option value="completed">Achieved</option>
-            <option value="incompleted">Working on</option>
+            <option value="achieved">Achieved</option>
+            <option value="working">Working on</option>
           </select>
         </div>
 
