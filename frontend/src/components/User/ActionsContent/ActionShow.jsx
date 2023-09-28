@@ -83,7 +83,7 @@ function ActionShow({ content }) {
   };
 
   return (
-    <div className="group relative m-2 flex flex-col justify-center rounded-md border border-gray-400">
+    <div className="group relative m-2 flex flex-col justify-center overflow-hidden rounded-md border border-gray-400">
       <img
         src={`https:${relatedImage.fields.file.url}`}
         alt="Action related image"
@@ -100,8 +100,7 @@ function ActionShow({ content }) {
               <span className="font-medium underline">{category}</span>
             </div>
             <div className="pt-1 text-sm italic">
-              Points:{' '}
-              <span className="font-medium">{points}</span>
+              Points: <span className="font-medium">{points}</span>
             </div>
           </div>
           <div className="space-y-2">
