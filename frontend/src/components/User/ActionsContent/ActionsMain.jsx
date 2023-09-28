@@ -51,9 +51,7 @@ function ActionsMain() {
       <div className="flex flex-col items-center justify-center text-gray-700">
         <div className="mb-2 p-2 text-2xl font-bold uppercase">All Actions</div>
         <div className="flex items-center">
-          <p className="text-md whitespace-nowrap pr-2 font-medium">
-            Filter by:
-          </p>
+          <p className="text-md whitespace-nowrap pr-2 font-medium">Sort by:</p>
           <select
             value={filterBy}
             onChange={(event) => setFilterBy(event.target.value)}
