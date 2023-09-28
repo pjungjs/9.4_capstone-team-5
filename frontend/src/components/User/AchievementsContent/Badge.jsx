@@ -28,10 +28,10 @@ function Badge({ badge }) {
           className={`${badge.achieved ? '' : 'grayscale'} relative h-40 w-40`}
         />
         {badgeProgress > 0 && badgeProgress < 100 && (
-          <div className="relative m-2 flex w-full items-center justify-center rounded-md bg-gray-300">
+          <div className="relative m-2 flex w-full items-center justify-center bg-gray-300">
             <p className="z-10 text-xs">{badgeProgress}%</p>
             <div
-              className="absolute left-0 top-0 h-full rounded-md bg-green-500"
+              className="absolute inset-0 h-full bg-green-500"
               style={{
                 width: `${badgeProgress}%`,
               }}
@@ -42,7 +42,7 @@ function Badge({ badge }) {
           {badge.badge_name}
         </p>
       </div>
-      <div className="invisible absolute z-20 flex h-full w-full items-center overflow-auto rounded-lg bg-green-300 group-hover:visible">
+      <div className="invisible absolute z-20 flex h-full w-full items-start overflow-auto rounded-lg bg-green-300 group-hover:visible">
         <p className="p-4 text-center text-gray-600">
           {badge.badge_description}
         </p>
