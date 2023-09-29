@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import { UserContext } from '../components/User/UserMain.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export default function CarbonCalc() {
-  let carbonSum = 0;
-
+  const { currentUser } = useContext(UserContext);
   const [renewableEnergy, setRenewableEnergy] = useState('');
   const [heatingSource, setHeatingSource] = useState('');
   const [gasForCooking, setGasForCooking] = useState('');
@@ -15,13 +16,38 @@ export default function CarbonCalc() {
   const [smallAppliancesPurchased, setSmallAppliancesPurchased] = useState(0);
   const [clothingPurchased, setClothingPurchased] = useState(0);
   const [diet, setDiet] = useState('');
-  const [carbonFootprint, setCarbonFootprint] = useState(carbonSum);
+  const [carbonFootprint, setCarbonFootprint] = useState(0);
   const [questNum, setQuestNum] = useState(0);
   const [takeTest, setTakeTest] = useState(false);
   const [barWidth, setBarWidth] = useState(10);
+  const [answersTable, setAnswersTable] = useState({
+    user_auth_id: currentUser.user_auth_id,
+    question_answers: {},
+    carbon_emission_result: 0,
+  });
+
+  let navigate = useNavigate();
+
+  const updateAnswersTable = (updatedAnswersTable) => {
+    console.log(updatedAnswersTable);
+    axios
+      .put(
+        `${import.meta.env.VITE_BASE_URL}/users/answers/${
+          currentUser.user_auth_id
+        }`,
+        updatedAnswersTable,
+      )
+      .then((response) => {
+        console.log(response);
+        navigate(`/user/myfootprint`);
+      })
+      .catch((error) => {
+        console.warn('Error:', error);
+      });
+  };
 
   const questions = [
-    <div className="items-center space-x-4 text-green-700">
+    <div key={'q1'} className="items-center space-x-4 text-green-700">
       <span className="text-lg">
         1. Does your household use renewable energy?
       </span>
@@ -44,13 +70,16 @@ export default function CarbonCalc() {
           className="form-radio h-6 w-6 text-blue-500"
           name="renewableEnergy"
           value="no"
-          onChange={() => setRenewableEnergy('no')}
+          onChange={() => {
+            setCarbonFootprint(carbonFootprint + 2881);
+            setRenewableEnergy('no');
+          }}
           checked={renewableEnergy === 'no'}
         />
         <span className="ml-1 text-lg">No</span>
       </label>
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q2'} className="items-center space-x-4">
       <span className="text-lg">
         2. What is the primary heating source in your household?
       </span>
@@ -62,7 +91,10 @@ export default function CarbonCalc() {
           className="form-radio h-6 w-6 text-blue-500"
           name="heatingSource"
           value="electricity"
-          onChange={() => setHeatingSource('electricity')}
+          onChange={() => {
+            setCarbonFootprint(carbonFootprint + 4194);
+            setHeatingSource('electricity');
+          }}
           checked={heatingSource === 'electricity'}
         />
         <span className="ml-1 mr-2 text-lg">Electricity</span>
@@ -73,7 +105,10 @@ export default function CarbonCalc() {
           className="form-radio h-6 w-6 text-blue-500"
           name="heatingSource"
           value="naturalGas"
-          onChange={() => setHeatingSource('naturalGas')}
+          onChange={() => {
+            setCarbonFootprint(carbonFootprint + 2975);
+            setHeatingSource('naturalGas');
+          }}
           checked={heatingSource === 'naturalGas'}
         />
         <span className="ml-1 mr-2 text-lg">Natural Gas</span>
@@ -101,7 +136,7 @@ export default function CarbonCalc() {
         <span className="ml-1 text-lg">Solar Energy</span>
       </label>
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q3'} className="items-center space-x-4">
       <span className="text-lg">3. Do you use gas for cooking?</span>
       <br></br>
       <br></br>
@@ -111,7 +146,10 @@ export default function CarbonCalc() {
           className="form-radio h-6 w-6 text-blue-500"
           name="gasForCooking"
           value="yes"
-          onChange={() => setGasForCooking(true)}
+          onChange={() => {
+            setCarbonFootprint(carbonFootprint + 290);
+            setGasForCooking(true);
+          }}
           checked={gasForCooking === true}
         />
         <span className="ml-1 mr-4 text-lg">Yes</span>
@@ -126,7 +164,7 @@ export default function CarbonCalc() {
         <span className="ml-1 text-lg">No</span>
       </label>
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q4'} className="items-center space-x-4">
       <span className="text-lg">4. Do you have a car?</span>
       <br></br>
       <br></br>
@@ -158,7 +196,10 @@ export default function CarbonCalc() {
           <label className="inline-flex items-center">
             <select
               value={carType}
-              onChange={(e) => setCarType(e.target.value)}
+              onChange={(e) => {
+                setCarType(e.target.value);
+                handleCarTypeFootprint(e.target.value);
+              }}
             >
               <option value="">Select</option>
               <option value="gasoline">Gasoline</option>
@@ -170,7 +211,7 @@ export default function CarbonCalc() {
         </div>
       )}
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q5'} className="items-center space-x-4">
       <span className="text-lg">
         5. How many minutes do you spend taking public transportation a day?
       </span>
@@ -179,7 +220,10 @@ export default function CarbonCalc() {
       <label className="inline-flex items-center">
         <select
           value={publicTransportTime}
-          onChange={(e) => setPublicTransportTime(Number(e.target.value))}
+          onChange={(e) => {
+            setPublicTransportTime(Number(e.target.value));
+            handleTransportationFootprint(Number(e.target.value));
+          }}
         >
           {[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60].map((minutes) => (
             <option key={minutes} value={minutes}>
@@ -189,7 +233,7 @@ export default function CarbonCalc() {
         </select>
       </label>
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q6'} className="items-center space-x-4">
       <span className="text-lg">
         6. How many large sized appliances have you purchased in the past year?
       </span>
@@ -198,7 +242,10 @@ export default function CarbonCalc() {
       <label className="inline-flex items-center">
         <select
           value={largeAppliancesPurchased}
-          onChange={(e) => setLargeAppliancesPurchased(Number(e.target.value))}
+          onChange={(e) => {
+            handleLargeAppFootprint(Number(e.target.value));
+            setLargeAppliancesPurchased(Number(e.target.value));
+          }}
         >
           {Array.from({ length: 11 }, (_, index) => (
             <option key={index} value={index}>
@@ -208,7 +255,7 @@ export default function CarbonCalc() {
         </select>
       </label>
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q7'} className="items-center space-x-4">
       <span className="text-lg">
         7. How many medium sized appliances have you purchased in the past year?
       </span>
@@ -217,7 +264,10 @@ export default function CarbonCalc() {
       <label className="inline-flex items-center">
         <select
           value={mediumAppliancesPurchased}
-          onChange={(e) => setMediumAppliancesPurchased(Number(e.target.value))}
+          onChange={(e) => {
+            handleMediumAppFootprint(Number(e.target.value));
+            setMediumAppliancesPurchased(Number(e.target.value));
+          }}
         >
           {Array.from({ length: 11 }, (_, index) => (
             <option key={index} value={index}>
@@ -227,7 +277,7 @@ export default function CarbonCalc() {
         </select>
       </label>
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q8'} className="items-center space-x-4">
       <span className="text-lg">
         8. How many small sized appliances have you purchased in the past year?
       </span>
@@ -236,7 +286,10 @@ export default function CarbonCalc() {
       <label className="inline-flex items-center">
         <select
           value={smallAppliancesPurchased}
-          onChange={(e) => setSmallAppliancesPurchased(Number(e.target.value))}
+          onChange={(e) => {
+            handleSmallAppFootprint(Number(e.target.value));
+            setSmallAppliancesPurchased(Number(e.target.value));
+          }}
         >
           {Array.from({ length: 11 }, (_, index) => (
             <option key={index} value={index}>
@@ -246,7 +299,7 @@ export default function CarbonCalc() {
         </select>
       </label>
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q9'} className="items-center space-x-4">
       <span className="text-lg">
         9. How many pieces of clothing have you purchased this year?
       </span>
@@ -255,7 +308,10 @@ export default function CarbonCalc() {
       <label className="inline-flex items-center">
         <select
           value={clothingPurchased}
-          onChange={(e) => setClothingPurchased(Number(e.target.value))}
+          onChange={(e) => {
+            handleClothesFootprint(Number(e.target.value))
+            setClothingPurchased(Number(e.target.value))
+          }}
         >
           {Array.from({ length: 21 }, (_, index) => (
             <option key={index} value={index}>
@@ -265,7 +321,7 @@ export default function CarbonCalc() {
         </select>
       </label>
     </div>,
-    <div className="items-center space-x-4">
+    <div key={'q10'} className="items-center space-x-4">
       <span className="text-lg">10. What is your diet?</span>
       <br></br>
       <br></br>
@@ -275,7 +331,10 @@ export default function CarbonCalc() {
           className="form-radio h-6 w-6 text-blue-500"
           name="diet"
           value="vegan"
-          onChange={() => setDiet('vegan')}
+          onChange={() => {
+            setCarbonFootprint(carbonFootprint + 600)
+            setDiet('vegan')
+          }}
           checked={diet === 'vegan'}
         />
         <span className="ml-1 text-lg">Vegan</span>
@@ -286,7 +345,10 @@ export default function CarbonCalc() {
           className="form-radio h-6 w-6 text-blue-500"
           name="diet"
           value="vegetarian"
-          onChange={() => setDiet('vegetarian')}
+          onChange={() => {
+            setCarbonFootprint(carbonFootprint + 2650)
+            setDiet('vegetarian')
+          }}
           checked={diet === 'vegetarian'}
         />
         <span className="ml-1 text-lg">Vegetarian</span>
@@ -297,7 +359,10 @@ export default function CarbonCalc() {
           className="form-radio h-6 w-6 text-blue-500"
           name="diet"
           value="mostRedMeat"
-          onChange={() => setDiet('mostRedMeat')}
+          onChange={() => {
+            setCarbonFootprint(carbonFootprint + 3745)
+            setDiet('mostRedMeat')
+          }}
           checked={diet === 'mostRedMeat'}
         />
         <span className="ml-1 text-lg">Red meat in most meals</span>
@@ -308,7 +373,10 @@ export default function CarbonCalc() {
           className="form-radio h-6 w-6 text-blue-500"
           name="diet"
           value="noRedMeat"
-          onChange={() => setDiet('noRedMeat')}
+          onChange={() => {
+            setCarbonFootprint(carbonFootprint + 1909)
+            setDiet('noRedMeat')
+          }}
           checked={diet === 'noRedMeat'}
         />
         <span className="ml-1 text-lg">No red meat</span>
@@ -318,29 +386,64 @@ export default function CarbonCalc() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    carbonSum += (publicTransportTime / 5) * 66;
-    carbonSum += largeAppliancesPurchased * 750;
-    carbonSum += mediumAppliancesPurchased * 450;
-    carbonSum += smallAppliancesPurchased * 91;
-    if (renewableEnergy === 'no') {
-      carbonSum += 2881;
+    console.log(carbonFootprint);
+    console.log(answersTable);
+    updateAnswersTable(answersTable);
+  };
+
+  const handleCarTypeFootprint = (e) => {
+    if(e === 'gasoline') {
+      setCarbonFootprint(carbonFootprint + 3842);
+    } else if(e === 'diesel') {
+      setCarbonFootprint(carbonFootprint + 3713);
+    } else if(e === 'hybrid') {
+      setCarbonFootprint(carbonFootprint + 2548);
     }
-    if (heatingSource === 'electricity') {
-      carbonSum += 4194;
-    } else if (heatingSource === 'naturalGas') {
-      carbonSum += 2975;
-    }
-    if (gasForCooking === 'yes') {
-      carbonSum += 290;
-    }
-    if (carType === 'gasoline') {
-      carbonSum += 3842;
-    } else if (carType === 'diesel') {
-      carbonSum += 3713;
-    } else if (carType === 'hybrid') {
-      carbonSum += 2548;
-    }
-    setCarbonFootprint(carbonSum);
+  };
+
+
+  const handleTransportationFootprint = (e) => {
+    setCarbonFootprint(carbonFootprint + (e / 5) * 66);
+  };
+
+  const handleLargeAppFootprint = (e) => {
+    setCarbonFootprint(carbonFootprint + e * 750);
+  };
+
+  const handleMediumAppFootprint = (e) => {
+    setCarbonFootprint(carbonFootprint + e * 450);
+  };
+
+  const handleSmallAppFootprint = (e) => {
+    setCarbonFootprint(carbonFootprint + e * 91);
+  };
+
+  const handleClothesFootprint = (e) => {
+    setCarbonFootprint(carbonFootprint + e * 60);
+  };
+
+  const handleAnswersTable = () => {
+    setAnswersTable({
+      ...answersTable,
+      carbon_emission_result: carbonFootprint,
+      question_answers: {
+        'Does your household use renewable energy?': renewableEnergy,
+        'What is the primary heating source in your household?': heatingSource,
+        'Do you use gas for cooking?': gasForCooking,
+        'Do you have a car?': hasCar,
+        'What type of car do you have': carType,
+        'How many minutes do you spend taking public transportation a day?':
+          publicTransportTime,
+        'How many large sized appliances have you purchased in the past year?':
+          largeAppliancesPurchased,
+        'How many medium sized appliances have you purchased in the past year?':
+          mediumAppliancesPurchased,
+        'How many small sized appliances have you purchased in the past year?':
+          smallAppliancesPurchased,
+        'How many pieces of clothing have you purchased this year?': clothingPurchased,
+        'What is your diet?': diet
+      },
+    });
   };
 
   const handleOutsideClick = (e) => {
@@ -348,6 +451,7 @@ export default function CarbonCalc() {
       setTakeTest(false);
     }
   };
+
 
   return (
     <div onClick={handleOutsideClick}>
@@ -415,6 +519,7 @@ export default function CarbonCalc() {
                         {questions[questNum]}
                         {questNum > 0 && (
                           <button
+                            type="button"
                             className="mr-5 rounded bg-[#88B92B] px-4 py-2 text-lg text-white hover:bg-green-600"
                             onClick={() => {
                               setQuestNum(questNum - 1);
@@ -426,6 +531,7 @@ export default function CarbonCalc() {
                         )}
                         {questNum < questions.length - 1 && (
                           <button
+                            type="button"
                             className="rounded bg-[#88B92B] px-4 py-2 text-lg text-white hover:bg-green-600"
                             onClick={() => {
                               setQuestNum(questNum + 1);
@@ -437,12 +543,14 @@ export default function CarbonCalc() {
                         )}
                         <br></br>
                         {questNum === questions.length - 1 && (
-                          <div className="flex items-center justify-center">
-                            <Link to="/user/dashboard">
-                              <button className="rounded bg-green-500 px-6 py-5 text-lg text-white hover:bg-green-600">
-                                Finish!
-                              </button>
-                            </Link>
+                          <div className="flex items-center justify-center"> 
+                            <button
+                              type="submit"
+                              className="rounded bg-green-500 px-6 py-5 text-lg text-white hover:bg-green-600"
+                              onClick={handleAnswersTable}
+                            >
+                              Finish!
+                            </button>
                           </div>
                         )}
                       </form>
@@ -456,4 +564,5 @@ export default function CarbonCalc() {
       )}
     </div>
   );
+            
 }

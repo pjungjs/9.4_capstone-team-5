@@ -5,10 +5,11 @@ import { useStytchUser } from '@stytch/react';
 
 import Sidebar from './Sidebar.jsx';
 import DashboardMain from './DashboardContent/DashboardMain.jsx';
-import Achievements from '../../pages/Achievements.jsx';
-import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
 import MyFootprint from './MyFootprintContent/MyFootprint.jsx';
 import DailyQuestions from './DailyQuestionsContent/DailyQuestions.jsx';
+import BadgesBoard from './AchievementsContent/BadgesBoard.jsx';
+import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
+import ActionsMain from './ActionsContent/ActionsMain.jsx';
 import SettingsMain from './SettingsContent/SettingsMain.jsx';
 import NotFound from '../../pages/NotFound.jsx';
 
@@ -27,9 +28,13 @@ export default function UserMain() {
     last_name: user.name.last_name,
     username: user.emails[0].email.split('@')[0],
     email: user.emails[0].email,
+    profile_picture_url: user.providers.length
+      ? user.providers[0].profile_picture_url
+      : '',
     short_bio: '',
-    profile_picture_url: '',
+    user_scores: null,
   });
+  const [returningUser, setReturningUser] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -39,10 +44,18 @@ export default function UserMain() {
         );
 
         if (getUser.data) {
-          setCurrentUser(getUser.data);
+          const userScores = await axios.get(
+            `${BASE_URL}/users/scores/${currentUser.user_auth_id}`,
+          );
+
+          setCurrentUser({ ...getUser.data, user_scores: userScores.data });
+          setReturningUser(true);
         } else {
-          await createUser();
-          await createUserScores();
+          const createdUser = await createUser();
+          const createdUserScores = await createUserScores();
+          await createUserAnswers();
+
+          setCurrentUser({ ...createdUser, user_scores: createdUserScores });
         }
       } catch (error) {
         console.error('Error: GET existing user', error);
@@ -52,7 +65,7 @@ export default function UserMain() {
     const createUser = async () => {
       try {
         const postUser = await axios.post(`${BASE_URL}/users`, currentUser);
-        setCurrentUser(postUser.data);
+        return postUser.data;
       } catch (error) {
         console.error('Error: POST new user', error);
       }
@@ -63,9 +76,20 @@ export default function UserMain() {
         const postScores = await axios.post(
           `${BASE_URL}/users/scores/${currentUser.user_auth_id}`,
         );
-        console.log(postScores.data);
+        return postScores.data;
       } catch (error) {
         console.error('Error: POST new scores', error);
+      }
+    };
+
+    const createUserAnswers = async () => {
+      try {
+        const postAnswers = await axios.post(
+          `${BASE_URL}/users/answers/${currentUser.user_auth_id}`,
+        );
+        return postAnswers.data;
+      } catch (error) {
+        console.error('Error: POST new answers', error);
       }
     };
 
@@ -79,16 +103,18 @@ export default function UserMain() {
         <div className="flex-grow">
           {currentUserRoute === 'dashboard' ? (
             <DashboardMain />
+          ) : currentUserRoute === 'myfootprint' ? (
+            <MyFootprint currentUser={currentUser}/>
+          ) : currentUserRoute === 'dailyquestions' ? (
+            <DailyQuestions returningUser={returningUser}/>
+          ) : currentUserRoute === 'actions' ? (
+            <ActionsMain />
           ) : currentUserRoute === 'achievements' ? (
-            <Achievements />
+            <BadgesBoard />
           ) : currentUserRoute === 'leaderboard' ? (
             <LeaderboardDisplay />
           ) : currentUserRoute === 'settings' ? (
             <SettingsMain />
-          ) : currentUserRoute === 'myfootprint' ? (
-            <MyFootprint />
-          ) : currentUserRoute === 'dailyquestions' ? (
-            <DailyQuestions />
           ) : (
             <NotFound />
           )}

@@ -1,12 +1,9 @@
 require('dotenv').config();
 const pgp = require('pg-promise')();
 
-DATABASE_URL = process.env.DATABASE_URL;
-
-const cn = DATABASE_URL
+const cn = (process.env.DEPLOYED === 'true')
   ? {
-      connectionString: DATABASE_URL,
-      max: 30,
+      connectionString: process.env.DATABASE_URL,
     }
   : {
       host: process.env.PG_HOST,

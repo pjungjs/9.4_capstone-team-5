@@ -1,27 +1,186 @@
-import { useState, useEffect, useContext } from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
+import axios from "axios";
 
-const API = import.meta.env.VITE_BASE_URL
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function MyFootprint() {
+const API = import.meta.env.VITE_BASE_URL;
 
-    const [answers, setAnswers] = useState({})
+export default function MyFootprint( { currentUser } ) {
+  const [answers, setAnswers] = useState({});
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        axios.get(`${API}/users/answers`)
-        
-            .then((res) => {
-                console.log(res.data);
-                setAnswers(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+  const categorizedAnswers = {
+    lifestyle: [],
+    diet: [],
+    transportation: [],
+    spending: [],
+    energy: [],
+  };
+  
+  useEffect(() => {
+      axios
+      .get(`${API}/users/answers/${currentUser.user_auth_id}`)
+      .then((response) => {
+          console.log(response.data);
+          setAnswers(response.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+            console.log(err);
+            setLoading(false);
+        });
     }, []);
+    
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+    
+    const questionKeys = Object.keys(answers.question_answers);
+    
+    const separateAnswers = () => {
+        questionKeys.forEach((key) => {
+          const question = key;
+          const answer = answers.question_answers[key];
+          
+          if (question.includes("car")) {
+            categorizedAnswers.transportation.push({ question, answer });
+          } else if (question.includes("cooking")) {
+            categorizedAnswers.energy.push({ question, answer });
+          } else if (question.includes("renewable energy")) {
+            categorizedAnswers.energy.push({ question, answer });
+          } else if (question.includes("heating source")) {
+            categorizedAnswers.energy.push({ question, answer });
+          } else if (question.includes("public transportation")) {
+            categorizedAnswers.transportation.push({ question, answer });
+          } else if (question.includes("large sized appliances")) {
+            categorizedAnswers.spending.push({ question, answer });
+          } else if (question.includes("small sized appliances")) {
+            categorizedAnswers.spending.push({ question, answer });
+          } else if (question.includes("medium sized appliances")) {
+            categorizedAnswers.spending.push({ question, answer });
+          } else if (question.includes("clothing")) {
+            categorizedAnswers.spending.push({ question, answer });
+          } else if (question.includes("diet")) {
+            categorizedAnswers.diet.push({ question, answer });
+          } else {
+            categorizedAnswers.lifestyle.push({ question, answer });
+          }
+        });
+      };
+    
 
-    return (
-        <div>
-            "hello"
-        </div>
-    )
+    separateAnswers()
+
+    let energyPercentage = 0
+    let transportationPercentage = 0
+    let spendingPercentage = 0
+    let lifestylePercentage = 0
+    let dietPercentage = 0
+
+    console.log(categorizedAnswers)
+
+    const calculatePercentage = () => {
+        if(categorizedAnswers.energy[0].answer === true) {
+            energyPercentage += 1
+        }
+        if(categorizedAnswers.energy[1].answer === 'no'){
+            energyPercentage += 10
+        }
+        if(categorizedAnswers.energy[2].answer === 'electricity'){
+            energyPercentage += 13
+        } else if(categorizedAnswers.energy[2].answer === 'naturalGas'){
+            energyPercentage += 10
+        } 
+        if(categorizedAnswers.transportation[1].answer === 'gasoline'){
+            transportationPercentage += 11
+        } else if (categorizedAnswers.transportation[1].answer === 'diesel'){
+            transportationPercentage += 11
+        } else if (categorizedAnswers.transportation[1].answer === 'hybrid'){
+            transportationPercentage += 9
+        }
+
+        transportationPercentage += (categorizedAnswers.transportation[2].answer *0.2)
+
+        spendingPercentage += (categorizedAnswers.spending[0].answer*2)
+        spendingPercentage += (categorizedAnswers.spending[1].answer*0.3)
+        spendingPercentage += categorizedAnswers.spending[2].answer
+
+        const totalPercentage = energyPercentage + transportationPercentage + spendingPercentage;
+
+        const scaleFactor = 100 / totalPercentage;
+    
+        energyPercentage *= scaleFactor;
+        transportationPercentage *= scaleFactor;
+        spendingPercentage *= scaleFactor;
+        
+        energyPercentage = Math.round(energyPercentage);
+        transportationPercentage = Math.round(transportationPercentage);
+        spendingPercentage = Math.round(spendingPercentage);
+        
+    }
+
+    calculatePercentage()
+
+    const segmentColors = ["aqua", "yellow", "purple", 'blue', 'red'];
+    
+    const calculateChartData = () => {
+        const data = {
+            labels: ['Energy', 'Transportation', 'Spending', 'Diet', 'Lifestyle'],
+            datasets: [
+        {
+          data: [],
+          backgroundColor: segmentColors,
+        },
+      ],
+    };
+
+
+  
+    // Set the data for the chart
+    const categoryPercentages = [
+      energyPercentage,
+      transportationPercentage,
+      spendingPercentage,
+      lifestylePercentage,
+      dietPercentage
+    ];
+  
+    data.datasets[0].data = categoryPercentages;
+    
+
+    return data;
+  };
+
+  const data = calculateChartData();
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+      title: {
+        display: true,
+      },
+    },
+  };
+
+
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <div className="border border-black p-4">
+        This is the breakdown of your Carbon Score
+        <Pie data={data} options={options}/>
+        <span>Tips on how to improve it go  
+        <Link>
+        &nbsp;here
+        </Link>
+        </span>
+      </div>
+    </div>
+  );  
 }
+

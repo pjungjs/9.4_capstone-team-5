@@ -17,14 +17,14 @@ posts.get('/', async (req, res) => {
 // SHOW
 posts.get('/:id', async (req, res) => {
     const { id } = req.params;
-    const post = await getPost(id);
+    const posts = await getPost(id);
 
-    if(post) {
-        res.json(post);
+    if(posts) {
+        res.json(posts);
     } else {
         res.status(404).json({ error: "Sorry that Post was not found" })
     }
-});
+})
 
 // CREATE
 posts.post('/', async (req, res) => {

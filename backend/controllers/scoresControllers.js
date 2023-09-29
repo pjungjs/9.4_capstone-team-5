@@ -60,7 +60,7 @@ scores.put('/:userAuthId', async (req, res) => {
     res.status(200).json(updatedScores.payload);
   } else {
     res.status(400).json({
-      error: `users: scores update route error. ${updatedAchvs.payload}`,
+      error: `users: scores update route error. ${updatedScores.payload}`,
     });
   }
 });
