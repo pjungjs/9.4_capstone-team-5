@@ -9,7 +9,13 @@ import { useState } from 'react';
 function LandingMain() {
   const navigate = useNavigate();
 
-  const images = [carbonFootMoving, howItWorks, whatIscarbonFootprint, recycling, howTohelp];
+  const images = [
+    carbonFootMoving,
+    howItWorks,
+    whatIscarbonFootprint,
+    recycling,
+    howTohelp,
+  ];
   const [currImage, setCurrImage] = useState(0);
 
   const nextImage = () => {
@@ -24,18 +30,14 @@ function LandingMain() {
 
   return (
     <div>
-      {/* <div className="grid grid-cols-1 gap-3 md:grid-cols-3 relative"> */}
       <div className="flex flex-col">
         <div>
           <div className="relative">
-            {/* <div className="h-full rounded-xl bg-[url('assets/planet1.jpeg')] bg-cover bg-no-repeat"></div> */}
-            {/* <img src={planet} className="w-full rounded-t-xl md:h-full" /> */}
             <img
               src={images[currImage]}
-              className="h-96 w-full object-cover rounded-t-xl rounded-b-xl md:h-full"
+              className="h-96 w-full rounded-b-xl rounded-t-xl object-cover md:h-full"
               alt={`Planet ${currImage + 1}`}
             />
-
             <button
               onClick={() => navigate('/login')}
               className="absolute bottom-0 left-0 right-0 w-full rounded-b-xl bg-green-600 p-4 py-2 font-bold text-white hover:border-0 hover:border-green-600 hover:bg-green-700"
@@ -43,8 +45,6 @@ function LandingMain() {
               Take Action
             </button>
           </div>
-
-
           <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4 md:hidden">
             <button
               onClick={previousImage}
@@ -67,8 +67,6 @@ function LandingMain() {
               />
             </div>
           </div>
-
-
           <div className="hidden justify-center md:flex">
             <button
               onClick={previousImage}
@@ -90,19 +88,3 @@ function LandingMain() {
 }
 
 export default LandingMain;
-
-
-
-// <div className="rounded-xl bg-gray-200 md:col-start-3">
-//           <div className="p-4">
-//             <p className="pb-2 text-center text-lg font-bold">
-//               How does it work?
-//             </p>
-//             <p>
-//               First, you will need to create an account. Then, you will be able
-//               to track your carbon footprint by entering your daily activities.
-//               Finally, you will be able to offset your carbon footprint by
-//               donating to a charity of your choice.
-//             </p>
-//           </div>
-//         </div>
