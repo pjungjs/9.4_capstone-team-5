@@ -1,13 +1,17 @@
 import { HiArrowDownTray } from 'react-icons/hi2';
 import reduceCarbon from '../../assets/reduceCarbon.jpeg';
+import { Link } from 'react-router-dom';
+
 
 function AboutSection() {
   return (
     <div>
+      <Link to="/login">
       <button className="mx-auto my-8 flex gap-2 rounded-md bg-blue-400 px-6 py-2 shadow-xl ring-neutral-900 ring-offset-4 ring-offset-white transition-shadow hover:shadow-none focus:outline-none focus-visible:ring-4 dark:text-neutral-900">
         <HiArrowDownTray className="h-6 w-6" />
         Download Our App
       </button>
+      </Link>
       <img
         src={reduceCarbon}
         className="w-full animate-pulse rounded-t-xl ease-in-out md:h-full"
