@@ -54,7 +54,7 @@ export default function DailyQuestions( { returningUser }) {
       if(!returningUser){
     return (
         <div>
-            <CarbonCalc returningUser={returningUser} />
+            {/* <CarbonCalc returningUser={returningUser} />
         </div>
     )
       } else {
@@ -198,7 +198,7 @@ export default function DailyQuestions( { returningUser }) {
 </div>
 :
 <div></div>
-}
+} */}
 </div>
 
         )

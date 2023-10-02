@@ -6,7 +6,7 @@ import { useStytchUser } from '@stytch/react';
 import Sidebar from './Sidebar.jsx';
 import DashboardMain from './DashboardContent/DashboardMain.jsx';
 import MyFootprint from './MyFootprintContent/MyFootprint.jsx';
-import DailyQuestions from './DailyQuestionsContent/DailyQuestions.jsx';
+// import DailyQuestions from './DailyQuestionsContent/DailyQuestions.jsx';
 import BadgesBoard from './AchievementsContent/BadgesBoard.jsx';
 import LeaderboardDisplay from './LeaderboardContent/LeaderboardDisplay.jsx';
 import ActionsMain from './ActionsContent/ActionsMain.jsx';

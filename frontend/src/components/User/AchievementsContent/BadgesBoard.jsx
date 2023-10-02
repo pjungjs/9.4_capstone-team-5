@@ -8,8 +8,8 @@ const API = import.meta.env.VITE_BASE_URL;
 
 function BadgesBoard() {
   const { currentUser } = useContext(UserContext);
-  const [badgeData, setBadgeData] = useState(null);
-  const [filterBy, setFilterBy] = useState('achieved');
+  const [badgeData, setBadgeData] = useState([]);
+  const [filterBy, setFilterBy] = useState('completed');
 
   useEffect(() => {
     axios
@@ -43,6 +43,7 @@ function BadgesBoard() {
 
   return (
     <div>
+      
       <div className="flex flex-col items-center justify-center py-4 md:py-8">
         <p className="mb-2 p-2 text-2xl  font-bold uppercase">All Badges</p>
         <div className="flex items-center">
