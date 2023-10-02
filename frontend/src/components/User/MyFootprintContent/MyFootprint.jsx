@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import axios from "axios";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -138,8 +137,6 @@ export default function MyFootprint( { currentUser } ) {
     };
 
 
-  
-    // Set the data for the chart
     const categoryPercentages = [
       energyPercentage,
       transportationPercentage,
@@ -168,19 +165,56 @@ export default function MyFootprint( { currentUser } ) {
     },
   };
 
+  let biggestImpact = 0;
+  let biggestImpactLabel = '';
+  let tips = [
+    {
+    Energy: ["Switch to energy effictient appliances.", "Make sure appliances like your computer and television are really off when you turn them off.", "Lower your thermostat as much as you can tolerate."]
+    }
+]
+  const calculateBiggestImpact = () => {
+    const percentages = [energyPercentage, transportationPercentage, spendingPercentage, lifestylePercentage, dietPercentage];
+    const labels = ['Energy', 'Transportation', 'Spending', 'Lifestyle', 'Diet'];
+  
+  
+    for (let i = 0; i < percentages.length; i++) {
+      if (percentages[i] > biggestImpact) {
+        biggestImpact = percentages[i];
+        biggestImpactLabel = labels[i];
+      }
+    }
+    console.log(biggestImpact, biggestImpactLabel)
+  }
+
+  calculateBiggestImpact();
+  const tipsForBiggestImpact = tips.find((tip) => tip[biggestImpactLabel]);
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="border border-black p-4">
-        This is the breakdown of your Carbon Score
-        <Pie data={data} options={options}/>
-        <span>Tips on how to improve it go  
-        <Link>
-        &nbsp;here
-        </Link>
-        </span>
+    <div className="flex justify-center items-center">
+  <div className="w-full rounded-lg border border-gray-300 p-4 shadow-md relative">
+    <div>
+      This is the breakdown of your Carbon Score
+      <div className="w-64 h-64 mx-auto relative">
+        <Doughnut data={data} options={options} />
+        <span className="absolute inset-0 flex items-center justify-center mt-20">{Math.round(answers.carbon_emission_result / 52)}</span>
       </div>
+      <span>
+        According to your answers, you produce an estimated {Math.round(answers.carbon_emission_result / 52)} pounds of CO2 on a weekly basis. The biggest factor in your carbon emissions is {biggestImpactLabel}.
+      </span>
+      <span>
+        <br />
+        <br />
+        Here are some tips on how to improve:
+      </span>
+      <ul className="list-disc ml-6 mt-2">
+        {tipsForBiggestImpact && tipsForBiggestImpact[biggestImpactLabel].map((tip, index) => (
+          <li key={index} className="italic">{tip}</li>
+        ))}
+      </ul>
     </div>
+  </div>
+</div>
+
   );  
 }
 

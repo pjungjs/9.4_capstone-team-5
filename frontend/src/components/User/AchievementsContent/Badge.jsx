@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 function Badge({ badge }) {
 
@@ -37,6 +38,27 @@ function Badge({ badge }) {
       
         <p className="text-gray-800 text-xl font-semibold text-center">{badge.badge_name}</p>
         {/* <p className="text-sm">{badge.badge_description}</p> */}
+        <div className="relative pt-1">
+  <div className="mb-2 flex items-center justify-between">
+    <div>
+      <span className="inline-block rounded-full bg-green-200 px-2 py-1 text-xs font-semibold uppercase text-green-600">
+        In Progress
+      </span>
+    </div>
+    <div className="text-center">
+    </div>
+  </div>
+  <div className="relative h-8 w-40 rounded-full bg-gray-200">
+  <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: `20%` }}
+    transition={{ duration: 0.5 }}
+    className="absolute left-0 top-0 h-full rounded-full bg-cyan-500"
+    style={{ width: `10%` }}
+  ></motion.div>
+</div>
+
+      </div>
      
     </div>
   );

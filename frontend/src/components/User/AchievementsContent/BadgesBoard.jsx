@@ -10,6 +10,7 @@ function BadgesBoard() {
   const { currentUser } = useContext(UserContext);
   const [badgeData, setBadgeData] = useState([]);
   const [filterBy, setFilterBy] = useState('completed');
+  const [loading, setLoading] = useState(true)
 
   // console.log(currentUser.currentUser.user_achvs);
   // console.log(currentUser);
@@ -20,11 +21,20 @@ function BadgesBoard() {
       .then((res) => {
         console.log(res.data);
         setBadgeData(res.data);
+        setLoading(false)
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  if(loading){
+    return(
+      <div>
+        Loading
+      </div>
+    )
+  }
 
   // mark badges as achieved
   const filteredBadges = badgeData?.map((badge) => {
