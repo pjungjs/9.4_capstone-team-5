@@ -32,7 +32,7 @@ export default function UserMain() {
       ? user.providers[0].profile_picture_url
       : '',
     short_bio: '',
-    user_scores: [],
+    user_scores: null,
   });
   const [returningUser, setReturningUser] = useState(false);
 
