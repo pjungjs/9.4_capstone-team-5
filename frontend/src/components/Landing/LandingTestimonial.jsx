@@ -1,11 +1,11 @@
 
 function Testimonial() {
   return (
-    <div className="grid rounded-lg border border-gray-200 shadow-sm md:mb-12 md:grid-cols-2">
-      <figure className="flex flex-col items-center justify-center rounded-t-lg border-b border-gray-200 bg-white p-8 text-center md:rounded-t-none md:rounded-tl-lg md:border-r">
-        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8">
-          <p className="text-lg font-semibold text-green-500">
-            Very easy this was to integrate
+    <div className="grid rounded-lg border border-gray-200 shadow-sm md:mb-12 md:grid-cols-2 group">
+      <figure className="flex flex-col items-center justify-center rounded-t-lg border-b border-gray-200 bg-blue-200 p-8 text-center md:rounded-t-none md:rounded-tl-lg md:border-r group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 duration-500">
+        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 bg-white/40 p-8 rounded-xl mix-blend-luminosity cursor-pointer">
+          <p className="uppercase text-lg font-semibold">
+            Very easy this was to integrate...
           </p>
           <p className="my-4">
             As an orchestra director, I&apos;m accustomed to harmonizing
@@ -27,10 +27,10 @@ function Testimonial() {
         </figcaption>
       </figure>
 
-      <figure className="flex flex-col items-center justify-center rounded-tr-lg border-b border-gray-200 bg-white p-8 text-center">
-        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8">
-          <p className="text-lg font-semibold  text-green-500">
-            it&apos;s a bridge that connects our actions to a greener future.
+      <figure className="flex flex-col items-center justify-center rounded-tr-lg border-b border-gray-200 bg-blue-200 p-8 text-center group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 duration-500">
+        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 bg-white/40 p-8 rounded-xl mix-blend-luminosity cursor-pointer">
+          <p className="uppercase text-lg font-semibold">
+            It&apos;s a bridge that connects our actions to a greener future...
           </p>
           <p className="my-4">
             Running a successful business while nurturing the environment can be
@@ -52,14 +52,13 @@ function Testimonial() {
         </figcaption>
       </figure>
 
-      <figure className="flex flex-col items-center justify-center rounded-bl-lg border-b border-gray-200 bg-white p-8 text-center md:border-b-0 md:border-r">
-        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8">
-          <p className="text-lg font-semibold  text-green-500">
-            Ecoway empowers individuals from all walks of life to be agents of
-            positive change.
+      <figure className="flex flex-col items-center justify-center rounded-bl-lg border-b border-gray-200 bg-blue-200 p-8 text-center md:border-b-0 md:border-r group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 duration-500">
+        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 bg-white/40 p-8 rounded-xl mix-blend-luminosity cursor-pointer">
+          <p className="uppercase text-lg font-semibold">
+            Ecoway empowers individuals from all walks of life...
           </p>
           <p className="my-4">
-            Entrepreneurship is about innovation and impact, and Ecoway embodies
+            To be agents of positive change. Entrepreneurship is about innovation and impact, and Ecoway embodies
             both. From reducing waste to supporting green initiatives, Ecoway
             provides actionable steps that empower entrepreneurs like me to
             contribute positively to the environment while driving business
@@ -79,10 +78,10 @@ function Testimonial() {
         </figcaption>
       </figure>
 
-      <figure className="flex flex-col items-center justify-center rounded-b-lg border-gray-200 bg-white p-8 text-center md:rounded-br-lg">
-        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8">
-          <p className="text-lg font-semibold text-green-500">
-            It&apos;s about making sustainable choices
+      <figure className="flex flex-col items-center justify-center rounded-b-lg border-gray-200 bg-blue-200 p-8 text-center md:rounded-br-lg group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 duration-500">
+        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8  bg-white/40 p-8 rounded-xl mix-blend-luminosity cursor-pointer">
+          <p className="uppercase text-lg font-semibold">
+            It&apos;s about making sustainable choices...
           </p>
           <p className="my-4">
             Ecoway&apos;s data-driven insights and tools have enhanced my
