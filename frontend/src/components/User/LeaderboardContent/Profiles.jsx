@@ -34,15 +34,18 @@ function Profiles() {
 
 
   const usersWithScores = users.map(user => {
-    user.score = userScores.find(score => score.user_auth_id === user.user_auth_id);
+    user.score = userScores.find(score => 
+      score.user_auth_id === user.user_auth_id);
+   
     return user;
+    
+  })
+// console.log(usersWithScores)  
+  const usersSortedByScore = usersWithScores?.sort((userA, userB) => {
+    return userB.score.score_total - userA.score.score_total;
   })
 
-  const usersSortedByScore = usersWithScores.sort((userA, userB) => {
-    return userB.score_total - userA.score_total;
-  })
-
-  console.log(usersSortedByScore)
+  console.log(userScores)
 
   return (
     
@@ -62,32 +65,6 @@ function Profiles() {
           ))}
         
       </div>
-
-// {/* <div className="max-w-3xl mx-auto">
-// <p className="text-3xl font-semibold mb-4 text-center">Leaderboard</p>
-// <div className="space-y-4 bg-red-800">
-//   {usersSortedByScore.map((user, index) => (
-//     <div
-//       key={user.id}
-//       className={`bg-green-100  p-4`}
-//     >
-//       <UserProfile key={user.id} userProfileData={user} />
-//     </div>
-//   ))}
-// </div>
-// </div> */}
-   
-
-
-
-    // <div>
-    //   {usersSortedByScore.map((user) => (
-    //     <UserProfile
-    //       key={user.id}
-    //       userProfileData={user}
-    //     />
-    //   ))}
-    // </div>
   );
 }
 
