@@ -1,6 +1,6 @@
 function DashboardActions({ userActns, allActions }) {
   return (
-    <div className="flex flex-col rounded-lg border border-gray-300 p-4 shadow-md">
+    <div className="flex flex-col space-y-2 rounded-lg border border-gray-300 p-4 shadow-md">
       <div className="flex">
         <p>My Actions:</p>
         {userActns && allActions && (

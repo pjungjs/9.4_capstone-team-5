@@ -10,11 +10,12 @@ function DashboardAchievements({ userAchvs, allBadges }) {
           </div>
         )}
       </div>
-      {userAchvs && (
+
+      {userAchvs && userAchvs.length > 0 && (
         <div className="flex flex-wrap py-2">
-          {userAchvs.map((achv, index) => (
+          {userAchvs.map((achv) => (
             <div
-              key={index}
+              key={achv.badge_id}
               className="m-1 flex w-28 flex-col items-center justify-center border border-gray-300 p-2 hover:shadow-lg"
             >
               <img

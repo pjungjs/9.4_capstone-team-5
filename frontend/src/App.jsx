@@ -13,6 +13,8 @@ import PrivateRoutes from './components/User/PrivateRoutes.jsx';
 import UserMain from './components/User/UserMain.jsx';
 import Forum from './pages/ForumTopic.jsx';
 import ForumTopic from './pages/Forum.jsx';
+import CommunityForum from './pages/CommunityForum.jsx';
+import PostDetails from './components/Posts/PostDetails.jsx';
 import Actions from './components/Actions/Actions.jsx';
 import ActionDetails from './components/Actions/ActionDetails.jsx';
 
@@ -33,6 +35,8 @@ function App() {
             <Route path="/topic/:id" element={<ForumTopic />} />
             <Route path="/actions" element={<Actions />} />
             <Route path="/actions/:slug" element={<ActionDetails />} />
+            <Route path="/community-forum" element={<CommunityForum />} />
+            <Route path="/community-forum/post/:slug" element={<PostDetails />} />
             <Route element={<PrivateRoutes />}>
               <Route path="/user/*" element={<UserMain />} />
             </Route>
