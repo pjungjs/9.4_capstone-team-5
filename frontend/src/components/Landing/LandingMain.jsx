@@ -4,10 +4,26 @@ import carbonFootMoving from '../../assets/carbonFootMoving.gif';
 import howItWorks from '../../assets/howItWorks.gif';
 import howTohelp from '../../assets/howTohelp.png';
 import { useNavigate } from 'react-router-dom';
+
+// import JoinVideo from '../../assets/Join.mp4';
+import JoinGif from '../../assets/Join.gif'
+
 import { useState } from 'react';
+
 
 function LandingMain() {
   const navigate = useNavigate();
+
+
+  return (
+
+<div className='flex flex-row justify-center '>
+
+<div className='mt-8 w-3/4 h-3/4  '>
+  <img src={JoinGif} />
+</div>
+</div>
+
 
   const images = [
     carbonFootMoving,
@@ -17,6 +33,7 @@ function LandingMain() {
     howTohelp,
   ];
   const [currImage, setCurrImage] = useState(0);
+
 
   const nextImage = () => {
     setCurrImage((prevIndex) => (prevIndex + 1) % images.length);
