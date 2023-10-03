@@ -5,7 +5,7 @@ import background from '../assets/aboutImages/background.png'
 
 
 function About() {
-  return <div className="flex flex-col w-full  bg-cover bg-center p-10 repeat " style={{backgroundImage:`url(${background})`}}>
+  return <div className="flex flex-col w-full  bg-cover bg-center p-10" style={{backgroundImage:`url(${background})`}}>
     <MainTop />
     <AboutTeam />
     </div>;

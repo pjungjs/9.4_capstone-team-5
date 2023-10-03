@@ -9,4 +9,9 @@ export default {
     },
   },
   plugins: [],
+  
+  variants: {
+    animation: ['responsive', 'motion-safe', 'motion-reduce']
+  }
+
 };
