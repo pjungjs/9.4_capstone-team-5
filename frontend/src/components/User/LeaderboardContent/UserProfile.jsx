@@ -1,10 +1,10 @@
 import React from 'react';
 import background from '../../../assets/aboutImages/background.png';
-// import { useEffect } from 'react';
+
 
 
 function UserProfile({ userProfileData, index }) {
-  // console.log(userProfileData);
+ 
  
 
   const userPosition = () => {
@@ -53,8 +53,6 @@ function UserProfile({ userProfileData, index }) {
             />
           </div>
         </div>
-        
-
       </div>
     </div>
   );
