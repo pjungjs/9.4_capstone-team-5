@@ -161,6 +161,7 @@ function PostDetails() {
                       {commentedUser?.profile_picture_url && (
                         <img
                           src={commentedUser.profile_picture_url}
+                          referrerPolicy="no-referrer"
                           alt="commented user picture"
                           className="h-10 w-10 rounded-full"
                         />

@@ -103,6 +103,7 @@ function NavBar() {
                     {userInfo && userInfo.profile_picture_url ? (
                       <img
                         src={userInfo.profile_picture_url}
+                        referrerPolicy="no-referrer"
                         alt="profile picture"
                         className="h-10 w-10 rounded-full"
                       />
