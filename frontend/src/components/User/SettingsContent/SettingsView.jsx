@@ -72,6 +72,7 @@ function SettingsView({ editInfo, setEditInfo }) {
             {currentUser.profile_picture_url ? (
               <img
                 src={currentUser.profile_picture_url}
+                referrerPolicy="no-referrer"
                 alt="profile picture"
                 className="h-28 w-28 rounded-lg"
               />
