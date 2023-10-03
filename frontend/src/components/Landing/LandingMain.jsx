@@ -1,3 +1,5 @@
+
+
 import recycling from '../../assets/recycle1.jpeg';
 import whatIscarbonFootprint from '../../assets/whatIscarbonFootprint.jpeg';
 import carbonFootMoving from '../../assets/carbonFootMoving.gif';

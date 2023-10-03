@@ -2,39 +2,39 @@ import UserProfile from './UserProfile';// import { profileMockData } from './mo
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const API = import.meta.env.VITE_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function Profiles() {
-  const [users, setUsers] = useState([]);
-  const [userScores, setUserScores] = useState([]);
+  const [allUsersInfo, setAllUsersInfo] = useState(null);
+  const [allUserScores, setAllUserScores] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`${API}/users`)
+      .get(`${BASE_URL}/users`)
       .then((res) => {
         // console.log(res.data);
-        setUsers(res.data);
+        setAllUsersInfo(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
+
+      axios
+        .get(`${BASE_URL}/users/scores`)
+        .then((res) => {
+          // console.log(res.data);
+          setAllUserScores(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`${API}/users/scores`)
-      .then((res) => {
-        // console.log(res.data);
-        setUserScores(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+ 
 
 
-  const usersWithScores = users.map(user => {
-    user.score = userScores.find(score => 
+  const usersWithScores = allUsersInfo?.map(user => {
+    user.score = allUserScores?.find(score => 
       score.user_auth_id === user.user_auth_id);
    
     return user;
@@ -45,23 +45,25 @@ function Profiles() {
     return userB.score.score_total - userA.score.score_total;
   })
 
-  console.log(userScores)
+  
 
   return (
     
-      <div className="flex flex-col items-center max-w-3xl mx-auto">
+      <div className="flex flex-col items-center max-w-3xl mx-auto ">
         <div>
         <p className="text-3xl font-semibold mb-4 text-center">Leaderboard</p>
 
         </div>
         
-          {usersSortedByScore.map((user, index) => (
+          {usersSortedByScore && usersSortedByScore.map((user, index) => (
             <div
               key={user.id}
-              className="bg-green-100 p-4"
+              className="p-4"
             >
-              <UserProfile key={user.id} userProfileData={user} />
+              <UserProfile key={user.id} userProfileData={user} index={index}/>
+              
             </div>
+
           ))}
         
       </div>

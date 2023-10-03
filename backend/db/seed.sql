@@ -3,7 +3,7 @@
 INSERT INTO users 
   (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url, user_achvs, user_actns)
 VALUES
-  ('2023-08-31T23:37:35.000Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'EcoWay', 'Pursuit', 'ecoway.dev5', 'ecoway.dev5@gmail.com', 'I am the Admin of this project :)', 'https://lh3.googleusercontent.com/a/ACg8ocK2bi7blV5RtmHuQEDJHAFmo8kGxmjUrH9B5y4Ty8As=s96-c', '[
+  ('2023-08-31T23:37:35.000Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'William', 'Pursuit', 'ecoway.dev5', 'ecoway.dev5@gmail.com', 'I am the Admin of this project :)', 'https://lh3.googleusercontent.com/a/ACg8ocK2bi7blV5RtmHuQEDJHAFmo8kGxmjUrH9B5y4Ty8As=s96-c', '[
     { "badge_id": 16, "badge_name": "Eco-chef Connoisseur", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+chef+connoiseur.png", "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_id": 1, "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/consistent+player.png",  "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_id": 4, "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png",  "received_date": "2023-08-31T23:37:35.000Z" }
@@ -43,10 +43,10 @@ VALUES
 INSERT INTO user_scores 
   (user_auth_id, score_logged_in, score_energy, score_transportation, score_food, score_lifestyle, score_recycling, score_actions, score_total)
 VALUES
-  ('user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 0, 350, 0, 300, 360, 0, 270, 1280),
-  ('user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 7, 700, 0, 0, 0, 300, 0, 1007),
-  ('user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 14, 0, 350, 100, 300, 0, 40, 804),
-  ('user-test-0c35484e-1e63-4330-b327-039539cb2949', 30, 300, 300, 0, 0, 0, 300, 930),
+  ('user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 0, 350, 0, 0, 160, 0, 170, 780),
+  ('user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 7, 350, 0, 0, 350, 300, 0, 1007),
+  ('user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 14, 350, 350, 100, 300, 0, 40, 1154),
+  ('user-test-0c35484e-1e63-4330-b327-039539cb2949', 30, 300, 300, 0, 10, 0, 300, 930),
   ('user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', 7, 300, 300, 0, 0, 300, 40, 947);
 
 
