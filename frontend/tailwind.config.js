@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'contact-us': 'url("./src/assets/contact-us.png")',
+        'cust-contact-us': 'url("./src/assets/contact-us.png")',
       },
     },
   },

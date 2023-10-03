@@ -2,15 +2,11 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../UserMain.jsx';
 import SettingsView from './SettingsView.jsx';
 import SettingsEdit from './SettingsEdit.jsx';
+import formatTime from '../../../utils/formatTime.js';
 
 function SettingsMain() {
   const { currentUser } = useContext(UserContext);
   const [editInfo, setEditInfo] = useState(false);
-
-  const createdAt = new Date(currentUser.created_at).toLocaleString('en-US', {
-    dateStyle: 'short',
-    timeStyle: 'short',
-  });
 
   return (
     <div className="mb-20 flex flex-col items-center justify-center uppercase text-gray-700">
@@ -23,7 +19,9 @@ function SettingsMain() {
           <div className="flex flex-col items-center justify-center space-y-3 text-sm">
             <p className="w-full rounded-lg border border-red-400 px-3 py-2">
               <span className="font-bold">Created at: </span>
-              <span className="pl-2 normal-case">{createdAt}</span>
+              <span className="pl-2 normal-case">
+                {formatTime(currentUser.created_at)}
+              </span>
             </p>
             <p className="w-full rounded-lg border border-red-400 px-3 py-2">
               <span className="font-bold">Email: </span>
