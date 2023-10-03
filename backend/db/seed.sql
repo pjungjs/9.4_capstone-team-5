@@ -59,7 +59,6 @@ VALUES
   -- ('Next Level Standard', 'You have logged to the app for 90 days in a row', 'https://ecoway.s3.amazonaws.com/Badge.png', 90, 'login'),
   -- ('MVP', 'You have logged to the app for 180 days in a row', 'https://ecoway.s3.amazonaws.com/Badge.png', 180, 'login'),
 
-
   ('Recycle Crusader', 'Based on your daily efforts you have mastered the art of recycling, Keep it up! ', 'https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png', 300, 'recycling'),
   ('Recycle Artisan', 'As if we were not blown by your recycling habits, you have recycled enough to keep 10 miles of beach pristine, awesome', 'https://ecoway.s3.amazonaws.com/BadgesImages/Recycling+Artisan.png', 400, 'recycling'),
   ('Reusable Crusader', 'You have officially joined the ranks of the eco-warriors by consistently using reusable bags, bottles, and containers.', 'https://ecoway.s3.amazonaws.com/BadgesImages/Reusable+Crusader.png', 475, 'recycling'),
@@ -117,7 +116,6 @@ VALUES
   ('2023-09-09T12:30:00Z', 'Do you support or engage in local community initiatives promoting sustainability?', 'lifestyle', false);
 
 
-
 INSERT INTO answers 
   (created_at, user_auth_id, question_answers, carbon_emission_result)
 VALUES
@@ -127,19 +125,67 @@ VALUES
   ('2023-09-08T12:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', '{}', 0),
   ('2023-09-08T12:30:00Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', '{}', 0);
 
+
 INSERT INTO posts 
-  (created_at, user_auth_id, title, content, post_likes)
+  (created_at, user_auth_id, title, slug, category, content, post_likes, post_comments)
 VALUES
-  ('2023-09-08T12:30:00Z','auth_id_6', 'Sample Post 1', 'This is the content of the first post', '[{"user_id": "user_auth_id_5", "liked_at": "2023-09-10T12:00:00Z"}]'),
-  ('2023-09-08T10:00:00Z','auth_id_7', 'Sample Post 2', 'This is the content of the second post', '[{"user_id": "user_auth_id_6", "liked_at": "2023-09-10T13:00:00Z"}]'),
-  ('2023-09-08T13:30:00Z','auth_id_8', 'Sample Post 3', 'This is the content of the third post', '[{"user_id": "user_auth_id_7", "liked_at": "2023-09-10T14:00:00Z"}]'),
-  ('2023-09-08T14:00:00Z','auth_id_9', 'Sample Post 4', 'This is the content of the fourth post', '[{"user_id": "user_auth_id_8", "liked_at": "2023-09-10T15:00:00Z"}]');
+  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'Welcome to EcoWay', 'welcome-to-ecoway', 'general', 'This is the content of the Welcome to EcoWay', '[
+    { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-0c35484e-1e63-4330-b327-039539cb2949", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "liked_at": "2023-09-10T12:00:00Z" }
+  ]', '[
+    { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "commented_at": "2023-09-10T12:00:00Z", "content": "Loved the app!" },
+    { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "commented_at": "2023-09-10T12:00:00Z", "content": "Thank you!" },
+    { "user_id": "user-test-0c35484e-1e63-4330-b327-039539cb2949", "commented_at": "2023-09-10T12:00:00Z", "content": "Looking forward using the app." },
+    { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "commented_at": "2023-09-10T12:00:00Z", "content": "Together we can make this planet greener~" }
+  ]'),
+  ('2023-09-08T10:00:00Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 'Tips for Reducing Energy Consumption', 'tips-for-reducing-energy-consumption', 'tips', 'At its core, energy conservation means using less energy to lower costs and reduce environmental impact. This can mean using less electricity, gas, or any other form of energy that you get from your utility and pay for. With finite energy resources available on our planet, actively conserving energy when possible is beneficial individually and to our larger energy systems. Keep your lights off to the extent safely possible, including exterior lights that may be on a timer. Set your thermostat to 78 degrees or higher, health permitting, and turn your air conditioner off when not at home. Move any furniture blocking vents to be sure air is flowing efficiently. Charge your laptop and cell phone before 3 p.m. or after 9 p.m. Hang dry your clothes instead of using your dryer. Unplug energy vampires when not in use, such as televisions, game consoles, and standby coffee makers. Use a fan(s) instead of your air conditioner. Cover your windows to keep sunlight from heating your home. Cook using your stove, microwave, or outside grill instead of your oven. Limit opening your refrigerator and freezer.', '[
+    { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-0c35484e-1e63-4330-b327-039539cb2949", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "liked_at": "2023-09-10T12:00:00Z" }
+  ]', '[
+    { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "commented_at": "2023-09-10T12:00:00Z", "content": "thanks for sharing the tip!" }
+  ]'),
+  ('2023-09-08T13:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 'How do I reduce food waste?', 'how-do-i-reduce-food-waste', 'question', 'This is the content of the How do I reduce food waste?', '[
+    { "user_id": "user-test-0c35484e-1e63-4330-b327-039539cb2949", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "liked_at": "2023-09-10T12:00:00Z" }
+  ]', '[
+    { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "commented_at": "2023-09-10T12:00:00Z", "content": "That is a great question.." },
+    { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "commented_at": "2023-09-10T12:00:00Z", "content": "Check out the Take Actions page, there are some good resources and tips." }
+  ]'),
+  ('2023-09-08T14:00:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', 'Volunteer opportunity in NYC', 'volunteer-opportunity-in-nyc', 'resources', 'This is the content of the Volunteer opportunity in NYC', '[
+    { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "liked_at": "2023-09-10T12:00:00Z" }
+  ]', '[
+    { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "commented_at": "2023-09-10T12:00:00Z", "content": "I will try to make it" },
+    { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "commented_at": "2023-09-10T12:00:00Z", "content": "Thank you!" },
+    { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "commented_at": "2023-09-10T12:00:00Z", "content": "Looking forward for this opportunity" },
+    { "user_id": "user-test-0c35484e-1e63-4330-b327-039539cb2949", "commented_at": "2023-09-10T12:00:00Z", "content": "I hope to see you guys there" }
+  ]'),
+  ('2023-09-08T13:30:00Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', 'What Will Be The Biggest Environmental Problems of 2024', 'what-will-be-the-biggest-environmental-problems-of-2024', 'general', 'The U.S. and the entire world face many immediate environmental issues, but some are more pressing and time-sensitive than others. Let’s review the six biggest environmental issues the U.S. faces as we near 2024. 1. Fossil Fuels: burning these fuels for energy is the leading cause of climate change 2. Deforestation: the urbanization of forested land has severe consequence. It impacts C02 emissions which contributes to global warming, and impacts wildlife and their habitats and ecosystems. 3. Air Quality 4. Drinking Water: We take drinking water for granted in the U.S., but water-contamination crises have shown to affect Flint, Michigan, Mississippi, Maryland and Hawaii. 5. Waste: the more we consume, the more waste we produce. 6. Natural Resources: natural resource depletion can lead to many issues, including water shortages, oil shortages, loss of forested lands, mineral depletion, and even species extinction.', '[
+    { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "liked_at": "2023-09-10T12:00:00Z" },
+    { "user_id": "user-test-0c35484e-1e63-4330-b327-039539cb2949", "liked_at": "2023-09-10T12:00:00Z" }
+  ]', '[
+    { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "commented_at": "2023-09-10T12:00:00Z", "content": "Thanks for the info" }
+  ]');
 
 
-INSERT INTO post_comments
-  (created_at, user_auth_id, post_id, content)
-VALUES
-  ('2023-09-12T10:00:00Z', 'auth_id_1', 1, 'Great topic! I totally agree with your points.'),
-  ('2023-09-13T13:00:00Z', 'auth_id_2', 1, 'I have a different perspective on this. Let me explain...'),
-  ('2023-09-10T14:00:00Z', 'auth_id_3', 2, 'Thanks for sharing this information. It is very informative.'),
-  ('2023-09-11T16:00:00Z', 'auth_id_4', 3, 'I had a similar experience, and I can relate to your story.');
+-- INSERT INTO posts 
+--   (created_at, user_auth_id, title, content, post_likes)
+-- VALUES
+--   ('2023-09-08T12:30:00Z','auth_id_6', 'Sample Post 1', 'This is the content of the first post', '[{"user_id": "user_auth_id_5", "liked_at": "2023-09-10T12:00:00Z"}]'),
+--   ('2023-09-08T10:00:00Z','auth_id_7', 'Sample Post 2', 'This is the content of the second post', '[{"user_id": "user_auth_id_6", "liked_at": "2023-09-10T13:00:00Z"}]'),
+--   ('2023-09-08T13:30:00Z','auth_id_8', 'Sample Post 3', 'This is the content of the third post', '[{"user_id": "user_auth_id_7", "liked_at": "2023-09-10T14:00:00Z"}]'),
+--   ('2023-09-08T14:00:00Z','auth_id_9', 'Sample Post 4', 'This is the content of the fourth post', '[{"user_id": "user_auth_id_8", "liked_at": "2023-09-10T15:00:00Z"}]');
+
+
+-- INSERT INTO post_comments
+--   (created_at, user_auth_id, post_id, content)
+-- VALUES
+--   ('2023-09-12T10:00:00Z', 'auth_id_1', 1, 'Great topic! I totally agree with your points.'),
+--   ('2023-09-13T13:00:00Z', 'auth_id_2', 1, 'I have a different perspective on this. Let me explain...'),
+--   ('2023-09-10T14:00:00Z', 'auth_id_3', 2, 'Thanks for sharing this information. It is very informative.'),
+--   ('2023-09-11T16:00:00Z', 'auth_id_4', 3, 'I had a similar experience, and I can relate to your story.');
