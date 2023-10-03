@@ -106,7 +106,7 @@ export default function UserMain() {
           ) : currentUserRoute === 'myfootprint' ? (
             <MyFootprint currentUser={currentUser}/>
           ) : currentUserRoute === 'dailyquestions' ? (
-            <DailyQuestions returningUser={returningUser}/>
+            <DailyQuestions returningUser={returningUser} currentUser={currentUser}/>
           ) : currentUserRoute === 'actions' ? (
             <ActionsMain />
           ) : currentUserRoute === 'achievements' ? (

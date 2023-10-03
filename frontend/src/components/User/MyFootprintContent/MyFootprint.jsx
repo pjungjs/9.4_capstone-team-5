@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from "chart.js";
+import { Doughnut, Bar } from "react-chartjs-2";
 import axios from "axios";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, BarElement, LinearScale);
 
 const API = import.meta.env.VITE_BASE_URL;
 
@@ -138,8 +137,6 @@ export default function MyFootprint( { currentUser } ) {
     };
 
 
-  
-    // Set the data for the chart
     const categoryPercentages = [
       energyPercentage,
       transportationPercentage,
@@ -168,19 +165,79 @@ export default function MyFootprint( { currentUser } ) {
     },
   };
 
+  let biggestImpact = 0;
+  let biggestImpactLabel = '';
+  let tips = [
+    {
+    Energy: ["Switch to energy effictient appliances.", "Make sure appliances like your computer and television are really off when you turn them off.", "Lower your thermostat as much as you can tolerate."]
+    }
+]
+  const calculateBiggestImpact = () => {
+    const percentages = [energyPercentage, transportationPercentage, spendingPercentage, lifestylePercentage, dietPercentage];
+    const labels = ['Energy', 'Transportation', 'Spending', 'Lifestyle', 'Diet'];
+  
+  
+    for (let i = 0; i < percentages.length; i++) {
+      if (percentages[i] > biggestImpact) {
+        biggestImpact = percentages[i];
+        biggestImpactLabel = labels[i];
+      }
+    }
+    console.log(biggestImpact, biggestImpactLabel)
+  }
+
+  calculateBiggestImpact();
+  const tipsForBiggestImpact = tips.find((tip) => tip[biggestImpactLabel]);
+
+  const data2 = {
+    labels: ["Mon", "Tues", "Wed"],
+    datasets: [
+      {
+      label: "100",
+      data: [3,6,9],
+      backgroundColor: 'aqua',
+      borderColor: 'black',
+      borderWidth: 1
+    },
+    {
+      label: "100",
+      data: [3,3,3],
+      backgroundColor: 'aqua',
+      borderColor: 'black',
+      borderWidth: 1
+    }
+
+  ]
+  }
+
+  const options2 = {}
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="border border-black p-4">
+    <div className="flex justify-center items-center">
+    <div className="w-full rounded-lg border border-gray-300 p-4 shadow-md relative">
+      <div>
         This is the breakdown of your Carbon Score
-        <Pie data={data} options={options}/>
-        <span>Tips on how to improve it go  
-        <Link>
-        &nbsp;here
-        </Link>
+        <div className="flex w-64 h-64 relative items-center">
+          <Doughnut data={data} options={options}/>
+          <span className="absolute inset-0 flex items-center justify-center mt-20">{Math.round(answers.carbon_emission_result / 52)}</span>
+          <Bar data={data2} options={options2}></Bar>
+        </div>
+        <span>
+          According to your answers, you produce an estimated {Math.round(answers.carbon_emission_result / 365)} pounds of CO2 on a daily basis. The biggest factor in your carbon emissions is {biggestImpactLabel}.
         </span>
+        <span>
+          <br />
+          <br />
+          Here are some tips on how to improve:
+        </span>
+        <ul className="list-disc ml-6 mt-2">
+          {tipsForBiggestImpact && tipsForBiggestImpact[biggestImpactLabel].map((tip, index) => (
+            <li key={index} className="italic">{tip}</li>
+          ))}
+        </ul>
       </div>
     </div>
+  </div>
   );  
 }
 

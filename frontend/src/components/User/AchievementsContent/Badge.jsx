@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useContext, useState } from 'react';
-import { UserContext } from '../UserMain';
+import { UserContext } from '../UserMain.jsx';
 
 function Badge({ badge }) {
   const { currentUser } = useContext(UserContext);
@@ -12,8 +12,8 @@ function Badge({ badge }) {
         const percentageProgress = Math.floor(
           (currentUser.user_scores[`score_${badge.badge_type}`] * 100) /
             badge.badge_req_points,
-        );
-        console.log(percentageProgress, badge.badge_type);
+            );
+            // console.log(percentageProgress, badge.badge_type)
         setBadgeProgress(percentageProgress);
       }
     }

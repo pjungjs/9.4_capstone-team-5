@@ -4,37 +4,37 @@ INSERT INTO users
   (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url, user_achvs, user_actns)
 VALUES
   ('2023-08-31T23:37:35.000Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'EcoWay', 'Pursuit', 'ecoway.dev5', 'ecoway.dev5@gmail.com', 'I am the Admin of this project :)', 'https://lh3.googleusercontent.com/a/ACg8ocK2bi7blV5RtmHuQEDJHAFmo8kGxmjUrH9B5y4Ty8As=s96-c', '[
-    { "badge_id": "16", "badge_name": "Eco-chef Connoisseur", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+chef+connoiseur.png", "received_date": "2023-08-31T23:37:35.000Z" },
-    { "badge_id": "1", "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/consistent+player.png",  "received_date": "2023-08-31T23:37:35.000Z" },
-    { "badge_id": "4", "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png",  "received_date": "2023-08-31T23:37:35.000Z" }
+    { "badge_id": 16, "badge_name": "Eco-chef Connoisseur", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+chef+connoiseur.png", "received_date": "2023-08-31T23:37:35.000Z" },
+    { "badge_id": 1, "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/consistent+player.png",  "received_date": "2023-08-31T23:37:35.000Z" },
+    { "badge_id": 4, "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png",  "received_date": "2023-08-31T23:37:35.000Z" }
   ]', '[
     { "action_slug": "hybrid-or-electric-vehicles", "completed_at": "2023-09-02T23:21:20.000Z", "points": 100 },
     { "action_slug": "seal-home-leaks", "completed_at": "2023-09-02T23:21:20.000Z", "points": 70 },
     { "action_slug": "solar-panels", "completed_at": "2023-09-02T23:21:20.000Z", "points": 100 }
   ]'),
   ('2023-09-02T23:21:20.000Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 'Jinseok', 'Jung', 'jj', 'pjungjs@gmail.com', 'Full Stack Web Developer', 'https://ca.slack-edge.com/TCVA3PF24-U041NJ82RM0-22a6eba57651-512', '[
-    { "badge_id": "1", "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/consistent+player.png",  "received_date": "2023-09-02T23:21:20.000Z" },
-    { "badge_id": "4", "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png",  "received_date": "2023-09-02T23:21:20.000Z" },
-    { "badge_id": "7", "badge_name": "Energy-Efficient Enthusiast", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/energy+efficient+enthusiast.png",  "received_date": "2023-09-02T23:21:20.000Z" }
+    { "badge_id": 1, "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/consistent+player.png",  "received_date": "2023-09-02T23:21:20.000Z" },
+    { "badge_id": 4, "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png",  "received_date": "2023-09-02T23:21:20.000Z" },
+    { "badge_id": 7, "badge_name": "Energy-Efficient Enthusiast", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/energy+efficient+enthusiast.png",  "received_date": "2023-09-02T23:21:20.000Z" }
   ]', '[
     { "action_slug": "biking-or-walking", "completed_at": "2023-09-02T23:21:20.000Z", "points": 30 }
   ]'),
   ('2023-09-04T19:35:07.000Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 'Wilghen', 'Santos', 'wilghensantos', 'wilghensantos@gmail.com', 'Passionate about Music, programming and life.', 'https://lh3.googleusercontent.com/a/ACg8ocJUOfy0bJBrPz2j33CbOWlrIJ2iMnbOzLOyGRR8EelM7n4=s96-', '[
-    { "badge_id": "2", "badge_name": "Jukebox Hero", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/jukebox+hero.png",  "received_date": "2023-08-31T23:37:35.000Z" },
-    { "badge_id": "11", "badge_name": "Eco-Picasso", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+picasso.png",  "received_date": "2023-08-31T23:37:35.000Z" },
-    { "badge_id": "16", "badge_name": "Eco Chef Connoisseur", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+chef+connoiseur.png",  "received_date": "2023-08-31T23:37:35.000Z" }
+    { "badge_id": 2, "badge_name": "Jukebox Hero", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/jukebox+hero.png",  "received_date": "2023-08-31T23:37:35.000Z" },
+    { "badge_id": 11, "badge_name": "Eco-Picasso", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+picasso.png",  "received_date": "2023-08-31T23:37:35.000Z" },
+    { "badge_id": 16, "badge_name": "Eco Chef Connoisseur", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+chef+connoiseur.png",  "received_date": "2023-08-31T23:37:35.000Z" }
   ]', '[]'),
   ('2023-09-06T22:29:59.000Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', 'Jose', 'Cepeda', 'josecepeda', 'josecepeda@pursuit.org', 'Full Stack Web Developer', 'https://lh3.googleusercontent.com/a/ACg8ocIHEfs1bXismg-VnVSCEFr_mJtVuSCi3YhSLQuzf2_i=s96-c', '[
-    { "badge_id": "8", "badge_name": "Carbon Footprint Wizard", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/carbon+footprint+wizard.png",  "received_date": "2023-08-31T23:37:35.000Z" },
-    { "badge_id": "13", "badge_name": "Bicycle Boss", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/Bicycle+Boss.png",  "received_date": "2023-08-31T23:37:35.000Z" },
-    { "badge_id": "12", "badge_name": "Eco-Bookworm", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+worm+book.png",  "received_date": "2023-08-31T23:37:35.000Z" } 
+    { "badge_id": 8, "badge_name": "Carbon Footprint Wizard", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/carbon+footprint+wizard.png",  "received_date": "2023-08-31T23:37:35.000Z" },
+    { "badge_id": 13, "badge_name": "Bicycle Boss", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/Bicycle+Boss.png",  "received_date": "2023-08-31T23:37:35.000Z" },
+    { "badge_id": 12, "badge_name": "Eco-Bookworm", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+worm+book.png",  "received_date": "2023-08-31T23:37:35.000Z" } 
   ]', '[
     { "action_slug": "unplug-unused-devices", "completed_at": "2023-09-02T23:21:20.000Z", "points": 20 },
     { "action_slug": "reduce-water-usage", "completed_at": "2023-09-02T23:21:20.000Z", "points": 40 }
   ]'),
   ('2023-09-10T17:40:36.000Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', 'Shareeka', 'Epps', 'shareekaepps', 'shareekaepps@gmail.com', 'Full Stack Web Developer', 'https://lh3.googleusercontent.com/a/ACg8ocKAvDJej1E21YolQIyfadkqo5vddSF6sUn2oacrD17FDA=s96-c', '[
-    { "badge_id": "3", "badge_name": "Elite Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/elite+player.png",  "received_date": "2023-08-31T23:37:35Z" },
-    { "badge_id": "14", "badge_name": "Eco-Adventurer", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+adventurer.png",  "received_date": "2023-08-31T23:37:35Z" }
+    { "badge_id": 3, "badge_name": "Elite Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/elite+player.png",  "received_date": "2023-08-31T23:37:35Z" },
+    { "badge_id": 14, "badge_name": "Eco-Adventurer", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+adventurer.png",  "received_date": "2023-08-31T23:37:35Z" }
   ]', '[
     { "action_slug": "led-lighting", "completed_at": "2023-09-02T23:21:20.000Z", "points": 40 }
   ]');
@@ -43,11 +43,11 @@ VALUES
 INSERT INTO user_scores 
   (user_auth_id, score_logged_in, score_energy, score_transportation, score_food, score_lifestyle, score_recycling, score_actions, score_total)
 VALUES
-  ('user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 7, 700, 0, 300, 300, 0, 270, 1577),
-  ('user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 14, 10, 10, 10, 10, 10, 30, 94),
-  ('user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 7, 700, 700, 0, 0, 0, 0, 1407),
-  ('user-test-0c35484e-1e63-4330-b327-039539cb2949', 7, 300, 300, 0, 0, 0, 60, 667),
-  ('user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', 7, 300, 300, 0, 700, 300, 40, 1647);
+  ('user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 0, 350, 0, 300, 360, 0, 270, 1280),
+  ('user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 7, 700, 0, 0, 0, 300, 0, 1007),
+  ('user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 14, 0, 350, 100, 300, 0, 40, 804),
+  ('user-test-0c35484e-1e63-4330-b327-039539cb2949', 30, 300, 300, 0, 0, 0, 300, 930),
+  ('user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', 7, 300, 300, 0, 0, 300, 40, 947);
 
 
 INSERT INTO badges 
@@ -62,7 +62,6 @@ VALUES
   ('Recycle Crusader', 'Based on your daily efforts you have mastered the art of recycling, Keep it up! ', 'https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png', 300, 'recycling'),
   ('Recycle Artisan', 'As if we were not blown by your recycling habits, you have recycled enough to keep 10 miles of beach pristine, awesome', 'https://ecoway.s3.amazonaws.com/BadgesImages/Recycling+Artisan.png', 400, 'recycling'),
   ('Reusable Crusader', 'You have officially joined the ranks of the eco-warriors by consistently using reusable bags, bottles, and containers.', 'https://ecoway.s3.amazonaws.com/BadgesImages/Reusable+Crusader.png', 475, 'recycling'),
-
   -- ('Recycle Hero', 'You may not wear a cape, but your recycling efforts are saving the planet for everyone', 'https://ecoway.s3.amazonaws.com/Badge.png', 550, 'recycling'),
   -- ('Ocean Saver', 'You have recycled the equivalent of 1000 pieces of trash at the beach. You are turning the tide on pollution!', 'https://ecoway.s3.amazonaws.com/Badge.png', 650,'recycling'),
   -- ('Recycling Jedi', 'Your recycling efforts have diverted thousands of pounds of waste from landfills, reducing your carbon footprint and preserving our planet for future generations, stay green!', 'https://ecoway.s3.amazonaws.com/Badge.png', 800, 'recycling'),
@@ -119,11 +118,72 @@ VALUES
 INSERT INTO answers 
   (created_at, user_auth_id, question_answers, carbon_emission_result)
 VALUES
-  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', '{ "Does your household use renewable energy?": "yes", "What is the primary heating source in your household?": "electricity" }',0),
-  ('2023-09-08T12:30:00Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }',0),
-  ('2023-09-08T12:30:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }', 0),
-  ('2023-09-08T12:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', '{}', 0),
-  ('2023-09-08T12:30:00Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', '{}', 0);
+  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314),
+  ('2023-09-08T12:30:00Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314),
+  ('2023-09-08T12:30:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314),
+  ('2023-09-08T12:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314),
+  ('2023-09-08T12:30:00Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314);
+
 
 
 INSERT INTO posts 
