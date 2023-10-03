@@ -223,7 +223,7 @@ export default function MyFootprint( { currentUser } ) {
           <Bar data={data2} options={options2}></Bar>
         </div>
         <span>
-          According to your answers, you produce an estimated {Math.round(answers.carbon_emission_result / 52)} pounds of CO2 on a weekly basis. The biggest factor in your carbon emissions is {biggestImpactLabel}.
+          According to your answers, you produce an estimated {Math.round(answers.carbon_emission_result / 365)} pounds of CO2 on a daily basis. The biggest factor in your carbon emissions is {biggestImpactLabel}.
         </span>
         <span>
           <br />
@@ -238,8 +238,6 @@ export default function MyFootprint( { currentUser } ) {
       </div>
     </div>
   </div>
-  
-
   );  
 }
 

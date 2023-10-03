@@ -15,14 +15,14 @@ function LandingMain() {
   const navigate = useNavigate();
 
 
-  return (
+//   return (
 
-<div className='flex flex-row justify-center '>
+// <div className='flex flex-row justify-center '>
 
-<div className='mt-8 w-3/4 h-3/4  '>
-  <img src={JoinGif} />
-</div>
-</div>
+// <div className='mt-8 w-3/4 h-3/4  '>
+//   <img src={JoinGif} />
+// </div>
+// </div>
 
 
   const images = [
