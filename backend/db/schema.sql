@@ -57,10 +57,13 @@ CREATE TABLE answers (
 CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     created_at TIMESTAMP,
-    user_auth_id TEXT,
-    title TEXT,
+    user_auth_id TEXT REFERENCES users (user_auth_id) ON DELETE CASCADE,
+    title VARCHAR(225) UNIQUE,
+    slug VARCHAR(225) UNIQUE,
+    category TEXT,
     content TEXT,
-    post_likes JSONB DEFAULT '[]'::jsonb 
+    post_likes JSONB DEFAULT '[]'::jsonb,
+    post_comments JSONB DEFAULT '[]'::jsonb
 );
 
 CREATE TABLE post_comments (

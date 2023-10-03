@@ -6,7 +6,7 @@ import ActionShow from './ActionShow.jsx';
 function ActionsMain() {
   const { currentUser } = useContext(UserContext);
   const [actionContent, setActionContent] = useState(null);
-  const [filterBy, setFilterBy] = useState('completed');
+  const [sortBy, setSortBy] = useState('completed');
 
   useEffect(() => {
     const client = createClient({
@@ -23,7 +23,7 @@ function ActionsMain() {
   }, []);
 
   // mark actions as completed
-  const filteredActions = actionContent?.map((action) => {
+  const allActions = actionContent?.map((action) => {
     const userCompletedAction = currentUser.user_actns?.find(
       (completedAction) => completedAction.action_slug === action.fields.slug,
     );
@@ -35,11 +35,11 @@ function ActionsMain() {
     return action;
   });
 
-  // filter actions to show completed first
-  filteredActions?.sort((actionA, actionB) => {
-    if (filterBy === 'completed') {
+  // sort actions to show completed first
+  allActions?.sort((actionA, actionB) => {
+    if (sortBy === 'completed') {
       return actionA.completed > actionB.completed ? -1 : 1;
-    } else if (filterBy === 'incomplete') {
+    } else if (sortBy === 'incomplete') {
       return actionA.completed > actionB.completed ? 1 : -1;
     } else {
       return;
@@ -53,8 +53,8 @@ function ActionsMain() {
         <div className="flex items-center">
           <p className="text-md whitespace-nowrap pr-2 font-medium">Sort by:</p>
           <select
-            value={filterBy}
-            onChange={(event) => setFilterBy(event.target.value)}
+            value={sortBy}
+            onChange={(event) => setSortBy(event.target.value)}
             className="bg-gray-50"
           >
             <option value="completed">Completed</option>
@@ -64,7 +64,7 @@ function ActionsMain() {
       </div>
       <div className="flex flex-wrap justify-center py-4">
         {actionContent &&
-          filteredActions.map((content) => (
+          allActions.map((content) => (
             <ActionShow key={content.sys.id} content={content} />
           ))}
       </div>

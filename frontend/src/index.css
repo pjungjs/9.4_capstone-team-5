@@ -27,10 +27,10 @@
 }
 
 @layer components {
+  .cust-divider {
+    @apply w-full border-b border-gray-400;
+  }
   .cust-btn {
     @apply border border-gray-300 text-sm font-medium text-gray-900 hover:bg-green-600 hover:text-white focus:border-green-500 focus:outline-none;
   }
 }
-
-
-
