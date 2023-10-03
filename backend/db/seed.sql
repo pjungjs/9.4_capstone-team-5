@@ -121,11 +121,72 @@ VALUES
 INSERT INTO answers 
   (created_at, user_auth_id, question_answers, carbon_emission_result)
 VALUES
-  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', '[{ "Does your household use renewable energy?": "yes", "What is the primary heating source in your household?": "electricity" }]',0),
-  ('2023-09-08T12:30:00Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }',0),
-  ('2023-09-08T12:30:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', '{ "Does your household use renewable energy?": "no", "What is the primary heating source in your household?": "naturalGas" }', 0),
-  ('2023-09-08T12:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', '{}', 0),
-  ('2023-09-08T12:30:00Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', '{}', 0);
+  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314),
+  ('2023-09-08T12:30:00Z', 'user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314),
+  ('2023-09-08T12:30:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314),
+  ('2023-09-08T12:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314),
+  ('2023-09-08T12:30:00Z', 'user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', '{
+    "Do you have a car?": true,
+    "Do you use gas for cooking?": false,
+    "Does your household use renewable energy?": "no",
+    "How many large sized appliances have you purchased in the past year?": 4,
+    "How many medium sized appliances have you purchased in the past year?": 4,
+    "How many minutes do you spend taking public transportation a day?": 10,
+    "How many pieces of clothing have you purchased this year?": 6,
+    "How many small sized appliances have you purchased in the past year?": 5,
+    "What is the primary heating source in your household?": "electricity",
+    "What is your diet?": "vegetarian",
+    "What type of car do you have?": "gasoline"
+  }', 19314);
+
 
 INSERT INTO posts 
   (created_at, user_auth_id, title, content, post_likes)

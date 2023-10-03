@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from "chart.js";
+import { Doughnut, Bar } from "react-chartjs-2";
 import axios from "axios";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, BarElement, LinearScale);
 
 const API = import.meta.env.VITE_BASE_URL;
 
@@ -189,31 +189,56 @@ export default function MyFootprint( { currentUser } ) {
   calculateBiggestImpact();
   const tipsForBiggestImpact = tips.find((tip) => tip[biggestImpactLabel]);
 
+  const data2 = {
+    labels: ["Mon", "Tues", "Wed"],
+    datasets: [
+      {
+      label: "100",
+      data: [3,6,9],
+      backgroundColor: 'aqua',
+      borderColor: 'black',
+      borderWidth: 1
+    },
+    {
+      label: "100",
+      data: [3,3,3],
+      backgroundColor: 'aqua',
+      borderColor: 'black',
+      borderWidth: 1
+    }
+
+  ]
+  }
+
+  const options2 = {}
+
   return (
     <div className="flex justify-center items-center">
-  <div className="w-full rounded-lg border border-gray-300 p-4 shadow-md relative">
-    <div>
-      This is the breakdown of your Carbon Score
-      <div className="w-64 h-64 mx-auto relative">
-        <Doughnut data={data} options={options} />
-        <span className="absolute inset-0 flex items-center justify-center mt-20">{Math.round(answers.carbon_emission_result / 52)}</span>
+    <div className="w-full rounded-lg border border-gray-300 p-4 shadow-md relative">
+      <div>
+        This is the breakdown of your Carbon Score
+        <div className="flex w-64 h-64 relative items-center">
+          <Doughnut data={data} options={options}/>
+          <span className="absolute inset-0 flex items-center justify-center mt-20">{Math.round(answers.carbon_emission_result / 52)}</span>
+          <Bar data={data2} options={options2}></Bar>
+        </div>
+        <span>
+          According to your answers, you produce an estimated {Math.round(answers.carbon_emission_result / 52)} pounds of CO2 on a weekly basis. The biggest factor in your carbon emissions is {biggestImpactLabel}.
+        </span>
+        <span>
+          <br />
+          <br />
+          Here are some tips on how to improve:
+        </span>
+        <ul className="list-disc ml-6 mt-2">
+          {tipsForBiggestImpact && tipsForBiggestImpact[biggestImpactLabel].map((tip, index) => (
+            <li key={index} className="italic">{tip}</li>
+          ))}
+        </ul>
       </div>
-      <span>
-        According to your answers, you produce an estimated {Math.round(answers.carbon_emission_result / 52)} pounds of CO2 on a weekly basis. The biggest factor in your carbon emissions is {biggestImpactLabel}.
-      </span>
-      <span>
-        <br />
-        <br />
-        Here are some tips on how to improve:
-      </span>
-      <ul className="list-disc ml-6 mt-2">
-        {tipsForBiggestImpact && tipsForBiggestImpact[biggestImpactLabel].map((tip, index) => (
-          <li key={index} className="italic">{tip}</li>
-        ))}
-      </ul>
     </div>
   </div>
-</div>
+  
 
   );  
 }
