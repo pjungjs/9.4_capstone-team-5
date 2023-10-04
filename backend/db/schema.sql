@@ -69,7 +69,7 @@ CREATE TABLE posts (
 CREATE TABLE post_comments (
     id SERIAL PRIMARY KEY,
     created_at TIMESTAMP,
-    user_auth_id TEXT,
+    user_auth_id TEXT REFERENCES users (user_auth_id) ON DELETE CASCADE,
     post_id INT REFERENCES posts (id),
     content TEXT
 );
