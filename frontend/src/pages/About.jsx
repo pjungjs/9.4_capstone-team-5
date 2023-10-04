@@ -1,5 +1,5 @@
-import MainTop from '../components/About/mainTop';
-import AboutTeam from '../components/About/AboutTeam';
+import MainTop from '../components/About/MainTop.jsx';
+import AboutTeam from '../components/About/AboutTeam.jsx';
 import background from '../assets/aboutImages/background.png';
 
 function About() {
