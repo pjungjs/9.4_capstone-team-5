@@ -36,14 +36,20 @@ function Profiles() {
   const usersWithScores = allUsersInfo?.map(user => {
     user.score = allUserScores?.find(score => 
       score.user_auth_id === user.user_auth_id);
+      console.log(user)
    
     return user;
     
   })
 // console.log(usersWithScores)  
   const usersSortedByScore = usersWithScores?.sort((userA, userB) => {
-    return userB.score.score_total - userA.score.score_total;
+    if(userA.score && userB.score) {
+
+      return userB.score.score_total - userA.score.score_total;
+    }
   })
+
+
 
   
 
