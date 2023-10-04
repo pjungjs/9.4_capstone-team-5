@@ -15,14 +15,16 @@ app.use(logger('dev'));
 const usersControllers = require('./controllers/usersControllers.js');
 const badgesControllers = require('./controllers/badgesControllers.js');
 const questionsControllers = require('./controllers/questionsControllers.js');
-const postControllers = require('./controllers/postControllers.js');
-const commentControllers = require('./controllers/commentControllers.js');
+const postsControllers = require('./controllers/postsControllers.js');
+// const postControllers = require('./controllers/postControllers.js');
+// const commentControllers = require('./controllers/commentControllers.js');
 
 app.use('/users', usersControllers);
-app.use('/badges', badgesControllers); // /badges is the prefix for all routes in badgesControllers file
+app.use('/badges', badgesControllers);
 app.use('/questions', questionsControllers);
-app.use('/posts', postControllers);
-app.use('/comments', commentControllers);
+app.use('/posts', postsControllers);
+// app.use('/posts', postControllers);
+// app.use('/comments', commentControllers);
 
 const imageCloud = require('./s3/imageCloud.js');
 app.use('/image-cloud', imageCloud);

@@ -2,75 +2,77 @@ import UserProfile from './UserProfile';// import { profileMockData } from './mo
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const API = import.meta.env.VITE_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function Profiles() {
-  const [users, setUsers] = useState([]);
-  const [userScores, setUserScores] = useState([]);
+  const [allUsersInfo, setAllUsersInfo] = useState(null);
+  const [allUserScores, setAllUserScores] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`${API}/users`)
+      .get(`${BASE_URL}/users`)
       .then((res) => {
         // console.log(res.data);
-        setUsers(res.data);
+        setAllUsersInfo(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
+
+      axios
+        .get(`${BASE_URL}/users/scores`)
+        .then((res) => {
+          // console.log(res.data);
+          setAllUserScores(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`${API}/users/scores`)
-      .then((res) => {
-        // console.log(res.data);
-        setUserScores(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+ 
 
 
-  const usersWithScores = users.map(user => {
-    user.score = userScores.find(score => score.user_auth_id === user.user_auth_id);
+  const usersWithScores = allUsersInfo?.map(user => {
+    user.score = allUserScores?.find(score => 
+      score.user_auth_id === user.user_auth_id);
+      console.log(user)
+   
     return user;
+    
+  })
+// console.log(usersWithScores)  
+  const usersSortedByScore = usersWithScores?.sort((userA, userB) => {
+    if(userA.score && userB.score) {
+
+      return userB.score.score_total - userA.score.score_total;
+    }
   })
 
-  const usersSortedByScore = usersWithScores.sort((userA, userB) => {
-    return userB.score.score_total - userA.score.score_total;
-  })
 
-  console.log(usersSortedByScore)
+
+  
 
   return (
-    <div className="bg-green-100 p-4">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-semibold mb-4">Leaderboard</h1>
-        <div className="space-y-4">
-          {usersSortedByScore.map((user, index) => (
+    
+      <div className="flex flex-col items-center max-w-3xl mx-auto ">
+        <div>
+        <p className="text-3xl font-semibold mb-4 text-center">Leaderboard</p>
+
+        </div>
+        
+          {usersSortedByScore && usersSortedByScore.map((user, index) => (
             <div
               key={user.id}
-              className={`bg-green-${index + 1}00 rounded-lg p-4`}
+              className="p-4"
             >
-              <UserProfile key={user.id} userProfileData={user} />
+              <UserProfile key={user.id} userProfileData={user} index={index}/>
+              
             </div>
+
           ))}
-        </div>
+        
       </div>
-    </div>
-
-
-
-    // <div>
-    //   {usersSortedByScore.map((user) => (
-    //     <UserProfile
-    //       key={user.id}
-    //       userProfileData={user}
-    //     />
-    //   ))}
-    // </div>
   );
 }
 

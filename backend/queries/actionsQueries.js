@@ -37,8 +37,8 @@ const getUserActns = async (userAuthId) => {
 
 //add a new completed action
 const addUserActn = async (userAuthId, actnToAdd) => {
-  // data format to send on the body: an object of "action_slug" and "completed_at"
-  //e.g.: { "action_slug": "1", "completed_at": "2023-09-02T23:21:20.000Z" }
+  // data format to send on the body: an object of "action_slug", "completed_at" and "points"
+  //e.g.: { "action_slug": "reduce-single-use-plastics", "completed_at": "2023-09-02T23:21:20.000Z", "points": 30 }
   try {
     const addedActn = await db.one(
       'UPDATE users SET user_actns = user_actns || $1::jsonb WHERE user_auth_id = $2 RETURNING *;',

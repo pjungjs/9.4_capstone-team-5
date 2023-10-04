@@ -4,7 +4,7 @@ function LeaderboardDisplay() {
  
 
   return (
-    <div className='flex justify-center '>
+    <div className=' '>
     
       <Profiles />  
     </div>

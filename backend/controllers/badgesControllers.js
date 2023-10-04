@@ -1,18 +1,28 @@
 const express = require('express');
 const badges = express.Router();
+const { getAllBadges, getBadgesByType } = require('../queries/badgesQueries');
 
+badges.get('/', async (req, res) => {
+  const allBadges = await getAllBadges();
 
-// Require the controllers WHICH WE DID NOT CREATE YET!!
-const {getAllBadges} = require('../queries/badgesQueries');
+  if (allBadges.success) {
+    res.status(200).json(allBadges.payload);
+  } else {
+    res.status(400).json({
+      error: `No badges found. ${allBadges.payload}`,
+    });
+  }
+});
 
-badges.get('/', async (req, res) => {   
-    if (getAllBadges) {
-        const allBadges = await getAllBadges();
-        res.status(200).json(allBadges);
-    } else {
-        res.status(404).json({error: "No badges found"});
-    } 
+badges.get('/:badgeType', async (req, res) => {
+  const { badgeType } = req.params;
+  const badgesByType = await getBadgesByType(badgeType);
+
+  if (badgesByType.success) {
+    res.status(200).json(badgesByType.payload);
+  } else {
+    res.status(400).json(badgesByType.payload);
+  }
 });
 
 module.exports = badges;
-

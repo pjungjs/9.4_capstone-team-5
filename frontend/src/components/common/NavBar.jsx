@@ -71,7 +71,7 @@ function NavBar() {
         className={`${
           !scrolled
             ? 'bg-transparent'
-            : 'border-b border-gray-100 bg-white shadow'
+            : 'border-b border-gray-100 bg-green-600 shadow'
         } w-full py-0 transition duration-300 ease-in-out`}
       >
         <div className="mx-auto flex flex-wrap items-center justify-between">
@@ -91,7 +91,7 @@ function NavBar() {
                 className="whitespace-nowrap rounded-full bg-green-600 px-4 py-2.5 text-sm text-white hover:bg-green-700"
                 onClick={() => navigate('/login')}
               >
-                Get Started
+                Join Now
               </button>
             ) : (
               <div className="relative flex flex-col items-end">
@@ -103,6 +103,7 @@ function NavBar() {
                     {userInfo && userInfo.profile_picture_url ? (
                       <img
                         src={userInfo.profile_picture_url}
+                        referrerPolicy="no-referrer"
                         alt="profile picture"
                         className="h-10 w-10 rounded-full"
                       />
@@ -117,10 +118,16 @@ function NavBar() {
                   } absolute top-10 z-50 divide-y divide-gray-200 rounded-lg border bg-gray-50 shadow-lg`}
                 >
                   <div className="whitespace-nowrap px-4 py-3 text-right text-sm text-gray-900">
-                    <p>{`${userInfo?.first_name} ${userInfo?.last_name}`}</p>
-                    <p className="max-w-[170px] truncate font-medium">
-                      {userInfo?.email}
-                    </p>
+                    {userInfo && (
+                      <>
+                        <p>
+                          {userInfo.first_name} {userInfo.last_name}
+                        </p>
+                        <p className="max-w-[170px] truncate font-medium">
+                          {userInfo.email}
+                        </p>
+                      </>
+                    )}
                   </div>
                   <ul className="py-1 text-right text-sm">
                     <li>
