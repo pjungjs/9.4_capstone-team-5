@@ -3,7 +3,7 @@
 INSERT INTO users 
   (created_at, user_auth_id, first_name, last_name, username, email, short_bio, profile_picture_url, user_achvs, user_actns)
 VALUES
-  ('2023-08-31T23:37:35.000Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'William', 'Pursuit', 'ecoway.dev5', 'ecoway.dev5@gmail.com', 'I am the Admin of this project :)', 'https://lh3.googleusercontent.com/a/ACg8ocK2bi7blV5RtmHuQEDJHAFmo8kGxmjUrH9B5y4Ty8As=s96-c', '[
+  ('2023-08-31T23:37:35.000Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'EcoWay', 'Pursuit', 'ecoway.dev5', 'ecoway.dev5@gmail.com', 'I am the Admin of this project :)', 'https://lh3.googleusercontent.com/a/ACg8ocK2bi7blV5RtmHuQEDJHAFmo8kGxmjUrH9B5y4Ty8As=s96-c', '[
     { "badge_id": 16, "badge_name": "Eco-chef Connoisseur", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/eco+chef+connoiseur.png", "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_id": 1, "badge_name": "Consistent Player", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/consistent+player.png",  "received_date": "2023-08-31T23:37:35.000Z" },
     { "badge_id": 4, "badge_name": "Recycle Crusader", "badge_img_url": "https://ecoway.s3.amazonaws.com/BadgesImages/recycle+crusader.png",  "received_date": "2023-08-31T23:37:35.000Z" }
