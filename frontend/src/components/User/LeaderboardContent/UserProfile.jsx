@@ -1,11 +1,8 @@
 import React from 'react';
 import background from '../../../assets/aboutImages/background.png';
 
-
-
 function UserProfile({ userProfileData, index }) {
- 
- 
+  // console.log(userProfileData);
 
   const userPosition = () => {
     if (index + 1 === 1) {
@@ -41,7 +38,7 @@ function UserProfile({ userProfileData, index }) {
                 >
                   <span className="">Eco-Score: </span>
                   <span className="font-extrabold">
-                    {userProfileData.score.score_total}
+                    {userProfileData.score?.score_total}
                   </span>
                 </a>
               </div>
@@ -49,6 +46,7 @@ function UserProfile({ userProfileData, index }) {
             <img
               className="absolute bottom-0   right-6 w-[6rem] rounded-2xl transition duration-300 group-hover:scale-[1.4]"
               src={userProfileData.profile_picture_url}
+              referrerPolicy="no-referrer"
               alt=""
             />
           </div>
@@ -59,5 +57,3 @@ function UserProfile({ userProfileData, index }) {
 }
 
 export default UserProfile;
-
-
