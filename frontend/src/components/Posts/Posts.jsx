@@ -28,6 +28,12 @@ function Posts() {
   const { session } = useStytchSession();
 
   useEffect(() => {
+    openModal
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'auto');
+  }, [openModal]);
+
+  useEffect(() => {
     axios
       .get(`${BASE_URL}/posts`)
       .then((response) => setAllPosts(response.data))
@@ -49,7 +55,7 @@ function Posts() {
     } else if (sortBy[sortOption] === 'up') {
       setSortBy({ ...sortBy, [sortOption]: 'down' });
     } else if (sortBy[sortOption] === 'down') {
-      setSortBy({ ...sortBy, [sortOption]: '' });
+      setSortBy({ ...sortBy, [sortOption]: 'up' });
     }
   };
 

@@ -105,6 +105,7 @@ function PostDetails() {
               <div className="flex items-center">
                 <img
                   src={postUserInfo.profile_picture_url}
+                  referrerPolicy="no-referrer"
                   alt="post owner picture"
                   className="h-10 w-10 rounded-full"
                 />

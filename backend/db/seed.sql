@@ -189,7 +189,7 @@ VALUES
 INSERT INTO posts 
   (created_at, user_auth_id, title, slug, category, content, post_likes, post_comments)
 VALUES
-  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'Welcome to EcoWay', 'welcome-to-ecoway', 'general', 'This is the content of the Welcome to EcoWay', '[
+  ('2023-09-08T12:30:00Z', 'user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 'Welcome to EcoWay', 'welcome-to-ecoway', 'general', 'Welcome to EcoWay app. Let us pave a Sustainable Future, One EcoWay at a Time. You can reach us by submitting your message on the Contact Us page. It will really send us an email, so any feedback is much appreciated :)', '[
     { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "liked_at": "2023-09-10T12:00:00Z" },
     { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "liked_at": "2023-09-10T12:00:00Z" },
     { "user_id": "user-test-0c35484e-1e63-4330-b327-039539cb2949", "liked_at": "2023-09-10T12:00:00Z" },
@@ -207,14 +207,14 @@ VALUES
   ]', '[
     { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "commented_at": "2023-09-10T12:00:00Z", "content": "thanks for sharing the tip!" }
   ]'),
-  ('2023-09-08T13:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 'How do I reduce food waste?', 'how-do-i-reduce-food-waste', 'question', 'This is the content of the How do I reduce food waste?', '[
+  ('2023-09-08T13:30:00Z', 'user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 'How do I reduce food waste?', 'how-do-i-reduce-food-waste', 'question', 'To reduce food waste, start by planning your meals and creating a shopping list to buy only what you need. Properly store your food in airtight containers and in the appropriate temperature (e.g., the fridge or freezer) to extend its shelf life. Be mindful of expiration dates and use the first in, first out method when organizing your pantry and fridge. Get creative with leftovers by incorporating them into new meals, and be realistic about portion sizes when cooking. Additionally, compost food scraps whenever possible to divert them from landfills. Finally, raise awareness within your household about the importance of reducing food waste and make it a collective effort to minimize the amount of food that goes uneaten.', '[
     { "user_id": "user-test-0c35484e-1e63-4330-b327-039539cb2949", "liked_at": "2023-09-10T12:00:00Z" },
     { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "liked_at": "2023-09-10T12:00:00Z" }
   ]', '[
     { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "commented_at": "2023-09-10T12:00:00Z", "content": "That is a great question.." },
     { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "commented_at": "2023-09-10T12:00:00Z", "content": "Check out the Take Actions page, there are some good resources and tips." }
   ]'),
-  ('2023-09-08T14:00:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', 'Volunteer opportunity in NYC', 'volunteer-opportunity-in-nyc', 'resources', 'This is the content of the Volunteer opportunity in NYC', '[
+  ('2023-09-08T14:00:00Z', 'user-test-0c35484e-1e63-4330-b327-039539cb2949', 'Volunteer opportunity in NYC', 'volunteer-opportunity-in-nyc', 'resources', 'In New York City you can find several ecofriendly volunteer opportunities to share with others. The NYC Parks Stewardship Program offers tree planting, park cleanups, and habitat restoration projects. New York Cares, one of the citys largest volunteer organizations, has projects like urban gardening and community cleanups. GrowNYC focuses on environmental programs, including community gardens and recycling education. The Nature Conservancy - New York works to conserve natural areas and wildlife. Riverkeeper offers volunteer opportunities for river cleanups and water quality monitoring, particularly along the Hudson River. Lastly, the Sierra Clubs NYC Group organizes activities like hikes and cleanups for those interested in environmental conservation and advocacy. These organizations provide great avenues for individuals to contribute to a more ecofriendly NYC.', '[
     { "user_id": "user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba", "liked_at": "2023-09-10T12:00:00Z" },
     { "user_id": "user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f", "liked_at": "2023-09-10T12:00:00Z" },
     { "user_id": "user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3", "liked_at": "2023-09-10T12:00:00Z" }
