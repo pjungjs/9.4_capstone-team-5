@@ -3,7 +3,6 @@ import About1 from '../../assets/aboutImages/about1.png';
 import About2 from '../../assets/aboutImages/about2.png';
 import About3 from '../../assets/aboutImages/about3.png';
 
-
 function MainTop() {
   return (
     <div>
@@ -38,7 +37,7 @@ function MainTop() {
           </div>
 
           <div className="mt-8 rounded-3xl bg-white p-8">
-            <p className="text-center text-xl text-blue-600 leading-relaxed">
+            <p className="text-center text-xl leading-relaxed text-blue-600">
               Provide users with valuable information and resources about
               eco-friendly practices, sustainability, and their positive impact
               on the planet.
