@@ -10,7 +10,10 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 function PostDetails() {
   const [allUsers, setAllUsers] = useState(null);
   const [postInfo, setPostInfo] = useState(null);
+  const [postUserInfo, setPostUserInfo] = useState(null);
+  const [currentUserLikedPost, setCurrentUserLikedPost] = useState(null);
   const [newComment, setNewComment] = useState('');
+
   const { slug } = useParams();
   const navigate = useNavigate();
 
@@ -19,27 +22,6 @@ function PostDetails() {
   const createdAt = new Date(postInfo?.created_at).toLocaleString('en-US', {
     dateStyle: 'short',
   });
-
-  const postUserInfo = allUsers?.find((user) => {
-    if (user && postInfo) {
-      return user.user_auth_id === postInfo.user_auth_id;
-    }
-  });
-
-  const currentUserLikedPost = postInfo?.post_likes.find((post) => {
-    if (post && session) {
-      return post.user_id === session.user_id;
-    }
-  });
-
-  function findUserById(userId) {
-    const foundUser = allUsers?.find((user) => {
-      if (user && userId) {
-        return user.user_auth_id === userId;
-      }
-    });
-    return foundUser;
-  }
 
   useEffect(() => {
     axios
@@ -53,8 +35,34 @@ function PostDetails() {
       .catch((error) => console.warn('Error: PUT', error));
   }, []);
 
+  useEffect(() => {
+    if (allUsers && postInfo) {
+      const foundPostUserInfo = allUsers.find((user) => {
+        return user.user_auth_id === postInfo.user_auth_id;
+      });
+      setPostUserInfo(foundPostUserInfo);
+    }
+  }, [allUsers]);
+
+  useEffect(() => {
+    if (postInfo && postUserInfo && session) {
+      const foundCurrentUserLikedPostt = postInfo.post_likes.find((post) => {
+        return post.user_id === session.user_id;
+      });
+      setCurrentUserLikedPost(foundCurrentUserLikedPostt);
+    }
+  }, [postInfo, postUserInfo]);
+
+  function findUserById(userId) {
+    if (allUsers && userId) {
+      const foundUser = allUsers.find((user) => user.user_auth_id === userId);
+      return foundUser;
+    }
+  }
+
   function handleCommentSubmit(event) {
     event.preventDefault();
+
     const newCommentToUpdate = {
       user_id: session.user_id,
       commented_at: new Date().toISOString(),
@@ -64,12 +72,14 @@ function PostDetails() {
     axios
       .put(`${BASE_URL}/posts/comments/${slug}`, newCommentToUpdate)
       .then((response) => {
-        // console.log(response.data);
         setPostInfo(response.data);
       })
       .catch((error) => console.warn('Error: PUT', error));
+
+    setNewComment('');
   }
 
+  // like and unlike functionality depending on if it was liked already
   function handleLikeButton() {
     const newLikeToUpdate = {
       user_id: session.user_id,
@@ -79,7 +89,6 @@ function PostDetails() {
     axios
       .put(`${BASE_URL}/posts/likes/${slug}`, newLikeToUpdate)
       .then((response) => {
-        // console.log(response.data);
         setPostInfo(response.data);
       })
       .catch((error) => console.warn('Error: PUT', error));
