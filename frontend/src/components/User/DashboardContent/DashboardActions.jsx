@@ -3,12 +3,16 @@ function DashboardActions({ userActns, allActions }) {
     <div className="flex flex-col space-y-2 rounded-lg border border-gray-300 p-4 shadow-md">
       <div className="flex">
         <p>My Actions:</p>
-        {userActns && allActions && (
-          <div className="whitespace-nowrap pl-1">
-            <span className="text-green-600">{userActns.length}</span> /{' '}
-            <span className="text-red-600">{allActions.length}</span>
-          </div>
-        )}
+        <div className="whitespace-nowrap pl-1">
+          {userActns && allActions ? (
+            <>
+              <span className="text-green-600">{userActns.length}</span> /{' '}
+              <span className="text-red-600">{allActions.length}</span>
+            </>
+          ) : (
+            <span className="text-green-600">0</span>
+          )}
+        </div>
       </div>
       <div className="flex">
         <div className="whitespace-nowrap">Accumulated Points:</div>

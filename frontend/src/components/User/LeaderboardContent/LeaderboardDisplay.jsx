@@ -1,12 +1,9 @@
-import Profiles from '../LeaderboardContent/Profiles';
+import Profiles from '../LeaderboardContent/Profiles.jsx';
 
 function LeaderboardDisplay() {
- 
-
   return (
-    <div className=' '>
-    
-      <Profiles />  
+    <div>
+      <Profiles />
     </div>
   );
 }
