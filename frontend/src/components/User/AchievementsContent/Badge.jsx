@@ -20,7 +20,7 @@ function Badge({ badge }) {
   }, [currentUser.user_scores]);
 
   return (
-    <div className="group relative m-4 flex w-56 flex-col items-center justify-center rounded-lg bg-white p-4 shadow-lg">
+    <div className="group relative m-4 flex w-56 flex-col items-center justify-center rounded-lg bg-white p-4 shadow-lg ">
       <div className="flex flex-col items-center justify-center">
         <img
           src={badge.badge_img_url}

@@ -1,4 +1,3 @@
-import React from 'react';
 import background from '../../../assets/aboutImages/background.png';
 
 function UserProfile({ userProfileData, index }) {

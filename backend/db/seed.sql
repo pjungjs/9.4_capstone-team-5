@@ -44,7 +44,7 @@ INSERT INTO user_scores
   (user_auth_id, score_logged_in, score_energy, score_transportation, score_food, score_lifestyle, score_recycling, score_actions, score_total)
 VALUES
   ('user-test-9db35542-5b23-4600-84e8-0c2c847ec98a', 0, 350, 0, 0, 160, 0, 170, 780),
-  ('user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 7, 350, 0, 0, 350, 300, 0, 1007),
+  ('user-test-e832c79d-0c6d-499e-8cda-ef894bd7d25f', 0, 0, 0, 0, 0, 0, 0, 0),
   ('user-test-fc7a7585-6dc3-4acb-b49d-8fb6b103ceba', 14, 350, 350, 100, 300, 0, 40, 1154),
   ('user-test-0c35484e-1e63-4330-b327-039539cb2949', 30, 300, 300, 0, 10, 0, 300, 930),
   ('user-test-439c2418-b901-4acd-b7ef-20a9b45fc6c3', 7, 300, 300, 0, 0, 300, 40, 947);
