@@ -18,11 +18,11 @@ function Posts() {
   const [allUsers, setAllUsers] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [whosPosts, setWhosPosts] = useState('all');
-  const [filterBy, setFilterBy] = useState('');
+  // const [filterBy, setFilterBy] = useState('');
   const [sortBy, setSortBy] = useState({
     likes: '',
     comments: '',
-    dates: 'up',
+    dates: '', //'up',
   });
 
   const { session } = useStytchSession();
@@ -45,9 +45,9 @@ function Posts() {
       .catch((error) => console.warn('Error: PUT', error));
   }, []);
 
-  const toggleWhosPosts = (param) => {
-    setWhosPosts(param);
-  };
+  const toggleNewPostModal = () => setOpenModal(!openModal);
+  
+  const toggleWhosPosts = (whos) => setWhosPosts(whos);
 
   const toggleSortBy = (sortOption) => {
     if (sortBy[sortOption] === '') {
@@ -57,10 +57,6 @@ function Posts() {
     } else if (sortBy[sortOption] === 'down') {
       setSortBy({ ...sortBy, [sortOption]: 'up' });
     }
-  };
-
-  const toggleNewPostModal = () => {
-    setOpenModal(!openModal);
   };
 
   return (
@@ -78,24 +74,24 @@ function Posts() {
 
       {/* all posts and my post tab */}
       <div className="flex w-full space-x-5 p-2">
-        <button
+        <div
           className={`${
             whosPosts === 'all' ? 'text-green-600' : 'text-inherit'
           }`}
           onClick={() => toggleWhosPosts('all')}
         >
           All Posts
-        </button>
-        {session && (
-          <button
+        </div>
+        {/* {session && (
+          <div
             className={`${
               whosPosts === 'my' ? 'text-green-600' : 'text-inherit'
             }`}
             onClick={() => toggleWhosPosts('my')}
           >
             My Posts
-          </button>
-        )}
+          </div>
+        )} */}
       </div>
 
       <div className="cust-divider"></div>
@@ -103,7 +99,7 @@ function Posts() {
       <div className="mx-2 my-4 flex w-full flex-col items-center justify-center border border-gray-300 p-3">
         <div className="flex w-full items-center justify-between p-2 pt-0 text-sm">
           {/* filter option */}
-          <div className="flex flex-col space-y-1">
+          {/* <div className="flex flex-col space-y-1">
             <div className="flex items-center">
               <p className="whitespace-nowrap pr-2">Filter by:</p>
               <select
@@ -117,7 +113,7 @@ function Posts() {
                 <option value="category">Category</option>
               </select>
             </div>
-          </div>
+          </div> */}
 
           {/* create new post button */}
           {session && (
@@ -139,9 +135,7 @@ function Posts() {
             <div className="col-start-7 overflow-hidden md:col-start-8">
               <div
                 className="flex items-center justify-center"
-                onClick={() => {
-                  toggleSortBy('likes');
-                }}
+                onClick={() => toggleSortBy('likes')}
               >
                 <BiLike className="text-xl text-green-600" />
                 {sortBy['likes'] === 'up' ? (
@@ -156,9 +150,7 @@ function Posts() {
             <div className="col-start-8 overflow-hidden md:col-start-9">
               <div
                 className="flex items-center justify-center"
-                onClick={() => {
-                  toggleSortBy('comments');
-                }}
+                onClick={() => toggleSortBy('comments')}
               >
                 <BiCommentDetail className="text-xl text-green-600" />
                 {sortBy['comments'] === 'up' ? (
@@ -173,9 +165,7 @@ function Posts() {
             <div className="col-span-2 col-start-9 overflow-hidden md:col-span-1 md:col-start-10">
               <div
                 className="flex items-center justify-center"
-                onClick={() => {
-                  toggleSortBy('dates');
-                }}
+                onClick={() => toggleSortBy('dates')}
               >
                 <BiCalendar className="text-xl text-green-600" />
                 {sortBy['dates'] === 'up' ? (
