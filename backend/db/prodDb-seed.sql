@@ -268,7 +268,7 @@ VALUES
 
 
 INSERT INTO posts 
-  (created_at, user_auth_id, title, slug, category, content, post_likes, post_comments)
+  (created_at, user_auth_id, title, slug, category, post_picture_url, content, post_likes, post_comments)
 VALUES
   ('2023-09-08T12:30:00Z', 'user-live-31e96c2c-329b-4bc2-9f26-8cdf394b3e37', 'Welcome to EcoWay', 'welcome-to-ecoway', 'general', '', 'Welcome to EcoWay app. Let us pave a Sustainable Future, One EcoWay at a Time. You can reach us by submitting your message on the Contact Us page. It will really send us an email, so any feedback is much appreciated :)', '[
     { "user_id": "user-live-683aaf5e-f190-4f08-ab20-d0ce6e82052e", "liked_at": "2023-09-10T12:00:00Z" },

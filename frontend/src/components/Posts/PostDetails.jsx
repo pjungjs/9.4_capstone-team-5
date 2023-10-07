@@ -159,11 +159,15 @@ function PostDetails() {
                 } flex items-center`}
               >
                 <BiLike className="text-xl" />
-                <span className="pl-1">{postInfo?.post_likes.length}</span>
+                <span className="pl-1">
+                  {postInfo && postInfo.post_likes?.length}
+                </span>
               </div>
               <div className="flex items-center">
                 <BiCommentDetail className="text-xl" />{' '}
-                <span className="pl-1">{postInfo?.post_comments.length}</span>
+                <span className="pl-1">
+                  {postInfo && postInfo.post_comments?.length}
+                </span>
               </div>
               {session && (
                 <div className="flex items-center hover:cursor-pointer">
@@ -177,29 +181,30 @@ function PostDetails() {
             {postInfo && postInfo.post_comments?.length > 0 ? (
               postInfo.post_comments.map((comment, index) => {
                 const commentedUser = findUserById(comment.user_id);
-                return (
-                  <div key={index} className="my-2 flex flex-col items-start">
-                    <div className="flex items-center">
-                      {commentedUser?.profile_picture_url && (
-                        <img
-                          src={commentedUser.profile_picture_url}
-                          referrerPolicy="no-referrer"
-                          alt="commented user picture"
-                          className="h-10 w-10 rounded-full"
-                        />
-                      )}
-                      <p className="pl-2">{commentedUser?.username}</p>
-                      <div className="pl-6">
-                        {formatTime(comment.commented_at)}
+                if (commentedUser)
+                  return (
+                    <div key={index} className="my-2 flex flex-col items-start">
+                      <div className="flex items-center">
+                        {commentedUser.profile_picture_url && (
+                          <img
+                            src={commentedUser.profile_picture_url}
+                            referrerPolicy="no-referrer"
+                            alt="commented user picture"
+                            className="h-10 w-10 rounded-full"
+                          />
+                        )}
+                        <p className="pl-2">{commentedUser.username}</p>
+                        <div className="pl-6">
+                          {formatTime(comment.commented_at)}
+                        </div>
+                      </div>
+                      <div className="flex">
+                        <div className="m-2 rounded-lg bg-gray-300 p-2">
+                          {comment.content}
+                        </div>
                       </div>
                     </div>
-                    <div className="flex">
-                      <div className="m-2 rounded-lg bg-gray-300 p-2">
-                        {comment.content}
-                      </div>
-                    </div>
-                  </div>
-                );
+                  );
               })
             ) : (
               <div className="py-4 text-xl underline">No comments yet</div>
