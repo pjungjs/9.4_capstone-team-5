@@ -23,6 +23,8 @@ function PostDetails() {
     dateStyle: 'short',
   });
 
+  console.log(postInfo);
+
   useEffect(() => {
     axios
       .get(`${BASE_URL}/posts/${slug}`)
@@ -128,7 +130,17 @@ function PostDetails() {
               <div className="space-y-2">
                 <div className="mt-4 text-3xl">{postInfo.title}</div>
                 <div className="text-green-600">in {postInfo.category}</div>
-                <div className="">{postInfo.content}</div>
+                {postInfo.post_picture_url && (
+                  <div>
+                    <img
+                      src={postInfo.post_picture_url}
+                      referrerPolicy="no-referrer"
+                      alt="post picture"
+                      className="max-h-[30rem] object-contain py-2.5"
+                    />
+                  </div>
+                )}
+                <div>{postInfo.content}</div>
               </div>
             )}
           </div>
@@ -162,7 +174,7 @@ function PostDetails() {
             </div>
 
             {/* display existing comments */}
-            {postInfo && postInfo.post_comments.length > 0 ? (
+            {postInfo && postInfo.post_comments?.length > 0 ? (
               postInfo.post_comments.map((comment, index) => {
                 const commentedUser = findUserById(comment.user_id);
                 return (

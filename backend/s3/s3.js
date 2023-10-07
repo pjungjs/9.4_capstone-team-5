@@ -15,6 +15,28 @@ const s3 = new S3Client({
   region,
 });
 
+const postsPictureToS3 = async ({ file, slug }) => {
+  const Key = `forumPictures/${slug}/${uuidv4()}`;
+
+  const command = new PutObjectCommand({
+    Bucket,
+    Key,
+    Body: file.buffer,
+    ContentType: file.mimetype,
+  });
+
+  try {
+    await s3.send(command);
+    return { success: true, payload: Key };
+  } catch (error) {
+    console.log(error);
+    return {
+      success: false,
+      payload: `Error sending a file to AWS S3. ${error}`,
+    };
+  }
+};
+
 const usersPictureToS3 = async ({ file, userAuthId }) => {
   const Key = `profilePictures/${userAuthId}/${uuidv4()}`;
   // const Key = `${userAuthId}/${new Date().toISOString()}`;
@@ -59,6 +81,7 @@ const getUserImagesInfo = async (userAuthId) => {
 };
 
 module.exports = {
+  postsPictureToS3,
   usersPictureToS3,
   getUserImagesInfo,
 };
