@@ -20,6 +20,7 @@ function NewPostModal({
     success: false,
     message: '',
   });
+  const [imageUpload, setImageUpload] = useState(null);
 
   function handleTextChange(event) {
     setNewPost({ ...newPost, [event.target.id]: event.target.value });
@@ -29,8 +30,23 @@ function NewPostModal({
     setNewPost({ ...newPost, [event.target.id]: event.target.value });
   }
 
+  const handleUpload = (event) => {
+    const validFileTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+    const file = event.target.files[0];
+
+    if (validFileTypes.find((type) => type === file.type)) {
+      setImageUpload(file);
+    } else {
+      setCreatePostStatus({
+        success: false,
+        message: 'File must be in JPG/JPEG/PNG format',
+      });
+    }
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
+
     const newPostInfo = {
       ...newPost,
       created_at: new Date().toISOString(),
@@ -38,25 +54,52 @@ function NewPostModal({
       slug: convertToSlug(newPost.title),
     };
 
-    axios
-      .post(`${BASE_URL}/posts`, newPostInfo)
-      .then((response) => {
-        setAllPosts([...allPosts, response.data]);
-        setCreatePostStatus({
-          success: true,
-          message: 'Successfully created a new Post',
+    // Create a New Post and Update "AllPosts" state, then close the modal, if there's no error
+    const createNewPost = () => {
+      axios
+        .post(`${BASE_URL}/posts`, newPostInfo)
+        .then((response) => {
+          setAllPosts([...allPosts, response.data]);
+          setCreatePostStatus({
+            success: true,
+            message: 'Successfully created a new Post',
+          });
+          setTimeout(() => {
+            setOpenModal(!openModal);
+          }, 2000);
+        })
+        .catch((error) => {
+          console.error('Error: PUT', error);
+          setCreatePostStatus({
+            success: false,
+            message: error.response.data.detail || error.message,
+          });
         });
-        setTimeout(() => {
-          setOpenModal(!openModal);
-        }, 2000);
-      })
-      .catch((error) => {
-        console.warn('Error: PUT', error);
-        setCreatePostStatus({
-          success: false,
-          message: error.response.data.detail || error.message,
+    };
+
+    // Upload the image to AWS S3, then Create a New Post, if there's no error
+    const uploadImageToS3 = () => {
+      const formData = new FormData();
+      formData.append('image', imageUpload);
+
+      axios
+        .post(`${BASE_URL}/image-cloud/post/${newPostInfo.slug}`, formData)
+        .then((response) => {
+          newPostInfo.post_picture_url = `https://ecoway.s3.amazonaws.com/${response.data}`;
+          createNewPost();
+        })
+        .catch((error) => {
+          console.error('Error: POST', error);
+          setCreatePostStatus({
+            success: false,
+            message: error.message,
+          });
         });
-      });
+    };
+
+    // If there's an uploaded file, Upload the image to AWS S3, if not, just Create a New Post
+    if (imageUpload) uploadImageToS3();
+    else createNewPost();
   }
 
   return (
@@ -121,6 +164,15 @@ function NewPostModal({
               </div>
 
               <div>
+                <input
+                  id="profile_picture"
+                  type="file"
+                  onChange={handleUpload}
+                  className="text-sm"
+                />
+              </div>
+
+              <div>
                 <label
                   htmlFor="content"
                   className="mb-2 block whitespace-nowrap text-sm font-medium text-gray-900"
@@ -138,9 +190,9 @@ function NewPostModal({
                 ></textarea>
               </div>
 
-              <div className="p-1 text-center normal-case">
+              <div className="text-center normal-case">
                 {createPostStatus.success ? (
-                  <p className=" text-blue-500">{createPostStatus.message}</p>
+                  <p className="text-blue-500">{createPostStatus.message}</p>
                 ) : (
                   <p className="text-red-500 underline">
                     {createPostStatus.message}
