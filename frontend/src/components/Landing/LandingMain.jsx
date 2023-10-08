@@ -92,21 +92,8 @@ function LandingMain() {
           <p>Connect with like-minded individuals for a greener world.</p>
         </span>
       </div>
-
-     
     </div>
   );
 }
 
 export default LandingMain;
-
-<div className="text-center">
-  <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">
-    About Us
-  </h2>
-  <p className="mt-4 text-xl text-gray-600 dark:text-gray-300">
-    Ecoway is an app focused on promoting sustainability and encouraging
-    eco-friendly practices that can have a positive impact on the environment
-    and people's daily lives.
-  </p>
-</div>;
