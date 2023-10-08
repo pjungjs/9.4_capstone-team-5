@@ -1,6 +1,10 @@
-import MainTop from '../components/About/MainTop.jsx';
-import AboutTeam from '../components/About/AboutTeam.jsx';
-import background from '../assets/aboutImages/background.png';
+
+
+import MainTop from "../components/About/MainTop";
+import AboutTeam from "../components/About/AboutTeam";
+import background from '../assets/aboutImages/background.png'
+
+
 
 function About() {
   return (

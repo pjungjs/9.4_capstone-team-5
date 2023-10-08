@@ -44,10 +44,7 @@ function Profiles() {
   }, [usersWithScores]);
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col items-center">
-      <div>
-        <p className="mb-4 text-center text-3xl font-semibold">Leaderboard</p>
-      </div>
+    <div className="mx-auto flex max-w-3xl flex-col items-center rounded-3xl bg-green-600 pb-5">
       {usersSortedByScore &&
         usersSortedByScore.map((user, index) => (
           <div key={user.id} className="p-4">

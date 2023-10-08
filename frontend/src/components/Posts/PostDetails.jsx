@@ -127,8 +127,7 @@ function PostDetails() {
                       <div>{createdAt}</div>
                     </div>
                   </div>
-                  {postUserInfo &&
-                    session &&
+                  {session &&
                     (postUserInfo.user_auth_id === session.user_id ? (
                       <button
                         className="cust-btn ml-8 rounded-md px-3 py-2"

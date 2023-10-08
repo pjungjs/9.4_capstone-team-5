@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Bungee+Spice&family=Cinzel+Decorative&family=Poppins:wght@400;500;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,14 +25,36 @@
   [type='radio'] {
     @apply rounded border-gray-300 text-green-500 focus:border-green-500;
   }
-}
+} 
 
-@layer components {
+ @layer components {
   .cust-divider {
     @apply w-full border-b border-gray-400;
   }
   .cust-btn {
     @apply border border-gray-300 text-sm font-medium text-gray-900 hover:bg-green-600 hover:text-white focus:border-green-500 focus:outline-none;
   }
-  
+  .cust-bg-primary {
+    @apply bg-[#2CE29F];
+  }
+  .cust-bg-secondary {
+    @apply bg-[#ebcfad];
+  }
+  .cust-bg-background {
+    @apply bg-[#e7fdf5];
+  }
+  .cust-text-accent {
+    @apply text-[#569FF9];
+  }
+  .cust-text-text {
+    @apply text-[#0a1829];
+  }
 }
+
+/* colors: {
+  text: '#0a1829',
+  background: '#e7fdf5',
+    primary: '#2CE29F',
+    secondary: '#ebcfad',
+    accent: '#569FF9',
+}, */
