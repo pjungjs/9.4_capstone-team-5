@@ -20,8 +20,8 @@ function Sidebar({ currentUserRoute }) {
   }
 
   return (
-    <aside className="sticky left-0 top-0 z-30 whitespace-nowrap border-r border-gray-300 bg-white md:w-48">
-      <div className="px-2 py-3">
+    <aside className="sticky left-0 top-0 z-30 whitespace-nowrap border-r border-gray-300 cust-bg-background md:w-48">
+      <div className=" px-2 py-3">
         <ul className="space-y-2 font-medium">
           <li>
             <Link
@@ -32,7 +32,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlHome className="text-xl" />
+              <SlHome className="text-xl cust-text-accent" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Dashboard
               </span>
@@ -47,7 +47,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlPieChart className="text-xl" />
+              <SlPieChart className="cust-text-accent text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 My Footprint
               </span>
@@ -62,7 +62,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlNotebook className="text-xl" />
+              <SlNotebook className="cust-text-accent text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Daily Questions
               </span>
@@ -77,7 +77,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlCheck className="text-xl" />
+              <SlCheck className="cust-text-accent text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Take Actions
               </span>
@@ -92,7 +92,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlBadge className="text-xl" />
+              <SlBadge className="cust-text-accent text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Achievements
               </span>
@@ -107,7 +107,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <MdLeaderboard className="text-xl" />
+              <MdLeaderboard className="cust-text-accent text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Leaderboard
               </span>
@@ -122,7 +122,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlSettings className="text-xl" />
+              <SlSettings className=" cust-text-accent text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Settings
               </span>

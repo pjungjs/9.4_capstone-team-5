@@ -1,5 +1,5 @@
 
-import MainTop from "../components/About/mainTop";
+import MainTop from "../components/About/MainTop";
 import AboutTeam from "../components/About/AboutTeam";
 import background from '../assets/aboutImages/background.png'
 

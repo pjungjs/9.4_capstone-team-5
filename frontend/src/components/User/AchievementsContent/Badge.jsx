@@ -5,6 +5,8 @@ import { UserContext } from '../UserMain.jsx';
 function Badge({ badge }) {
   const { currentUser } = useContext(UserContext);
   const [badgeProgress, setBadgeProgress] = useState(0);
+  console.log(badge
+    )
 
   useEffect(() => {
     if (badge && currentUser.user_scores) {
@@ -42,10 +44,11 @@ function Badge({ badge }) {
           {badge.badge_name}
         </p>
       </div>
-      <div className="invisible absolute z-20 flex h-full w-full items-start overflow-auto rounded-lg bg-green-300 group-hover:visible">
+      <div className="invisible text-xl absolute z-20  h-full w-full items-start overflow-scroll rounded-lg bg-green-300 opacity-90  group-hover:visible">
         <p className="p-4 text-center text-gray-600">
           {badge.badge_description}
-        </p>
+        </p >
+        <p className="p-4 text-center font-extrabold text-gray-600">{badge.badge_req_points} Points</p>
       </div>
     </div>
   );

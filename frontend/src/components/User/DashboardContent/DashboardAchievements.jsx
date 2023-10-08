@@ -1,6 +1,6 @@
 function DashboardAchievements({ userAchvs, allBadges }) {
   return (
-    <div className="flex flex-col rounded-lg border border-gray-300 p-4 shadow-md">
+    <div className="flex  flex-col rounded-lg border border-gray-300 p-4 shadow-md">
       <div className="flex">
         <p>My Achievements:</p>
         {userAchvs && allBadges && (

@@ -49,7 +49,7 @@ function DashboardMain() {
   }, [currentUser]);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen cust-bg-background">
       <DashboardWelcome />
       <div className="space-y-4 p-4">
         <DashboardScoreChart userScores={userScores} />

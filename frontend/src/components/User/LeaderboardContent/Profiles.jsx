@@ -55,16 +55,13 @@ function Profiles() {
 
   return (
     
-      <div className="flex flex-col items-center max-w-3xl mx-auto ">
-        <div>
-        <p className="text-3xl font-semibold mb-4 text-center">Leaderboard</p>
-
-        </div>
+      <div className="flex flex-col items-center max-w-3xl rounded-3xl mx-auto pb-5 bg-green-600">
+       
         
           {usersSortedByScore && usersSortedByScore.map((user, index) => (
             <div
               key={user.id}
-              className="p-4"
+              className="p-4 "
             >
               <UserProfile key={user.id} userProfileData={user} index={index}/>
               

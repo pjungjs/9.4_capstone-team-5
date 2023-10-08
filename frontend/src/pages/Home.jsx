@@ -4,7 +4,7 @@ import TestimonialSection from '../components/Landing/LandingTestimonial.jsx';
 
 function Home() {
   return (
-    <div className=" bg-green-600">
+    <div className="">
       <MainSection />
       <AboutSection />
       <TestimonialSection />
