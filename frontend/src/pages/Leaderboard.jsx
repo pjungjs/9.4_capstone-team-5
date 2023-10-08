@@ -1,10 +1,8 @@
 import LeaderboardDisplay from '../components/User/LeaderboardContent/LeaderboardDisplay';
 
 function Leaderboard() {
- 
-
   return (
-    <div className=''>
+    <div>
       <LeaderboardDisplay />
     </div>
   );
