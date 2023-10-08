@@ -84,24 +84,12 @@ function LandingMain() {
         </p>
 
         <span className="my-20 text-center font-bold text-white/90">
-          Convetert to SASS
+          Convert to SASS
           <hr className="my-4" />
           Image Source
           <hr className="my-4" />
           <p>Source Code Full Preview</p>
         </span>
-      </div>
-
-      <div className="space-y-8 p-20">
-        <p className="my-20 text-center text-4xl">who we are </p>
-
-        <p className="mt-4 text-2xl text-gray-600 dark:text-gray-300">
-          Ecoway is an app focused on promoting sustainability and encouraging
-          eco-friendly practices that can have a positive impact on the
-          environment and people's daily lives. All this while making it fun and
-          easy to do so, by providing a platform for people to share their
-          experiences and learn from each other.
-        </p>
       </div>
     </div>
   );

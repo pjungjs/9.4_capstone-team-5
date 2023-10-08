@@ -2,7 +2,6 @@ import { HiArrowDownTray } from 'react-icons/hi2';
 //import reduceCarbon from '../../assets/reduceCarbon.jpeg';
 import { Link } from 'react-router-dom';
 
-
 function AboutSection() {
   return (
     <div>
@@ -18,10 +17,20 @@ function AboutSection() {
         alt="Reduce Carbon Footprint"
       /> */}
 
+      <div className="space-y-8 p-20">
+        <p className="my-20 text-center text-4xl">who we are </p>
+
+        <p className="mt-4 text-2xl text-gray-600 dark:text-gray-300">
+          Ecoway is an app focused on promoting sustainability and encouraging
+          eco-friendly practices that can have a positive impact on the
+          environment and people's daily lives. All this while making it fun and
+          easy to do so, by providing a platform for people to share their
+          experiences and learn from each other.
+        </p>
+      </div>
+
       <div className="bg-gray-100 dark:bg-gray-800">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-          
-
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-4">
             <div className="flex flex-col items-center">
               <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-blue-500 dark:bg-gray-900">
