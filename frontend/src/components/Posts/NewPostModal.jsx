@@ -120,7 +120,7 @@ function NewPostModal({
               onSubmit={handleSubmit}
               className="space-y-4 rounded-lg bg-gray-100 p-4 shadow-xl"
             >
-              <div className="">
+              <div>
                 <div className="md:flex md:items-center md:space-x-2">
                   <label
                     htmlFor="title"
