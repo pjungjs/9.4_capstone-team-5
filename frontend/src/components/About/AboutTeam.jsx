@@ -12,12 +12,12 @@ function AboutTeam() {
   return (
     <div className="container mx-auto mt-36 md:px-6">
       <div className="mb-32 text-center">
-        <p className="mb-12 text-3xl font-bold text-blue-600">Meet our team</p>
+        <p className="cust-text-text mb-12 text-3xl font-bold">Meet our team</p>
 
-        <div className="lg:gap-xl-12 grid gap-x-6 text-blue-600 md:grid-cols-2 lg:grid-cols-4">
+        <div className="lg:gap-xl-12 gap-x-6cust-text-text grid md:grid-cols-2 lg:grid-cols-4">
           <div className="mb-12 lg:mb-0">
             <img
-              className="mx-auto mb-6 w-[150px] rounded-lg shadow-lg dark:shadow-black/20"
+              className="mx-auto mb-6 w-[150px] rounded-lg shadow-lg"
               src="https://media.licdn.com/dms/image/D4E03AQGku8AQcQseXQ/profile-displayphoto-shrink_200_200/0/1696047842285?e=1701302400&v=beta&t=88cctxUu_EuaNv4JquIwCvQdSDXOoe_A0vVs6moUONk"
               alt="avatar"
             />
@@ -25,17 +25,23 @@ function AboutTeam() {
             <p className="mb-6">Full Stack Software Developer</p>
 
             <div className="mt-4 flex space-x-5 sm:mt-0 sm:justify-center">
-              <a href="#" className="text-gray-500 hover:text-green-600">
-                <BsFacebook />
-              </a>
-              <a href="#" className="text-gray-500 hover:text-green-600">
+              <a
+                href="https://www.instagram.com/prodigos/"
+                className="text-gray-500 hover:text-green-600"
+              >
                 <BsInstagram />
               </a>
 
-              <a href="#" className="text-gray-500 hover:text-green-600">
+              <a
+                href="https://github.com/Wilsantos1975"
+                className="text-gray-500 hover:text-green-600"
+              >
                 <BsGithub />
               </a>
-              <a href="#" className="text-gray-500 hover:text-green-600">
+              <a
+                href="https://www.linkedin.com/in/fausto-wilghen-santos-9083a9112/"
+                className="text-gray-500 hover:text-green-600"
+              >
                 <BsLinkedin />
               </a>
             </div>
@@ -75,19 +81,16 @@ function AboutTeam() {
             <p className="mb-4 text-lg font-bold">Jinseok Jung</p>
             <p className="mb-6">Full Stack Software Developer</p>
             <div className="mt-4 flex space-x-5 sm:mt-0 sm:justify-center">
-              <a href="#" className="text-gray-500 hover:text-green-600">
-                <BsFacebook />
-              </a>
-              <a href="#" className="text-gray-500 hover:text-green-600">
-                <BsInstagram />
-              </a>
-              <a href="#" className="text-gray-500 hover:text-green-600">
-                <BsTwitter />
-              </a>
-              <a href="#" className="text-gray-500 hover:text-green-600">
+              <a
+                href=" https://github.com/pjungjs"
+                className="text-gray-500 hover:text-green-600"
+              >
                 <BsGithub />
               </a>
-              <a href="#" className="text-gray-500 hover:text-green-600">
+              <a
+                href=" https://www.linkedin.com/in/jinseok-jung/"
+                className="text-gray-500 hover:text-green-600"
+              >
                 <BsLinkedin />
               </a>
             </div>
