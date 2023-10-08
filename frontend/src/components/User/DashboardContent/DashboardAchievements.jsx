@@ -1,10 +1,10 @@
 function DashboardAchievements({ userAchvs, allBadges }) {
   return (
     <div className="flex  flex-col rounded-lg border border-gray-300 p-4 shadow-md">
-      <div className="flex">
+      <div className="flex text-2xl">
         <p>My Achievements:</p>
         {userAchvs && allBadges && (
-          <div className="whitespace-nowrap pl-1">
+          <div className=" whitespace-nowrap pl-1">
             <span className="text-green-600">{userAchvs.length}</span> /{' '}
             <span className="text-red-600">{allBadges.length}</span>
           </div>
@@ -12,11 +12,11 @@ function DashboardAchievements({ userAchvs, allBadges }) {
       </div>
 
       {userAchvs && userAchvs.length > 0 && (
-        <div className="flex flex-wrap py-2">
+        <div className="flex  flex-wrap py-2">
           {userAchvs.map((achv) => (
             <div
               key={achv.badge_id}
-              className="m-1 flex w-28 flex-col items-center justify-center border border-gray-300 p-2 hover:shadow-lg"
+              className=" rounded-lg m-1 flex w-28 flex-col items-center justify-center border border-gray-300 p-2 hover:shadow-lg bg-gradient-to-r from-green-500 to-teal-500"
             >
               <img
                 src={achv.badge_img_url}

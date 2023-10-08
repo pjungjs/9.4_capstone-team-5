@@ -19,7 +19,7 @@ import NotFound from './pages/NotFound.jsx';
 
 function App() {
   return (
-    <div className="App">
+    <div className="cust-bg-background">
       <Router>
         <ScrollTop />
         <NavBar />
