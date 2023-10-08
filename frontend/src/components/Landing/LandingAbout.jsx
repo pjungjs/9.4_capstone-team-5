@@ -2,7 +2,7 @@ function AboutSection() {
   return (
     <div>
       <div>
-        <p className=" text-center text-4xl font-bold">Who we are. </p>
+        <p className="text-center text-4xl font-bold">Who we are.</p>
         <br />
         <p className="cust-text-text mt-4 text-center text-2xl">
           Ecoway is an app focused on promoting sustainability and encouraging
