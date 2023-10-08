@@ -13,9 +13,9 @@ function NavBar() {
   const [userInfo, setUserInfo] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
   const [openUserMenu, setOpenUserMenu] = useState(false);
-  const [openPro, setOpenPro] = useState(false);
-  const [openCom, setOpenCom] = useState(false);
-  const [openRes, setOpenRes] = useState(false);
+  // const [openPro, setOpenPro] = useState(false);
+  // const [openCom, setOpenCom] = useState(false);
+  // const [openRes, setOpenRes] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const { pathname } = useLocation();
@@ -50,9 +50,9 @@ function NavBar() {
   }, [pathname]);
 
   function toggleMenu() {
-    setOpenPro(false);
-    setOpenCom(false);
-    setOpenRes(false);
+    // setOpenPro(false);
+    // setOpenCom(false);
+    // setOpenRes(false);
     setOpenMenu(!openMenu);
   }
 
@@ -175,22 +175,19 @@ function NavBar() {
             <ul className="mt-2 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 pt-0 font-medium md:mt-0 md:flex-row md:border-0 md:bg-inherit md:p-0 xl:gap-8">
               <li className="group relative cursor-pointer px-6 pt-2">
                 <div
-                  className="block px-5 py-2 text-gray-900 hover:bg-gray-50 hover:text-green-600"
-                  onClick={() => setOpenPro(!openPro)}
+                  className="block rounded-lg px-5 py-2 text-gray-900 hover:bg-green-200 hover:text-green-700"
+                  onClick={() => {
+                    // setOpenPro(!openPro);
+                    navigate('/how-it-works');
+                  }}
                 >
-                  Product
+                  How It Works
                 </div>
-                <div
+                {/* <div
                   className={`${
                     openPro ? '' : 'max-md:hidden'
                   } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
                 >
-                  {/* <Link
-                    to="/"
-                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
-                  >
-                    How it works
-                  </Link> */}
                   <Link
                     to={`${session ? '/user/dailyquestions' : '/login'}`}
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
@@ -209,44 +206,44 @@ function NavBar() {
                   >
                     Earn Badges
                   </Link>
-                </div>
+                </div> */}
               </li>
 
               <li className="group relative cursor-pointer px-6 pt-2">
                 <div
-                  className="block px-5 py-2 text-gray-900 hover:bg-gray-50 hover:text-green-600"
-                  onClick={() => setOpenCom(!openCom)}
+                  className="block rounded-lg px-5 py-2 text-gray-900 hover:bg-green-200 hover:text-green-700"
+                  onClick={() => {
+                    // setOpenCom(!openCom);
+                    navigate('/community-forum');
+                  }}
                 >
-                  Community
+                  Community Forum
                 </div>
-                <div
+                {/* <div
                   className={`${
                     openCom ? '' : 'max-md:hidden'
                   } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
                 >
-                  {/* <Link
-                    to="/"
-                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
-                  >
-                    Blog
-                  </Link> */}
                   <Link
                     to="/forum"
                     className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Forum Feed
                   </Link>
-                </div>
+                </div> */}
               </li>
 
               <li className="group relative cursor-pointer px-6 pt-2">
                 <div
-                  className="block px-5 py-2 text-gray-900 hover:bg-gray-50 hover:text-green-600"
-                  onClick={() => setOpenRes(!openRes)}
+                  className="block rounded-lg px-5 py-2 text-gray-900 hover:bg-green-200 hover:text-green-700"
+                  onClick={() => {
+                    // setOpenRes(!openRes);
+                    navigate('/about');
+                  }}
                 >
-                  About
+                  About Us
                 </div>
-                <div
+                {/* <div
                   className={`${
                     openRes ? '' : 'max-md:hidden'
                   } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
@@ -263,7 +260,7 @@ function NavBar() {
                   >
                     Our Team
                   </Link>
-                </div>
+                </div> */}
               </li>
             </ul>
           </div>
