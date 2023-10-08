@@ -16,7 +16,7 @@ function DashboardAchievements({ userAchvs, allBadges }) {
           {userAchvs.map((achv) => (
             <div
               key={achv.badge_id}
-              className=" rounded-lg m-1 flex w-28 flex-col items-center justify-center border border-gray-300 p-2 hover:shadow-lg bg-gradient-to-r from-green-500 to-teal-500"
+              className="m-1 flex w-28 flex-col items-center justify-center rounded-lg border border-gray-300 bg-gradient-to-r from-green-500 to-teal-500 p-2 hover:shadow-lg"
             >
               <img
                 src={achv.badge_img_url}
