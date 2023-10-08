@@ -21,13 +21,13 @@ function HowItWorks() {
       icon: <SlBadge className={iconStyling} />,
       title: 'Earn Badges',
       description:
-        'Ecoway gamifies green living! Challenge yourself, track your progress, and compete with friends. Together, we&apos;re creating a more sustainable planet, one eco-friendly step at a time.',
+        'Ecoway gamifies green living! Challenge yourself, track your progress, and compete with friends. Together, we are creating a more sustainable planet, one eco-friendly step at a time.',
     },
     {
       icon: <MdOutlineForum className={iconStyling} />,
       title: 'Join the Community',
       description:
-        'Engage in discussions on sustainability with like-minded individuals, discover eco-friendly practices, and find inspiration to make a positive impact. Join hands with our thriving community and let&apos;s nurture a greener world together!',
+        'Engage in discussions on sustainability with like-minded individuals, discover eco-friendly practices, and find inspiration to make a positive impact. Join hands with our thriving community and let us nurture a greener world together!',
     },
   ];
 
