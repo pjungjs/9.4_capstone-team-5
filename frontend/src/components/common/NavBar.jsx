@@ -66,7 +66,7 @@ function NavBar() {
   }
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="cust-bg-background sticky top-0 z-50">
       <nav
         className={`${
           !scrolled
