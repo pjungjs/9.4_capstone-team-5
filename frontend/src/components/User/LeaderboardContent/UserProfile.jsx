@@ -22,19 +22,13 @@ function UserProfile({ userProfileData, index }) {
               {userPosition(index + 1)} Place
             </span>
 
-            <p className="invisible absolute left-0 top-0 translate-y-3 items-center transition duration-300 group-hover:visible group-hover:translate-y-0">
-              <span className="">Eco-Score: </span>
+            <p className="invisible pt-1 whitespace-nowrap absolute left-0 top-0 translate-y-3 items-center transition duration-300 group-hover:visible group-hover:translate-y-0">
+              <span>Eco-Score: </span>
               <span className="font-extrabold">
                 {userProfileData.score.score_total}
               </span>
             </p>
           </div>
-          <img
-            className="absolute bottom-0 right-6 w-[6rem] rounded-2xl transition duration-300 group-hover:scale-[1.4]"
-            src={userProfileData.profile_picture_url}
-            referrerPolicy="no-referrer"
-            alt="user's profile picture"
-          />
         </div>
         <img
           className="absolute bottom-0 right-6 w-[6rem] rounded-2xl transition duration-300 group-hover:scale-[1.4]"
