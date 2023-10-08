@@ -1,6 +1,3 @@
-import { HiArrowDownTray } from 'react-icons/hi2';
-//import reduceCarbon from '../../assets/reduceCarbon.jpeg';
-import { Link } from 'react-router-dom';
 
 function AboutSection() {
   return (
@@ -19,7 +16,6 @@ function AboutSection() {
               share their experiences and learn from each other.
             </p>
           </div>
-
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-4">
             <div className="flex flex-col items-center">
               <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-green-500">
@@ -30,10 +26,9 @@ function AboutSection() {
                 </p>
               </div>
             </div>
-
             <div className="flex flex-col items-center">
               <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-green-500 ">
-                <p className="text-xl font-medium text-gray-900 dark:text-white">
+                <p className="text-xl font-medium text-gray-900">
                   🍃 CALCULATOR
                 </p>
                 <p className="mt-2">
@@ -42,7 +37,6 @@ function AboutSection() {
                 </p>
               </div>
             </div>
-
             <div className="flex flex-col items-center">
               <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-green-500 ">
                 <h3 className="text-xl font-medium">🌎 OUR VALUES</h3>
@@ -52,13 +46,12 @@ function AboutSection() {
                 </p>
               </div>
             </div>
-
             <div className="flex flex-col items-center">
               <div className="h-full rounded-lg bg-white p-6 shadow-lg shadow-green-500">
-                <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                <h3 className="text-xl font-medium text-gray-900">
                   🏆 OUR GOALS
                 </h3>
-                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                <p className="mt-2 text-gray-600">
                   Our goal is to help people reduce their carbon footprint while
                   also making a positive impact on the environment.
                 </p>
