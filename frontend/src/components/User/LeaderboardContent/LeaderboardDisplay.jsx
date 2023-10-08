@@ -4,7 +4,7 @@ function LeaderboardDisplay() {
   return (
     <div className="cust-bg-background">
       <div>
-        <p className="font-bungee mb-4 pt-10 text-center text-5xl font-semibold ">
+        <p className="mb-4 pt-10 text-center font-bungee text-5xl font-semibold">
           Leaderboard
         </p>
       </div>
