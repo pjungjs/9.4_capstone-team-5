@@ -20,7 +20,7 @@ function Sidebar({ currentUserRoute }) {
   }
 
   return (
-    <aside className="sticky left-0 top-0 z-30 whitespace-nowrap border-r border-gray-300 cust-bg-background md:w-48">
+    <aside className="cust-bg-background sticky left-0 top-0 z-30 whitespace-nowrap border-r border-gray-300 md:w-48">
       <div className=" px-2 py-3">
         <ul className="space-y-2 font-medium">
           <li>
@@ -32,24 +32,9 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlHome className="text-xl cust-text-accent" />
+              <SlHome className="cust-text-accent text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Dashboard
-              </span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/user/myfootprint"
-              className={`${
-                currentUserRoute === 'myfootprint'
-                  ? 'rounded-xl bg-gradient-to-r from-green-500 to-teal-500 text-white hover:bg-green-700'
-                  : 'text-gray-900 hover:text-green-600 hover:underline'
-              } flex items-center p-2`}
-            >
-              <SlPieChart className="cust-text-accent text-xl" />
-              <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
-                My Footprint
               </span>
             </Link>
           </li>
@@ -65,6 +50,21 @@ function Sidebar({ currentUserRoute }) {
               <SlNotebook className="cust-text-accent text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Daily Questions
+              </span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/user/myfootprint"
+              className={`${
+                currentUserRoute === 'myfootprint'
+                  ? 'rounded-xl bg-green-600 text-white hover:bg-green-700'
+                  : 'text-gray-900 hover:text-green-600 hover:underline'
+              } flex items-center p-2`}
+            >
+              <SlPieChart className="cust-text-accent text-xl" />
+              <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
+                My Footprint
               </span>
             </Link>
           </li>

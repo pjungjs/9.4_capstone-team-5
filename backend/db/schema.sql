@@ -61,7 +61,7 @@ CREATE TABLE posts (
     title VARCHAR(225) UNIQUE NOT NULL,
     slug VARCHAR(225) UNIQUE NOT NULL,
     category TEXT NOT NULL,
-    post_picture_url TEXT,
+    post_picture_url TEXT DEFAULT '',
     content TEXT NOT NULL,
     post_likes JSONB DEFAULT '[]'::jsonb,
     post_comments JSONB DEFAULT '[]'::jsonb

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { createClient } from 'contentful';
-import { UserContext } from '../UserMain';
+import { UserContext } from '../UserMain.jsx';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import DashboardWelcome from './DashboardWelcome.jsx';
 import DashboardAchievements from './DashboardAchievements.jsx';
 import DashboardScoreChart from './DashboardScoreChart.jsx';
@@ -11,11 +12,12 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function DashboardMain() {
   const { currentUser } = useContext(UserContext);
-  const [userAchvs, setUserAchvs] = useState(null);
-  const [userActns, setUserActns] = useState(null);
   const [userScores, setUserScores] = useState(null);
-  const [allBadges, setAllBadges] = useState(null);
+  const [userActns, setUserActns] = useState(null);
+  const [userAchvs, setUserAchvs] = useState(null);
   const [allActions, setAllActions] = useState(null);
+  const [allBadges, setAllBadges] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -48,14 +50,27 @@ function DashboardMain() {
     }
   }, [currentUser]);
 
+  useEffect(() => {
+    if (userScores && userActns && userAchvs) {
+      setIsLoading(!isLoading);
+    }
+  }, [userScores, userActns, userAchvs]);
+
   return (
-    <div className="h-screen cust-bg-background">
+    <div className="cust-bg-background h-screen">
       <DashboardWelcome />
-      <div className="space-y-4 p-4">
-        <DashboardScoreChart userScores={userScores} />
-        <DashboardActions userActns={userActns} allActions={allActions} />
-        <DashboardAchievements userAchvs={userAchvs} allBadges={allBadges} />
-      </div>
+      {isLoading ? (
+        <div className="flex items-center justify-center pt-4">
+          <AiOutlineLoading3Quarters className="animate-spin text-2xl" />
+          <p className="p-4 text-xl">Loading...</p>
+        </div>
+      ) : (
+        <div className="space-y-4 p-4">
+          <DashboardScoreChart userScores={userScores} />
+          <DashboardActions userActns={userActns} allActions={allActions} />
+          <DashboardAchievements userAchvs={userAchvs} allBadges={allBadges} />
+        </div>
+      )}
     </div>
   );
 }

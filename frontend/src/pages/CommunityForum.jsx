@@ -7,10 +7,13 @@ function CommunityForum() {
         <div className="py-2 text-3xl font-bold text-green-700">
           Community Forum
         </div>
-        <div className="max-w-lg px-8 pb-2 pt-4">
-          I&apos;m a paragraph. Click here to add your own text and edit me.
-          I&apos;m a great place for you to tell a story and let your users know
-          a little more about you.
+        <div className="max-w-xl p-4 pb-2">
+          <p>Welcome to the Community Forum.</p>
+          <p>Share your questions, tips, resources, or anything in general.</p>
+          <p>You can create a new post or edit your existing ones.</p>
+          <p>
+            Join the conversation by liking and commenting on interesting posts.
+          </p>
         </div>
       </div>
       <Posts />
