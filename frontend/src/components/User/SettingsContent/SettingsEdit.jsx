@@ -43,7 +43,7 @@ function SettingsEdit({ editInfo, setEditInfo }) {
     formData.append('image', file);
 
     axios
-      .post(`${BASE_URL}/image-cloud/${currentUser.user_auth_id}`, formData)
+      .post(`${BASE_URL}/image-cloud/user/${currentUser.user_auth_id}`, formData)
       .then((response) => {
         setImgUploadStatus({
           success: true,
