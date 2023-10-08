@@ -29,6 +29,12 @@ function UserProfile({ userProfileData, index }) {
               </span>
             </p>
           </div>
+          <img
+            className="absolute bottom-0 right-6 w-[6rem] rounded-2xl transition duration-300 group-hover:scale-[1.4]"
+            src={userProfileData.profile_picture_url}
+            referrerPolicy="no-referrer"
+            alt="user's profile picture"
+          />
         </div>
         <img
           className="absolute bottom-0 right-6 w-[6rem] rounded-2xl transition duration-300 group-hover:scale-[1.4]"

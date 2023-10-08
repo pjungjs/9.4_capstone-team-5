@@ -1,7 +1,7 @@
 function DashboardActions({ userActns, allActions }) {
   return (
     <div className="flex flex-col space-y-2 rounded-lg border border-gray-300 p-4 shadow-md">
-      <div className="flex">
+      <div className="flex text-2xl">
         <p>My Actions:</p>
         <div className="whitespace-nowrap pl-1">
           {userActns && allActions ? (

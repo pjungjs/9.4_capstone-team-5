@@ -71,7 +71,7 @@ function NavBar() {
         className={`${
           !scrolled
             ? 'bg-transparent'
-            : 'border-b border-gray-100 bg-green-600 shadow'
+            : 'border-b border-gray-100 bg-white shadow'
         } w-full py-0 transition duration-300 ease-in-out`}
       >
         <div className="mx-auto flex flex-wrap items-center justify-between">
@@ -105,10 +105,10 @@ function NavBar() {
                         src={userInfo.profile_picture_url}
                         referrerPolicy="no-referrer"
                         alt="profile picture"
-                        className="h-10 w-10 rounded-full"
+                        className=" h-10 w-10 rounded-full"
                       />
                     ) : (
-                      <AiOutlineUser className="rounded-full border-2 border-green-600 p-0.5 text-4xl text-green-600 hover:bg-green-600 hover:text-white" />
+                      <AiOutlineUser className=" rounded-full border-2 border-green-600 p-0.5 text-4xl text-green-600 hover:bg-green-600 hover:text-white" /> //
                     )}
                   </button>
                 </div>
