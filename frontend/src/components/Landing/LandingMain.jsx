@@ -32,7 +32,7 @@ function LandingMain() {
 
   return (
     <div>
-      <div className=" mx-auto flex w-full flex-wrap items-center px-4 pb-20 font-sans sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg">
+      <div className="mx-auto flex w-full flex-wrap items-center px-4 pb-20 font-sans sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg">
         {/* <!-- Column-1 --> */}
         <div className="w-full px-3 lg:w-2/5">
           <div className="mx-auto mb-8 max-w-lg text-center lg:mx-0 lg:max-w-md lg:text-left">
@@ -40,7 +40,7 @@ function LandingMain() {
               Ready to make a change for a
               <br />
               <span
-                className="text-6xl  text-green-500 "
+                className="text-6xl leading-relaxed text-green-500"
               >
                 Greener
                 <br />
@@ -53,7 +53,7 @@ function LandingMain() {
             </p>
           </div>
 
-          <div className="text-center flex padding-5lg:text-left">
+          <div className="text-center lg:text-left">
             <button
               onClick={() => navigate('/login')}
               className="visible mb-4 block cursor-pointer rounded bg-green-500 px-8 py-4 text-xs font-semibold leading-none tracking-wide text-white sm:mb-0 sm:mr-3 sm:inline-block"
@@ -61,7 +61,7 @@ function LandingMain() {
               Take Action
             </button>
 
-            <button className="visible block cursor-pointer rounded bg-blue-400 px-8 py-4 text-xs font-semibold leading-none text-white sm:inline-block">
+            <button className="visible block cursor-pointer bg-blue-400 px-8 py-4 text-xs font-semibold leading-none text-white sm:inline-block">
               How We Work?
             </button>
           </div>
@@ -76,33 +76,24 @@ function LandingMain() {
       </div>
 
       <div
-        className="flex h-[500px] w-full flex-col items-center justify-center bg-cover  bg-fixed bg-center"
+        className="flex h-[700px] w-full flex-col items-center justify-center bg-cover  bg-fixed bg-center"
         style={{ backgroundImage: `url(${carbonFootMoving})` }}
       >
-        <p className="mb-10 mt-20 text-5xl font-semibold text-yellow-200">
+        
+        {/* <p className="mb-10 mt-20 text-5xl font-semibold cust-text-text">
           WE ARE ECOWAY
-        </p>
+        </p> */}
 
-        <span className="my-20 text-center font-bold text-white/90">
-          Convetert to SASS
+        <span className="my-20 text-3xl  text-center font-extrabold text-white">
+          Gamified Eco-Living to turn sustainability into a game
+          <hr className="my-4 cust-bg-primary" />
+          Take small actions lead to significant changes 
           <hr className="my-4" />
-          Image Source
-          <hr className="my-4" />
-          <p>Source Code Full Preview</p>
+          <p>Connect with like-minded individuals for a greener world.</p>
         </span>
       </div>
 
-      <div className="space-y-8 p-20">
-        <p className="my-20 text-center text-4xl">who we are </p>
-
-        <p className="mt-4 text-2xl text-gray-600 dark:text-gray-300">
-          Ecoway is an app focused on promoting sustainability and encouraging
-          eco-friendly practices that can have a positive impact on the
-          environment and people's daily lives. All this while making it fun and
-          easy to do so, by providing a platform for people to share their
-          experiences and learn from each other.
-        </p>
-      </div>
+     
     </div>
   );
 }

@@ -94,7 +94,7 @@ function NavBar() {
                 Join Now
               </button>
             ) : (
-              <div className="relative flex flex-col items-end">
+              <div className="relative flex flex-col items-end cust-bg-background">
                 <div>
                   <button
                     className="flex items-center rounded-full text-sm focus:ring-4 focus:ring-gray-300"
@@ -117,7 +117,7 @@ function NavBar() {
                     openUserMenu ? '' : 'hidden'
                   } absolute top-10 z-50 divide-y divide-gray-200 rounded-lg border bg-gray-50 shadow-lg`}
                 >
-                  <div className="whitespace-nowrap px-4 py-3 text-right text-sm text-gray-900">
+                  <div className="whitespace-nowrap px-4 py-3 text-right text-sm cust-text-text cust-bg-background">
                     {userInfo && (
                       <>
                         <p>
@@ -129,7 +129,7 @@ function NavBar() {
                       </>
                     )}
                   </div>
-                  <ul className="py-1 text-right text-sm">
+                  <ul className="py-1 text-right text-sm cust-bg-background">
                     <li>
                       <Link
                         to="/user/dashboard"

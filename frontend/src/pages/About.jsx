@@ -1,17 +1,10 @@
-
-
-import MainTop from "../components/About/MainTop";
-import AboutTeam from "../components/About/AboutTeam";
-import background from '../assets/aboutImages/background.png'
-
+import MainTop from '../components/About/MainTop';
+import AboutTeam from '../components/About/AboutTeam';
 
 
 function About() {
   return (
-    <div
-      className="flex w-full flex-col  bg-cover bg-center p-10"
-      style={{ backgroundImage: `url(${background})` }}
-    >
+    <div className="flex flex-col  p-10">
       <MainTop />
       <AboutTeam />
     </div>
