@@ -3,7 +3,7 @@ import Posts from '../components/Posts/Posts.jsx';
 function CommunityForum() {
   return (
     <div className="mb-10 flex flex-col items-center justify-center">
-      <div className="mb-4 flex w-full flex-col items-center justify-center bg-green-100 p-4 text-center">
+      <div className="mb-4 flex w-full flex-col items-center justify-center bg-green-200 p-4 text-center">
         <div className="py-2 text-3xl font-bold text-green-700">
           Community Forum
         </div>

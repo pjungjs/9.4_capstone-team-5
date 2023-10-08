@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { useContext, useState, useEffect } from 'react';
-
-import Badge from './Badge.jsx';
 import { UserContext } from '../UserMain.jsx';
+import Badge from './Badge.jsx';
 
-const API = import.meta.env.VITE_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function BadgesBoard() {
   const { currentUser } = useContext(UserContext);
@@ -13,7 +12,7 @@ function BadgesBoard() {
 
   useEffect(() => {
     axios
-      .get(`${API}/badges`)
+      .get(`${BASE_URL}/badges`)
       .then((res) => setBadgeData(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -43,7 +42,6 @@ function BadgesBoard() {
 
   return (
     <div>
-      
       <div className="flex flex-col items-center justify-center py-4 md:py-8">
         <p className="mb-2 p-2 text-2xl  font-bold uppercase">All Badges</p>
         <div className="flex items-center">

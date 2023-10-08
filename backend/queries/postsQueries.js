@@ -43,14 +43,16 @@ const getOnePost = async (slug) => {
 const createPost = async (postToCreate) => {
   const { created_at, user_auth_id, title, slug, category, post_picture_url, content } =
     postToCreate;
-
+console.log(postToCreate)
   try {
     const createdPost = await db.one(
       'INSERT INTO posts (created_at, user_auth_id, title, slug, category, post_picture_url, content) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;',
       [created_at, user_auth_id, title, slug, category, post_picture_url, content]
     );
+    console.log(createdPost)
     return { success: true, payload: createdPost };
   } catch (error) {
+    console.log(error)
     return { success: false, payload: error };
   }
 };

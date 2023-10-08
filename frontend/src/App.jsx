@@ -6,6 +6,7 @@ import Footer from './components/common/Footer.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
+import HowItWorks from './pages/HowItWorks.jsx';
 import Login from './pages/Login.jsx';
 import LoginAuth from './components/Login/LoginAuth.jsx';
 import PrivateRoutes from './components/User/PrivateRoutes.jsx';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login/auth" element={<LoginAuth />} />
             <Route element={<PrivateRoutes />}>

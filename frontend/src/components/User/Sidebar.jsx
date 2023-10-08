@@ -21,7 +21,7 @@ function Sidebar({ currentUserRoute }) {
 
   return (
     <aside className="cust-bg-background sticky left-0 top-0 z-30 whitespace-nowrap border-r border-gray-300 md:w-48">
-      <div className=" px-2 py-3">
+      <div className="px-2 py-3">
         <ul className="space-y-2 font-medium">
           <li>
             <Link
@@ -32,7 +32,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlHome className="cust-text-accent text-xl" />
+              <SlHome className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Dashboard
               </span>
@@ -47,7 +47,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlNotebook className="cust-text-accent text-xl" />
+              <SlNotebook className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Daily Questions
               </span>
@@ -62,7 +62,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlPieChart className="cust-text-accent text-xl" />
+              <SlPieChart className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 My Footprint
               </span>
@@ -77,7 +77,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlCheck className="cust-text-accent text-xl" />
+              <SlCheck className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Take Actions
               </span>
@@ -92,7 +92,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlBadge className="cust-text-accent text-xl" />
+              <SlBadge className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Achievements
               </span>
@@ -107,7 +107,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <MdLeaderboard className="cust-text-accent text-xl" />
+              <MdLeaderboard className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Leaderboard
               </span>
@@ -122,7 +122,7 @@ function Sidebar({ currentUserRoute }) {
                   : 'text-gray-900 hover:text-green-600 hover:underline'
               } flex items-center p-2`}
             >
-              <SlSettings className=" cust-text-accent text-xl" />
+              <SlSettings className="text-xl" />
               <span className={`${openSidebar ? '' : 'hidden md:flex'} ml-3`}>
                 Settings
               </span>

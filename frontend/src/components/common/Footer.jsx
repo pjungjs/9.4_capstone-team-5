@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="relative z-40 border-t-2 border-gray-200 py-0">
+    <footer className="relative z-40 border-t-2 border-gray-200 bg-white py-0">
       <div className="mx-auto w-full p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 flex items-center md:mb-0">
@@ -23,24 +23,12 @@ function Footer() {
           <div className="mx-2 grid grid-cols-3 gap-6 pr-2 text-sm md:gap-8">
             <div>
               <h2 className="mb-6 font-semibold uppercase text-gray-900">
-                Help
+                EcoWay
               </h2>
               <ul className="font-medium text-gray-500">
                 <li className="mb-4">
-                  <Link to="/contact" className="hover:underline">
-                    Contact Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="mb-6 font-semibold uppercase text-gray-900">
-                About
-              </h2>
-              <ul className="font-medium text-gray-500">
-                <li className="mb-4">
-                  <Link to="/" className="hover:underline">
-                    Our Team
+                  <Link to="/about" className="hover:underline">
+                    About Us
                   </Link>
                 </li>
                 <li className="mb-4">
@@ -52,6 +40,23 @@ function Footer() {
                   >
                     Project Repo
                   </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="mb-6 font-semibold uppercase text-gray-900">
+                Help
+              </h2>
+              <ul className="font-medium text-gray-500">
+                <li className="mb-4">
+                  <Link to="/how-it-works" className="hover:underline">
+                    How It Works
+                  </Link>
+                </li>
+                <li className="mb-4">
+                  <Link to="/contact" className="hover:underline">
+                    Contact Us
+                  </Link>
                 </li>
               </ul>
             </div>

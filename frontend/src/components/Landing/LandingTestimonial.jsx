@@ -1,105 +1,98 @@
-
 function Testimonial() {
   return (
-    <div className="grid rounded-lg border border-gray-200 shadow-sm md:mb-12 md:grid-cols-2 group">
-      <figure className="flex flex-col items-center justify-center rounded-t-lg border-b border-gray-200 bg-blue-200 p-8 text-center md:rounded-t-none md:rounded-tl-lg md:border-r group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 duration-500">
-        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 bg-white/40 p-8 rounded-xl mix-blend-luminosity cursor-pointer">
-          <p className="uppercase text-lg font-semibold">
-            Very easy this was to integrate...
-          </p>
-          <p className="my-4">
-            As an orchestra director, I&apos;m accustomed to harmonizing
-            melodies, but Ecoway harmonizes sustainability into my daily
-            routine. This app has transformed the way I approach eco-friendly
-            practices.
-          </p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center space-x-3">
-          <img
-            className="h-9 w-9 rounded-full"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
-            alt="profile picture"
-          />
-          <div className="space-y-0.5 text-left font-medium">
-            <div>Karen Nelson</div>
-            <div className="text-sm text-gray-500">Orchestra Director</div>
-          </div>
-        </figcaption>
-      </figure>
+    <div>
+      <div className="mx-auto text-center lg:max-w-3xl">
+        <p className="mb-6 mt-28 text-3xl font-bold ">
+          Discover What Others Say About Ecoway
+        </p>
+        <p className="mb-2 pb-10">
+          Our users&apos; voices are the heart of Ecoway. Take a moment to
+          explore their inspiring stories and experiences. These testimonials
+          showcase the impact of our app on real people, just like you. Their
+          stories are a testament to the power of small actions that lead to
+          significant change.
+        </p>
+      </div>
 
-      <figure className="flex flex-col items-center justify-center rounded-tr-lg border-b border-gray-200 bg-blue-200 p-8 text-center group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 duration-500">
-        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 bg-white/40 p-8 rounded-xl mix-blend-luminosity cursor-pointer">
-          <p className="uppercase text-lg font-semibold">
-            It&apos;s a bridge that connects our actions to a greener future...
-          </p>
-          <p className="my-4">
-            Running a successful business while nurturing the environment can be
-            challenging. Ecoway, however, has revolutionized our approach at the
-            R.O.C. With Ecoway, we&apos;re pioneering a greener future for our
-            company and the planet.
-          </p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center space-x-3">
-          <img
-            className="h-9 w-9 rounded-full"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
-            alt="profile picture"
-          />
-          <div className="space-y-0.5 text-left font-medium">
-            <div>Pastora Lara Portillo</div>
-            <div className="text-sm text-gray-500">CEO of the R.O.C.</div>
+      {/* <!--First Testimonial--> */}
+      <div className="mb-10 ml-10 mr-10 grid gap-6 text-center md:grid-cols-3">
+        <div>
+          <div className="block rounded-lg bg-white shadow-lg">
+            <div className="cust-bg-primary h-28 overflow-hidden rounded-t-lg"></div>
+            <div className="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white bg-white">
+              <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" />
+            </div>
+            <div className="p-6">
+              <p className="mb-4 text-2xl font-semibold">Maria Smantha</p>
+              <p className="text-l cust-text-accent mb-4">Entrepreneur</p>
+              <hr />
+              <p className="font mt-4">
+                &quot;I&apos;ve always wanted to live a greener, more
+                eco-conscious lifestyle, but I didn&apos;t know where to start.
+                Ecoway changed that for me. This app is a game-changer.
+                It&apos;s fun, motivating, and incredibly informative. I&apos;ve
+                earned badges for reducing my carbon footprint, recycling more,
+                and even biking to work. Ecoway transformed my daily habits,
+                making them more sustainable. I&apos;ve linked with like-minded
+                individuals and shared tips. Thanks to Ecoway, I&apos;m on my
+                journey towards a more eco-friendly life!&quot;
+              </p>
+            </div>
           </div>
-        </figcaption>
-      </figure>
+        </div>
 
-      <figure className="flex flex-col items-center justify-center rounded-bl-lg border-b border-gray-200 bg-blue-200 p-8 text-center md:border-b-0 md:border-r group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 duration-500">
-        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8 bg-white/40 p-8 rounded-xl mix-blend-luminosity cursor-pointer">
-          <p className="uppercase text-lg font-semibold">
-            Ecoway empowers individuals from all walks of life...
-          </p>
-          <p className="my-4">
-            To be agents of positive change. Entrepreneurship is about innovation and impact, and Ecoway embodies
-            both. From reducing waste to supporting green initiatives, Ecoway
-            provides actionable steps that empower entrepreneurs like me to
-            contribute positively to the environment while driving business
-            success.
-          </p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center space-x-3">
-          <img
-            className="h-9 w-9 rounded-full"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-            alt="profile picture"
-          />
-          <div className="space-y-0.5 text-left font-medium">
-            <div>Steve Biko</div>
-            <div className="text-sm text-gray-500">Entreprenour</div>
+        {/* <!--Second Testimonial--> */}
+        <div>
+          <div className="block rounded-lg bg-white shadow-lg">
+            <div className="cust-bg-primary h-28 overflow-hidden rounded-t-lg"></div>
+            <div className="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white bg-white ">
+              <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" />
+            </div>
+            <div className="p-6">
+              <p className="mb-4 text-2xl font-semibold">Lisa Cudrow</p>
+              <p className="text-l cust-text-accent mb-4">Software Developer</p>
+              <hr />
+              <p className="mt-4">
+                &quot;I&apos;ve always been a tech-savvy individual, but I
+                wasn&apos;t very eco-conscious. Ecoway changed that. It&apos;s
+                not just an app; it&apos;s a community of like-minded people
+                working towards a greener future. I&apos;ve earned badges for
+                taking public transport, reducing plastic use, and even starting
+                a small herb garden. Ecoway&apos;s leaderboard adds a
+                competitive edge that keeps me motivated. It&apos;s incredible
+                to see my progress and connect with others passionate about
+                sustainability.&quot;
+              </p>
+            </div>
           </div>
-        </figcaption>
-      </figure>
+        </div>
 
-      <figure className="flex flex-col items-center justify-center rounded-b-lg border-gray-200 bg-blue-200 p-8 text-center md:rounded-br-lg group-hover:blur-sm hover:!blur-none group-hover:scale-[0.85] hover:!scale-100 duration-500">
-        <blockquote className="mx-auto mb-4 max-w-2xl text-gray-500 lg:mb-8  bg-white/40 p-8 rounded-xl mix-blend-luminosity cursor-pointer">
-          <p className="uppercase text-lg font-semibold">
-            It&apos;s about making sustainable choices...
-          </p>
-          <p className="my-4">
-            Ecoway&apos;s data-driven insights and tools have enhanced my
-            understanding of environmentally conscious lifestyle.
-          </p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center space-x-3">
-          <img
-            className="h-9 w-9 rounded-full"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
-            alt="profile picture"
-          />
-          <div className="space-y-0.5 text-left font-medium">
-            <div>William Cashman</div>
-            <div className="text-sm text-gray-500">Stock Analyst</div>
+        {/* <!--Third Testimonial--> */}
+        <div>
+          <div className="block rounded-lg bg-white shadow-lg">
+            <div className="cust-bg-primary h-28 overflow-hidden rounded-t-lg"></div>
+            <div className="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white ">
+              <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" />
+            </div>
+            <div className="p-6">
+              <p className="mb-4 text-2xl font-semibold">John Smith</p>
+              <p className="text-l cust-text-accent mb-4">Marine Biologist</p>
+              <hr />
+              <p className="mt-4">
+                &quot;Ecoway has been a breath of fresh air for me. As a father,
+                I&apos;ve always wanted to set a positive example for my kids
+                when it comes to taking care of our planet. Ecoway&apos;s
+                gamified approach made it easy and enjoyable. My kids and I have
+                embraced eco-friendly challenges together. From reducing energy
+                usage to exploring sustainable recipes, Ecoway has made it a
+                family adventure. The badges we&apos;ve earned are a source of
+                pride. We&apos;re not just making a sustainable future;
+                we&apos;re doing it together!&quot;
+              </p>
+            </div>
           </div>
-        </figcaption>
-      </figure>
+        </div>
+      </div>
     </div>
   );
 }
