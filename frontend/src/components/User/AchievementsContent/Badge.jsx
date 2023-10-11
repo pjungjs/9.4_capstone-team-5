@@ -5,7 +5,6 @@ import { UserContext } from '../UserMain.jsx';
 function Badge({ badge }) {
   const { currentUser } = useContext(UserContext);
   const [badgeProgress, setBadgeProgress] = useState(0);
-  console.log(badge);
 
   useEffect(() => {
     if (badge && currentUser.user_scores) {
@@ -41,7 +40,7 @@ function Badge({ badge }) {
               ></div>
             </div>
           )}
-          <p className=" text-center text-lg font-semibold text-gray-800">
+          <p className="text-center text-lg font-semibold text-gray-800">
             {badge.badge_name}
           </p>
         </div>

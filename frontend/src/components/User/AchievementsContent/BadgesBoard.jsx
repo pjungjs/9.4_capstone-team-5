@@ -7,8 +7,8 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function BadgesBoard() {
   const { currentUser } = useContext(UserContext);
-  const [badgeData, setBadgeData] = useState([]);
-  const [filterBy, setFilterBy] = useState('completed');
+  const [badgeData, setBadgeData] = useState(null);
+  const [filterBy, setFilterBy] = useState('achieved');
 
   useEffect(() => {
     axios
