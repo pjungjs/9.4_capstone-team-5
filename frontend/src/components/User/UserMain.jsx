@@ -103,13 +103,13 @@ export default function UserMain() {
         <div className="flex-grow">
           {currentUserRoute === 'dashboard' ? (
             <DashboardMain />
-          ) : currentUserRoute === 'myfootprint' ? (
-            <MyFootprint currentUser={currentUser} />
           ) : currentUserRoute === 'dailyquestions' ? (
             <DailyQuestions
               returningUser={returningUser}
               currentUser={currentUser}
             />
+          ) : currentUserRoute === 'myfootprint' ? (
+            <MyFootprint currentUser={currentUser} />
           ) : currentUserRoute === 'actions' ? (
             <ActionsMain />
           ) : currentUserRoute === 'achievements' ? (
