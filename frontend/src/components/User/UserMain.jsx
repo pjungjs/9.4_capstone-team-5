@@ -98,15 +98,18 @@ export default function UserMain() {
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
-      <div className="flex overflow-x-hidden">
+      <div className="cust-bg-background flex overflow-x-hidden">
         <Sidebar currentUserRoute={currentUserRoute} />
         <div className="flex-grow">
           {currentUserRoute === 'dashboard' ? (
             <DashboardMain />
           ) : currentUserRoute === 'myfootprint' ? (
-            <MyFootprint currentUser={currentUser}/>
+            <MyFootprint currentUser={currentUser} />
           ) : currentUserRoute === 'dailyquestions' ? (
-            <DailyQuestions returningUser={returningUser} currentUser={currentUser}/>
+            <DailyQuestions
+              returningUser={returningUser}
+              currentUser={currentUser}
+            />
           ) : currentUserRoute === 'actions' ? (
             <ActionsMain />
           ) : currentUserRoute === 'achievements' ? (
