@@ -9,6 +9,7 @@ import {
   BiDownArrow,
 } from 'react-icons/bi';
 import NewPostModal from './NewPostModal.jsx';
+import LoadingIcon from '../Loading/LoadingIcon.jsx';
 import Post from './Post.jsx';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -24,6 +25,7 @@ function Posts() {
     comments: '',
     dates: '', //'up',
   });
+  const [isLoading, setIsLoading] = useState(true);
 
   const { session } = useStytchSession();
 
@@ -36,7 +38,10 @@ function Posts() {
   useEffect(() => {
     axios
       .get(`${BASE_URL}/posts`)
-      .then((response) => setAllPosts(response.data))
+      .then((response) => {
+        setAllPosts(response.data);
+        setIsLoading(!isLoading);
+      })
       .catch((error) => console.warn('Error: PUT', error));
 
     axios
@@ -46,7 +51,7 @@ function Posts() {
   }, []);
 
   const toggleNewPostModal = () => setOpenModal(!openModal);
-  
+
   const toggleWhosPosts = (whos) => setWhosPosts(whos);
 
   const toggleSortBy = (sortOption) => {
@@ -184,7 +189,10 @@ function Posts() {
 
         {/* post cards */}
         <div className="w-full space-y-2 pt-2">
-          {allPosts &&
+          {isLoading ? (
+            <LoadingIcon />
+          ) : (
+            allPosts &&
             allPosts.map((post) => {
               const postUserInfo = allUsers?.find(
                 (user) => user.user_auth_id === post.user_auth_id,
@@ -197,7 +205,8 @@ function Posts() {
                   postUserInfo={postUserInfo}
                 />
               );
-            })}
+            })
+          )}
         </div>
       </div>
     </div>
