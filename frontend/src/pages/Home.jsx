@@ -1,13 +1,15 @@
-import MainSection from '../components/Landing/LandingMain.jsx';
-import AboutSection from '../components/Landing/LandingAbout.jsx';
-import TestimonialSection from '../components/Landing/LandingTestimonial.jsx';
+import LandingHero from '../components/Landing/LandingHero.jsx';
+import LandingGif from '../components/Landing/LandingGif.jsx';
+import LandingAbout from '../components/Landing/LandingAbout.jsx';
+import LandingTestimonial from '../components/Landing/LandingTestimonial.jsx';
 
 function Home() {
   return (
-    <div className="">
-      <MainSection />
-      <AboutSection />
-      <TestimonialSection />
+    <div>
+      <LandingHero />
+      <LandingGif />
+      <LandingAbout />
+      <LandingTestimonial />
     </div>
   );
 }
