@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useContext, useState } from 'react';
-import { UserContext } from '../components/User/UserMain.jsx';
+import { UserContext } from '../UserMain.jsx';
 import { useNavigate } from 'react-router-dom';
 
 export default function CarbonCalc() {
@@ -26,7 +26,7 @@ export default function CarbonCalc() {
     carbon_emission_result: 0,
   });
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const updateAnswersTable = (updatedAnswersTable) => {
     console.log(updatedAnswersTable);
@@ -39,7 +39,7 @@ export default function CarbonCalc() {
       )
       .then((response) => {
         console.log(response);
-        navigate(`/user/myfootprint`);
+        navigate('/user/myfootprint');
       })
       .catch((error) => {
         console.warn('Error:', error);
@@ -309,8 +309,8 @@ export default function CarbonCalc() {
         <select
           value={clothingPurchased}
           onChange={(e) => {
-            handleClothesFootprint(Number(e.target.value))
-            setClothingPurchased(Number(e.target.value))
+            handleClothesFootprint(Number(e.target.value));
+            setClothingPurchased(Number(e.target.value));
           }}
         >
           {Array.from({ length: 21 }, (_, index) => (
@@ -332,8 +332,8 @@ export default function CarbonCalc() {
           name="diet"
           value="vegan"
           onChange={() => {
-            setCarbonFootprint(carbonFootprint + 600)
-            setDiet('vegan')
+            setCarbonFootprint(carbonFootprint + 600);
+            setDiet('vegan');
           }}
           checked={diet === 'vegan'}
         />
@@ -346,8 +346,8 @@ export default function CarbonCalc() {
           name="diet"
           value="vegetarian"
           onChange={() => {
-            setCarbonFootprint(carbonFootprint + 2650)
-            setDiet('vegetarian')
+            setCarbonFootprint(carbonFootprint + 2650);
+            setDiet('vegetarian');
           }}
           checked={diet === 'vegetarian'}
         />
@@ -360,8 +360,8 @@ export default function CarbonCalc() {
           name="diet"
           value="mostRedMeat"
           onChange={() => {
-            setCarbonFootprint(carbonFootprint + 3745)
-            setDiet('mostRedMeat')
+            setCarbonFootprint(carbonFootprint + 3745);
+            setDiet('mostRedMeat');
           }}
           checked={diet === 'mostRedMeat'}
         />
@@ -374,8 +374,8 @@ export default function CarbonCalc() {
           name="diet"
           value="noRedMeat"
           onChange={() => {
-            setCarbonFootprint(carbonFootprint + 1909)
-            setDiet('noRedMeat')
+            setCarbonFootprint(carbonFootprint + 1909);
+            setDiet('noRedMeat');
           }}
           checked={diet === 'noRedMeat'}
         />
@@ -392,15 +392,14 @@ export default function CarbonCalc() {
   };
 
   const handleCarTypeFootprint = (e) => {
-    if(e === 'gasoline') {
+    if (e === 'gasoline') {
       setCarbonFootprint(carbonFootprint + 3842);
-    } else if(e === 'diesel') {
+    } else if (e === 'diesel') {
       setCarbonFootprint(carbonFootprint + 3713);
-    } else if(e === 'hybrid') {
+    } else if (e === 'hybrid') {
       setCarbonFootprint(carbonFootprint + 2548);
     }
   };
-
 
   const handleTransportationFootprint = (e) => {
     setCarbonFootprint(carbonFootprint + (e / 5) * 66);
@@ -440,8 +439,9 @@ export default function CarbonCalc() {
           mediumAppliancesPurchased,
         'How many small sized appliances have you purchased in the past year?':
           smallAppliancesPurchased,
-        'How many pieces of clothing have you purchased this year?': clothingPurchased,
-        'What is your diet?': diet
+        'How many pieces of clothing have you purchased this year?':
+          clothingPurchased,
+        'What is your diet?': diet,
       },
     });
   };
@@ -451,7 +451,6 @@ export default function CarbonCalc() {
       setTakeTest(false);
     }
   };
-
 
   return (
     <div onClick={handleOutsideClick}>
@@ -491,10 +490,10 @@ export default function CarbonCalc() {
                       </h2>
                       <div className="relative pt-1">
                         <div className="mb-2 flex items-center justify-between">
-<div>
+                          <div>
                             <span className="inline-block rounded-full bg-green-200 px-2 py-1 text-xs font-semibold uppercase text-green-600">
                               In Progress
-                                                      </span>
+                            </span>
                           </div>
                           <div className="text-center">
                             <h3 className="text-l font-semibold">
@@ -543,7 +542,7 @@ export default function CarbonCalc() {
                         )}
                         <br></br>
                         {questNum === questions.length - 1 && (
-                          <div className="flex items-center justify-center"> 
+                          <div className="flex items-center justify-center">
                             <button
                               type="submit"
                               className="rounded bg-green-500 px-6 py-5 text-lg text-white hover:bg-green-600"
@@ -564,5 +563,4 @@ export default function CarbonCalc() {
       )}
     </div>
   );
-            
 }

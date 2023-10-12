@@ -2,8 +2,8 @@ import Profiles from '../LeaderboardContent/Profiles.jsx';
 
 function LeaderboardDisplay() {
   return (
-    <div className="cust-bg-background mt-5 mb-10 space-y-8">
-      <p className="text-center font-bungee text-5xl font-semibold">
+    <div className="mb-10 mt-5 space-y-8">
+      <p className="text-center font-bungee text-4xl md:text-5xl font-semibold">
         Leaderboard
       </p>
       <Profiles />

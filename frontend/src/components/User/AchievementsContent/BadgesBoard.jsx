@@ -7,8 +7,8 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function BadgesBoard() {
   const { currentUser } = useContext(UserContext);
-  const [badgeData, setBadgeData] = useState([]);
-  const [filterBy, setFilterBy] = useState('completed');
+  const [badgeData, setBadgeData] = useState(null);
+  const [filterBy, setFilterBy] = useState('achieved');
 
   useEffect(() => {
     axios
@@ -41,27 +41,25 @@ function BadgesBoard() {
   });
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center py-4 md:py-8">
-        <p className="mb-2 p-2 text-2xl  font-bold uppercase">All Badges</p>
-        <div className="flex items-center">
-          <p className="text-md whitespace-nowrap pr-2 font-medium">Sort by:</p>
-          <select
-            value={filterBy}
-            onChange={(event) => setFilterBy(event.target.value)}
-            className="bg-gray-50"
-          >
-            <option value="achieved">Achieved</option>
-            <option value="working">Working on</option>
-          </select>
-        </div>
+    <div className="flex flex-col items-center justify-center py-4 pb-8">
+      <p className="mb-2 p-2 text-2xl font-bold uppercase">All Badges</p>
+      <div className="flex items-center">
+        <p className="text-md whitespace-nowrap pr-2 font-medium">Sort by:</p>
+        <select
+          value={filterBy}
+          onChange={(event) => setFilterBy(event.target.value)}
+          className="bg-gray-50"
+        >
+          <option value="achieved">Achieved</option>
+          <option value="working">Working on</option>
+        </select>
+      </div>
 
-        <div className="flex flex-wrap justify-center ">
-          {badgeData &&
-            filteredBadges.map((badge) => (
-              <Badge key={badge.badge_id} badge={badge} />
-            ))}
-        </div>
+      <div className="flex flex-wrap justify-center">
+        {badgeData &&
+          filteredBadges.map((badge) => (
+            <Badge key={badge.badge_id} badge={badge} />
+          ))}
       </div>
     </div>
   );
