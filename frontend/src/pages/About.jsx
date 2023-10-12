@@ -1,11 +1,10 @@
-import MainTop from '../components/About/MainTop';
-import AboutTeam from '../components/About/AboutTeam';
-
+import AboutGoals from '../components/About/AboutGoals.jsx';
+import AboutTeam from '../components/About/AboutTeam.jsx';
 
 function About() {
   return (
-    <div className="flex flex-col  p-10">
-      <MainTop />
+    <div className="flex flex-col m-4">
+      <AboutGoals />
       <AboutTeam />
     </div>
   );

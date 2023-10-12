@@ -47,7 +47,7 @@ function Profiles() {
     <div className="mx-auto flex max-w-3xl flex-col items-center rounded-3xl bg-gradient-to-r from-green-500 to-teal-500 py-5">
       {usersSortedByScore &&
         usersSortedByScore.map((user, index) => (
-          <div key={user.id} className="p-4">
+          <div key={user.id} className="p-2 py-4 md:p-4">
             <UserProfile key={user.id} userProfileData={user} index={index} />
           </div>
         ))}

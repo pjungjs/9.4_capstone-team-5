@@ -66,7 +66,7 @@ function NavBar() {
   }
 
   return (
-    <header className="cust-bg-background sticky top-0 z-50">
+    <header className="sticky top-0 z-50">
       <nav
         className={`${
           !scrolled
@@ -78,7 +78,7 @@ function NavBar() {
           <div>
             <Link to="/">
               <img
-                className={`${!scrolled ? 'h-20 pl-2' : 'h-16 pl-4'}`}
+                className={`${!scrolled ? 'h-24 pl-2' : 'h-20 pl-4'}`}
                 src={!scrolled ? logo1 : logo2}
                 alt="EcoWay logo"
               />
@@ -88,16 +88,16 @@ function NavBar() {
           <div className="flex items-center gap-2 pr-2 md:order-2 md:pr-4">
             {!session ? (
               <button
-                className="whitespace-nowrap rounded-full bg-green-600 px-4 py-2.5 text-sm text-white hover:bg-green-700"
+                className="text-md whitespace-nowrap rounded-full bg-green-600 px-4 py-2.5 text-white hover:bg-green-700"
                 onClick={() => navigate('/login')}
               >
                 Join Now
               </button>
             ) : (
-              <div className="relative flex flex-col items-end cust-bg-background">
+              <div className="relative flex flex-col items-end">
                 <div>
                   <button
-                    className="flex items-center rounded-full text-sm focus:ring-4 focus:ring-gray-300"
+                    className="flex items-center rounded-full focus:ring-4 focus:ring-green-200"
                     onClick={() => toggleUserMenu()}
                   >
                     {userInfo && userInfo.profile_picture_url ? (
@@ -105,19 +105,19 @@ function NavBar() {
                         src={userInfo.profile_picture_url}
                         referrerPolicy="no-referrer"
                         alt="profile picture"
-                        className=" h-10 w-10 rounded-full"
+                        className="h-12 w-12 rounded-full"
                       />
                     ) : (
-                      <AiOutlineUser className=" rounded-full border-2 border-green-600 p-0.5 text-4xl text-green-600 hover:bg-green-600 hover:text-white" /> //
+                      <AiOutlineUser className="rounded-full border-2 border-green-600 p-1 text-5xl text-green-600 hover:bg-green-600 hover:text-white" />
                     )}
                   </button>
                 </div>
                 <div
-                  className={`${
-                    openUserMenu ? '' : 'hidden'
-                  } absolute top-10 z-50 divide-y divide-gray-200 rounded-lg border bg-gray-50 shadow-lg`}
+                  className={`${openUserMenu ? '' : 'hidden'} ${
+                    !scrolled ? 'cust-bg-background' : 'bg-white'
+                  } cust-text-text text-md absolute top-14 z-50 divide-y divide-gray-200 rounded-lg border text-right shadow-lg`}
                 >
-                  <div className="whitespace-nowrap px-4 py-3 text-right text-sm cust-text-text cust-bg-background">
+                  <div className="whitespace-nowrap px-4 py-3">
                     {userInfo && (
                       <>
                         <p>
@@ -129,11 +129,11 @@ function NavBar() {
                       </>
                     )}
                   </div>
-                  <ul className="py-1 text-right text-sm cust-bg-background">
+                  <ul className="py-1">
                     <li>
                       <Link
                         to="/user/dashboard"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-600 hover:underline"
+                        className="block px-4 py-2 hover:bg-green-100 hover:text-green-600 hover:underline"
                       >
                         Dashboard
                       </Link>
@@ -141,14 +141,14 @@ function NavBar() {
                     <li>
                       <Link
                         to="/user/settings"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-600 hover:underline"
+                        className="block px-4 py-2 hover:bg-green-100 hover:text-green-600 hover:underline"
                       >
                         Settings
                       </Link>
                     </li>
                     <li>
                       <span
-                        className="block cursor-pointer px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-green-600 hover:underline"
+                        className="block cursor-pointer px-4 py-2 hover:bg-green-100 hover:text-green-600 hover:underline"
                         onClick={() => handleLogout()}
                       >
                         Log Out
@@ -170,10 +170,10 @@ function NavBar() {
           <div
             className={`${
               openMenu ? '' : 'hidden'
-            } w-full items-center justify-between md:static md:order-1 md:flex md:w-auto`}
+            } w-full items-center justify-between text-lg md:static md:order-1 md:flex md:w-auto`}
           >
-            <ul className="mt-2 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 pt-0 font-medium md:mt-0 md:flex-row md:border-0 md:bg-inherit md:p-0 xl:gap-8">
-              <li className="group relative cursor-pointer px-6 pt-2">
+            <ul className="mt-2 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-2 font-medium md:mt-0 md:flex-row md:border-0 md:bg-inherit md:p-0 xl:gap-8">
+              <li className="group relative cursor-pointer p-2 lg:px-6">
                 <div
                   className="block rounded-lg px-5 py-2 text-gray-900 hover:bg-green-200 hover:text-green-700"
                   onClick={() => {
@@ -186,30 +186,30 @@ function NavBar() {
                 {/* <div
                   className={`${
                     openPro ? '' : 'max-md:hidden'
-                  } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
+                  } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-sm text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
                 >
                   <Link
                     to={`${session ? '/user/dailyquestions' : '/login'}`}
-                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
+                    className="my-1 block border-gray-100 py-2 pl-8 font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Carbon Footprint Calculator
                   </Link>
                   <Link
                     to="/actions"
-                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
+                    className="my-1 block border-gray-100 py-2 pl-8 font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Take Actions
                   </Link>
                   <Link
                     to="/badges"
-                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
+                    className="my-1 block border-gray-100 py-2 pl-8 font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Earn Badges
                   </Link>
                 </div> */}
               </li>
 
-              <li className="group relative cursor-pointer px-6 pt-2">
+              <li className="group relative cursor-pointer p-2 lg:px-6">
                 <div
                   className="block rounded-lg px-5 py-2 text-gray-900 hover:bg-green-200 hover:text-green-700"
                   onClick={() => {
@@ -222,18 +222,18 @@ function NavBar() {
                 {/* <div
                   className={`${
                     openCom ? '' : 'max-md:hidden'
-                  } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
+                  } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-sm text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
                 >
                   <Link
                     to="/forum"
-                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
+                    className="my-1 block border-gray-100 py-2 pl-8 font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Forum Feed
                   </Link>
                 </div> */}
               </li>
 
-              <li className="group relative cursor-pointer px-6 pt-2">
+              <li className="group relative cursor-pointer p-2 lg:px-6">
                 <div
                   className="block rounded-lg px-5 py-2 text-gray-900 hover:bg-green-200 hover:text-green-700"
                   onClick={() => {
@@ -246,17 +246,17 @@ function NavBar() {
                 {/* <div
                   className={`${
                     openRes ? '' : 'max-md:hidden'
-                  } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
+                  } z-50 flex w-full flex-col border-2 border-gray-200 bg-gray-100 text-sm text-gray-800 shadow-lg md:invisible md:absolute md:border-0 md:group-hover:visible`}
                 >
                   <Link
                     to="/our-goal"
-                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
+                    className="my-1 block border-gray-100 py-2 pl-8 font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Our Goal
                   </Link>
                   <Link
                     to="/our-team"
-                    className="my-1 block border-gray-100 py-2 pl-8 text-sm font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
+                    className="my-1 block border-gray-100 py-2 pl-8 font-semibold text-gray-500 hover:bg-green-100 hover:text-green-700 md:px-4"
                   >
                     Our Team
                   </Link>
