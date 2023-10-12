@@ -1,6 +1,6 @@
 import { RiFootprintLine } from 'react-icons/ri';
 import { SlCheck, SlBadge } from 'react-icons/sl';
-import { MdOutlineForum } from 'react-icons/md';
+import { MdOutlineLeaderboard, MdOutlineForum } from 'react-icons/md';
 
 function HowItWorks() {
   const iconStyling = 'h-12 w-12 text-green-500';
@@ -24,6 +24,12 @@ function HowItWorks() {
         'Ecoway gamifies green living! Challenge yourself, track your progress, and compete with friends. Together, we are creating a more sustainable planet, one eco-friendly step at a time.',
     },
     {
+      icon: <MdOutlineLeaderboard className={iconStyling} />,
+      title: 'Climb the Leaderboard',
+      description:
+        'Work your way up the ranks on our leaderboard by taking eco-friendly actions and reducing your carbon footprint. See how your efforts compare to others and lead by example, inspiring a sustainable movement of individuals taking eco-friendly steps together.',
+    },
+    {
       icon: <MdOutlineForum className={iconStyling} />,
       title: 'Join the Community',
       description:
@@ -34,7 +40,7 @@ function HowItWorks() {
   return (
     <section className="cust-bg-background my-8 mb-12">
       <div className="relative flex flex-wrap justify-center px-4">
-        <div className="h-fit w-full p-2 py-4 pb-8 md:sticky md:top-10 md:w-1/2 md:p-8">
+        <div className="h-fit w-full p-2 py-4 pb-8 md:sticky md:top-14 md:w-1/2 md:p-8">
           <h2 className="font-heading mb-5 text-6xl font-bold leading-tight text-green-500">
             How Does EcoWay Work?
           </h2>
@@ -49,9 +55,9 @@ function HowItWorks() {
         </div>
         <div className="flex flex-wrap md:w-1/2 md:p-8">
           {appFeatures.map((feature, index) => (
-            <div key={index} className="flex w-full flex-wrap">
-              <div className="p-2 py-4 md:p-7">{feature.icon}</div>
-              <div className="flex-1 p-2 py-4 pl-4 md:p-7">
+            <div key={index} className="flex w-full flex-wrap py-3">
+              <div className="p-2 py-4 md:p-5">{feature.icon}</div>
+              <div className="flex-1 p-2 py-4 pl-4 md:p-5">
                 <p className="mb-4 text-xl font-semibold leading-normal">
                   {feature.title}
                 </p>
